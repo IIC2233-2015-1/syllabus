@@ -22,7 +22,7 @@
 
 | Nombre               | Sección | Github        | Email         |
 |:-------------------- |:--------|:--------------|:--------------|
-| Karim Pichara        | 1       |               |               |
+| Karim Pichara        | 1       | @karimpb      |               |
 | Christian Pieringer  | 2       |               |               |
 
 ### Ayudantes Jefes
