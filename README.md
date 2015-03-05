@@ -104,12 +104,11 @@ Este curso está diseñado de forma tal que el alumno dedique al estudio persona
 
 ## Evaluacion
 
-* Las evaluaciones serán por medio de:
-	* Actividades prácticas en clases	
-	* Controles		
-	* Tareas
-	* 2 Interrogaciones
-	* 1 Examen
+Las evaluaciones serán por medio de actividades prácticas en clases, controles, tareas, 2 Interrogaciones y un Examen. La nota final del curso (**NF**) se calculará como:
+
+**NF = 0.2 * I  + 0.2 * E + 0.3 * T + 0.2 * AC + 0.1 * C**
+
+Donde **I** es el promedio de las interrogaciones, **E** es la nota del Examen, **T** es el promedio de las tareas, **A**C es el promedio de las actividades en clases y **C** es el promedio de los controles. Durante el semestre **N**O se borrará ninguna evaluación, tampoco existe la posibilidad de ser eximido del Examen final.
 
 # Wiki
 
