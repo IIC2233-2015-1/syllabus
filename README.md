@@ -16,11 +16,11 @@
 	* KARIM PICHARA
 	* CHRISTIAN PIERINGER
 * **Ayudantes Jefes:**
-	* Belén Saldías, [bcsaldias@uc.cl](mailto:bcsaldias@uc.cl)
-	* Patricio López, [@mrpatiwi](https://github.com/mrpatiwi), [pelopez2@uc.cl](mailto:pelopez2@uc.cl)
-	* Jaime Castro, [@jecastro1](https://github.com/jecastro1), [jecastro1@uc.cl](mailto:jecastro1@uc.cl)
-	* Rodrigo Gómez, [rigomez@uc.cl](mailto:rigomez@uc.cl)
-	* Marco Bucchi , [mabucchi@uc.cl](mailto:mabucchi@uc.cl)
+	* Belén Saldías, [&#098;&#099;&#115;&#097;&#108;&#100;&#105;&#097;&#115;&#064;&#117;&#099;&#046;&#099;&#108;](mailto:)
+	* Patricio López, [@mrpatiwi](https://github.com/mrpatiwi), [&#112;&#101;&#108;&#111;&#112;&#101;&#122;&#050;&#064;&#117;&#099;&#046;&#099;&#108;](mailto:)
+	* Jaime Castro, [@jecastro1](https://github.com/jecastro1), [&#106;&#101;&#099;&#097;&#115;&#116;&#114;&#111;&#049;&#064;&#117;&#099;&#046;&#099;&#108;](mailto:)
+	* Rodrigo Gómez, [&#114;&#105;&#103;&#111;&#109;&#101;&#122;&#064;&#117;&#099;&#046;&#099;&#108;](mailto:)
+	* Marco Bucchi , [&#109;&#097;&#098;&#117;&#099;&#099;&#104;&#105;&#064;&#117;&#099;&#046;&#099;&#108;](mailto:)
 
 ## Descripcion del curso
 
