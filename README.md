@@ -1,11 +1,14 @@
-**Table de contenidos**
-
+## Tabla de contenidos
 * [Programa](#programa)
     * [Descripción del curso](#descripcion-del-curso)
     * [Objetivos](#objetivos)
     * [Contenidos](#contenidos)
     * [Metodología](#metodologia)
     * [Evaluación](#evaluacion)
+* [Wiki](#wiki)
+* [Foro](#foro)
+    * [Etiquetas](#etiquetas)
+    * [Procedimiento](#procedimiento)
 
 # Programa
 
@@ -95,3 +98,29 @@ Este curso está diseñado de forma tal que el alumno dedique al estudio persona
 	* Tareas
 	* 2 Interrogaciones
 	* 1 Examen
+
+# Wiki
+
+Toda la información que subiremos se encontrará en la [Wiki](https://github.com/IIC2233-2015-1/syllabus/wiki) del repositorio.
+
+# Foro
+
+La página de [Issues](https://github.com/IIC2233-2015-1/syllabus/issues) se utilizará como foro para preguntas. 
+
+## [Etiquetas](https://github.com/IIC2233-2015-1/syllabus/labels)
+
+Dentro de Issues, las entradas se pueden etiquetar dentro de ciertas categorías predefinidas para mantener el orden y facilitar la búsquda de problemas similares. Una entrada puede tener múltiples etiquetas, asegúrate de marcar las necesarias.
+
+## Procedimiento
+
+Antes de postear:
+* Buscar en internet hasta encontrar la solución.
+* Si pasan horas y el problema persiste, entrar a [Issues](https://github.com/IIC2233-2015-1/syllabus/issues).
+* Buscar si alguien tiene la misma pregunta o problema.
+* En caso de no encontrar un post de tales características, presionar **[New issue](https://github.com/IIC2233-2015-1/syllabus/issues/new)**.
+* Escribir una entrada ateniendose a las **normas del curso**, además debes utilizar [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code) cuando sea necesario. 
+    * Por ejemplo, cuando se necesita mostrar código o mensajes de error.
+* Asignar las etiquetas (labels) correspondientes.
+* Publicar.
+
+Una vez resuelto el problema, dar las **gracias** y **cerrar la issue**.
