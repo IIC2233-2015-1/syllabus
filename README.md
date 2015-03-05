@@ -20,10 +20,10 @@
 
 ### Profesores
 
-| Nombre               | Sección | Github        | Email         |
-|:-------------------- |:--------|:--------------|:--------------|
-| Karim Pichara        | 1       | @karimpb      |kpb@ing.puc.cl |
-| Christian Pieringer  | 2       | @cpieringer   |cppierin@uc.cl |
+| Nombre               | Sección | Github        |  Email         |
+|:-------------------- |:--------|:--------------| :--------------|
+| Karim Pichara        | 1       | @karimpb      | kpb@ing.puc.cl |
+| Christian Pieringer  | 2       | @cpieringer   | cppierin@uc.cl |
 
 ### Ayudantes Jefes
 
