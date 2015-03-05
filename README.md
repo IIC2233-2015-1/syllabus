@@ -1,13 +1,13 @@
 **Table de contenidos**
 
-- [IIC2233 - Programación Avanzada](#)
-	- [Descripción del curso](#)
-	- [Objetivos](#)
-	- [Contenidos](#)
-	- [Metodología](#)
-	- [Evaluación](#)
+* [Programa](#programa)
+    * [Descripción del curso](#descripcion-del-curso)
+    * [Objetivos](#objetivos)
+    * [Contenidos](#contenidos)
+    * [Metodología](#metodologia)
+    * [Evaluación](#evaluacion)
 
-# IIC2233 - Programación Avanzada
+# Programa
 
 * **Profesores:** 
 	* KARIM PICHARA
@@ -19,7 +19,7 @@
 	* Rodrigo Gómez, [rigomez@uc.cl](mailto:rigomez@uc.cl)
 	* Marco Bucchi , [mabucchi@uc.cl](mailto:mabucchi@uc.cl)
 
-## Descripción del curso
+## Descripcion del curso
 
 Este curso enseña técnicas para diseñar, implementar, ejecutar y evaluar herramientas de software que resuelven problemas algorítmicos a partir de especificaciones detalladas. En particular, el curso enseña construcciones avanzadas de programación orientada a objetos, estructuras de datos fundamentales, diseño básico de algoritmos y técnicas de análisis. 
 
@@ -77,7 +77,7 @@ Este curso enseña técnicas para diseñar, implementar, ejecutar y evaluar herr
 	* Expresiones regulares
 	* Uso de servicios REST
 
-## Metodología
+## Metodologia
 
 * Módulos semanales:
 	* Cátedra: 2
@@ -87,7 +87,7 @@ El curso se realiza utilizando metodologías de enseñanza teóricas-prácticas 
 
 Este curso está diseñado de forma tal que el alumno dedique al estudio personal un promedio de 6 hrs. a la semana.
 
-## Evaluación
+## Evaluacion
 
 * Las evaluaciones serán por medio de:
 	* Actividades prácticas en clases	
