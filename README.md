@@ -1,5 +1,8 @@
 ## Tabla de contenidos
 * [Programa](#programa)
+    * [Equipo](#equipo)
+    	* [Profesores](#profesores)
+    	* [Ayudantes Jefes](#ayudantes-jefes)
     * [Descripción del curso](#descripcion-del-curso)
     * [Objetivos](#objetivos)
     * [Contenidos](#contenidos)
@@ -12,15 +15,24 @@
 
 # Programa
 
-* **Profesores:** 
-	* KARIM PICHARA
-	* CHRISTIAN PIERINGER
-* **Ayudantes Jefes:**
-	* Belén Saldías, [&#098;&#099;&#115;&#097;&#108;&#100;&#105;&#097;&#115;&#064;&#117;&#099;&#046;&#099;&#108;](mailto:)
-	* Patricio López, [@mrpatiwi](https://github.com/mrpatiwi), [&#112;&#101;&#108;&#111;&#112;&#101;&#122;&#050;&#064;&#117;&#099;&#046;&#099;&#108;](mailto:)
-	* Jaime Castro, [@jecastro1](https://github.com/jecastro1), [&#106;&#101;&#099;&#097;&#115;&#116;&#114;&#111;&#049;&#064;&#117;&#099;&#046;&#099;&#108;](mailto:)
-	* Rodrigo Gómez, [&#114;&#105;&#103;&#111;&#109;&#101;&#122;&#064;&#117;&#099;&#046;&#099;&#108;](mailto:)
-	* Marco Bucchi , [&#109;&#097;&#098;&#117;&#099;&#099;&#104;&#105;&#064;&#117;&#099;&#046;&#099;&#108;](mailto:)
+## Equipo
+
+### Profesores
+
+| Nombre               | Sección | Github        | Email         |
+|:-------------------- |:--------|:--------------|:--------------|
+| Karim Pichara        | 1       |               |               |
+| Christian Pieringer  | 2       |               |               |
+
+### Ayudantes Jefes
+
+| Nombre                | Área          | Github        | Email         |
+|:--------------------- |:--------------|:--------------|:--------------|
+| Belén Saldías        	| Coordinación  | [@bcsaldias](https://github.com/bcsaldias) | [&#098;&#099;&#115;&#097;&#108;&#100;&#105;&#097;&#115;&#064;&#117;&#099;&#046;&#099;&#108;](mailto:) |
+| Patricio López       	| Docencia      | [@mrpatiwi](https://github.com/mrpatiwi) | [&#112;&#101;&#108;&#111;&#112;&#101;&#122;&#050;&#064;&#117;&#099;&#046;&#099;&#108;](mailto:)
+| Jaime Castro  	| Docencia	| [@jecastro1](https://github.com/jecastro1) | [&#106;&#101;&#099;&#097;&#115;&#116;&#114;&#111;&#049;&#064;&#117;&#099;&#046;&#099;&#108;](mailto:) |
+| Rodrigo Gómez		| Tareas	| [@rkoco](https://github.com/rkoco) | [&#114;&#105;&#103;&#111;&#109;&#101;&#122;&#064;&#117;&#099;&#046;&#099;&#108;](mailto:) |
+| Marco Bucchi		| Tareas	| [@mbucchi](https://github.com/mbucchi) | [&#109;&#097;&#098;&#117;&#099;&#099;&#104;&#105;&#064;&#117;&#099;&#046;&#099;&#108;](mailto:) |
 
 ## Descripcion del curso
 
