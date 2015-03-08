@@ -3,6 +3,8 @@
     * [Equipo](#equipo)
     	* [Profesores](#profesores)
     	* [Ayudantes Jefes](#ayudantes-jefes)
+    	* [Ayudantes Mentores](#ayudantes-mentores)
+    	* [Ayudantes TPD](#ayudantes-tpd)
     * [Descripción del curso](#descripcion-del-curso)
     * [Objetivos](#objetivos)
     * [Contenidos](#contenidos)
@@ -44,6 +46,17 @@
 | Vicente Domínguez  	| Docencia	| [@NevadaStreets](https://github.com/NevadaStreets) | [&#118;&#105;&#100;&#111;&#109;&#105;&#110;&#103;&#117;&#101;&#122;&#064;&#117;&#099;&#046;&#099;&#108;](mailto:) |
 | Mattia Rigotti	| Tareas	| [@mirigotti](https://github.com/mirigotti) | [&#109;&#105;&#114;&#105;&#103;&#111;&#116;&#116;&#105;&#064;&#117;&#099;&#046;&#099;&#108;](mailto:) |
 | Carlos Santander	| Tareas	| [@cjsantander](https://github.com/cjsantander) | [&#099;&#106;&#115;&#097;&#110;&#116;&#097;&#110;&#100;&#101;&#114;&#064;&#117;&#099;&#046;&#099;&#108;](mailto:) |
+
+### Ayudantes TPD
+
+| Nombre                | Área          | Github        | Email         |
+|:--------------------- |:--------------|:--------------|:--------------|
+| Antonio Ossa    	| Docencia	| [@aaossa](https://github.com/aaossa) | [&#097;&#097;&#111;&#115;&#115;&#097;&#064;&#117;&#099;&#046;&#099;&#108;](mailto:) |
+| Jose Maria de la Torre| Docencia      | [@jmdelatorre](https://github.com/jmdelatorre) | [&#106;&#109;&#046;&#100;&#101;&#108;&#097;&#116;&#111;&#114;&#114;&#101;&#064;&#117;&#099;&#046;&#099;&#108;](mailto:)
+| Felipe Garrido  	| Docencia	| [@figarrido](https://github.com/figarrido) | [&#102;&#105;&#103;&#097;&#114;&#114;&#105;&#100;&#111;&#064;&#117;&#099;&#046;&#099;&#108;](mailto:) |
+| Bastián Mavrakis	| Tareas	| [@bamavrakis](https://github.com/bamavrakis) | [&#098;&#097;&#109;&#097;&#118;&#114;&#097;&#107;&#105;&#115;&#064;&#117;&#099;&#046;&#099;&#108;](mailto:) |
+| Matias Jünemann	| Tareas	| [@mjjunemann](https://github.com/mjjunemann) | [&#109;&#106;&#106;&#117;&#110;&#101;&#109;&#097;&#110;&#110;&#064;&#117;&#099;&#046;&#099;&#108;](mailto:) |
+| Antonio Gil		| Tareas	| [@afgil](https://github.com/afgil) | [&#097;&#102;&#103;&#105;&#108;&#064;&#117;&#099;&#046;&#099;&#108;](mailto:) |
 
 ## Descripcion del curso
 
