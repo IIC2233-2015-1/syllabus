@@ -35,6 +35,16 @@
 | Rodrigo Gómez		| Tareas	| [@rkoco](https://github.com/rkoco) | [&#114;&#105;&#103;&#111;&#109;&#101;&#122;&#064;&#117;&#099;&#046;&#099;&#108;](mailto:) |
 | Marco Bucchi		| Tareas	| [@mbucchi](https://github.com/mbucchi) | [&#109;&#097;&#098;&#117;&#099;&#099;&#104;&#105;&#064;&#117;&#099;&#046;&#099;&#108;](mailto:) |
 
+### Ayudantes Mentores
+
+| Nombre                | Área          | Github        | Email         |
+|:--------------------- |:--------------|:--------------|:--------------|
+| Javiera Astudillo    	| Docencia	| [@jfastudillo](https://github.com/jfastudillo) | [&#106;&#102;&#097;&#115;&#116;&#117;&#100;&#105;&#108;&#108;&#111;&#064;&#117;&#099;&#046;&#099;&#108;](mailto:) |
+| Ivania Donoso       	| Docencia      | [@indonoso](https://github.com/indonoso) | [&#105;&#110;&#100;&#111;&#110;&#111;&#115;&#111;&#064;&#117;&#099;&#046;&#099;&#108;](mailto:)
+| Vicente Domínguez  	| Docencia	| [@NevadaStreets](https://github.com/NevadaStreets) | [&#118;&#105;&#100;&#111;&#109;&#105;&#110;&#103;&#117;&#101;&#122;&#064;&#117;&#099;&#046;&#099;&#108;](mailto:) |
+| Mattia Rigotti	| Tareas	| [@mirigotti](https://github.com/mirigotti) | [&#109;&#105;&#114;&#105;&#103;&#111;&#116;&#116;&#105;&#064;&#117;&#099;&#046;&#099;&#108;](mailto:) |
+| Carlos Santander	| Tareas	| [@cjsantander](https://github.com/cjsantander) | [&#099;&#106;&#115;&#097;&#110;&#116;&#097;&#110;&#100;&#101;&#114;&#064;&#117;&#099;&#046;&#099;&#108;](mailto:) |
+
 ## Descripcion del curso
 
 Este curso enseña técnicas para diseñar, implementar, ejecutar y evaluar herramientas de software que resuelven problemas algorítmicos a partir de especificaciones detalladas. En particular, el curso enseña construcciones avanzadas de programación orientada a objetos, estructuras de datos fundamentales, diseño básico de algoritmos y técnicas de análisis. 
