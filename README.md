@@ -24,8 +24,8 @@
 
 | Nombre               | Sección | Github        |  Email         |
 |:-------------------- |:--------|:--------------| :--------------|
-| Karim Pichara        | 1       | @karimpb      | kpb@ing.puc.cl |
-| Christian Pieringer  | 2       | @cpieringer   | cppierin@uc.cl |
+| Karim Pichara        | 1       | [@karimpb](https://github.com/karimpb)      	| kpb@ing.puc.cl |
+| Christian Pieringer  | 2       | [@cpieringer](https://github.com/cpieringer) | cppierin@uc.cl |
 
 ### Ayudantes Jefes
 
