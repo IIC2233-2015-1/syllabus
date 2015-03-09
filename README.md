@@ -157,7 +157,18 @@ La página de [Issues](https://github.com/IIC2233-2015-1/syllabus/issues) se uti
 
 ## [Etiquetas](https://github.com/IIC2233-2015-1/syllabus/labels)
 
-Dentro de Issues, las entradas se pueden etiquetar dentro de ciertas categorías predefinidas para mantener el orden y facilitar la búsquda de problemas similares. Una entrada puede tener múltiples etiquetas, asegúrate de marcar las necesarias.
+Dentro de Issues, [las entradas se pueden etiquetar dentro de ciertas categorías predefinidas](https://help.github.com/articles/applying-labels-to-issues-and-pull-requests/) para mantener el orden y facilitar la búsquda de problemas similares. Una entrada puede tener múltiples etiquetas, asegúrate de marcar las necesarias.
+
+* [Ausencia de material prometido](https://github.com/IIC2233-2015-1/syllabus/labels/Ausencia%20de%20material%20prometido): para solicitar material que no haya sido subido al repositorio.
+* [Duda código](https://github.com/IIC2233-2015-1/syllabus/labels/Duda%20c%C3%B3digo): sobre métodos, clases, sintaxis, PEP8.
+* [Duda enunciado](https://github.com/IIC2233-2015-1/syllabus/labels/Duda%20enunciado): sobre el enunciado de la tarea.
+* [Duda interrogación](https://github.com/IIC2233-2015-1/syllabus/labels/Duda%20interrogaci%C3%B3n): sobre fechas, contenido, recorreción de interrogaciones.
+* [Duda materia](https://github.com/IIC2233-2015-1/syllabus/labels/Duda%20materia): sobre conceptos y/o temas vistos en clases o fuera de esta.
+* [Duplicada](https://github.com/IIC2233-2015-1/syllabus/labels/Duplicada): pregunta repetida, se hará referencia a la pregunta original. 
+* [I'm a Teapot](https://github.com/IIC2233-2015-1/syllabus/labels/I%27m%20a%20Teapot): broma geek ( ͡° ͜ʖ ͡°)
+* [Inválida](https://github.com/IIC2233-2015-1/syllabus/labels/Inv%C3%A1lida): la pregunta no cumple los estándares o viola el procedimiento descrito abajo.
+* [Meta-pregunta](https://github.com/IIC2233-2015-1/syllabus/labels/Meta-pregunta): pregunta sobre cómo y qué preguntar.
+* [Tengo un error](https://github.com/IIC2233-2015-1/syllabus/labels/Tengo%20un%20error): para preguntar sobre errores o bugs en códigos. 
 
 ## Procedimiento
 
