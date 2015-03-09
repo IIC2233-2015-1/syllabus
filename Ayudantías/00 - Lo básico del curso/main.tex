@@ -1,0 +1,547 @@
+% Copyright 2004 by Till Tantau <tantau@users.sourceforge.net>.
+%
+% In principle, this file can be redistributed and/or modified under
+% the terms of the GNU Public License, version 2.
+%
+% However, this file is supposed to be a template to be modified
+% for your own needs. For this reason, if you use this file as a
+% template and not specifically distribute it as part of a another
+% package/program, I grant the extra permission to freely copy and
+% modify this file as you see fit and even to delete this copyright
+% notice. 
+
+% --------------------------------------------
+% Template por Patricio López Juri (pelopez2@uc.cl)
+\documentclass[spanish]{beamer}
+
+
+%% -----------------------------------------------------
+%% Python & código -------------------------------------
+%% -----------------------------------------------------
+
+% Source: https://github.com/bamos/beamer-snippets
+
+\usepackage[T1]{fontenc}
+\usepackage{parskip,graphics,tikz,multimedia,hyperref,ulem,multicol}
+\usetikzlibrary{arrows,positioning,shapes,decorations.pathmorphing,snakes}
+\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}\setlength{\parsep}{0pt}
+\graphicspath{{./images/}}
+
+\usepackage{listings,textcomp,color}
+\lstset{language=Python,upquote=true,
+  basicstyle=\ttfamily\tiny,numbers=left,
+  numberstyle=\tiny,stepnumber=1,numbersep=5pt,
+  backgroundcolor=\color{white},frame=single,tabsize=2,
+  showspaces=false,showstringspaces=false,showtabs=false,
+  breaklines=true,breakatwhitespace=true,escapeinside=||,
+  keywordstyle=\color{blue!70},stringstyle=\color{green!70!black!70},
+  commentstyle=\color{black!80}\it
+}
+
+\usebackgroundtemplate{
+  \tikz[overlay,remember picture]
+  \node[yshift=10mm,anchor=south east,inner sep=0pt]
+    at (current page.south east) {
+    % Add small logo here if desired.
+    % \includegraphics[width=0.5in]{Images/python-logo.png}
+  };
+}
+
+\tikzset{
+  yn/.style={draw,thick,rounded corners,fill=yellow!20,inner sep=.3cm},
+  bn/.style={draw,thick,rounded corners,fill=blue!05,inner sep=.3cm},
+  on/.style={draw,thick,rounded corners,fill=orange!20,inner sep=.3cm},
+  rn/.style={draw,thick,rounded corners,fill=red!20,inner sep=.3cm},
+  greenn/.style={draw,thick,rounded corners,fill=green!20,inner sep=.3cm},
+  grayn/.style={draw,thick,rounded corners,fill=gray!20,inner sep=.3cm},
+  to/.style={
+    ->,>=stealth',shorten >=1pt,semithick,font=\sffamily\footnotesize
+  },
+  from/.style={
+    <-,>=stealth',shorten >=1pt,semithick,font=\sffamily\footnotesize
+  },
+  tofrom/.style={
+    <->,>=stealth',shorten >=1pt,semithick,font=\sffamily\footnotesize
+  },
+  every node/.style={align=center},
+  squig/.style={->,line join=round,decorate, decoration={zigzag,
+    segment length=8,amplitude=2,post=lineto,post length=2pt}}
+}
+
+\newcommand{\uncheckedBox}{\ensuremath{\square}}
+\newcommand{\checkedBox}{\ensuremath{\text{\rlap{\checkmark}}\square}}
+
+\beamertemplatenavigationsymbolsempty
+
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+  \insertshorttitle\hfill%
+  \insertframenumber\,/\,\inserttotalframenumber}
+
+\usepackage{enumitem}
+\setlist[1]{itemsep=5pt}
+\setitemize{label=\usebeamerfont*{itemize item}%
+  \usebeamercolor[fg]{itemize item}
+  \usebeamertemplate{itemize item}}
+  
+  
+%% -----------------------------------------------------
+%% Lenguaje --------------------------------------------
+%% -----------------------------------------------------
+
+% \usepackage[T1]{fontenc} Está mas arriba.
+\usepackage{selinput}
+\SelectInputMappings{%
+  aacute={á},
+  ntilde={ñ},
+  Euro={€}
+}
+\usepackage[spanish]{babel}
+
+
+%% -----------------------------------------------------
+%% Tema ------------------------------------------------
+%% -----------------------------------------------------
+
+% Colores principales
+\usetheme{CambridgeUS}
+
+% Para las URL
+\definecolor{links}{HTML}{2A1B81}
+\hypersetup{colorlinks,linkcolor=,urlcolor=links}
+
+
+%% -----------------------------------------------------
+%% Main ------------------------------------------------
+%% -----------------------------------------------------
+
+% Título, debe ir obligatoriamente
+\title{Lo básico del curso}
+
+% Subtítulo opcional
+\subtitle{Ayudantía 0}
+
+% Ayudantes
+\author{Jaime Castro \and Patricio López}
+
+% Universidad
+\institute[UC]
+{
+  Departmento de Ciencia de la Computación\\
+  Pontificia Universidad Católica de Chile
+}
+
+% Dimensión tiempo espacio a mostrar.
+\date{IIC2233, 2015-1}
+
+% Metadada
+\subject{Ayudantía de Programación Avanzada}
+
+
+% If you have a file called "university-logo-filename.xxx", where xxx
+% is a graphic format that can be processed by latex or pdflatex,
+% resp., then you can add a logo as follows:
+
+% \pgfdeclareimage[height=0.5cm]{university-logo}{puc.png}
+% \logo{\pgfuseimage{university-logo}}
+
+% Delete this, if you do not want the table of contents to pop up at
+% the beginning of each subsection:
+% \AtBeginSubsection[]
+% {
+%   \begin{frame}<beamer>{Outline}
+%     \tableofcontents[currentsection,currentsubsection]
+%   \end{frame}
+% }
+
+
+%% -----------------------------------------------------
+%% Incio del documento ---------------------------------
+%% -----------------------------------------------------
+
+\begin{document}
+
+% Agregamos la página de inicio (la del título)
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% Tabla de contenidos, tiene hipervínculos.
+% Los índices son tomados del nombre que se le asigne a las \section.
+% Los sub-índices provienen de las \subsections
+\begin{frame}{Tabla de contenidos}
+  \tableofcontents
+  % You might wish to add the option [pausesections]
+\end{frame}
+
+% Inicio de sección de Patricio
+
+\section{Sobre el curso}
+
+\subsection{Python}
+
+\begin{frame}{Python}{¿Qué sabemos?}
+    \begin{itemize}
+        \item Es \alert{\textit{Open Source}}, es decir, su código es público y cualquiera puede verlo.
+        \pause
+        \item Es \alert{Agnóstico de Sistema Operativo \textit{(OS)}}, o sea, no importa si es Windows, UNIX, etc.
+        \pause
+        \item Es un lenguaje \alert{interpretado}.
+            \pause
+            \begin{itemize}
+                \item Requiere de un intérprete, eso es lo que instalaron cuando les pedimos que bajaran Python.
+                \item Al contrario de otros lenguajes que son \alert{compilados}.
+                \item Los intérpretes están escritos en otro lenguaje, distinto a Python. 
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\subsection{PEP8}
+\begin{frame}{PEP8}{Standard}
+
+    \begin{exampleblock}{}
+      {\large ``Code is read much more often than it is written.''}
+      \vskip5mm
+      \hspace*\fill{\small--- Guido van Rossum}
+    \end{exampleblock}
+    
+    \pause
+    \begin{block}{PEP8}
+        Guía de estilo para mantener la consistencia y leíbilidad. \\
+        \url{https://www.python.org/dev/peps/pep-0008/}
+    \end{block}
+    
+    \begin{example}
+    ¿Espacios vs Tabs? \\
+    Se deben usar 4 espacios para identar.
+    \end{example}
+\end{frame}
+
+\subsection{Repositorio del curso}
+\begin{frame}{Sobre el curso}{Repositorio del curso}
+    \begin{itemize}
+        \item \url{https://github.com/IIC2233-2015-1/syllabus}
+        \pause
+        \begin{itemize}
+            \pause
+            \item Se subirá todo el \alert{material} de cátedra y ayudantía.
+            \pause
+            \item Está el \alert{programa} del curso.
+            \pause
+            \item Hay una \alert{wiki} con información.
+            \pause
+            \item Se utilizará como \alert{foro} para preguntas.
+        \end{itemize}
+    \end{itemize}
+    
+    \pause
+    \begin{block}{Tarea para la casa (o ahora mismo)}
+      Crear una cuenta \alert{Github} para poder preguntar en el foro.
+  \end{block}
+\end{frame}
+
+\begin{frame}{Sobre el curso}{Material del semestre pasado}
+    \begin{itemize}
+        \item Este semestre comenzó a hacerce el curso en Python,
+        \item Todo material viejo les sirve conceptualmente.
+        \item El curso es ``Programación Avanzada'', independiente del lenguaje. Lo importante es pensar como programador y usar Google para cualquier duda sobre el lenguaje.
+    \end{itemize}
+\end{frame}
+
+\section{Git}
+\subsection{Introducción}
+
+\begin{frame}{Introducción a Git}{¿Para qué?}
+    \begin{itemize}
+        \item ¿Cómo revertimos un cambio en el código?
+        \pause
+        \item ¿Cómo desarrollo una nueva funcionalidad sin arruinar las demás?
+        \pause
+        \item Si mucha gente trabaja en un mismo código:
+            \pause
+          \begin{itemize}
+            \item ¿Cómo evitamos colisiones en el código?
+            \item ¿Cómo sabemos qué fue modificado y quién lo hizo?
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Introducción a Git}{¡Habemus Git!}
+    \begin{center}
+        \includegraphics[height=2cm]{Images/git-logo.png}
+    \end{center}
+    
+    \pause
+    \begin{definition}
+        Sistema de control de versiones distribuido y Open Source que permite flujos de trabajo \alert{no-lineales}.
+  \end{definition}
+\end{frame}
+    
+\begin{frame}{Introducción a Git}{Proveedores}
+    Algunos proveedores de este servicio.
+    \begin{itemize}
+        \item \alert{Github}, el más conocido y el que probablemente usemos.
+        \item \alert{Bitbucket}, otra gran alternativa. 
+        \pause
+        \item Puedes armar tu propio servidor git.
+    \end{itemize}
+\end{frame}    
+
+\subsection{Uso}
+\begin{frame}{Uso}{Glosario I}
+    \begin{itemize}
+        \item \alert{Branch} o \alert{"rama}:
+            \begin{itemize}
+            \item Todo repo tiene una rama principal, por lo general: \alert{master}.
+            \item Uno crea ramas a partir del estado actual de otra rama.
+            \item Uno puede ir cambiando entre ramas a gusto.
+            \item Una vez implementada la nueva funcionalidad, se hace un \alert{merge}.
+                \begin{itemize}
+                    \item Se ``fusiona'' una sub-rama con su rama padre.
+                    \item Ojo! A veces pueden surgir conflictos.
+                \end{itemize}
+            \end{itemize}
+        \item \alert{Pull}: bajar un estado del repositorio a la máquina local.
+        \item \alert{Commit}: guardar los últimos cambios en la rama actual.
+            \begin{itemize}
+            \item Es como una foto que se le toma al código.
+            \item Guarda los cambios localmente en tu máquina.
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Uso}{Glosario II}
+    \begin{itemize}
+        \item \alert{Stage}: prepara los archivos para un \textit{commit}.
+        \item \alert{Clone}: clonar un repositorio a una máquina local.
+        \item \alert{Push}: Subir los \textit{commits} al repositorio.
+        \item \alert{Stash}: Es como un commit temporal para guardar los cambios.
+        \item \alert{Fork}: Crear un repositorio en base a otro a partir de cierto \textit{commit}.
+    \end{itemize}
+\end{frame}
+
+\subsection{¿Dónde aprender?}
+\begin{frame}{¿Dónde aprender?}
+    \begin{itemize}
+        \item Ejemplo en ayudantía.
+        \pause
+        \item Recursos para estudio personal:
+        \begin{itemize}
+            \item \url{https://try.github.io}
+            \item \url{https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf}
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+% Inicio de sección de Jaime
+
+\section{Módulos}
+\begin{frame}{Módulos}{Motivación}
+  \begin{itemize}
+    \item En Introducción a la Programación se suele escribir todo el código en un mismo archivo. \alert{Esto no es viable cuando nuestros programas empiezan a crecer.}
+          \pause
+          \begin{itemize}
+            \item El mantenimiento del código es difícil
+                  \pause
+            \item Es casi imposible trabajar en equipo
+                  \pause
+            \item Se ve horrible
+          \end{itemize}
+          \pause
+    \item Queremos tener una forma de poder dividir nuestro programa en varios archivos: \pause \alert{módulos}
+            
+  \end{itemize}
+   
+\end{frame}
+
+\begin{frame}{Módulos}{Definición}
+  \begin{definition}
+    Un \alert{módulo} es un archivo que contiene definiciones y declaraciones de Python. \alert{El nombre del archivo es el nombre del módulo.}
+  \end{definition}
+  \pause
+  \begin{itemize}
+    \item Básicamente cualquier archivo escrito en Python constituye un módulo.
+    \item Python por defecto ya trae varios implementados
+  \end{itemize}
+  \pause
+  \begin{example}
+    Un archivo llamado fibonacci.py constituye un módulo llamado fibonacci
+  \end{example}
+\end{frame}
+
+\begin{frame}{Módulos}{Más sobre módulos}
+  \begin{block}{Ejercicio}
+      Descargar el archivo \texttt{modulo\_ayudantia.py} desde repositorio GitHub del curso.
+  \end{block}
+  
+  \pause
+  \begin{itemize}
+    \item ¿Qué puede contener un módulo?
+          \pause
+          \begin{itemize}
+            \item Variables
+            \item Métodos
+            \item Clases
+          \end{itemize}
+    \item ¿Qué puedo hacer con un módulo?
+          \pause
+          \begin{itemize}
+            \item Usarlo en otro programa o módulo
+          \end{itemize}
+            
+  \end{itemize}
+    
+\end{frame}
+
+\section{Import}
+\begin{frame}[fragile]{Import}{Como usar los módulos}
+  Para importar un módulo en nuestro programa, escribimos en el principio de él:\\
+  \begin{lstlisting}[language=Python]
+  # Sentencias import
+  import nombre_modulo
+  # ...
+  \end{lstlisting}
+  Luego para usar algo del módulo importado:
+  \begin{lstlisting}[language=Python]
+  # ...
+  nuevo_objeto = nombre_modulo.ClaseContenida()
+  variable = nombre_modulo.variable_contenida
+  nombre_modulo.funcion_contenida()
+  \end{lstlisting}
+  
+  \begin{itemize}
+      \item El nombre del módulo importado se agrega al namespace del script
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Import}{Como usar los módulos}
+    \begin{block}{Ejercicio}
+    Abrir el intérprete de línea de comandos de Python en la carpeta donde se descargó \texttt{modulo\_ayudantia.py} e importarlo. Luego pruebe a usar sus funciones y clases.
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Import}{Otra forma de importar módulos}
+  Existe otra forma de importar un módulo:
+  \begin{lstlisting}[language=Python]
+  # Sentencias import
+  from nombre_modulo import funcion_contenida, ClaseContenida, variable_contenida
+  # ...
+  \end{lstlisting}
+  
+  Para ocupar lo que importamos:
+  \begin{lstlisting}[language=Python]
+  # ...
+  nuevo_objeto = ClaseContenida()
+  variable = variable_contenida
+  funcion_contenida()
+  \end{lstlisting}
+    
+  \begin{itemize}
+    \item El nombre del módulo importado no queda en el namespace del script, sino que quedan las cosas que queremos importar directamente.
+    \item Debemos colocar explícitamente todo lo que queremos traer del otro módulo
+  \end{itemize}
+  
+\end{frame}
+
+\begin{frame}{Import}{Otra forma de importar módulos}
+    \begin{block}{Ejercicio}
+        Abrir el intérprete de línea de comandos de Python en la carpeta donde se descargó \texttt{modulo\_ayudantia.py} e importarlo, \textbf{pero ahora de esta forma}. Luego pruebe a usar sus funciones y clases.
+    \end{block}
+    
+    \begin{block}{Ejercicio}
+        Crear un archivo llamado \texttt{math.py} con un único método llamado \texttt{hola\_mundo()}, que deberá imprimir en pantalla "Hola Mundo". Luego abra el intérprete de Python en la carpeta donde guardó el módulo, impórtelo y llame a la función que creó.
+    \end{block}
+    
+    \pause
+    \begin{itemize}
+        \item ¿Funcionó?
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Import}{Remarks}
+  \textbf{Ojo:} Python buscará el módulo en el siguiente orden:
+  \begin{itemize}
+    \item Módulo integrado con Python
+    \item Archivo nombre\_modulo.py ubicado en la misma carpeta del archivo del que se importa
+    \item Archivo nombre\_modulo.py en el directorio de instalación.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Import}{Haciendo trampa}
+  Podemos incorporar al namespace todo lo que contiene otro módulo sin tener que nombrar las cosas de a una:
+  \begin{lstlisting}[language=Python]
+  from nombre_modulo import *
+  \end{lstlisting}
+  Para usar el contenido de ese módulo se hace igual que antes.
+  \pause
+  \begin{block}{Advertencia}
+    \alert{Esto se considera en extremo una mala práctica}.\\
+    \begin{center}
+      \includegraphics[height=2cm]{Images/hay-tabla.jpg}
+    \end{center}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Import}{Main de un módulo}
+    \begin{itemize}
+        \item Cuando importamos un módulo, se ejecuta todo lo que no esté declarado bajo una función o clase.
+        \item Queremos que esto suceda sólo si lo llamamos directamente (\texttt{python nombre\_modulo.py})
+        \pause
+        \item Solución: Agregar un condicional al módulo que contiene todo el código ejecutable
+    \end{itemize}
+    \begin{lstlisting}[language=Python]
+if __name__ == "__main__":
+    # Todo lo que quiera ejecutar si se llama al modulo.py
+  \end{lstlisting}
+\end{frame}
+
+% Término de sección de Jaime
+
+
+%% **********************
+%% Sumario **************
+%% **********************
+% Al ponerle un * a \section hace que no aparezca en el índice.
+\section*{Final Remarks}
+
+\begin{frame}{Final Remarks}
+  \begin{itemize}
+    \item Usaremos GIT para entregar las tareas. \alert{Detalles: Próximamente}
+    \item No escriban todo su código en un único archivo. Usen los módulos
+    \item Jamás ocupen \texttt{from modulo import *}. Se irán al infierno si lo hacen.
+    \item Revisen como ocupar el respositorio del curso y como plantear preguntas.
+    \item Bonus: Si le envían un correo a un ayudante o a los  profesores, asegúrese de que el asunto cumpla con el patrón \texttt{IIC2233 - Mi Asunto}. Esto es para poder clasificar nuestros mensajes. Pero el foro es de preferencia, pues tu pregunta puede ayudar a los demás.
+  \end{itemize}
+\end{frame}
+
+
+%% **********************
+%% Lecturas o material ***
+%% **********************
+% Icons: http://tex.stackexchange.com/questions/68080/beamer-bibliography-icon
+\appendix
+\section<presentation>*{\appendixname}
+\subsection<presentation>*{Lecturas y materiales}
+
+\begin{frame}[allowframebreaks]
+  \frametitle<presentation>{Lecturas y materiales}
+      
+  \begin{thebibliography}{10}
+        
+    \setbeamertemplate{bibliography item}[online]
+    \bibitem{Doc}
+    Última versión de Git
+    \newblock {\em \url{http://git-scm.com/}}.
+    \newblock 2015-03-06.
+    
+    \bibitem{Doc}
+    Try-Git, por CodeSchool y Github.
+    \newblock {\em \url{https://try.github.io}}.
+    
+    \bibitem{Doc}
+    PEP 8 - Style Guide for Python Code
+    \newblock {\em \url{https://www.python.org/dev/peps/pep-0008/}}.
+    \newblock 01-Aug-2013.
+  \end{thebibliography}
+\end{frame}
+
+\end{document}
