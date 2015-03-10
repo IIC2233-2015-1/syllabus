@@ -132,7 +132,7 @@ Las evaluaciones serán por medio de actividades prácticas en clases, controles
 
 **NF = 0.2 * I  + 0.2 * E + 0.3 * T + 0.2 * AC + 0.1 * C**
 
-Donde **I** es el promedio de las interrogaciones, **E** es la nota del Examen, **T** es el promedio de las tareas, **A**C es el promedio de las actividades en clases y **C** es el promedio de los controles. Durante el semestre **NO** se borrará ninguna evaluación, tampoco existe la posibilidad de ser eximido del Examen final.
+Donde **I** es el promedio de las interrogaciones, **E** es la nota del Examen, **T** es el promedio de las tareas, **AC** es el promedio de las actividades en clases y **C** es el promedio de los controles. Durante el semestre **NO** se borrará ninguna evaluación, tampoco existe la posibilidad de ser eximido del Examen final.
 
 ## Politica de integridad academica
 
@@ -176,10 +176,13 @@ Antes de postear:
 * Buscar en internet hasta encontrar la solución.
 * Si pasan horas y el problema persiste, entrar a [Issues](https://github.com/IIC2233-2015-1/syllabus/issues).
 * Buscar si alguien tiene la misma pregunta o problema.
-* En caso de no encontrar un post de tales características, presionar **[New issue](https://github.com/IIC2233-2015-1/syllabus/issues/new)**.
-* Escribir una entrada ateniendose a las **normas del curso**, además debes utilizar [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code) cuando sea necesario. 
-    * Por ejemplo, cuando se necesita mostrar código o mensajes de error.
-* Asignar las etiquetas (labels) correspondientes.
+	* Si encuestra un post marcado como resueto, pero no te satisface la respuesta, puedes comentar la issue y **volver a abrirla**.
+* En caso de no encontrar un post que te sirva, lo creamos presionando **[New issue](https://github.com/IIC2233-2015-1/syllabus/issues/new)**.
+* Escribir una entrada **explicando bien el problema o pregunta**.
+* Asignar las etiquetas (labels) correspondientes, puedes dejarlas en blanco si ninguna es correspondida.
 * Publicar.
+
+Tanto al publicar como comentar, se debe atenerse a las **normas del curso**, además debes utilizar [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code) cuando sea necesario. 
+    * Por ejemplo, cuando se necesita mostrar código o mensajes de error.
 
 Una vez resuelto el problema, dar las **gracias** y **cerrar la issue**.
