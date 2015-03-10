@@ -182,7 +182,6 @@ Antes de postear:
 * Asignar las etiquetas (labels) correspondientes, puedes dejarlas en blanco si ninguna es correspondida.
 * Publicar.
 
-Tanto al publicar como comentar, se debe atenerse a las **normas del curso**, además debes utilizar [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code) cuando sea necesario. 
-    * Por ejemplo, cuando se necesita mostrar código o mensajes de error.
+> Tanto al publicar como comentar, se debe atenerse a las **normas del curso**, además debes utilizar [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code) cuando sea necesario. Por ejemplo, cuando se necesita mostrar código o mensajes de error.
 
 Una vez resuelto el problema, dar las **gracias** y **cerrar la issue**.
