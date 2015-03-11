@@ -57,6 +57,7 @@
 | Bastián Mavrakis	| Tareas	| [@bamavrakis](https://github.com/bamavrakis) | [&#098;&#097;&#109;&#097;&#118;&#114;&#097;&#107;&#105;&#115;&#064;&#117;&#099;&#046;&#099;&#108;](mailto:) |
 | Matias Jünemann	| Tareas	| [@mjjunemann](https://github.com/mjjunemann) | [&#109;&#106;&#106;&#117;&#110;&#101;&#109;&#097;&#110;&#110;&#064;&#117;&#099;&#046;&#099;&#108;](mailto:) |
 | Antonio Gil		| Tareas	| [@afgil](https://github.com/afgil) | [&#097;&#102;&#103;&#105;&#108;&#064;&#117;&#099;&#046;&#099;&#108;](mailto:) |
+| Ian Butelmann		| Tareas	| [@ibutelmann](https://github.com/ibutelmann) | [&#105;&#098;&#117;&#116;&#101;&#108;&#109;&#097;&#110;&#110;&#064;&#117;&#099;&#046;&#099;&#108;](mailto:) |
 
 ## Descripcion del curso
 
