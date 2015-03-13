@@ -1,3 +1,6 @@
+__author__ = 'jaime_castro, patricio_lopez'
+
+
 class Bodega:
 
     def __init__(self):
@@ -178,8 +181,8 @@ class PapasFritas(Comestibles):
 class Refrigerador(Electronicos, Domesticos):
 
     def __init__(self):
-        super().__init__(resena="Inventado por el hombre "
-                         "para uno de sus grandes problemas",
+        super().__init__(resena=("Inventado por el hombre "
+                                 "para uno de sus grandes problemas"),
                          voltaje="220 V",
                          consumo="0.1 Wh",
                          volumen="400L",
