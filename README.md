@@ -199,6 +199,8 @@ Antes de postear:
 * Asignar las etiquetas (labels) correspondientes, puedes dejarlas en blanco si ninguna es correspondida.
 * Publicar.
 
+![HowToLabels](https://raw.githubusercontent.com/IIC2233-2015-1/syllabus/master/Recursos%20Repo/how-to-labels.jpg)
+
 > Tanto al publicar como comentar, se debe atenerse a las **normas del curso**, además debes utilizar [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code) cuando sea necesario. Por ejemplo, cuando se necesita mostrar código o mensajes de error.
 
 Una vez resuelto el problema, dar las **gracias** y **cerrar la issue**.
