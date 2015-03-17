@@ -27,7 +27,7 @@
 | M 10 | OOP				|
 | J 12 | Herencia & multiherencia	|
 | M 17 | Polimorfismo & properties	|
-| J 19 | Estructura de datos 		|
+| J 19 | EDD-1 Colas & Stacks 		|
 | M 24 | 				|
 | J 26 | 				|
 | M 31 | 				|
