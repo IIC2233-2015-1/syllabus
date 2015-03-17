@@ -179,7 +179,7 @@ La página de [Issues](https://github.com/IIC2233-2015-1/syllabus/issues) se uti
 
 ## [Etiquetas](https://github.com/IIC2233-2015-1/syllabus/labels)
 
-Dentro de Issues, [las entradas se pueden etiquetar dentro de ciertas categorías predefinidas](https://help.github.com/articles/applying-labels-to-issues-and-pull-requests/) para mantener el orden y facilitar la búsquda de problemas similares. Una entrada puede tener múltiples etiquetas, asegúrate de marcar las necesarias.
+Dentro de Issues, [las entradas se pueden etiquetar dentro de ciertas categorías predefinidas](https://help.github.com/articles/applying-labels-to-issues-and-pull-requests/) para mantener el orden y facilitar la búsquda de problemas similares. Una entrada puede tener múltiples etiquetas. Los ayudantes nos encargaremos de ir etiquetando las preguntas en el foro.
 
 * [Ausencia de material prometido](https://github.com/IIC2233-2015-1/syllabus/labels/Ausencia%20de%20material%20prometido): para solicitar material que no haya sido subido al repositorio.
 * [Duda código](https://github.com/IIC2233-2015-1/syllabus/labels/Duda%20c%C3%B3digo): sobre métodos, clases, sintaxis, PEP8.
@@ -195,7 +195,7 @@ Dentro de Issues, [las entradas se pueden etiquetar dentro de ciertas categoría
 
 ## Procedimiento
 
-> Tanto al publicar como comentar, se debe atenerse a las **normas del curso**, además debes utilizar [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code) cuando sea necesario. Por ejemplo, cuando se necesita mostrar código o mensajes de error.
+> Tanto al publicar entradas como al comentar, se debe atenerse a las **normas del curso**, además debes utilizar **[Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code)** cuando sea necesario. Por ejemplo, cuando se necesita mostrar código o mensajes de error.
 
 Antes de postear:
 * Buscar en internet hasta encontrar la solución.
@@ -204,9 +204,6 @@ Antes de postear:
 	* Si encuestra un post marcado como resueto, pero no te satisface la respuesta, puedes comentar la issue y **volver a abrirla**.
 * En caso de no encontrar un post que te sirva, lo creamos presionando **[New issue](https://github.com/IIC2233-2015-1/syllabus/issues/new)**.
 * Escribir una entrada **explicando bien el problema o pregunta**.
-* Asignar las etiquetas (labels) correspondientes, puedes dejarlas en blanco si ninguna es correspondida.
 * Publicar.
-
-![HowToLabels](https://raw.githubusercontent.com/IIC2233-2015-1/syllabus/master/Recursos%20Repo/how-to-labels.jpg)
 
 Una vez resuelto el problema, dar las **gracias** y **cerrar la issue**.
