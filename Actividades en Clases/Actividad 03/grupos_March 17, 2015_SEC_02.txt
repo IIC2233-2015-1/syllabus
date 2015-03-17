@@ -1,0 +1,41 @@
+=======================================================
+               GRUPOS INDIVIDUALES               
+=======================================================
+0   11637722       DAVID THOMAS         FULLER
+1   13204610       Dariel Eliot         Agurto
+2   13634720     EDUARDO ANDRES      VILDOSOLA
+3   12623008   VICENTE REINALDO         MARTIN
+4   14637065    RODRIGO ANTONIO        PIZARRO
+5   12624519      HAROLD LUDWIG         MULLER
+6   13633031       JORGE ANDRES       TRINCADO
+7   13634070     RAFAEL ALBERTO        CARMONA
+8   11622091   ADRIANA ANGELICA      NAVARRETE
+9   12622613  AUGUSTO ALEJANDRO        ALVAREZ
+10  13637398      PEDRO ALBERTO       MANGIOLA
+11  14636786    BENJAMIN ANDRES        ARRATIA
+12  12610100             IACOPO        GARIZIO
+13  12636355      ANDRES FELIPE     HINRICHSEN
+14  13633783      KARLA EMILLIE          REYES
+15  1063553J             VICTOR  PEREZ COTAPOS
+16  12638528    RODRIGO IGNACIO          BOCAZ
+17  13205978            nicolas          galaz
+18  13634895   FELIPE GUILLERMO           RUIZ
+19   1363681      CARLOS ANTONI         QUAPPE
+20  14636131        DANIEL JOSE        VENEGAS
+21  13204661     PAULA GABRIELA        SANZANA
+22  13632965   FRANCISCO JAVIER         VALDES
+23  1363447J       TOMAS ARTURO        HERRERA
+24  09632298     RODRIGO ANDRES          ARAYA
+25  13648543       LUIS IGNACIO          LEIVA
+26  13637460    nicolas ignacio        falconi
+27  13206621    LEOPOLDO ANDRES         VARGAS
+ 
+================================================================================
+                              GRUPOS DE A DOS                              
+================================================================================
+28  12612529  JAVIER ALBERTO  CARRASCO -  11636475  JAIME  GONZALEZ
+29  12622567  FRANCISCO JAVIER  MORGAN -  12622001  BENJAMIN  CORREA
+30  13635441  Rodolfo  Palma -  11634219  BORIS ENRIQUE  OROSTICA
+31  1363531J  ANTONIO  LOPEZ -  11622237  TOMAS  RENCORET
+32  11201924  FABIAN IGNACIO  JIMENEZ -  12638749  ALEXIS FABIAN OMAR  CERNA
+33  11636378  NICOLAS FERNANDO  SANTIBANEZ -  13634275  JUAN PABLO  SCHELE
