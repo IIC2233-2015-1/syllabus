@@ -117,10 +117,13 @@ Este curso enseña técnicas para diseñar, implementar, ejecutar y evaluar herr
 	* Filter
 	* Decoradores
 * Meta Clases:
+	* Comprender la lógica detrás de la construcción y creación de clases
 * Clases Abstractas:
+	* Herencia a partir de clases no instanciables
 * Simulación: 
 	* Introducción a la simulación y SimPy
-* Manejo de Excepciones
+* Manejo de Excepciones:
+	* ​Tipos de excepciones/errores y cómo controlarlos
 * Testing: 
 	* Tests unitarios en pytest
 * Interfaces Gráficas: 
@@ -133,7 +136,8 @@ Este curso enseña técnicas para diseñar, implementar, ejecutar y evaluar herr
 * Threading: 
 	* Creación y sincronización de threads
 	* Concurrencia.
-* Networking
+* Networking:
+	* ​Sockets, cliente, servidor
 * Webservices: 
 	* Expresiones regulares
 	* Uso de servicios REST
