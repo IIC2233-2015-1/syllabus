@@ -3,7 +3,7 @@
 <head>
 
 <meta charset="utf-8" />
-<title>3-Polimorfismo</title>
+<title>4-Properties</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -1680,118 +1680,44 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2>
-Polimorfismo:
-</h2>
-<p>El polimorfismo en general tiene sentido cuando existen distintas subclases que implementan el mismo método de formas distintas. Overriding y Overloading son dos formas de polimorfismo.</p>
-<h2>
-Overriding:
-</h2>
-<p>Ocurre cuando se implementa un método en una subclase que &quot;invalida&quot; la implementación del mismo método en la super clase</p>
-<h2>
-Overloading:
-</h2>
-<p>Es la capacidad de definir un método con el mismo nombre pero con distinto número y tipo de argumentos. Es la capacidad de una función de ejecutar distintas acciones dependiendo del tipo y número de argumentos que recibe.</p>
-<p>Python no soporta Overloading (en realidad no es necesario), se puede &quot;simular&quot; usando algunos parámetros con valores por defecto o número de argumentos variables, pero no se puede definir la función más de una vez con distintos tipos y números de argumentos y esperar que ambas definiciones sean consideradas por el programa.</p>
-<h3>
-Ejemplo:
-</h3>
-<p>La clase variable representa un conjunto de datos cualquiera, mientras que la subclase Ingresos contiene un método para calcular el valor &quot;representante&quot; (algo así como el promedio, mediana, moda, etc.). Ocurre lo mismo con las subclases Comuna y Puesto:</p>
-<p>Si los datos corresponden a ingresos, el representante es el promedio. Si los datos corresponden a la comuna, el representante es la comuna que más se repite. Finalmente, si los datos corresponden al puesto de trabajo, entonces el representante es el que tiene el puesto más alto según la jerarquía especificada en el diccionario &quot;categorías&quot;.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[2]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span>  <span class="kn">as</span> <span class="nn">np</span>
-
-<span class="k">class</span> <span class="nc">Variable</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">Representante</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">pass</span>
-
-
-<span class="k">class</span> <span class="nc">Ingresos</span><span class="p">(</span><span class="n">Variable</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">Representante</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
-
-
-<span class="k">class</span> <span class="nc">Comuna</span><span class="p">(</span><span class="n">Variable</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">Representante</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">==</span> <span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">])</span> <span class="c">#el que mas se repite</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span>
-
-
-<span class="k">class</span> <span class="nc">Puesto</span><span class="p">(</span><span class="n">Variable</span><span class="p">):</span>
-    <span class="n">categorias</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;Gerente&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&#39;SubGerente&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&#39;Analista&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s">&#39;Alumno en Practica&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span> <span class="c"># class (or static) variable</span>
-
-    <span class="k">def</span> <span class="nf">Representante</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">([</span><span class="n">Puesto</span><span class="o">.</span><span class="n">categorias</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">])]</span><span class="c">#la categoria mas alta acorde con el diccionario</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[3]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="n">lista_pesos</span> <span class="o">=</span> <span class="n">Ingresos</span><span class="p">([</span><span class="mi">50</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">90</span><span class="p">])</span>
-<span class="n">lista_comunas</span> <span class="o">=</span> <span class="n">Comuna</span><span class="p">([</span><span class="s">&#39;Providencia&#39;</span><span class="p">,</span> <span class="s">&#39;Macul&#39;</span> <span class="p">,</span> <span class="s">&#39;LaReina&#39;</span> <span class="p">,</span><span class="s">&#39;Santiago&#39;</span><span class="p">,</span> <span class="s">&#39;Providencia&#39;</span><span class="p">,</span> <span class="s">&#39;PuenteAlto&#39;</span><span class="p">,</span> <span class="s">&#39;Macul&#39;</span><span class="p">,</span> <span class="s">&#39;Santiago&#39;</span><span class="p">,</span> <span class="s">&#39;Santiago&#39;</span> <span class="p">])</span>
-<span class="n">lista_puestos</span> <span class="o">=</span> <span class="n">Puesto</span><span class="p">([</span><span class="s">&#39;SubGerente&#39;</span><span class="p">,</span> <span class="s">&#39;Analista&#39;</span><span class="p">,</span><span class="s">&#39;SubGerente&#39;</span><span class="p">,</span><span class="s">&#39;Analista&#39;</span><span class="p">,</span><span class="s">&#39;Alumno en Practica&#39;</span><span class="p">,</span><span class="s">&#39;Alumno en Practica&#39;</span><span class="p">])</span>
-
-
-<span class="k">print</span><span class="p">(</span><span class="n">lista_pesos</span><span class="o">.</span><span class="n">Representante</span><span class="p">())</span>
-<span class="k">print</span><span class="p">(</span><span class="n">lista_comunas</span><span class="o">.</span><span class="n">Representante</span><span class="p">())</span>
-<span class="k">print</span><span class="p">(</span><span class="n">lista_puestos</span><span class="o">.</span><span class="n">Representante</span><span class="p">())</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-79.3636363636
-Santiago
-SubGerente
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h1>
-Overriding de operadores en Python
+Property:
 </h1>
-<p>Existen muchos operadores en Python que funcionan para varias de las clases &quot;built-in&quot;. Por ejemplo, el operador &quot;+&quot; puede sumar dos números, concatenar dos strings, mezclar dos listas, etc. dependiendo de la clase con la que estemos trabajando:</p>
+<p>Con el keyword &quot;property&quot; podemos hacer que métodos parezcan atributos</p>
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[1]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">Email</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">address</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_email</span> <span class="o">=</span> <span class="n">address</span>
+        
+    <span class="k">def</span> <span class="nf">_set_email</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="s">&#39;@&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">value</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;Esto no parece una dirección de correo.&quot;</span><span class="p">)</span><span class="c">#aquí el ideal es levantar una excepción, eso se verá pronto</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_email</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="k">def</span> <span class="nf">_get_email</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_email</span>
+    
+    <span class="k">def</span> <span class="nf">_del_email</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Eliminaste el correo!!&quot;</span><span class="p">)</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_email</span>    
+
+    <span class="n">email</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">_get_email</span><span class="p">,</span> <span class="n">_set_email</span><span class="p">,</span> <span class="n">_del_email</span><span class="p">,</span> <span class="s">&quot;Esta propiedad corresponde al correo...&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -1800,12 +1726,7 @@ In&nbsp;[4]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
-<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span>
-<span class="n">c</span> <span class="o">=</span> <span class="s">&quot;Hola&quot;</span>
-<span class="n">d</span> <span class="o">=</span> <span class="s">&quot; Mundo&quot;</span>
-<span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="o">+</span><span class="n">d</span><span class="p">)</span>
+<div class="highlight"><pre><span class="n">help</span><span class="p">(</span><span class="n">Email</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -1819,8 +1740,64 @@ In&nbsp;[4]:
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
-[1, 2, 3, 4, 5, 6, 7, 8]
-Hola Mundo
+Help on class Email in module __main__:
+
+class Email(builtins.object)
+ |  Methods defined here:
+ |  
+ |  __init__(self, address)
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors defined here:
+ |  
+ |  __dict__
+ |      dictionary for instance variables (if defined)
+ |  
+ |  __weakref__
+ |      list of weak references to the object (if defined)
+ |  
+ |  email
+ |      Esta propiedad corresponde al correo...
+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[2]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">m1</span> <span class="o">=</span> <span class="n">Email</span><span class="p">(</span><span class="s">&quot;kp1@gmail.com&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">m1</span><span class="o">.</span><span class="n">email</span><span class="p">)</span>
+<span class="n">m1</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="s">&quot;kp2@gmail.com&quot;</span>
+<span class="k">print</span><span class="p">(</span><span class="n">m1</span><span class="o">.</span><span class="n">email</span><span class="p">)</span>
+<span class="n">m1</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="s">&quot;kp2.com&quot;</span>
+<span class="k">del</span> <span class="n">m1</span><span class="o">.</span><span class="n">email</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+kp1@gmail.com
+kp2@gmail.com
+Esto no parece una dirección de correo.
+Eliminaste el correo!!
 
 </pre>
 </div>
@@ -1835,7 +1812,213 @@ Hola Mundo
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Nosotros también podemos personalizar el método __add__ para que funcione en algún tipo de clase específica que necesitemos. Por ejemplo, supongamos una clase que representa un carro de compra:</p>
+<p>Ojo que el código no nos prohibe hacer lo siguiente ()</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[10]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">m1</span><span class="o">.</span><span class="n">_email</span> <span class="o">=</span> <span class="s">&quot;kp3.com&quot;</span><span class="c">#Puedo acceder directamente al atributo _email saltándome el método _set_email</span>
+<span class="k">print</span><span class="p">(</span><span class="n">m1</span><span class="o">.</span><span class="n">_email</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">m1</span><span class="o">.</span><span class="n">_email</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">m1</span><span class="o">.</span><span class="n">email</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">m1</span><span class="o">.</span><span class="n">email</span><span class="p">))</span><span class="c">#la property es simplemente una referencia al mismo atributo _email, tienen la misma dirección de memoria</span>
+<span class="n">m1</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="s">&quot;kp3.com&quot;</span><span class="c">#Si trato de modificar la property directamente pasa por el método _set_email</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+kp3.com
+4370012960
+kp3.com
+4370012960
+Esto no parece una dirección de correo.
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>
+Usando Properties con Decoradores
+</h2>
+<p>Ejemplo: Para la clase Color usemos una property primero sin decorador</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[7]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">Color</span><span class="p">:</span><span class="c">#version sin decorador</span>
+    
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rgb_code</span><span class="p">,</span> <span class="n">nombre</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rgb_code</span> <span class="o">=</span> <span class="n">rgb_code</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nombre</span> <span class="o">=</span> <span class="n">nombre</span>
+        
+    <span class="k">def</span> <span class="nf">set_nombre</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nombre</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nombre</span> <span class="o">=</span> <span class="n">nombre</span>
+        
+    <span class="k">def</span> <span class="nf">get_nombre</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nombre</span>
+        
+        
+    <span class="n">nombre</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">get_nombre</span><span class="p">,</span> <span class="n">set_nombre</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[8]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">c</span> <span class="o">=</span> <span class="n">Color</span><span class="p">(</span><span class="s">&quot;#ff0000&quot;</span><span class="p">,</span> <span class="s">&quot;red&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">nombre</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+red
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3>
+Ahora la misma clase con decorador:
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[9]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">Color</span><span class="p">:</span><span class="c">#version con decorador</span>
+    
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rgb_code</span><span class="p">,</span> <span class="n">nombre</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rgb_code</span> <span class="o">=</span> <span class="n">rgb_code</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nombre</span> <span class="o">=</span> <span class="n">nombre</span>
+    
+    <span class="nd">@property</span> 
+    <span class="k">def</span> <span class="nf">nombre</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Obteniendo el nombre del color&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nombre</span>
+        
+    <span class="nd">@nombre.setter</span>    
+    <span class="k">def</span> <span class="nf">nombre</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">valor</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Estas seteando el valor en {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">valor</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nombre</span> <span class="o">=</span> <span class="n">valor</span>
+        
+    <span class="nd">@nombre.deleter</span>
+    <span class="k">def</span> <span class="nf">nombre</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Eliminaste el nombre!!&quot;</span><span class="p">)</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nombre</span>
+        
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[10]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">c</span> <span class="o">=</span> <span class="n">Color</span><span class="p">(</span><span class="s">&quot;#ff0000&quot;</span><span class="p">,</span> <span class="s">&quot;red&quot;</span><span class="p">)</span>
+<span class="n">c</span><span class="o">.</span><span class="n">nombre</span> <span class="o">=</span> <span class="s">&quot;azul&quot;</span>
+<span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">nombre</span><span class="p">)</span>
+<span class="k">del</span> <span class="n">c</span><span class="o">.</span><span class="n">nombre</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+Estas seteando el valor en azul
+Obteniendo el nombre del color
+azul
+Eliminaste el nombre!!
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3>
+Las properties con decoradores también pueden involucar acciones que dependen de variables de la clase:
+</h3>
 </div>
 </div>
 </div>
@@ -1846,28 +2029,13 @@ In&nbsp;[11]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="k">class</span> <span class="nc">Carro</span><span class="p">():</span>
-    <span class="sd">&#39;&#39;&#39; Un carro de compras lo representaremos como un diccionario </span>
-<span class="sd">        donde el key es el nombre del producto y el value es la cantidad</span>
-<span class="sd">        Ej: {&#39;pan&#39; : 3, &#39;leche&#39; : 2, &#39;agua&#39; : 6}</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lista_productos</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">lista_productos</span> <span class="o">=</span> <span class="n">lista_productos</span>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">Circulo</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">radio</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_radio</span> <span class="o">=</span> <span class="n">radio</span>
 
-    <span class="k">def</span> <span class="nf">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">otro_carro</span><span class="p">):</span>
-        <span class="n">lista_sumada</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lista_productos</span>
-        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">otro_carro</span><span class="o">.</span><span class="n">lista_productos</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span><span class="c">#aquí vamos recorriendo los nombres de los productos</span>
-            <span class="k">if</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">lista_productos</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-                <span class="n">lista_sumada</span><span class="o">.</span><span class="n">update</span><span class="p">({</span> <span class="n">p</span> <span class="p">:</span> <span class="n">otro_carro</span><span class="o">.</span><span class="n">lista_productos</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">lista_productos</span><span class="p">[</span><span class="n">p</span><span class="p">]})</span><span class="c">#aquí creo la nueva instancia con las cantidades sumada</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">lista_sumada</span><span class="o">.</span><span class="n">update</span><span class="p">({</span> <span class="n">p</span> <span class="p">:</span> <span class="n">otro_carro</span><span class="o">.</span><span class="n">lista_productos</span><span class="p">[</span><span class="n">p</span><span class="p">]})</span>
-                
-        <span class="k">return</span> <span class="n">Carro</span><span class="p">(</span><span class="n">lista_sumada</span><span class="p">)</span>
-    
-    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s">&quot;Producto: {} | Cantidad: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">lista_productos</span><span class="p">[</span><span class="n">p</span><span class="p">])</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">lista_productos</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-    
-    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_radio</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="mf">3.14</span>
 </pre></div>
 
 </div>
@@ -1882,10 +2050,12 @@ In&nbsp;[12]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">carro_1</span> <span class="o">=</span> <span class="n">Carro</span><span class="p">({</span><span class="s">&#39;pan&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s">&#39;leche&#39;</span> <span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&#39;agua&#39;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">})</span>
-<span class="n">carro_2</span> <span class="o">=</span> <span class="n">Carro</span><span class="p">({</span><span class="s">&#39;leche&#39;</span> <span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s">&#39;bebida&#39;</span> <span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&#39;cerveza&#39;</span> <span class="p">:</span> <span class="mi">12</span><span class="p">})</span>
-<span class="n">carro_3</span> <span class="o">=</span> <span class="n">carro_1</span> <span class="o">+</span> <span class="n">carro_2</span>
-<span class="k">print</span><span class="p">(</span><span class="n">carro_3</span><span class="o">.</span><span class="n">lista_productos</span><span class="p">)</span>
+<div class="highlight"><pre><span class="n">c</span> <span class="o">=</span> <span class="n">Circulo</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">_radio</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">area</span><span class="p">)</span>
+<span class="n">c</span><span class="o">.</span><span class="n">_radio</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">_radio</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">area</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -1899,7 +2069,10 @@ In&nbsp;[12]:
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
-{&apos;bebida&apos;: 2, &apos;leche&apos;: 7, &apos;agua&apos;: 6, &apos;pan&apos;: 3, &apos;cerveza&apos;: 12}
+2
+12.56
+4
+50.24
 
 </pre>
 </div>
@@ -1914,7 +2087,11 @@ In&nbsp;[12]:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Gracias al método <strong>repr</strong> pudimos personalizar la forma de imprimir el objeto carro, por lo tanto podemos imprimirlo directamente, sin llamar al diccionario:</p>
+<h2>
+¿Cuándo usar properties?
+</h2>
+<p>En general cuando tenemos datos en una clase en la cual después le agregaremos comportamiento, ya que una &quot;property&quot; es un atributo para el cual podemos invocar acciones automáticamente cuando la propiedad es obtenida, o seteada o eliminada.</p>
+<p>Un típico ejemplo de acción invocada es cuando hacemos &quot;catching&quot;, por ejemplo, un atributo que corresponde al contenido de una página web, si nos lo piden por primera vez bajamos el contenido y lo guardarmos, de tal forma que para los próximos accesos podemos retornar el contenido guardado sin la necesidad de bajarlo de nuevo.</p>
 </div>
 </div>
 </div>
@@ -1925,42 +2102,27 @@ In&nbsp;[13]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">carro_3</span><span class="p">)</span>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
+
+<span class="k">class</span> <span class="nc">WebPage</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="n">url</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_content</span> <span class="o">=</span> <span class="bp">None</span>
+        
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">content</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_content</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;Obteniendo Página Web...&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_content</span> <span class="o">=</span> <span class="n">urlopen</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_content</span>
+        
+        
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-Producto: bebida | Cantidad: 2
-Producto: leche | Cantidad: 7
-Producto: agua | Cantidad: 6
-Producto: pan | Cantidad: 3
-Producto: cerveza | Cantidad: 12
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>De la misma forma podemos personalizar la mayoría de los operadores, por ejemplo, el operador &quot;menor que&quot;:</p>
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -1969,19 +2131,15 @@ In&nbsp;[14]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="k">class</span> <span class="nc">Punto</span><span class="p">:</span> 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span> 
-        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span> 
-        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
-    
-    <span class="k">def</span> <span class="nf">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">otro_punto</span><span class="p">):</span> 
-        <span class="n">self_mag</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> 
-        <span class="n">otro_punto_mag</span> <span class="o">=</span> <span class="p">(</span><span class="n">otro_punto</span><span class="o">.</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">otro_punto</span><span class="o">.</span><span class="n">y</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> 
-        <span class="k">return</span> <span class="n">self_mag</span> <span class="o">&lt;</span> <span class="n">otro_punto_mag</span>
-
-<span class="n">p1</span> <span class="o">=</span> <span class="n">Punto</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">p2</span> <span class="o">=</span> <span class="n">Punto</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">p1</span> <span class="o">&lt;</span> <span class="n">p2</span><span class="p">)</span>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">time</span>
+<span class="n">page</span> <span class="o">=</span> <span class="n">WebPage</span><span class="p">(</span><span class="s">&quot;http://www.puc.cl&quot;</span><span class="p">)</span>
+<span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="c">#Return the time in seconds</span>
+<span class="n">contenido_1</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="n">content</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;Tiempo en obtener la página por primera vez: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">now</span><span class="p">))</span>
+<span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">contenido_2</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="n">content</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;Tiempo en obtener la página por segunda vez: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">now</span><span class="p">))</span>
+<span class="n">contenido_1</span> <span class="o">==</span> <span class="n">contenido_2</span>
 </pre></div>
 
 </div>
@@ -1994,96 +2152,27 @@ In&nbsp;[14]:
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
+<pre>
+Obteniendo Página Web...
+Tiempo en obtener la página por primera vez: 1.020585060119629
+Tiempo en obtener la página por segunda vez: 0.00023293495178222656
+
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt output_prompt">
+    Out[14]:</div>
+
+
+<div class="output_text output_subarea output_pyout">
 <pre>
 True
-
 </pre>
 </div>
-</div>
 
 </div>
-</div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1>
-Duck Typing:
-</h1>
-<p>&quot;if it walks like a duck and quacks like a duck then it is a duck&quot; (no importa el tipo de objeto si contiene la acción)</p>
-<p>Duck typing es una característica de algunos lenguajes que hace que el polimorfismo sea menos atractivo, ya que el lenguaje por sí sólo es capaz de generar comportamiento polimórfico sin la necesidad de implementar el polimorfismo a través de la herencia. La idea de duck typing es muy similar a la de polimorfismo, pero dentro del contexto del lenguaje en vez del contexto de la herencia:</p>
-<p>Idea: no importa de qué tipo es un objeto, simplemente importa que sea capaz de realizar la acción que uno quiere.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[9]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="k">class</span> <span class="nc">Pato</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">gritar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Quack!&quot;</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">caminar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&quot;caminando como un pato...&quot;</span><span class="p">)</span>        
-    
-<span class="k">class</span> <span class="nc">Persona</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">gritar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Ahhh!&quot;</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">caminar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&quot;caminando como un humano...&quot;</span><span class="p">)</span>        
-
-<span class="k">def</span> <span class="nf">activar</span><span class="p">(</span><span class="n">pato</span><span class="p">):</span>
-    <span class="n">pato</span><span class="o">.</span><span class="n">gritar</span><span class="p">()</span>
-    <span class="n">pato</span><span class="o">.</span><span class="n">caminar</span><span class="p">()</span>
-
-
-<span class="n">donald</span> <span class="o">=</span> <span class="n">Pato</span><span class="p">()</span>
-<span class="n">juan</span> <span class="o">=</span> <span class="n">Persona</span><span class="p">()</span>
-<span class="n">activar</span><span class="p">(</span><span class="n">donald</span><span class="p">)</span>
-<span class="n">activar</span><span class="p">(</span><span class="n">juan</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-Quack!
-caminando como un pato...
-Ahhh!
-caminando como un humano...
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre> 
-</pre></div>
-
-</div>
 </div>
 </div>
 

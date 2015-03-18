@@ -1593,7 +1593,6 @@ span#checkpoint_status,span#autosave_status{font-size:small}
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
-.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
@@ -1650,7 +1649,7 @@ div#notebook {
 
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -1681,10 +1680,9 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2> 
+<h2>
 Herencia:
 </h2>
-
 <p>El concepto de herencia en programación orientada a objetos nos permite aprovechar código de las clases de las cuales se hereda. La herencia nos permite representar la relación del tipo &quot;el objeto B es un objeto A, pero con ciertas diferencias&quot;. Una clase hija corresponde a una especialización de su clase padre. Cuando un objeto pertenece a una clase en particular, si esta clase es a su vez una sub-clase de otra clase más general, la herencia nos permite &quot;heredar&quot; los datos y comportamiento de la clase &quot;madre&quot; (superclase), de tal manera de no tener que volver a definir esos datos y comportamiento en la subclase. Ej: La clase &quot;furgón escolar&quot; es una subclase de la clase &quot;vehículo&quot;, por lo tanto sabemos que la clase &quot;furgón escolar&quot; va a heredar los datos y comportamiento de &quot;vehículo&quot; (ruedas, motor, etc.) y no es necesario volver a definirlos en la subclase &quot;furgón escolar&quot;. Lo interesante es que la subclase &quot;furgón escolar&quot; tiene ciertos datos y métodos que la hacen más especializada que la clase &quot;vehículo&quot;, como por ejemplo, lista de niños inscritos en el furgón. También la herencia nos permite sobre-escribir los métodos que necesitemos modificar (en Python simplente definimos nuevamente el método y con eso se entiende que la versión implementada en la subclase es la que cuenta).</p>
 <p>Una de las cosas que podemos hacer con herencia es extender los built ins, por ejemplo, si queremos extender la clase &quot;lista&quot;, podemos definir una sub-clase que heredará los métodos de la clase &quot;lista&quot; y a su vez tendrá datos y métodos propios:</p>
 </div>
@@ -1773,10 +1771,9 @@ In&nbsp;[24]:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2> 
+<h2>
 Multiherencia
 </h2>
-
 <p>Tal como es posible que una subclase herede datos y comportamiento de una superclase, también es posible heredar de más de una clase a la vez:</p>
 </div>
 </div>
@@ -1837,10 +1834,9 @@ Ciencia De La Computación
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2> 
+<h2>
 Multiherencia y el Problema del diamante
 </h2>
-
 <p>El siguiente ejemplo muestra lo que ocurre en un contexto de multiherencia si es que cada sub-clase llama directamente a inicializar a todas sus superclases. La figura siguiente muestra la jerarquía de las clases en cuestión</p>
 <p><img src="img_diamante.png" width=500 height=500></p>
 </div>
@@ -1943,7 +1939,6 @@ Llamando método en SubclaseA
 <h2>
 Solución:
 </h2>
-
 <p>La solución es que cada clase debe preocuparse de llamar a inicializar a la clase que la &quot;precede&quot; en el orden del esquema de la multiherencia. En Python el orden de las clases va de izquierda a derecha dentro de la lista de super-clases desde donde hereda la sub-clase. En este caso, simplemente debemos preocuparnos de hacer una llamada a &quot;super()&quot;, Python se encargará de que la llamada corresponda a la clase que respeta el orden en la multiherencia, en este caso, después de la subclase viene la clase &quot;SubclaseIzquierda&quot;, después &quot;SubClaseDerecha&quot; y finalmente &quot;ClaseB&quot;</p>
 </div>
 </div>
@@ -2019,9 +2014,9 @@ Llamando método en SubclaseA
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3> 
+<h3>
 El método <strong>mro</strong> (method resolution order) nos muestra el orden de la jerarquía.
-</h3> 
+</h3>
 <p>Es útil para casos de multiherencia más complejos, Python utiliza el algoritmo C3 para calcular un orden lineal entre las clases que participan en el esquema de multiherencia:</p>
 </div>
 </div>
@@ -2069,7 +2064,7 @@ In&nbsp;[30]:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3> 
+<h3>
 Este es un ejemplo de estructura de multiherencia que no estaría permitida en Python, ya que el algoritmo C3 generaría un error:
 </h3>
 </div>
@@ -2168,14 +2163,12 @@ In&nbsp;[32]:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2> 
+<h2>
 Ejemplo Multiherencia:
 </h2>
-
-<h3> 
+<h3>
 Mala práctica:
-</h3> 
-
+</h3>
 <p>Si bien el siguiente ejemplo al parecer funciona correctamente, al llamar directamente a las superclases dentro de la clase Cliente estamos cometiendo el error mencionado anteriormente (se está llamando al inicializador de &quot;object&quot; más de una vez)</p>
 </div>
 </div>
@@ -2242,10 +2235,9 @@ Juan Perez, jp@gmail.com, Pedro de Valdivia, Providencia
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3> 
+<h3>
 Forma mejorada: *args y **kwargs
 </h3>
-
 <p>Antes de ver una forma más adecuada para la versión del código anterior, mostraremos cómo usar &quot;**kwargs&quot;. **kwargs se refiere a un &quot;keyworded variable-length argument list&quot; (guardada en un diccionario), puede ser usado para enviar una cantidad variable de argumentos a una función:</p>
 </div>
 </div>

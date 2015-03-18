@@ -3,7 +3,7 @@
 <head>
 
 <meta charset="utf-8" />
-<title>3-Polimorfismo</title>
+<title>02-pilas</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -1680,82 +1680,72 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2>
-Polimorfismo:
-</h2>
-<p>El polimorfismo en general tiene sentido cuando existen distintas subclases que implementan el mismo método de formas distintas. Overriding y Overloading son dos formas de polimorfismo.</p>
-<h2>
-Overriding:
-</h2>
-<p>Ocurre cuando se implementa un método en una subclase que &quot;invalida&quot; la implementación del mismo método en la super clase</p>
-<h2>
-Overloading:
-</h2>
-<p>Es la capacidad de definir un método con el mismo nombre pero con distinto número y tipo de argumentos. Es la capacidad de una función de ejecutar distintas acciones dependiendo del tipo y número de argumentos que recibe.</p>
-<p>Python no soporta Overloading (en realidad no es necesario), se puede &quot;simular&quot; usando algunos parámetros con valores por defecto o número de argumentos variables, pero no se puede definir la función más de una vez con distintos tipos y números de argumentos y esperar que ambas definiciones sean consideradas por el programa.</p>
-<h3>
-Ejemplo:
-</h3>
-<p>La clase variable representa un conjunto de datos cualquiera, mientras que la subclase Ingresos contiene un método para calcular el valor &quot;representante&quot; (algo así como el promedio, mediana, moda, etc.). Ocurre lo mismo con las subclases Comuna y Puesto:</p>
-<p>Si los datos corresponden a ingresos, el representante es el promedio. Si los datos corresponden a la comuna, el representante es la comuna que más se repite. Finalmente, si los datos corresponden al puesto de trabajo, entonces el representante es el que tiene el puesto más alto según la jerarquía especificada en el diccionario &quot;categorías&quot;.</p>
+<h1 id="Pilas-(Stacks)">Pilas (Stacks)<a class="anchor-link" href="#Pilas-(Stacks)">&#182;</a></h1>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Las pilas son una estructura de datos en donde una colección de objetos son insertados y removidos según el principio de <b>Last In</b>, <b>First Out</b> (LIFO). Es decir, un usuario puede agregar secuencialmente objetos a la pila en cualquier momento, sin embargo, solo puede remover desde la pila el o los objetos <b>recientemente agregados ubicados en el tope de ella</b>. Cómo se muestra en la siguiente figura, el funcionamiento de las pilas es equivalente al de una columna de platos apilados después de ser lavados. El último plato lavado lavado será el primero en ser utilizado.</p>
+<p><img src="img/stacks.png" width=70%></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>En general las pilas tienen los siguientes métodos: <i>push()</i>, <i>pop()</i>, <i>top()</i>, <i>is_empty()</i>, <i>len()</i>. Dentro de los métodos más usados se encuentran: <b><i>push()</i></b> para insertar un objeto en la pila; y <b><i>pop()</i></b> para remover el último objeto insertado en la pila. En python las pilas están ya implementadas mediante listas. A continuación vemos los métodos para pilas equivalentes con la implementación usando listas.</p>
+<p><img src="img/stacks-methods.png" width=70%></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Estos métodos funcionan de la siguiente manera:</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[2]:
+In&nbsp;[1]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span>  <span class="kn">as</span> <span class="nn">np</span>
+<div class="highlight"><pre><span class="c"># una pila vacia</span>
+<span class="n">pila</span> <span class="o">=</span> <span class="p">[]</span>
 
-<span class="k">class</span> <span class="nc">Variable</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="c"># push</span>
+<span class="n">pila</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">pila</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">pila</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">Representante</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">pass</span>
+<span class="k">print</span><span class="p">(</span><span class="n">pila</span><span class="p">)</span>
 
+<span class="c"># pop</span>
+<span class="n">pila</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> 
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;pop: {0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pila</span><span class="p">))</span>
 
-<span class="k">class</span> <span class="nc">Ingresos</span><span class="p">(</span><span class="n">Variable</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">Representante</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<span class="c"># top</span>
+<span class="n">pila</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;top: {0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pila</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
 
+<span class="c"># len</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;la pila tiene {0} elementos&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pila</span><span class="p">)))</span>
 
-<span class="k">class</span> <span class="nc">Comuna</span><span class="p">(</span><span class="n">Variable</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">Representante</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">==</span> <span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">])</span> <span class="c">#el que mas se repite</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span>
-
-
-<span class="k">class</span> <span class="nc">Puesto</span><span class="p">(</span><span class="n">Variable</span><span class="p">):</span>
-    <span class="n">categorias</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;Gerente&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&#39;SubGerente&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&#39;Analista&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s">&#39;Alumno en Practica&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span> <span class="c"># class (or static) variable</span>
-
-    <span class="k">def</span> <span class="nf">Representante</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">([</span><span class="n">Puesto</span><span class="o">.</span><span class="n">categorias</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">])]</span><span class="c">#la categoria mas alta acorde con el diccionario</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[3]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="n">lista_pesos</span> <span class="o">=</span> <span class="n">Ingresos</span><span class="p">([</span><span class="mi">50</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">90</span><span class="p">])</span>
-<span class="n">lista_comunas</span> <span class="o">=</span> <span class="n">Comuna</span><span class="p">([</span><span class="s">&#39;Providencia&#39;</span><span class="p">,</span> <span class="s">&#39;Macul&#39;</span> <span class="p">,</span> <span class="s">&#39;LaReina&#39;</span> <span class="p">,</span><span class="s">&#39;Santiago&#39;</span><span class="p">,</span> <span class="s">&#39;Providencia&#39;</span><span class="p">,</span> <span class="s">&#39;PuenteAlto&#39;</span><span class="p">,</span> <span class="s">&#39;Macul&#39;</span><span class="p">,</span> <span class="s">&#39;Santiago&#39;</span><span class="p">,</span> <span class="s">&#39;Santiago&#39;</span> <span class="p">])</span>
-<span class="n">lista_puestos</span> <span class="o">=</span> <span class="n">Puesto</span><span class="p">([</span><span class="s">&#39;SubGerente&#39;</span><span class="p">,</span> <span class="s">&#39;Analista&#39;</span><span class="p">,</span><span class="s">&#39;SubGerente&#39;</span><span class="p">,</span><span class="s">&#39;Analista&#39;</span><span class="p">,</span><span class="s">&#39;Alumno en Practica&#39;</span><span class="p">,</span><span class="s">&#39;Alumno en Practica&#39;</span><span class="p">])</span>
-
-
-<span class="k">print</span><span class="p">(</span><span class="n">lista_pesos</span><span class="o">.</span><span class="n">Representante</span><span class="p">())</span>
-<span class="k">print</span><span class="p">(</span><span class="n">lista_comunas</span><span class="o">.</span><span class="n">Representante</span><span class="p">())</span>
-<span class="k">print</span><span class="p">(</span><span class="n">lista_puestos</span><span class="o">.</span><span class="n">Representante</span><span class="p">())</span>
+<span class="c"># is_empty</span>
+<span class="n">pila</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">pila</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;la pila esta vacia&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -1769,9 +1759,11 @@ In&nbsp;[3]:
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
-79.3636363636
-Santiago
-SubGerente
+[1, 10, 12]
+pop: [1, 10]
+top: 25
+la pila tiene 3 elementos
+la pila esta vacia
 
 </pre>
 </div>
@@ -1786,10 +1778,84 @@ SubGerente
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1>
-Overriding de operadores en Python
-</h1>
-<p>Existen muchos operadores en Python que funcionan para varias de las clases &quot;built-in&quot;. Por ejemplo, el operador &quot;+&quot; puede sumar dos números, concatenar dos strings, mezclar dos listas, etc. dependiendo de la clase con la que estemos trabajando:</p>
+<p>Un ejemplo real del uso de pilas en una aplicación es el botón <b>back</b> en los navegadores de internet. Durante la navegación todas las direcciones van siendo ingresadas en una pila. La última dirección siempre es recuperada al presionar este botón.</p>
+<p><img src="img/back-button-stacks.png" width=60%></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[28]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">Navegador</span><span class="p">:</span>
+    
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">current_url</span> <span class="o">=</span> <span class="s">&#39;http://www.google.com&#39;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__urls_stack</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__current_url</span> <span class="o">=</span> <span class="n">current_url</span>
+    
+    <span class="k">def</span> <span class="nf">__cargar_url</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__current_url</span> <span class="o">=</span> <span class="n">url</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;cargando url: {0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">url</span><span class="p">))</span>
+        
+    <span class="k">def</span> <span class="nf">ir</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__urls_stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__current_url</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;ir -&gt;&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">&#39; &#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__cargar_url</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>        
+    
+    <span class="k">def</span> <span class="nf">volver</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">last_url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__urls_stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>     
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;back-&gt;&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">&#39; &#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__cargar_url</span><span class="p">(</span><span class="n">last_url</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="nf">mostrar_pagina_actual</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;pagina actual: {0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__current_url</span><span class="p">))</span>
+    
+    
+<span class="n">Chrome</span> <span class="o">=</span> <span class="n">Navegador</span><span class="p">()</span>
+<span class="n">Chrome</span><span class="o">.</span><span class="n">ir</span><span class="p">(</span><span class="s">&#39;http://www.uc.cl&#39;</span><span class="p">)</span>
+<span class="n">Chrome</span><span class="o">.</span><span class="n">ir</span><span class="p">(</span><span class="s">&#39;http://www.uc.cl/es/programas-de-estudio&#39;</span><span class="p">)</span>
+<span class="n">Chrome</span><span class="o">.</span><span class="n">ir</span><span class="p">(</span><span class="s">&#39;http://www.uc.cl/es/doctorado&#39;</span><span class="p">)</span>
+
+<span class="n">Chrome</span><span class="o">.</span><span class="n">mostrar_pagina_actual</span><span class="p">()</span>
+<span class="n">Chrome</span><span class="o">.</span><span class="n">volver</span><span class="p">()</span>
+<span class="n">Chrome</span><span class="o">.</span><span class="n">mostrar_pagina_actual</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+ir -&gt; cargando url: http://www.uc.cl
+ir -&gt; cargando url: http://www.uc.cl/es/programas-de-estudio
+ir -&gt; cargando url: http://www.uc.cl/es/doctorado
+pagina actual: http://www.uc.cl/es/doctorado
+back-&gt; cargando url: http://www.uc.cl/es/programas-de-estudio
+pagina actual: http://www.uc.cl/es/programas-de-estudio
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Otro ejemplo para el uso de pilas es revertir secuencias. A continuación una implementación sencilla de este ejemplo.</p>
 </div>
 </div>
 </div>
@@ -1800,12 +1866,29 @@ In&nbsp;[4]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
-<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span>
-<span class="n">c</span> <span class="o">=</span> <span class="s">&quot;Hola&quot;</span>
-<span class="n">d</span> <span class="o">=</span> <span class="s">&quot; Mundo&quot;</span>
-<span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="o">+</span><span class="n">d</span><span class="p">)</span>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">Texto</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pila</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">leer_archivo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nombre_archivo</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;entrada:&#39;</span><span class="p">)</span>
+        
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">nombre_archivo</span><span class="p">)</span> <span class="k">as</span> <span class="n">fid</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">linea</span> <span class="ow">in</span> <span class="n">fid</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="n">linea</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">pila</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">linea</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+        
+        <span class="k">print</span><span class="p">()</span>
+        <span class="n">fid</span><span class="o">.</span><span class="n">closed</span>
+
+    <span class="k">def</span> <span class="nf">invertir_lines</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;salida:&#39;</span><span class="p">)</span>
+    
+        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pila</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pila</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">Texto</span><span class="p">()</span>
+<span class="n">t</span><span class="o">.</span><span class="n">leer_archivo</span><span class="p">(</span><span class="s">&#39;pilas-texto.txt&#39;</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">invertir_lines</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -1819,271 +1902,22 @@ In&nbsp;[4]:
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
-[1, 2, 3, 4, 5, 6, 7, 8]
-Hola Mundo
+entrada:
+he friend who can be silent with us in a moment of despair or confusion,
+who can stay with us in an hour of grief and bereavement,
+who can tolerate not knowing... not healing, not curing...
+that is a friend who cares.
+
+salida:
+that is a friend who cares.
+who can tolerate not knowing... not healing, not curing...
+who can stay with us in an hour of grief and bereavement,
+he friend who can be silent with us in a moment of despair or confusion,
 
 </pre>
 </div>
 </div>
 
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Nosotros también podemos personalizar el método __add__ para que funcione en algún tipo de clase específica que necesitemos. Por ejemplo, supongamos una clase que representa un carro de compra:</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[11]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="k">class</span> <span class="nc">Carro</span><span class="p">():</span>
-    <span class="sd">&#39;&#39;&#39; Un carro de compras lo representaremos como un diccionario </span>
-<span class="sd">        donde el key es el nombre del producto y el value es la cantidad</span>
-<span class="sd">        Ej: {&#39;pan&#39; : 3, &#39;leche&#39; : 2, &#39;agua&#39; : 6}</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lista_productos</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">lista_productos</span> <span class="o">=</span> <span class="n">lista_productos</span>
-
-    <span class="k">def</span> <span class="nf">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">otro_carro</span><span class="p">):</span>
-        <span class="n">lista_sumada</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lista_productos</span>
-        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">otro_carro</span><span class="o">.</span><span class="n">lista_productos</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span><span class="c">#aquí vamos recorriendo los nombres de los productos</span>
-            <span class="k">if</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">lista_productos</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-                <span class="n">lista_sumada</span><span class="o">.</span><span class="n">update</span><span class="p">({</span> <span class="n">p</span> <span class="p">:</span> <span class="n">otro_carro</span><span class="o">.</span><span class="n">lista_productos</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">lista_productos</span><span class="p">[</span><span class="n">p</span><span class="p">]})</span><span class="c">#aquí creo la nueva instancia con las cantidades sumada</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">lista_sumada</span><span class="o">.</span><span class="n">update</span><span class="p">({</span> <span class="n">p</span> <span class="p">:</span> <span class="n">otro_carro</span><span class="o">.</span><span class="n">lista_productos</span><span class="p">[</span><span class="n">p</span><span class="p">]})</span>
-                
-        <span class="k">return</span> <span class="n">Carro</span><span class="p">(</span><span class="n">lista_sumada</span><span class="p">)</span>
-    
-    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s">&quot;Producto: {} | Cantidad: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">lista_productos</span><span class="p">[</span><span class="n">p</span><span class="p">])</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">lista_productos</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-    
-    
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[12]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="n">carro_1</span> <span class="o">=</span> <span class="n">Carro</span><span class="p">({</span><span class="s">&#39;pan&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s">&#39;leche&#39;</span> <span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&#39;agua&#39;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">})</span>
-<span class="n">carro_2</span> <span class="o">=</span> <span class="n">Carro</span><span class="p">({</span><span class="s">&#39;leche&#39;</span> <span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s">&#39;bebida&#39;</span> <span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&#39;cerveza&#39;</span> <span class="p">:</span> <span class="mi">12</span><span class="p">})</span>
-<span class="n">carro_3</span> <span class="o">=</span> <span class="n">carro_1</span> <span class="o">+</span> <span class="n">carro_2</span>
-<span class="k">print</span><span class="p">(</span><span class="n">carro_3</span><span class="o">.</span><span class="n">lista_productos</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-{&apos;bebida&apos;: 2, &apos;leche&apos;: 7, &apos;agua&apos;: 6, &apos;pan&apos;: 3, &apos;cerveza&apos;: 12}
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Gracias al método <strong>repr</strong> pudimos personalizar la forma de imprimir el objeto carro, por lo tanto podemos imprimirlo directamente, sin llamar al diccionario:</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[13]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">carro_3</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-Producto: bebida | Cantidad: 2
-Producto: leche | Cantidad: 7
-Producto: agua | Cantidad: 6
-Producto: pan | Cantidad: 3
-Producto: cerveza | Cantidad: 12
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>De la misma forma podemos personalizar la mayoría de los operadores, por ejemplo, el operador &quot;menor que&quot;:</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[14]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="k">class</span> <span class="nc">Punto</span><span class="p">:</span> 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span> 
-        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span> 
-        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
-    
-    <span class="k">def</span> <span class="nf">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">otro_punto</span><span class="p">):</span> 
-        <span class="n">self_mag</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> 
-        <span class="n">otro_punto_mag</span> <span class="o">=</span> <span class="p">(</span><span class="n">otro_punto</span><span class="o">.</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">otro_punto</span><span class="o">.</span><span class="n">y</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> 
-        <span class="k">return</span> <span class="n">self_mag</span> <span class="o">&lt;</span> <span class="n">otro_punto_mag</span>
-
-<span class="n">p1</span> <span class="o">=</span> <span class="n">Punto</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">p2</span> <span class="o">=</span> <span class="n">Punto</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">p1</span> <span class="o">&lt;</span> <span class="n">p2</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-True
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1>
-Duck Typing:
-</h1>
-<p>&quot;if it walks like a duck and quacks like a duck then it is a duck&quot; (no importa el tipo de objeto si contiene la acción)</p>
-<p>Duck typing es una característica de algunos lenguajes que hace que el polimorfismo sea menos atractivo, ya que el lenguaje por sí sólo es capaz de generar comportamiento polimórfico sin la necesidad de implementar el polimorfismo a través de la herencia. La idea de duck typing es muy similar a la de polimorfismo, pero dentro del contexto del lenguaje en vez del contexto de la herencia:</p>
-<p>Idea: no importa de qué tipo es un objeto, simplemente importa que sea capaz de realizar la acción que uno quiere.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[9]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="k">class</span> <span class="nc">Pato</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">gritar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Quack!&quot;</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">caminar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&quot;caminando como un pato...&quot;</span><span class="p">)</span>        
-    
-<span class="k">class</span> <span class="nc">Persona</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">gritar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Ahhh!&quot;</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">caminar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&quot;caminando como un humano...&quot;</span><span class="p">)</span>        
-
-<span class="k">def</span> <span class="nf">activar</span><span class="p">(</span><span class="n">pato</span><span class="p">):</span>
-    <span class="n">pato</span><span class="o">.</span><span class="n">gritar</span><span class="p">()</span>
-    <span class="n">pato</span><span class="o">.</span><span class="n">caminar</span><span class="p">()</span>
-
-
-<span class="n">donald</span> <span class="o">=</span> <span class="n">Pato</span><span class="p">()</span>
-<span class="n">juan</span> <span class="o">=</span> <span class="n">Persona</span><span class="p">()</span>
-<span class="n">activar</span><span class="p">(</span><span class="n">donald</span><span class="p">)</span>
-<span class="n">activar</span><span class="p">(</span><span class="n">juan</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-Quack!
-caminando como un pato...
-Ahhh!
-caminando como un humano...
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre> 
-</pre></div>
-
-</div>
 </div>
 </div>
 

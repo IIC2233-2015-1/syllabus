@@ -3,7 +3,7 @@
 <head>
 
 <meta charset="utf-8" />
-<title>3-Polimorfismo</title>
+<title>05-sets</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -1680,132 +1680,32 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2>
-Polimorfismo:
-</h2>
-<p>El polimorfismo en general tiene sentido cuando existen distintas subclases que implementan el mismo método de formas distintas. Overriding y Overloading son dos formas de polimorfismo.</p>
-<h2>
-Overriding:
-</h2>
-<p>Ocurre cuando se implementa un método en una subclase que &quot;invalida&quot; la implementación del mismo método en la super clase</p>
-<h2>
-Overloading:
-</h2>
-<p>Es la capacidad de definir un método con el mismo nombre pero con distinto número y tipo de argumentos. Es la capacidad de una función de ejecutar distintas acciones dependiendo del tipo y número de argumentos que recibe.</p>
-<p>Python no soporta Overloading (en realidad no es necesario), se puede &quot;simular&quot; usando algunos parámetros con valores por defecto o número de argumentos variables, pero no se puede definir la función más de una vez con distintos tipos y números de argumentos y esperar que ambas definiciones sean consideradas por el programa.</p>
-<h3>
-Ejemplo:
-</h3>
-<p>La clase variable representa un conjunto de datos cualquiera, mientras que la subclase Ingresos contiene un método para calcular el valor &quot;representante&quot; (algo así como el promedio, mediana, moda, etc.). Ocurre lo mismo con las subclases Comuna y Puesto:</p>
-<p>Si los datos corresponden a ingresos, el representante es el promedio. Si los datos corresponden a la comuna, el representante es la comuna que más se repite. Finalmente, si los datos corresponden al puesto de trabajo, entonces el representante es el que tiene el puesto más alto según la jerarquía especificada en el diccionario &quot;categorías&quot;.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[2]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span>  <span class="kn">as</span> <span class="nn">np</span>
-
-<span class="k">class</span> <span class="nc">Variable</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">Representante</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">pass</span>
-
-
-<span class="k">class</span> <span class="nc">Ingresos</span><span class="p">(</span><span class="n">Variable</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">Representante</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
-
-
-<span class="k">class</span> <span class="nc">Comuna</span><span class="p">(</span><span class="n">Variable</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">Representante</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">==</span> <span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">])</span> <span class="c">#el que mas se repite</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span>
-
-
-<span class="k">class</span> <span class="nc">Puesto</span><span class="p">(</span><span class="n">Variable</span><span class="p">):</span>
-    <span class="n">categorias</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;Gerente&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&#39;SubGerente&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&#39;Analista&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s">&#39;Alumno en Practica&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span> <span class="c"># class (or static) variable</span>
-
-    <span class="k">def</span> <span class="nf">Representante</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">([</span><span class="n">Puesto</span><span class="o">.</span><span class="n">categorias</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">])]</span><span class="c">#la categoria mas alta acorde con el diccionario</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[3]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="n">lista_pesos</span> <span class="o">=</span> <span class="n">Ingresos</span><span class="p">([</span><span class="mi">50</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">90</span><span class="p">])</span>
-<span class="n">lista_comunas</span> <span class="o">=</span> <span class="n">Comuna</span><span class="p">([</span><span class="s">&#39;Providencia&#39;</span><span class="p">,</span> <span class="s">&#39;Macul&#39;</span> <span class="p">,</span> <span class="s">&#39;LaReina&#39;</span> <span class="p">,</span><span class="s">&#39;Santiago&#39;</span><span class="p">,</span> <span class="s">&#39;Providencia&#39;</span><span class="p">,</span> <span class="s">&#39;PuenteAlto&#39;</span><span class="p">,</span> <span class="s">&#39;Macul&#39;</span><span class="p">,</span> <span class="s">&#39;Santiago&#39;</span><span class="p">,</span> <span class="s">&#39;Santiago&#39;</span> <span class="p">])</span>
-<span class="n">lista_puestos</span> <span class="o">=</span> <span class="n">Puesto</span><span class="p">([</span><span class="s">&#39;SubGerente&#39;</span><span class="p">,</span> <span class="s">&#39;Analista&#39;</span><span class="p">,</span><span class="s">&#39;SubGerente&#39;</span><span class="p">,</span><span class="s">&#39;Analista&#39;</span><span class="p">,</span><span class="s">&#39;Alumno en Practica&#39;</span><span class="p">,</span><span class="s">&#39;Alumno en Practica&#39;</span><span class="p">])</span>
-
-
-<span class="k">print</span><span class="p">(</span><span class="n">lista_pesos</span><span class="o">.</span><span class="n">Representante</span><span class="p">())</span>
-<span class="k">print</span><span class="p">(</span><span class="n">lista_comunas</span><span class="o">.</span><span class="n">Representante</span><span class="p">())</span>
-<span class="k">print</span><span class="p">(</span><span class="n">lista_puestos</span><span class="o">.</span><span class="n">Representante</span><span class="p">())</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-79.3636363636
-Santiago
-SubGerente
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h1>
-Overriding de operadores en Python
+Sets
 </h1>
-<p>Existen muchos operadores en Python que funcionan para varias de las clases &quot;built-in&quot;. Por ejemplo, el operador &quot;+&quot; puede sumar dos números, concatenar dos strings, mezclar dos listas, etc. dependiendo de la clase con la que estemos trabajando:</p>
+<p>Los &quot;sets&quot; son un contenedor útil cuando tenemos que asegurar que los objetos contenidos adentro son únicos. Por ejemplo, en una lista de canciones pueden existir muchas canciones asociadas al mismo artista, si queremos generar una lista de todos los artistas en la librería buscándolos en la lista de canciones, tendríamos que preocuparnos de ir chequeando para cada canción nueva si ya incluímos al artista o no. Esto podría ser más fácil usando &quot;sets&quot;, ya que la estructura se encarga de mantener sólo una copia de cada elemento, a pesar de que lo agreguemos nuevamente (tal como en la unión de conjuntos).</p>
+<p>En Python los sets pueden contener cualquier objeto &quot;hashable&quot;, es decir, un objeto cuyo valor obtenido luego de aplicar una función de hash no cambia a lo largo de su vida. Recordar que los objetos hashables son los que pueden ser usados como keys en diccionarios, por lo mismo deben ser inmutables.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[4]:
+In&nbsp;[6]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
-<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span>
-<span class="n">c</span> <span class="o">=</span> <span class="s">&quot;Hola&quot;</span>
-<span class="n">d</span> <span class="o">=</span> <span class="s">&quot; Mundo&quot;</span>
-<span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="o">+</span><span class="n">d</span><span class="p">)</span>
+<div class="highlight"><pre><span class="n">lista_canciones</span> <span class="o">=</span> <span class="p">[(</span><span class="s">&quot;Uptown Funk&quot;</span><span class="p">,</span> <span class="s">&quot;Mark Ronson&quot;</span><span class="p">),</span>
+           <span class="p">(</span><span class="s">&quot;Thinking Out Loud&quot;</span><span class="p">,</span> <span class="s">&quot;Amy Wadge &quot;</span><span class="p">),</span>
+           <span class="p">(</span><span class="s">&quot;Sugar&quot;</span><span class="p">,</span> <span class="s">&quot;Maroon 5&quot;</span><span class="p">),</span>
+           <span class="p">(</span><span class="s">&quot;Patterns In The Ivy&quot;</span><span class="p">,</span> <span class="s">&quot;Opeth&quot;</span><span class="p">),</span>
+           <span class="p">(</span><span class="s">&quot;Take Me To Church&quot;</span><span class="p">,</span> <span class="s">&quot;Hozier&quot;</span><span class="p">),</span>
+           <span class="p">(</span><span class="s">&quot;Style&quot;</span><span class="p">,</span> <span class="s">&quot;Taylor Swift&quot;</span><span class="p">),</span>
+           <span class="p">(</span><span class="s">&quot;Love Me Like You Do&quot;</span><span class="p">,</span> <span class="s">&quot;Ellie Goulding&quot;</span><span class="p">)]</span>
+<span class="n">artistas</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">cancion</span><span class="p">,</span> <span class="n">artista</span> <span class="ow">in</span> <span class="n">lista_canciones</span><span class="p">:</span>
+    <span class="n">artistas</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">artista</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">artistas</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -1819,8 +1719,7 @@ In&nbsp;[4]:
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
-[1, 2, 3, 4, 5, 6, 7, 8]
-Hola Mundo
+{&apos;Hozier&apos;, &apos;Opeth&apos;, &apos;Ellie Goulding&apos;, &apos;Mark Ronson&apos;, &apos;Maroon 5&apos;, &apos;Taylor Swift&apos;, &apos;Amy Wadge &apos;}
 
 </pre>
 </div>
@@ -1835,57 +1734,23 @@ Hola Mundo
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Nosotros también podemos personalizar el método __add__ para que funcione en algún tipo de clase específica que necesitemos. Por ejemplo, supongamos una clase que representa un carro de compra:</p>
+<p>Podemos también construir sets directamente usando llaves, los elementos deben estar separados por coma:</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[11]:
+In&nbsp;[17]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="k">class</span> <span class="nc">Carro</span><span class="p">():</span>
-    <span class="sd">&#39;&#39;&#39; Un carro de compras lo representaremos como un diccionario </span>
-<span class="sd">        donde el key es el nombre del producto y el value es la cantidad</span>
-<span class="sd">        Ej: {&#39;pan&#39; : 3, &#39;leche&#39; : 2, &#39;agua&#39; : 6}</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lista_productos</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">lista_productos</span> <span class="o">=</span> <span class="n">lista_productos</span>
+<div class="highlight"><pre><span class="n">c</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;Style&#39;</span><span class="p">,</span> <span class="s">&#39;Uptown Funk&#39;</span><span class="p">,</span> <span class="s">&#39;Take Me To Church&#39;</span><span class="p">,</span> <span class="s">&#39;Sugar&#39;</span><span class="p">,</span> <span class="s">&#39;Thinking Out Loud&#39;</span><span class="p">,</span> <span class="s">&#39;Patterns In The Ivy&#39;</span><span class="p">,</span> <span class="s">&#39;Love Me Like You Do&#39;</span><span class="p">}</span>
+<span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">otro_carro</span><span class="p">):</span>
-        <span class="n">lista_sumada</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lista_productos</span>
-        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">otro_carro</span><span class="o">.</span><span class="n">lista_productos</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span><span class="c">#aquí vamos recorriendo los nombres de los productos</span>
-            <span class="k">if</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">lista_productos</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-                <span class="n">lista_sumada</span><span class="o">.</span><span class="n">update</span><span class="p">({</span> <span class="n">p</span> <span class="p">:</span> <span class="n">otro_carro</span><span class="o">.</span><span class="n">lista_productos</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">lista_productos</span><span class="p">[</span><span class="n">p</span><span class="p">]})</span><span class="c">#aquí creo la nueva instancia con las cantidades sumada</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">lista_sumada</span><span class="o">.</span><span class="n">update</span><span class="p">({</span> <span class="n">p</span> <span class="p">:</span> <span class="n">otro_carro</span><span class="o">.</span><span class="n">lista_productos</span><span class="p">[</span><span class="n">p</span><span class="p">]})</span>
-                
-        <span class="k">return</span> <span class="n">Carro</span><span class="p">(</span><span class="n">lista_sumada</span><span class="p">)</span>
-    
-    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s">&quot;Producto: {} | Cantidad: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">lista_productos</span><span class="p">[</span><span class="n">p</span><span class="p">])</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">lista_productos</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-    
-    
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[12]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="n">carro_1</span> <span class="o">=</span> <span class="n">Carro</span><span class="p">({</span><span class="s">&#39;pan&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s">&#39;leche&#39;</span> <span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&#39;agua&#39;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">})</span>
-<span class="n">carro_2</span> <span class="o">=</span> <span class="n">Carro</span><span class="p">({</span><span class="s">&#39;leche&#39;</span> <span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s">&#39;bebida&#39;</span> <span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&#39;cerveza&#39;</span> <span class="p">:</span> <span class="mi">12</span><span class="p">})</span>
-<span class="n">carro_3</span> <span class="o">=</span> <span class="n">carro_1</span> <span class="o">+</span> <span class="n">carro_2</span>
-<span class="k">print</span><span class="p">(</span><span class="n">carro_3</span><span class="o">.</span><span class="n">lista_productos</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;Sugar&quot;</span> <span class="ow">in</span> <span class="n">canciones</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">artista</span> <span class="ow">in</span> <span class="n">artistas</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;{} toca buena música&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">artista</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -1899,103 +1764,15 @@ In&nbsp;[12]:
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
-{&apos;bebida&apos;: 2, &apos;leche&apos;: 7, &apos;agua&apos;: 6, &apos;pan&apos;: 3, &apos;cerveza&apos;: 12}
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Gracias al método <strong>repr</strong> pudimos personalizar la forma de imprimir el objeto carro, por lo tanto podemos imprimirlo directamente, sin llamar al diccionario:</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[13]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">carro_3</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-Producto: bebida | Cantidad: 2
-Producto: leche | Cantidad: 7
-Producto: agua | Cantidad: 6
-Producto: pan | Cantidad: 3
-Producto: cerveza | Cantidad: 12
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>De la misma forma podemos personalizar la mayoría de los operadores, por ejemplo, el operador &quot;menor que&quot;:</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[14]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="k">class</span> <span class="nc">Punto</span><span class="p">:</span> 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span> 
-        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span> 
-        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
-    
-    <span class="k">def</span> <span class="nf">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">otro_punto</span><span class="p">):</span> 
-        <span class="n">self_mag</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> 
-        <span class="n">otro_punto_mag</span> <span class="o">=</span> <span class="p">(</span><span class="n">otro_punto</span><span class="o">.</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">otro_punto</span><span class="o">.</span><span class="n">y</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> 
-        <span class="k">return</span> <span class="n">self_mag</span> <span class="o">&lt;</span> <span class="n">otro_punto_mag</span>
-
-<span class="n">p1</span> <span class="o">=</span> <span class="n">Punto</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">p2</span> <span class="o">=</span> <span class="n">Punto</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">p1</span> <span class="o">&lt;</span> <span class="n">p2</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
+{&apos;Take Me To Church&apos;, &apos;Uptown Funk&apos;, &apos;Sugar&apos;, &apos;Thinking Out Loud&apos;, &apos;Love Me Like You Do&apos;, &apos;Patterns In The Ivy&apos;, &apos;Style&apos;}
 True
+Hozier toca buena música
+Opeth toca buena música
+Ellie Goulding toca buena música
+Mark Ronson toca buena música
+Maroon 5 toca buena música
+Taylor Swift toca buena música
+Amy Wadge  toca buena música
 
 </pre>
 </div>
@@ -2010,43 +1787,20 @@ True
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1>
-Duck Typing:
-</h1>
-<p>&quot;if it walks like a duck and quacks like a duck then it is a duck&quot; (no importa el tipo de objeto si contiene la acción)</p>
-<p>Duck typing es una característica de algunos lenguajes que hace que el polimorfismo sea menos atractivo, ya que el lenguaje por sí sólo es capaz de generar comportamiento polimórfico sin la necesidad de implementar el polimorfismo a través de la herencia. La idea de duck typing es muy similar a la de polimorfismo, pero dentro del contexto del lenguaje en vez del contexto de la herencia:</p>
-<p>Idea: no importa de qué tipo es un objeto, simplemente importa que sea capaz de realizar la acción que uno quiere.</p>
+<p>Notar que cuando imprimimos el set los items no están con el mismo orden que los ingresamos, ya que al igual que en los diccionarios, los sets no mantienen ningún orden dentro de la estructura (ambos usan una estructura basada en funciones de hash por un tema de eficiencia). Notar que los sets no pueden usarse para buscar sus elementos a través de un índice. Podemos construir una lista directamente desde un set:</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[9]:
+In&nbsp;[18]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="k">class</span> <span class="nc">Pato</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">gritar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Quack!&quot;</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">caminar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&quot;caminando como un pato...&quot;</span><span class="p">)</span>        
-    
-<span class="k">class</span> <span class="nc">Persona</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">gritar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Ahhh!&quot;</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">caminar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&quot;caminando como un humano...&quot;</span><span class="p">)</span>        
-
-<span class="k">def</span> <span class="nf">activar</span><span class="p">(</span><span class="n">pato</span><span class="p">):</span>
-    <span class="n">pato</span><span class="o">.</span><span class="n">gritar</span><span class="p">()</span>
-    <span class="n">pato</span><span class="o">.</span><span class="n">caminar</span><span class="p">()</span>
-
-
-<span class="n">donald</span> <span class="o">=</span> <span class="n">Pato</span><span class="p">()</span>
-<span class="n">juan</span> <span class="o">=</span> <span class="n">Persona</span><span class="p">()</span>
-<span class="n">activar</span><span class="p">(</span><span class="n">donald</span><span class="p">)</span>
-<span class="n">activar</span><span class="p">(</span><span class="n">juan</span><span class="p">)</span>
+<div class="highlight"><pre><span class="n">ordenada</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">artistas</span><span class="p">)</span>
+<span class="n">ordenada</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">ordenada</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -2060,10 +1814,113 @@ In&nbsp;[9]:
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
-Quack!
-caminando como un pato...
-Ahhh!
-caminando como un humano...
+[&apos;Amy Wadge &apos;, &apos;Ellie Goulding&apos;, &apos;Hozier&apos;, &apos;Mark Ronson&apos;, &apos;Maroon 5&apos;, &apos;Opeth&apos;, &apos;Taylor Swift&apos;]
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Por supuesto que los sets nos ofrecen los métodos relativos a las operaciones matemáticas de conjuntos:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[21]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">mis_artistas</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;Hozier&#39;</span><span class="p">,</span> <span class="s">&#39;Opeth&#39;</span><span class="p">,</span> <span class="s">&#39;Ellie Goulding&#39;</span><span class="p">,</span> <span class="s">&#39;Mark Ronson&#39;</span><span class="p">,</span> <span class="s">&#39;Taylor Swift&#39;</span><span class="p">}</span>
+<span class="n">artistas_album</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;Maroon 5&#39;</span><span class="p">,</span> <span class="s">&#39;Taylor Swift&#39;</span><span class="p">,</span> <span class="s">&#39;Amy Wadge&#39;</span><span class="p">}</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;Todos: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mis_artistas</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">artistas_album</span><span class="p">)))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;Ambos: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">artistas_album</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">mis_artistas</span><span class="p">)))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;Cualquiera pero no ambos: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mis_artistas</span><span class="o">.</span><span class="n">symmetric_difference</span><span class="p">(</span><span class="n">artistas_album</span><span class="p">)))</span><span class="c">#conjunto de objetos que están </span>
+<span class="c">#en un conjunto o en el otro pero no en ambos</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+Todos: {&apos;Hozier&apos;, &apos;Opeth&apos;, &apos;Amy Wadge&apos;, &apos;Ellie Goulding&apos;, &apos;Taylor Swift&apos;, &apos;Mark Ronson&apos;, &apos;Maroon 5&apos;}
+Ambos: {&apos;Taylor Swift&apos;}
+Cualquiera pero no ambos: {&apos;Hozier&apos;, &apos;Opeth&apos;, &apos;Amy Wadge&apos;, &apos;Ellie Goulding&apos;, &apos;Mark Ronson&apos;, &apos;Maroon 5&apos;}
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Los métodos usados en la celda anterior retornan el mismo resultado independiente de qué set llama a qué set, por ejemplo mis_artistas.union(artistas_album) da el mismo resultado que artistas_album.union(mis_artistas). Hay otros métodos en los cuales si importa qué set llama al otro, por ejemplo, issubset y issuperset. Otro ejemplo es el método &quot;difference&quot;, que retorna los objetos que están en el set que llama al métodos (set1 en &quot;set1.difference(set2)&quot;) pero que no están en el set pasado como argumento (set2).</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[25]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">mis_artistas</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;Opeth&#39;</span><span class="p">,</span> <span class="s">&#39;Ellie Goulding&#39;</span><span class="p">,</span> <span class="s">&#39;Mark Ronson&#39;</span><span class="p">,</span> <span class="s">&#39;Taylor Swift&#39;</span><span class="p">}</span>
+<span class="n">bandas</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;Opeth&quot;</span><span class="p">,</span> <span class="s">&quot;Guns N&#39; Roses&quot;</span><span class="p">}</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;mis_artistas es a bandas:&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;issuperset: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mis_artistas</span><span class="o">.</span><span class="n">issuperset</span><span class="p">(</span><span class="n">bandas</span><span class="p">)))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;issubset: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mis_artistas</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">bandas</span><span class="p">)))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;difference: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mis_artistas</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">bandas</span><span class="p">)))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;-&quot;</span><span class="o">*</span><span class="mi">20</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;bandas es a mis_artistas:&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;issuperset: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bandas</span><span class="o">.</span><span class="n">issuperset</span><span class="p">(</span><span class="n">mis_artistas</span><span class="p">)))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;issubset: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bandas</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">mis_artistas</span><span class="p">)))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;difference: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bandas</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">mis_artistas</span><span class="p">)))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+mis_artistas es a bandas:
+issuperset: False
+issubset: False
+difference: {&apos;Taylor Swift&apos;, &apos;Mark Ronson&apos;, &apos;Ellie Goulding&apos;}
+--------------------
+bandas es a mis_artistas:
+issuperset: False
+issubset: False
+difference: {&quot;Guns N&apos; Roses&quot;}
 
 </pre>
 </div>

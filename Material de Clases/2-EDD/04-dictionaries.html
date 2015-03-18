@@ -3,7 +3,7 @@
 <head>
 
 <meta charset="utf-8" />
-<title>3-Polimorfismo</title>
+<title>04-dictionaries</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -1680,82 +1680,43 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2>
-Polimorfismo:
-</h2>
-<p>El polimorfismo en general tiene sentido cuando existen distintas subclases que implementan el mismo método de formas distintas. Overriding y Overloading son dos formas de polimorfismo.</p>
-<h2>
-Overriding:
-</h2>
-<p>Ocurre cuando se implementa un método en una subclase que &quot;invalida&quot; la implementación del mismo método en la super clase</p>
-<h2>
-Overloading:
-</h2>
-<p>Es la capacidad de definir un método con el mismo nombre pero con distinto número y tipo de argumentos. Es la capacidad de una función de ejecutar distintas acciones dependiendo del tipo y número de argumentos que recibe.</p>
-<p>Python no soporta Overloading (en realidad no es necesario), se puede &quot;simular&quot; usando algunos parámetros con valores por defecto o número de argumentos variables, pero no se puede definir la función más de una vez con distintos tipos y números de argumentos y esperar que ambas definiciones sean consideradas por el programa.</p>
-<h3>
-Ejemplo:
-</h3>
-<p>La clase variable representa un conjunto de datos cualquiera, mientras que la subclase Ingresos contiene un método para calcular el valor &quot;representante&quot; (algo así como el promedio, mediana, moda, etc.). Ocurre lo mismo con las subclases Comuna y Puesto:</p>
-<p>Si los datos corresponden a ingresos, el representante es el promedio. Si los datos corresponden a la comuna, el representante es la comuna que más se repite. Finalmente, si los datos corresponden al puesto de trabajo, entonces el representante es el que tiene el puesto más alto según la jerarquía especificada en el diccionario &quot;categorías&quot;.</p>
+<h1 id="Diccionarios">Diccionarios<a class="anchor-link" href="#Diccionarios">&#182;</a></h1>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Los diccionarios corresponden a estructuras de datos orientadas a la asociación de pares de elementos mediante una relación: llave-valor. Esta relación permite que la búsqueda de los elementos se realice de forma eficiente mediante el uso de la llave, quien indica la posición de memoria donde está contenido su valor asociado. Los diccionarios están implementados como tablas de hash cuya complejidad es de O(1), independiente del número de datos que posea la estructura.</p>
+<p><img src="img/hash-table.png" width=50%></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>En python los diccionarios se denotan como {}. Se debe especificar la llave y el valor, asociadas mediante ':'. Las llaves en los diccionarios pueden ser cualquier tipo de variable inmutable: int, str, tuple, etc. Su creación se realiza como sigue:</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[2]:
+In&nbsp;[54]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span>  <span class="kn">as</span> <span class="nn">np</span>
+<div class="highlight"><pre><span class="n">perros</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;bc&#39;</span><span class="p">:</span> <span class="s">&#39;border-collie&#39;</span><span class="p">,</span> <span class="s">&#39;lr&#39;</span><span class="p">:</span> <span class="s">&#39;labrador retriever&#39;</span><span class="p">,</span> <span class="s">&#39;pg&#39;</span><span class="p">:</span> <span class="s">&#39;pug&#39;</span><span class="p">}</span>
+<span class="n">telefonos</span> <span class="o">=</span> <span class="p">{</span><span class="mi">23545344</span><span class="p">:</span> <span class="s">&#39;Juanito&#39;</span><span class="p">,</span> <span class="mi">23545340</span><span class="p">:</span> <span class="s">&#39;Sole&#39;</span><span class="p">,</span> <span class="mi">23545342</span><span class="p">:</span> <span class="s">&#39;Ignacio&#39;</span><span class="p">}</span>
+<span class="n">tuplas</span> <span class="o">=</span> <span class="p">{(</span><span class="s">&#39;23545344&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span> <span class="s">&#39;oficina&#39;</span><span class="p">,</span> <span class="p">(</span><span class="s">&#39;2353445340&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span> <span class="s">&#39;secretaria&#39;</span><span class="p">}</span>
 
-<span class="k">class</span> <span class="nc">Variable</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">Representante</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">pass</span>
-
-
-<span class="k">class</span> <span class="nc">Ingresos</span><span class="p">(</span><span class="n">Variable</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">Representante</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
-
-
-<span class="k">class</span> <span class="nc">Comuna</span><span class="p">(</span><span class="n">Variable</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">Representante</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">==</span> <span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">])</span> <span class="c">#el que mas se repite</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span>
-
-
-<span class="k">class</span> <span class="nc">Puesto</span><span class="p">(</span><span class="n">Variable</span><span class="p">):</span>
-    <span class="n">categorias</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;Gerente&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&#39;SubGerente&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&#39;Analista&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s">&#39;Alumno en Practica&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span> <span class="c"># class (or static) variable</span>
-
-    <span class="k">def</span> <span class="nf">Representante</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">([</span><span class="n">Puesto</span><span class="o">.</span><span class="n">categorias</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">])]</span><span class="c">#la categoria mas alta acorde con el diccionario</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[3]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="n">lista_pesos</span> <span class="o">=</span> <span class="n">Ingresos</span><span class="p">([</span><span class="mi">50</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">90</span><span class="p">])</span>
-<span class="n">lista_comunas</span> <span class="o">=</span> <span class="n">Comuna</span><span class="p">([</span><span class="s">&#39;Providencia&#39;</span><span class="p">,</span> <span class="s">&#39;Macul&#39;</span> <span class="p">,</span> <span class="s">&#39;LaReina&#39;</span> <span class="p">,</span><span class="s">&#39;Santiago&#39;</span><span class="p">,</span> <span class="s">&#39;Providencia&#39;</span><span class="p">,</span> <span class="s">&#39;PuenteAlto&#39;</span><span class="p">,</span> <span class="s">&#39;Macul&#39;</span><span class="p">,</span> <span class="s">&#39;Santiago&#39;</span><span class="p">,</span> <span class="s">&#39;Santiago&#39;</span> <span class="p">])</span>
-<span class="n">lista_puestos</span> <span class="o">=</span> <span class="n">Puesto</span><span class="p">([</span><span class="s">&#39;SubGerente&#39;</span><span class="p">,</span> <span class="s">&#39;Analista&#39;</span><span class="p">,</span><span class="s">&#39;SubGerente&#39;</span><span class="p">,</span><span class="s">&#39;Analista&#39;</span><span class="p">,</span><span class="s">&#39;Alumno en Practica&#39;</span><span class="p">,</span><span class="s">&#39;Alumno en Practica&#39;</span><span class="p">])</span>
-
-
-<span class="k">print</span><span class="p">(</span><span class="n">lista_pesos</span><span class="o">.</span><span class="n">Representante</span><span class="p">())</span>
-<span class="k">print</span><span class="p">(</span><span class="n">lista_comunas</span><span class="o">.</span><span class="n">Representante</span><span class="p">())</span>
-<span class="k">print</span><span class="p">(</span><span class="n">lista_puestos</span><span class="o">.</span><span class="n">Representante</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">perros</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">tuplas</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -1769,9 +1730,8 @@ In&nbsp;[3]:
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
-79.3636363636
-Santiago
-SubGerente
+{&apos;bc&apos;: &apos;border-collie&apos;, &apos;pg&apos;: &apos;pug&apos;, &apos;lr&apos;: &apos;labrador retriever&apos;}
+{(&apos;23545344&apos;, 0): &apos;oficina&apos;, (&apos;2353445340&apos;, 1): &apos;secretaria&apos;}
 
 </pre>
 </div>
@@ -1786,26 +1746,19 @@ SubGerente
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1>
-Overriding de operadores en Python
-</h1>
-<p>Existen muchos operadores en Python que funcionan para varias de las clases &quot;built-in&quot;. Por ejemplo, el operador &quot;+&quot; puede sumar dos números, concatenar dos strings, mezclar dos listas, etc. dependiendo de la clase con la que estemos trabajando:</p>
+<p>La referenciación mediante llaves es incluso más flexible. Las llaves dentro de un diccionario pueden ser de distinto tipo. En el ejemplo notar que el ordenamiento no está relacionado al orden de ingreso de los valores.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[4]:
+In&nbsp;[57]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
-<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span>
-<span class="n">c</span> <span class="o">=</span> <span class="s">&quot;Hola&quot;</span>
-<span class="n">d</span> <span class="o">=</span> <span class="s">&quot; Mundo&quot;</span>
-<span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="o">+</span><span class="n">d</span><span class="p">)</span>
+<div class="highlight"><pre><span class="n">varios</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span><span class="s">&#39;primera llave&#39;</span><span class="p">,</span> <span class="s">&#39;2&#39;</span><span class="p">:</span> <span class="s">&#39;segunda llave&#39;</span><span class="p">,</span> <span class="mf">23.0</span><span class="p">:</span> <span class="s">&#39;tercera llave&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">23</span><span class="p">,</span><span class="mi">5</span><span class="p">):</span> <span class="s">&#39;cuarta llave&#39;</span><span class="p">}</span>
+<span class="k">print</span><span class="p">(</span><span class="n">varios</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -1819,8 +1772,7 @@ In&nbsp;[4]:
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
-[1, 2, 3, 4, 5, 6, 7, 8]
-Hola Mundo
+{&apos;2&apos;: &apos;segunda llave&apos;, 1: &apos;primera llave&apos;, (23, 5): &apos;cuarta llave&apos;, 23.0: &apos;tercera llave&apos;}
 
 </pre>
 </div>
@@ -1835,57 +1787,20 @@ Hola Mundo
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Nosotros también podemos personalizar el método __add__ para que funcione en algún tipo de clase específica que necesitemos. Por ejemplo, supongamos una clase que representa un carro de compra:</p>
+<p>Los contenidos del diccionario no están ordenados según ingreso como ocurre en las tuplas y listas. Para acceder a cada valor se utiliza la llave dentro de []</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[11]:
+In&nbsp;[55]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="k">class</span> <span class="nc">Carro</span><span class="p">():</span>
-    <span class="sd">&#39;&#39;&#39; Un carro de compras lo representaremos como un diccionario </span>
-<span class="sd">        donde el key es el nombre del producto y el value es la cantidad</span>
-<span class="sd">        Ej: {&#39;pan&#39; : 3, &#39;leche&#39; : 2, &#39;agua&#39; : 6}</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lista_productos</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">lista_productos</span> <span class="o">=</span> <span class="n">lista_productos</span>
-
-    <span class="k">def</span> <span class="nf">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">otro_carro</span><span class="p">):</span>
-        <span class="n">lista_sumada</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lista_productos</span>
-        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">otro_carro</span><span class="o">.</span><span class="n">lista_productos</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span><span class="c">#aquí vamos recorriendo los nombres de los productos</span>
-            <span class="k">if</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">lista_productos</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-                <span class="n">lista_sumada</span><span class="o">.</span><span class="n">update</span><span class="p">({</span> <span class="n">p</span> <span class="p">:</span> <span class="n">otro_carro</span><span class="o">.</span><span class="n">lista_productos</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">lista_productos</span><span class="p">[</span><span class="n">p</span><span class="p">]})</span><span class="c">#aquí creo la nueva instancia con las cantidades sumada</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">lista_sumada</span><span class="o">.</span><span class="n">update</span><span class="p">({</span> <span class="n">p</span> <span class="p">:</span> <span class="n">otro_carro</span><span class="o">.</span><span class="n">lista_productos</span><span class="p">[</span><span class="n">p</span><span class="p">]})</span>
-                
-        <span class="k">return</span> <span class="n">Carro</span><span class="p">(</span><span class="n">lista_sumada</span><span class="p">)</span>
-    
-    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s">&quot;Producto: {} | Cantidad: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">lista_productos</span><span class="p">[</span><span class="n">p</span><span class="p">])</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">lista_productos</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-    
-    
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[12]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="n">carro_1</span> <span class="o">=</span> <span class="n">Carro</span><span class="p">({</span><span class="s">&#39;pan&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s">&#39;leche&#39;</span> <span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&#39;agua&#39;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">})</span>
-<span class="n">carro_2</span> <span class="o">=</span> <span class="n">Carro</span><span class="p">({</span><span class="s">&#39;leche&#39;</span> <span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s">&#39;bebida&#39;</span> <span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&#39;cerveza&#39;</span> <span class="p">:</span> <span class="mi">12</span><span class="p">})</span>
-<span class="n">carro_3</span> <span class="o">=</span> <span class="n">carro_1</span> <span class="o">+</span> <span class="n">carro_2</span>
-<span class="k">print</span><span class="p">(</span><span class="n">carro_3</span><span class="o">.</span><span class="n">lista_productos</span><span class="p">)</span>
+<div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">perros</span><span class="p">[</span><span class="s">&#39;bc&#39;</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">telefonos</span><span class="p">[</span><span class="mi">23545344</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">tuplas</span><span class="p">[(</span><span class="s">&#39;23545344&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)])</span>
 </pre></div>
 
 </div>
@@ -1899,7 +1814,9 @@ In&nbsp;[12]:
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
-{&apos;bebida&apos;: 2, &apos;leche&apos;: 7, &apos;agua&apos;: 6, &apos;pan&apos;: 3, &apos;cerveza&apos;: 12}
+border-collie
+Juanito
+oficina
 
 </pre>
 </div>
@@ -1914,18 +1831,21 @@ In&nbsp;[12]:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Gracias al método <strong>repr</strong> pudimos personalizar la forma de imprimir el objeto carro, por lo tanto podemos imprimirlo directamente, sin llamar al diccionario:</p>
+<p>Los diccionarios son estructuras de datos mutables, es dicir, su contenido puede cambiar a lo largo del programa. Si se asigna un valor a una llave existen dos comportamientos posibles: si la llave no existe, esta se crea y se le asigna un valor; si la llave ya existe, se le asigna un nuevo valor.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[13]:
+In&nbsp;[19]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">carro_3</span><span class="p">)</span>
+<div class="highlight"><pre><span class="n">perros</span><span class="p">[</span><span class="s">&#39;te&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;terrier&#39;</span>
+<span class="k">print</span><span class="p">(</span><span class="n">perros</span><span class="p">)</span>
+
+<span class="n">perros</span><span class="p">[</span><span class="s">&#39;pg&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;pug-pug&#39;</span>
 </pre></div>
 
 </div>
@@ -1939,11 +1859,7 @@ In&nbsp;[13]:
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
-Producto: bebida | Cantidad: 2
-Producto: leche | Cantidad: 7
-Producto: agua | Cantidad: 6
-Producto: pan | Cantidad: 3
-Producto: cerveza | Cantidad: 12
+{&apos;bc&apos;: &apos;border-collie&apos;, &apos;te&apos;: &apos;terrier&apos;, &apos;pg&apos;: &apos;pug&apos;, &apos;lr&apos;: &apos;labrador retriever&apos;}
 
 </pre>
 </div>
@@ -1958,30 +1874,60 @@ Producto: cerveza | Cantidad: 12
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>De la misma forma podemos personalizar la mayoría de los operadores, por ejemplo, el operador &quot;menor que&quot;:</p>
+<p>Se puede eliminar items desde el diccionario utilizando la sentencia del</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[14]:
+In&nbsp;[20]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="k">class</span> <span class="nc">Punto</span><span class="p">:</span> 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span> 
-        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span> 
-        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
-    
-    <span class="k">def</span> <span class="nf">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">otro_punto</span><span class="p">):</span> 
-        <span class="n">self_mag</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> 
-        <span class="n">otro_punto_mag</span> <span class="o">=</span> <span class="p">(</span><span class="n">otro_punto</span><span class="o">.</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">otro_punto</span><span class="o">.</span><span class="n">y</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> 
-        <span class="k">return</span> <span class="n">self_mag</span> <span class="o">&lt;</span> <span class="n">otro_punto_mag</span>
+<div class="highlight"><pre><span class="k">del</span> <span class="n">perros</span><span class="p">[</span><span class="s">&#39;te&#39;</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">perros</span><span class="p">)</span>
+</pre></div>
 
-<span class="n">p1</span> <span class="o">=</span> <span class="n">Punto</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">p2</span> <span class="o">=</span> <span class="n">Punto</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">p1</span> <span class="o">&lt;</span> <span class="n">p2</span><span class="p">)</span>
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+{&apos;bc&apos;: &apos;border-collie&apos;, &apos;pg&apos;: &apos;pug-pug&apos;, &apos;lr&apos;: &apos;labrador retriever&apos;}
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Para comprobar la existencia de una llave en el diccionario se puede utilizar la sentencia in. El comportamiento por defecto al utilizar sentencias sobre el diccionario es operar sobre los valores de las llaves. En el caso de in devuelve True si la llave requerida existe dentro de las llaves en el diccionario</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[30]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="s">&#39;pg&#39;</span> <span class="ow">in</span> <span class="n">perros</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;te&#39;</span> <span class="ow">in</span> <span class="n">perros</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -1996,6 +1942,283 @@ In&nbsp;[14]:
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
 True
+False
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Otra forma consiste en utilizar el método get que posee la clase diccionario. Este método require dos parámetros: la llave buscada y un valor en caso que la llave no exista.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[34]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">perros</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;pg&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">perros</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;te&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">perros</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;te&#39;</span><span class="p">,</span> <span class="s">&#39;No existe el perro&#39;</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+pug-pug
+False
+No existe el perro
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Una aplicación típica de esto es el llenado de diccionarios vacíos como por ejemplo contando letras, debido a que en principio es difícil saber que letras aparecerán y cuántas.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[38]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">msg</span> <span class="o">=</span> <span class="s">&#39;supercalifragilisticoespialidoso&#39;</span> <span class="c"># una cadena de string</span>
+<span class="n">vocales</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span> <span class="c"># diccionario vacio, puesto que no sabemos cuales y cuantas vocales apareceran</span>
+
+<span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">msg</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">v</span> <span class="ow">not</span> <span class="ow">in</span> <span class="s">&#39;aeiou&#39;</span><span class="p">:</span> <span class="c"># revisa si v es una vocal</span>
+        <span class="k">continue</span>
+        
+    <span class="k">if</span> <span class="n">v</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">vocales</span><span class="p">:</span> <span class="c"># revisa si v existe en el diccionario, si no la crea en 0</span>
+        <span class="n">vocales</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="n">vocales</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c"># si ya existe, agrega una cuenta mas</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">vocales</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+{&apos;o&apos;: 3, &apos;e&apos;: 2, &apos;a&apos;: 3, &apos;u&apos;: 1, &apos;i&apos;: 6}
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Tres métodos útiles que existen en los diccionarios son: keys(), values(), y items(). Estos permiten obtener elementos del diccionario a distintos niveles. El resultado de cada uno de estos métodos es una lista con los elementos solicitados.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[42]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">monedas</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;chile&#39;</span><span class="p">:</span><span class="s">&#39;peso&#39;</span><span class="p">,</span> <span class="s">&#39;brasil&#39;</span><span class="p">:</span><span class="s">&#39;real&#39;</span><span class="p">,</span> <span class="s">&#39;peru&#39;</span><span class="p">:</span><span class="s">&#39;sol&#39;</span><span class="p">,</span><span class="s">&#39;españa&#39;</span><span class="p">:</span><span class="s">&#39;euro&#39;</span><span class="p">,</span><span class="s">&#39;italia&#39;</span><span class="p">:</span><span class="s">&#39;euro&#39;</span><span class="p">}</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">monedas</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="c"># una lista con todas las llaves</span>
+<span class="k">print</span><span class="p">(</span><span class="n">monedas</span><span class="o">.</span><span class="n">values</span><span class="p">())</span> <span class="c"># una lista con todos los valores</span>
+<span class="k">print</span><span class="p">(</span><span class="n">monedas</span><span class="o">.</span><span class="n">items</span><span class="p">())</span> <span class="c"># una lista con tuplas de pares llave-valor</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+dict_keys([&apos;italia&apos;, &apos;peru&apos;, &apos;españa&apos;, &apos;chile&apos;, &apos;brasil&apos;])
+dict_values([&apos;euro&apos;, &apos;sol&apos;, &apos;euro&apos;, &apos;peso&apos;, &apos;real&apos;])
+dict_items([(&apos;italia&apos;, &apos;euro&apos;), (&apos;peru&apos;, &apos;sol&apos;), (&apos;españa&apos;, &apos;euro&apos;), (&apos;chile&apos;, &apos;peso&apos;), (&apos;brasil&apos;, &apos;real&apos;)])
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Estos métodos son prácticos y útiles durante la iteración sobre diccionarios.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[49]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="s">&#39;Las llaves en el diccionario son las siguientes:&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">monedas</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;{0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
+
+<span class="k">print</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">monedas</span><span class="p">:</span> <span class="c"># por defecto el iterados opera sobre las llaves</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;{0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+Las llaves en el diccionario son las siguientes:
+italia
+peru
+españa
+chile
+brasil
+
+italia
+peru
+españa
+chile
+brasil
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[50]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="s">&#39;Los valores en el diccionario:&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">monedas</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;{0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+Los valores en el diccionario son los siguientes:
+euro
+sol
+euro
+peso
+real
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[51]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="s">&#39;Los pares en el diccionario:&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">monedas</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;la moneda de {0} es {1}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">v</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+Los pares en el diccionario:
+la moneda de italia es euro
+la moneda de peru es sol
+la moneda de españa es euro
+la moneda de chile es peso
+la moneda de brasil es real
 
 </pre>
 </div>
@@ -2011,42 +2234,37 @@ True
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1>
-Duck Typing:
+Defaultdicts
 </h1>
-<p>&quot;if it walks like a duck and quacks like a duck then it is a duck&quot; (no importa el tipo de objeto si contiene la acción)</p>
-<p>Duck typing es una característica de algunos lenguajes que hace que el polimorfismo sea menos atractivo, ya que el lenguaje por sí sólo es capaz de generar comportamiento polimórfico sin la necesidad de implementar el polimorfismo a través de la herencia. La idea de duck typing es muy similar a la de polimorfismo, pero dentro del contexto del lenguaje en vez del contexto de la herencia:</p>
-<p>Idea: no importa de qué tipo es un objeto, simplemente importa que sea capaz de realizar la acción que uno quiere.</p>
+<p>Los &quot;defaultdicts&quot; son diccionarios que nos permiten asignar un valor por defecto para los casos cuando se accesa el diccionario usando una &quot;key&quot; que no existe. Esto nos ahorra el problema de tener que escribir código para preocuparnos de los casos en que el valor que se intenta accesar en el diccionario no existe. Otra cualidad importante de los &quot;defaultdics&quot; es que aceptan una función para ser asignada como valor por default, la cual puede realizar cualquier acción y retornar cualquier objeto (a ser asignado como valor para el respectivo key en el diccionario).</p>
+<h2>
+Ejemplo:
+</h2>
+<pre><code>Supongamos que queremos un diccionario donde cada elemento nuevo contiene como valor una lista con un string con el número de elementos insertados hasta el momento en el diccionario</code></pre>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[9]:
+In&nbsp;[4]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="k">class</span> <span class="nc">Pato</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">gritar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Quack!&quot;</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">caminar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&quot;caminando como un pato...&quot;</span><span class="p">)</span>        
-    
-<span class="k">class</span> <span class="nc">Persona</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">gritar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Ahhh!&quot;</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">caminar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&quot;caminando como un humano...&quot;</span><span class="p">)</span>        
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="n">num_items</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">def</span> <span class="nf">funcion_ej</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">num_items</span>
+    <span class="n">num_items</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">num_items</span><span class="p">)])</span>
 
-<span class="k">def</span> <span class="nf">activar</span><span class="p">(</span><span class="n">pato</span><span class="p">):</span>
-    <span class="n">pato</span><span class="o">.</span><span class="n">gritar</span><span class="p">()</span>
-    <span class="n">pato</span><span class="o">.</span><span class="n">caminar</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="n">funcion_ej</span><span class="p">)</span>
 
-
-<span class="n">donald</span> <span class="o">=</span> <span class="n">Pato</span><span class="p">()</span>
-<span class="n">juan</span> <span class="o">=</span> <span class="n">Persona</span><span class="p">()</span>
-<span class="n">activar</span><span class="p">(</span><span class="n">donald</span><span class="p">)</span>
-<span class="n">activar</span><span class="p">(</span><span class="n">juan</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s">&#39;b&#39;</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s">&#39;c&#39;</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s">&#39;d&#39;</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -2060,10 +2278,11 @@ In&nbsp;[9]:
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
-Quack!
-caminando como un pato...
-Ahhh!
-caminando como un humano...
+[&apos;1&apos;]
+[&apos;2&apos;]
+[&apos;3&apos;]
+[&apos;4&apos;]
+defaultdict(&lt;function funcion_ej at 0x10477e730&gt;, {&apos;a&apos;: [&apos;1&apos;], &apos;b&apos;: [&apos;2&apos;], &apos;d&apos;: [&apos;4&apos;], &apos;c&apos;: [&apos;3&apos;]})
 
 </pre>
 </div>
