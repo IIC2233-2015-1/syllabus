@@ -2156,6 +2156,95 @@ string
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>A veces es necesario agregar nuevos elementos contenidos en otras listas. En estos casos resulta muy útil agregar la lista completa y no los elementos individualmente mediante <i>append()</i>. En este caso resulta mejor utilizar el método <i>extend()</i>.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[1]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">canciones</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;Addicted to pain&#39;</span><span class="p">,</span> <span class="s">&#39;Ghost love score&#39;</span><span class="p">,</span> <span class="s">&#39;As I am&#39;</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">canciones</span><span class="p">)</span>
+
+<span class="n">nuevas_canciones</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;Elevate&#39;</span><span class="p">,</span> <span class="s">&#39;Shine&#39;</span><span class="p">,</span> <span class="s">&#39;Cry of Achilles&#39;</span><span class="p">]</span>
+<span class="n">canciones</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">nuevas_canciones</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">canciones</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+[&apos;Addicted to pain&apos;, &apos;Ghost love score&apos;, &apos;As I am&apos;]
+[&apos;Addicted to pain&apos;, &apos;Ghost love score&apos;, &apos;As I am&apos;, &apos;Elevate&apos;, &apos;Shine&apos;, &apos;Cry of Achilles&apos;]
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>También es posible insertar elementos en posiciones específicas mediante el método <i>insert(posicion, elemento)</i>.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[2]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">canciones</span><span class="p">)</span>
+<span class="n">canciones</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s">&#39;Sober&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">canciones</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+[&apos;Addicted to pain&apos;, &apos;Ghost love score&apos;, &apos;As I am&apos;, &apos;Elevate&apos;, &apos;Shine&apos;, &apos;Cry of Achilles&apos;]
+[&apos;Addicted to pain&apos;, &apos;Sober&apos;, &apos;Ghost love score&apos;, &apos;As I am&apos;, &apos;Elevate&apos;, &apos;Shine&apos;, &apos;Cry of Achilles&apos;]
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>Además del poder extraer mediante indexación un elemento específico desde una lista, es posible también recuperar una porción completa de la lista utilizando <i>slicing</i>. La notación consiste en señalar el inicio y término de sección que se desea recuperar, y finalmente el número de pasos. Esto es <i>lista[inicio:termino:pasos]</i>. Por defecto el número de pasos es 1.</p>
 </div>
 </div>
@@ -2214,21 +2303,21 @@ In&nbsp;[38]:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Las listas pueden ser ordenadas utilizando el método sort(). Esto ordena las listas en si mismas y no devuelve nada.</p>
+<p>Las listas pueden ser ordenadas utilizando el método <i>sort()</i>. Esto ordena las listas en si mismas y no devuelve nada, es decir, el resultado no es asignable a una nueva lista.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[21]:
+In&nbsp;[1]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="n">numeros</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">25</span><span class="p">]</span>
 <span class="k">print</span><span class="p">(</span><span class="n">numeros</span><span class="p">)</span>
 
-<span class="c"># En sentido ascendente</span>
+<span class="c"># En sentido ascendente. Observar como a no recibe ninguna asignacion despues de que la lista numeros es ordenada</span>
 <span class="n">a</span> <span class="o">=</span> <span class="n">numeros</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span> 
 <span class="k">print</span><span class="p">(</span><span class="n">numeros</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
 
