@@ -1,0 +1,47 @@
+=======================================================
+               GRUPOS INDIVIDUALES               
+=======================================================
+0   1363822J          CRISTIAN IGNACIO          CARRENO
+1   13206281           Nicolas Ignacio            Julio
+2   12624349         RAUL JUAN DE DIOS          DEL RIO
+3   13632604                      Saul        Langarica
+4   13635174           VICENTE ALBERTO             BESA
+5   13622625                      ALDO          MARTINI
+6   1262361J  FELIPE ALEJANDRO EDUARDO          CORNEJO
+7   13633600            RODRIGO ANDRES         ALLIENDE
+8   12622184              PEDRO ANDRES            ACUNA
+9   13632531             ARIEL ESTEBAN        SEISDEDOS
+10  12622095          Guillermo Hernan          Poblete
+11  12636398            ALBERTO ANDRES    MOENNE-LOCCOZ
+12  12635901                  JONATHAN           BUDNIK
+13  13633872              JORGE ANDRES  GARCIA-HUIDOBRO
+14  13638645             MIGUEL ANDRES          VERGARA
+15  11636831            BENJAMIN TOMAS           IBARRA
+16  13635190           ENRIQUE IGNACIO          URRUTIA
+17  08633649               JUAN CARLOS           TORRES
+18  13636103               JORGE ANUAR             RABI
+19  14209179                FABIO RAUL         TRAVERSO
+20  13620800           LEONARDO ANDRES          CACERES
+21  13632566             PEDRO IGNACIO       BAHAMONDES
+22  1362072J             IGNACIO TOMAS       HERMOSILLA
+23  13633880         SEBASTIAN ANTONIO          MENESES
+24  12636339             VICTOR MANUEL         VIDAURRE
+25  13635476                     DIEGO         ALLIENDE
+26  1363478J              GONZALO JOSE           ZUNINO
+27  13632892             OSCAR RICARDO             RIOS
+28  10636277            RICARDO ISAIAS        SEPULVEDA
+29  1363772J              JUAN IGNACIO           CORTES
+30  12635278                 GAD AARON        LEWINSOHN
+31  1263803J            JUAN FRANCISCO         CUMSILLE
+32  12637769   PAULA MACARENA LISSETTE           ENCINA
+33  13634917           VICENTE JOAQUIN           MORENO
+34  13634933              JUAN IGNACIO          MARQUEZ
+ 
+================================================================================
+                              GRUPOS DE A DOS                              
+================================================================================
+35  12639176  SOFIA IGNACIA  ZAMBRANO -  13635603  IGNACIO JOSE  TORESANO
+36  13633066  GONZALO RAFAEL  VARGAS -  13638149  CLAUDIA ESTHER  LUKASCHEWSKY
+37  13621866  NELSON  DIAZ -  12634506  TERESITA MARIA  IRARRAZAVAL
+38  11636564  ROSARIO VALENTINA  CALDERON -  1363688J  KATHERINE FABIOLA  GUERRERO
+39  13632906  PATRICIO ALBERTO  ORREGO -  12639370  VICENTE  CLARO

@@ -1,0 +1,45 @@
+=======================================================
+               GRUPOS INDIVIDUALES               
+=======================================================
+0   12622001            BENJAMIN         CORREA
+1   13633783       KARLA EMILLIE          REYES
+2   12638749  ALEXIS FABIAN OMAR          CERNA
+3   12610100              IACOPO        GARIZIO
+4   11201924      FABIAN IGNACIO        JIMENEZ
+5   11622237               TOMAS       RENCORET
+6   11634219       BORIS ENRIQUE       OROSTICA
+7   13634895    FELIPE GUILLERMO           RUIZ
+8   1063553J              VICTOR  PEREZ COTAPOS
+9   14636786     BENJAMIN ANDRES        ARRATIA
+10  13635441             Rodolfo          Palma
+11  13637460     nicolas ignacio        falconi
+12  13634720      EDUARDO ANDRES      VILDOSOLA
+13  1363531J             ANTONIO          LOPEZ
+14  12624519       HAROLD LUDWIG         MULLER
+15  12622613   AUGUSTO ALEJANDRO        ALVAREZ
+16  09632298      RODRIGO ANDRES          ARAYA
+17  13204610        Dariel Eliot         Agurto
+18  1363447J        TOMAS ARTURO        HERRERA
+19  12612529      JAVIER ALBERTO       CARRASCO
+20  13633031        JORGE ANDRES       TRINCADO
+21  11622091    ADRIANA ANGELICA      NAVARRETE
+22   1363681       CARLOS ANTONI         QUAPPE
+23  12623008    VICENTE REINALDO         MARTIN
+24  13204661      PAULA GABRIELA        SANZANA
+25  14637065     RODRIGO ANTONIO        PIZARRO
+26  11636475               JAIME       GONZALEZ
+27  12638528     RODRIGO IGNACIO          BOCAZ
+28  13648543        LUIS IGNACIO          LEIVA
+29  13634070      RAFAEL ALBERTO        CARMONA
+30  11636378    NICOLAS FERNANDO     SANTIBANEZ
+31  14636131         DANIEL JOSE        VENEGAS
+32  12636355       ANDRES FELIPE     HINRICHSEN
+33  11637722        DAVID THOMAS         FULLER
+34  13205978             nicolas          galaz
+35  13634275          JUAN PABLO         SCHELE
+ 
+================================================================================
+                              GRUPOS DE A DOS                              
+================================================================================
+36  13637398  PEDRO ALBERTO  MANGIOLA -  13206621  LEOPOLDO ANDRES  VARGAS
+37  12622567  FRANCISCO JAVIER  MORGAN -  13632965  FRANCISCO JAVIER  VALDES
