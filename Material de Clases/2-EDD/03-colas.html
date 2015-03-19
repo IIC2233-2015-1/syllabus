@@ -3,7 +3,7 @@
 <head>
 
 <meta charset="utf-8" />
-<title>03-colas</title>
+<title>03-Colas</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -1593,6 +1593,7 @@ span#checkpoint_status,span#autosave_status{font-size:small}
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
@@ -1649,7 +1650,7 @@ div#notebook {
 
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -1709,7 +1710,7 @@ div#notebook {
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[1]:
+In&nbsp;[4]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1754,14 +1755,14 @@ deque([&apos;manzana&apos;, &apos;platano&apos;])
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[2]:
+In&nbsp;[5]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="n">cola</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="s">&#39;naranja&#39;</span><span class="p">,</span> <span class="s">&#39;manzana&#39;</span><span class="p">,</span> <span class="s">&#39;platano&#39;</span><span class="p">])</span>
 
 <span class="c"># primer elemento</span>
-<span class="k">print</span><span class="p">(</span><span class="n">cola</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">cola</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 
 <span class="c"># len</span>
 <span class="k">print</span><span class="p">(</span><span class="s">&#39;la cola tiene {0} elementos&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cola</span><span class="p">)))</span>
@@ -1783,7 +1784,7 @@ In&nbsp;[2]:
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
-naranja
+manzana
 la cola tiene 3 elementos
 la cola esta vacia
 
@@ -1807,13 +1808,13 @@ la cola esta vacia
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[11]:
+In&nbsp;[8]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
-<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">choice</span>
-<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randrange</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">choice</span><span class="p">,</span> <span class="n">randrange</span>
+
 
 <span class="k">class</span> <span class="nc">Auto</span><span class="p">:</span>
     <span class="sd">&#39;&#39;&#39; Esta clase modela los autos que llegan a la revision&#39;&#39;&#39;</span>    
@@ -1821,7 +1822,7 @@ In&nbsp;[11]:
     
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tipo_vehiculo</span> <span class="o">=</span> <span class="n">choice</span><span class="p">([</span><span class="s">&#39;moto&#39;</span><span class="p">,</span> <span class="s">&#39;camioneta&#39;</span><span class="p">,</span> <span class="s">&#39;auto&#39;</span><span class="p">])</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">tiempo_revision</span> <span class="o">=</span> <span class="n">tp</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">tipo_vehiculo</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tiempo_revision</span> <span class="o">=</span> <span class="n">Auto</span><span class="o">.</span><span class="n">tp</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">tipo_vehiculo</span><span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">obtener_tiempo_promedio</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tiempo_revision</span>
@@ -1903,12 +1904,10 @@ In&nbsp;[11]:
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
 Atendiendo: camioneta
-Atendiendo: auto
+Atendiendo: moto
 Atendiendo: moto
 Atendiendo: auto
-Atendiendo: auto
-Atendiendo: moto
-Tiempo promedio de espera  20.83 min y 6 vehiculos esperando.
+Tiempo promedio de espera  18.75 min y 4 vehiculos esperando.
 
 </pre>
 </div>
@@ -1951,7 +1950,7 @@ Tiempo promedio de espera  20.83 min y 6 vehiculos esperando.
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[20]:
+In&nbsp;[9]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2023,7 +2022,7 @@ deque([&apos;e&apos;, &apos;s&apos;, &apos;r&apos;, &apos;a&apos;, &apos;d&apos;
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[3]:
+In&nbsp;[10]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
