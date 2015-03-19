@@ -1,0 +1,54 @@
+name	country
+Santiago	Chile
+Valparaiso	Chile
+Rancagua	Chile
+Talca	Chile
+Chillan	Chile
+Concepcion	Chile
+Temuco	Chile
+Pucon	Chile
+Valdivia	Chile
+Osorno	Chile
+Puerto Montt	Chile
+Castro	Chile
+Punta Arenas	Chile
+Puerto Natales	Chile
+Los Vilos	Chile
+Coquimbo	Chile
+Vallenar	Chile
+Copiapo	Chile
+Antofagasta	Chile
+Calama	Chile
+Arica	Chile
+Iquique	Chile
+San Pedro de Atacama	Chile
+Isla de Pascua	Chile
+Mendoza	Argentina
+Buenos Aires	Argentina
+Bariloche	Argentina
+Montevideo	Argentina
+La Paz	Bolivia
+Tacna	Peru
+Lima	Peru
+Sao Paulo	Brasil
+Rio de Janeiro	Brasil
+Bogota	Colombia
+Caracas	Venezuela
+Ciudad de Mexico	Mexico
+Cancun	Mexico
+Cozumel	Mexico
+Papeete	Tahiti
+Miami	USA
+Orlando	USA
+Atlanta	USA
+Los Angeles	USA
+San Francisco	USA
+Washington	USA
+New York	USA
+Seattle	USA
+Chicago	USA
+Honolulu	USA
+Tampa	USA
+George Town	Islas Caiman
+La Habana	Cuba
+Nassau	Bahamas
