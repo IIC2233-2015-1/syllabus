@@ -1,0 +1,75 @@
+type	name
+Airbus A320	A2001
+Airbus A320	A2002
+Airbus A320	A2003
+Airbus A320	A2004
+Airbus A320	A2005
+Airbus A320	A2006
+Airbus A320	A2007
+Airbus A320	A2008
+Airbus A320	A2009
+Airbus A320	A2010
+Airbus A320	A2011
+Airbus A340	A4001
+Airbus A340	A4002
+Airbus A340	A4003
+Airbus A340	A4004
+Airbus A340	A4005
+Airbus A340	A4006
+Airbus A340	A4007
+Airbus A340	A4008
+Airbus A340	A4009
+Airbus A340	A4010
+Dash8 Q200	D201
+Dash8 Q200	D202
+Dash8 Q200	D203
+Dash8 Q200	D204
+Dash8 Q200	D205
+Boeing 777	B7701
+Boeing 777	B7702
+Boeing 777	B7703
+Boeing 777	B7704
+Boeing 777	B7705
+Panamax	P101
+Panamax	P102
+Handysize	H101
+Handysize	H102
+Handysize	H103
+Handysize	H104
+Small Feeder	S101
+Small Feeder	S102
+Small Feeder	S103
+Small Feeder	S104
+Voyager-class	Athena
+Voyager-class	Odyssey
+Ferry boat	F101
+Ferry boat	F102
+Ferry boat	F103
+Ferry boat	F104
+Ferry boat	F105
+Volvo 9500	VV9501
+Volvo 9500	VV9502
+Volvo 9500	VV9503
+Volvo 9500	VV9504
+Volvo 9500	VV9505
+Volvo 9500	VV9506
+Volvo 9500	VV9507
+Volvo 9500	VV9508
+Volvo B9TL	VB9001
+Volvo B9TL	VB9002
+Volvo B9TL	VB9003
+Volvo B9TL	VB9004
+Volvo B9TL	VB9005
+Volvo FM	VFND01
+Volvo FM	VFND02
+Volvo FM	VFND03
+Volvo FM	VFND04
+Volvo FM	VFND05
+DOT412 cargo	DT4121
+DOT412 cargo	DT4122
+DOT412 cargo	DT4123
+Cargo Van	CV1001
+Cargo Van	CV1002
+Cargo Van	CV1003
+Cargo Van	CV1004
+Cargo Van	CV1005

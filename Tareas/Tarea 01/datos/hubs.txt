@@ -1,0 +1,100 @@
+code	city	type	size
+Airports
+SCL	Santiago	Aerial	Big
+CCP	Concepcion	Aerial	Medium
+ZCO	Temuco	Aerial	Medium
+ZPC	Pucon	Aerial	Medium
+ZAL	Valdivia	Aerial	Medium
+PMC	Puerto Montt	Aerial	Medium
+PUQ	Punta Arenas	Aerial	Medium
+ANF	Antofagasta	Aerial	Medium
+CJC	Calama	Aerial	Medium
+ARI	Arica	Aerial	Medium
+IQQ	Iquique	Aerial	Medium
+IPC	Isla de Pascua	Aerial	Big
+MDZ	Mendoza	Aerial	Medium
+AEP	Buenos Aires	Aerial	Big
+BRC	Bariloche	Aerial	Medium
+MVD	Montevideo	Aerial	Big
+LPB	La Paz	Aerial	Big
+LIM	Lima	Aerial	Big
+SAO	Sao Paulo	Aerial	Big
+RIO	Rio de Janeiro	Aerial	Big
+BOG	Bogota	Aerial	Big
+CCS	Caracas	Aerial	Big
+MEX	Ciudad de Mexico	Aerial	Big
+CUN	Cancun	Aerial	Big
+PPT	Papeete	Aerial	Big
+MIA	Miami	Aerial	Big
+ORL	Orlando	Aerial	Big
+ATL	Atlanta	Aerial	Big
+LAX	Los Angeles	Aerial	Big
+SFO	San Francisco	Aerial	Big
+WAS	Washington	Aerial	Big
+NYC	New York	Aerial	Big
+SEA	Seattle	Aerial	Big
+CHI	Chicago	Aerial	Big
+HNL	Honolulu	Aerial	Big
+BusTerminals
+STT	Santiago	Terrestrial	Medium
+VPT	Valparaiso	Terrestrial	Medium
+RCT	Rancagua	Terrestrial	Medium
+TMT	Temuco	Terrestrial	Medium
+PCT	Pucon	Terrestrial	Medium
+LVT	Los Vilos	Terrestrial	Medium
+CQT	Coquimbo	Terrestrial	Medium
+CHT	Chillan	Terrestrial	Medium
+CCT	Concepcion	Terrestrial	Medium
+TLT	Talca	Terrestrial	Medium
+PMT	Puerto Montt	Terrestrial	Medium
+VDT	Valdivia	Terrestrial	Medium
+OST	Osorno	Terrestrial	Medium
+CST	Castro	Terrestrial	Medium
+PAT	Punta Arenas	Terrestrial	Medium
+PNT	Puerto Natales	Terrestrial	Medium
+VLT	Vallenar	Terrestrial	Medium
+CPT	Copiapo	Terrestrial	Medium
+AFT	Antofagasta	Terrestrial	Medium
+CLT	Calama	Terrestrial	Medium
+IQT	Iquique	Terrestrial	Medium
+ART	Arica	Terrestrial	Medium
+SPT	San Pedro de Atacama	Terrestrial	Medium
+TCT	Tacna	Terrestrial	Medium
+CargoDepots
+STC	Santiago	Terrestrial	Medium
+VPC	Valparaiso	Terrestrial	Medium
+RCC	Rancagua	Terrestrial	Medium
+TMC	Temuco	Terrestrial	Medium
+PCC	Pucon	Terrestrial	Medium
+LVC	Los Vilos	Terrestrial	Medium
+CQC	Coquimbo	Terrestrial	Medium
+CHC	Chillan	Terrestrial	Medium
+CCC	Concepcion	Terrestrial	Medium
+TLQ	Talca	Terrestrial	Medium
+PMQ	Puerto Montt	Terrestrial	Medium
+VDC	Valdivia	Terrestrial	Medium
+OSC	Osorno	Terrestrial	Medium
+CSC	Castro	Terrestrial	Medium
+PAC	Punta Arenas	Terrestrial	Medium
+PNC	Puerto Natales	Terrestrial	Medium
+VLC	Vallenar	Terrestrial	Medium
+CPC	Copiapo	Terrestrial	Medium
+AFC	Antofagasta	Terrestrial	Medium
+CLC	Calama	Terrestrial	Medium
+IQC	Iquique	Terrestrial	Medium
+ARC	Arica	Terrestrial	Medium
+SPC	San Pedro de Atacama	Terrestrial	Medium
+TCC	Tacna	Terrestrial	Medium
+Harbors
+VPH	Valparaiso	Aquatic	Big
+IQH	Iquique	Aquatic	Big
+CCH	Concepcion	Aquatic	Big
+PMH	Puerto Montt	Aquatic	Big
+PAH	Punta Arenas	Aquatic	Big
+LAH	Los Angeles	Aquatic	Big
+MIH	Miami	Aquatic	Big
+TPH	Tampa	Aquatic	Big
+CZH	Cozumel	Aquatic	Big
+NSH	Nassau	Aquatic	Big
+LHH	La Habana	Aquatic	Big
+GTH	George Town	Aquatic	Big
