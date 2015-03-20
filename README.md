@@ -28,7 +28,7 @@
 | J 12 | Herencia & multiherencia	|
 | M 17 | Polimorfismo & properties	|
 | J 19 | EDD-1 Colas & Stacks 		|
-| M 24 | 				|
+| M 24 | EDD-1 Nodos & Grafos		|
 | J 26 | 				|
 | M 31 | 				|
 
