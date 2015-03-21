@@ -1,0 +1,24 @@
+Airplane
+model	size	speed	range	seats	volume	weight	cargo_types	cost
+Airbus A320	Medium	820	6100	150	30	3000	Normal, Delicate	.3
+Airbus A340	Big	910	16600	280	150	16000	Normal, Delicate	.3
+Dash8 Q200	Small	530	1700	37	5	500	Normal	.15
+Boeing 777	Big	905	9070	0	650	75000	Normal, Delicate	.2
+CargoShip
+model	size	speed	volume	weight	cargo_types	cost
+Panamax	Big	40	65000	80000000	Normal, Delicate, Dangerous	.001
+Handysize	Medium	40	20000	28000000	Normal, Delicate, Dangerous	.001
+Small Feeder	Small	40	3500	3000000	Normal, Delicate, Dangerous	.001
+CruiseShip
+model	size	speed	seats	cost
+Voyager-class	Big	40	3100	.2
+Ferry boat	Small	40	80	.4
+Bus
+model	size	speed	seats	cost
+Volvo 9500	Medium	100	45	.04
+Volvo B9TL	Medium	100	40	.08
+Truck
+model	size	speed	volume	weight	cargo_types	cost
+Volvo FM	Medium	90	75	55000	Normal, Delicate	.02
+DOT412 cargo	Medium	70	40	30000	Dangerous	.1
+Cargo Van	Small	80	18	5000	Normal, Delicate	.05
