@@ -187,7 +187,7 @@ Dentro de Issues, [las entradas se pueden etiquetar dentro de ciertas categoría
 
 * [Ausencia de material prometido](https://github.com/IIC2233-2015-1/syllabus/labels/Ausencia%20de%20material%20prometido): para solicitar material que no haya sido subido al repositorio.
 * [Duda código](https://github.com/IIC2233-2015-1/syllabus/labels/Duda%20c%C3%B3digo): sobre métodos, clases, sintaxis, PEP8.
-* [Duda enunciado](https://github.com/IIC2233-2015-1/syllabus/labels/Duda%20enunciado): sobre el enunciado de la tarea.
+* [Duda tarea](https://github.com/IIC2233-2015-1/syllabus/labels/Duda%20tarea): sobre el enunciado de la tarea.
 * [Duda interrogación](https://github.com/IIC2233-2015-1/syllabus/labels/Duda%20interrogaci%C3%B3n): sobre fechas, contenido, recorreción de interrogaciones.
 * [Duda materia](https://github.com/IIC2233-2015-1/syllabus/labels/Duda%20materia): sobre conceptos y/o temas vistos en clases o fuera de esta.
 * [Duplicada](https://github.com/IIC2233-2015-1/syllabus/labels/Duplicada): pregunta repetida, se hará referencia a la pregunta original. 
