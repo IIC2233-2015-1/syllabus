@@ -1710,7 +1710,6 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Los árboles corresponden a una estructura donde los objetos están estructurados <b>jerárquicamente</b>. A diferencia de las estructuras basadas en arreglos como colas y pilas, en los árboles los objetos quedan ordenados <i>sobre</i> y <i>debajo</i> de acuerdo a esta jerarquía. Cada elemento en el árbol se denomina <b>nodo</b>. El primer nodo en el árbol recibe el nombre de <b>raíz</b> (root). A excepción del nodo raíz, cada nodo del árbol tiene un <i><b>padre</b></i> y cero o más nodos <i><b>hijos</b></i>. Los nodos provenientes de un mismo padre se denominan nodos <b>hermanos</b> y los nodos en la línea de descendencia del nodo padre se conocen como ancestros.</p>
 <p>Formalmente, un árbol <b>T</b> que ordena los objetos bajo una relación <i>padre-hijo</i> tiene las siguientes propiedades:</p>
 <ul>
 <li>Si <b>T</b> no está vacío, tienen un nodo <i>raíz</i> que no tiene padres</li>
@@ -1759,7 +1758,7 @@ La <b>profundidad</b> (depth) de un nodo <i>u</i> se denomina como el número de
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[11]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1771,12 +1770,14 @@ In&nbsp;[]:
         
     <span class="k">def</span> <span class="nf">agregar_nodo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">valor</span><span class="p">,</span> <span class="n">padre</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">padre</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">hijos</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Arbol</span><span class="p">(</span><span class="n">valor</span><span class="p">))</span>    
+                <span class="bp">self</span><span class="o">.</span><span class="n">hijos</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Arbol</span><span class="p">(</span><span class="n">valor</span><span class="p">))</span>    
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">hijos</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Arbol</span><span class="p">(</span><span class="n">valor</span><span class="p">,</span> <span class="n">padre</span><span class="p">))</span>
-    
+                <span class="bp">self</span><span class="o">.</span><span class="n">hijos</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Arbol</span><span class="p">(</span><span class="n">valor</span><span class="p">,</span> <span class="n">padre</span><span class="p">))</span>
+        
     <span class="k">def</span> <span class="nf">obtener_nodo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">posicion</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">hijos</span><span class="p">[</span><span class="n">posicion</span><span class="p">]</span>
+        <span class="c"># obtiene el nodo siempre y cuando exista la posicion.</span>
+        <span class="k">if</span> <span class="n">posicion</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hijos</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">hijos</span><span class="p">[</span><span class="n">posicion</span><span class="p">]</span>
         
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c">#self.ret = str(self.valor)</span>
@@ -1799,12 +1800,35 @@ In&nbsp;[]:
 <span class="n">T</span><span class="o">.</span><span class="n">obtener_nodo</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">T</span><span class="o">.</span><span class="n">obtener_nodo</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">T</span><span class="o">.</span><span class="n">obtener_nodo</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">T</span><span class="o">.</span><span class="n">obtener_nodo</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">T</span><span class="o">.</span><span class="n">obtener_nodo</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+padre: None -&gt; valor: 0
+padre: 0 -&gt; valor: 1
+padre: 1 -&gt; valor: 3
+padre: 1 -&gt; valor: 4
+padre: 2 -&gt; valor: 5
+padre: 0 -&gt; valor: 2
+padre: 2 -&gt; valor: 6
+
+
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -1831,27 +1855,13 @@ In&nbsp;[]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[23]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="k">class</span> <span class="nc">Arbol</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">valor</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">padre</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">valor</span> <span class="o">=</span> <span class="n">valor</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">padre</span> <span class="o">=</span> <span class="n">padre</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">hijos</span> <span class="o">=</span> <span class="p">[]</span>
-        
-    <span class="k">def</span> <span class="nf">agregar_nodo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">valor</span><span class="p">,</span> <span class="n">padre</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">padre</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">hijos</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Arbol</span><span class="p">(</span><span class="n">valor</span><span class="p">))</span>    
-        <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">hijos</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Arbol</span><span class="p">(</span><span class="n">valor</span><span class="p">,</span> <span class="n">padre</span><span class="p">))</span>
-    
-    <span class="k">def</span> <span class="nf">obtener_nodo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">posicion</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">hijos</span><span class="p">[</span><span class="n">posicion</span><span class="p">]</span>
-        
-    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">ArbolPreOrder</span><span class="p">(</span><span class="n">Arbol</span><span class="p">):</span>
+    <span class="c"># Heredamos de la clase original del Arbol y hacemos override en el metodo recorrer_arbol    </span>
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>        
         <span class="k">def</span> <span class="nf">recorrer_arbol</span><span class="p">(</span><span class="n">raiz</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">ret</span> <span class="o">+=</span> <span class="s">&quot;padre: {0} -&gt; valor: {1}</span><span class="se">\n</span><span class="s">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">raiz</span><span class="o">.</span><span class="n">padre</span><span class="p">,</span> <span class="n">raiz</span><span class="o">.</span><span class="n">valor</span><span class="p">)</span>
             <span class="k">for</span> <span class="n">hijo</span> <span class="ow">in</span> <span class="n">raiz</span><span class="o">.</span><span class="n">hijos</span><span class="p">:</span>
@@ -1862,7 +1872,7 @@ In&nbsp;[]:
         <span class="n">recorrer_arbol</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">ret</span>
     
-<span class="n">T</span> <span class="o">=</span> <span class="n">Arbol</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">ArbolPreOrder</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">T</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">T</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">T</span><span class="o">.</span><span class="n">obtener_nodo</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
@@ -1874,6 +1884,29 @@ In&nbsp;[]:
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+padre: None -&gt; valor: 0
+padre: 0 -&gt; valor: 1
+padre: 0 -&gt; valor: 2
+padre: 1 -&gt; valor: 3
+padre: 1 -&gt; valor: 4
+padre: 2 -&gt; valor: 5
+padre: 2 -&gt; valor: 6
+
+
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -1890,25 +1923,12 @@ In&nbsp;[]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[27]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="k">class</span> <span class="nc">Arbol</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">valor</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">padre</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">valor</span> <span class="o">=</span> <span class="n">valor</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">padre</span> <span class="o">=</span> <span class="n">padre</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">hijos</span> <span class="o">=</span> <span class="p">[]</span>
-        
-    <span class="k">def</span> <span class="nf">agregar_nodo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">valor</span><span class="p">,</span> <span class="n">padre</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">padre</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">hijos</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Arbol</span><span class="p">(</span><span class="n">valor</span><span class="p">))</span>    
-        <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">hijos</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Arbol</span><span class="p">(</span><span class="n">valor</span><span class="p">,</span> <span class="n">padre</span><span class="p">))</span>
-    
-    <span class="k">def</span> <span class="nf">obtener_nodo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">posicion</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">hijos</span><span class="p">[</span><span class="n">posicion</span><span class="p">]</span>
-        
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">ArbolPostOrder</span><span class="p">(</span><span class="n">Arbol</span><span class="p">):</span>
+    <span class="c"># Heredamos de la clase original del Arbol e implementamos el PostOrder para el recorrido del arbol</span>
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">def</span> <span class="nf">recorrer_arbol</span><span class="p">(</span><span class="n">raiz</span><span class="p">):</span>
             <span class="k">for</span> <span class="n">hijo</span> <span class="ow">in</span> <span class="n">raiz</span><span class="o">.</span><span class="n">hijos</span><span class="p">:</span>
@@ -1920,7 +1940,7 @@ In&nbsp;[]:
         <span class="n">recorrer_arbol</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">ret</span>
     
-<span class="n">T</span> <span class="o">=</span> <span class="n">Arbol</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">ArbolPostOrder</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">T</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">T</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">T</span><span class="o">.</span><span class="n">obtener_nodo</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
@@ -1932,6 +1952,29 @@ In&nbsp;[]:
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+padre: 0 -&gt; valor: 1
+padre: 1 -&gt; valor: 3
+padre: 1 -&gt; valor: 4
+padre: 2 -&gt; valor: 5
+padre: 2 -&gt; valor: 6
+padre: 0 -&gt; valor: 2
+padre: None -&gt; valor: 0
+
+
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -1948,27 +1991,14 @@ In&nbsp;[]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[28]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
 
-<span class="k">class</span> <span class="nc">Arbol</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">valor</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">padre</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">valor</span> <span class="o">=</span> <span class="n">valor</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">padre</span> <span class="o">=</span> <span class="n">padre</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">hijos</span> <span class="o">=</span> <span class="p">[]</span>
-        
-    <span class="k">def</span> <span class="nf">agregar_nodo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">valor</span><span class="p">,</span> <span class="n">padre</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">padre</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">hijos</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Arbol</span><span class="p">(</span><span class="n">valor</span><span class="p">))</span>    
-        <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">hijos</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Arbol</span><span class="p">(</span><span class="n">valor</span><span class="p">,</span> <span class="n">padre</span><span class="p">))</span>
-    
-    <span class="k">def</span> <span class="nf">obtener_nodo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">posicion</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">hijos</span><span class="p">[</span><span class="n">posicion</span><span class="p">]</span>
-        
+<span class="k">class</span> <span class="nc">ArbolBFS</span><span class="p">(</span><span class="n">Arbol</span><span class="p">):</span>
+    <span class="c"># Heredamos de la clase original del Arbol y modificamos el metodo recorrer_arbol para usar el Breadth-first Search</span>
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">def</span> <span class="nf">recorrer_arbol</span><span class="p">(</span><span class="n">raiz</span><span class="p">):</span>
             <span class="n">Q</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span>
@@ -1986,7 +2016,7 @@ In&nbsp;[]:
         <span class="n">recorrer_arbol</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">ret</span>
     
-<span class="n">T</span> <span class="o">=</span> <span class="n">Arbol</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">ArbolBFS</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">T</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">T</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">T</span><span class="o">.</span><span class="n">obtener_nodo</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
@@ -1998,6 +2028,29 @@ In&nbsp;[]:
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+padre: None -&gt; valor: 0
+padre: 0 -&gt; valor: 1
+padre: 0 -&gt; valor: 2
+padre: 1 -&gt; valor: 3
+padre: 1 -&gt; valor: 4
+padre: 2 -&gt; valor: 5
+padre: 2 -&gt; valor: 6
+
+
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
