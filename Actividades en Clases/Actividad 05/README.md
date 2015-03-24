@@ -46,3 +46,7 @@ mapa = MapaMetro.mapa_de_ejemplo()
 
 Esto ya está programado en al final del `main.py`.
 
+### Puntaje
+* **(1.0 pts)** Acceso correcto a las estaciones del mapa 
+* **(3.0 pts)** Decir si existe o no un camino
+* **(2.0 pts)** Impresión del camino
