@@ -1701,7 +1701,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Los árboles corresponden a una estructura donde los objetos están estructurados <b>jerárquicamente</b>. A diferencia de las estructuras basadas en arreglos como colas y pilas, en los árboles los objetos quedan ordenados <i>sobre</i> y <i>debajo</i> de acuerdo a esta jerarquía. Cada elemento en el árbol se denomina <b>nodo</b>. El primer nodo en el árbol recibe el nombre de <b>raíz</b> (root). A excepción del nodo raíz, cada nodo del árbol tiene un <i><b>padre</b></i> y cero o más nodos <i><b>hijos</b></i>. Los nodos provenientes de un mismo padre se denominan nodos <b>hermanos</b> y los nodos en la línea de descendencia del nodo padre se conocen como ancestros.</p>
+<p>Los árboles corresponden a una estructura de datos no lineal, en donde los objetos están estructurados <b>jerárquicamente</b>. A diferencia de las estructuras basadas en arreglos como colas y pilas, en los árboles los objetos quedan ordenados <i>sobre</i> y <i>debajo</i> de acuerdo a esta jerarquía. Cada elemento en el árbol se denomina <b>nodo</b>. El primer nodo en el árbol recibe el nombre de <b>raíz</b> (root). A excepción del nodo raíz, cada nodo del árbol tiene un <i><b>padre</b></i> y cero o más nodos <i><b>hijos</b></i>. Los nodos provenientes de un mismo padre se denominan nodos <b>hermanos</b> y los nodos en la línea de descendencia del nodo padre se conocen como ancestros.</p>
 </div>
 </div>
 </div>
@@ -1758,7 +1758,7 @@ La <b>profundidad</b> (depth) de un nodo <i>u</i> se denomina como el número de
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[11]:
+In&nbsp;[20]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1855,7 +1855,7 @@ padre: 2 -&gt; valor: 6
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[23]:
+In&nbsp;[21]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1923,7 +1923,7 @@ padre: 2 -&gt; valor: 6
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[27]:
+In&nbsp;[22]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1991,7 +1991,7 @@ padre: None -&gt; valor: 0
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[28]:
+In&nbsp;[23]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2104,16 +2104,49 @@ padre: 2 -&gt; valor: 6
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[24]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="k">class</span> <span class="nc">Nodo</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">valor</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">padre</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">valor</span><span class="o">=</span> <span class="n">valor</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">valor</span><span class="p">,</span> <span class="n">padre</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">valor</span> <span class="o">=</span> <span class="n">valor</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">padre</span> <span class="o">=</span> <span class="n">padre</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">hijo_izquierdo</span> <span class="o">=</span> <span class="bp">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">hijo_derecho</span> <span class="o">=</span> <span class="bp">None</span>
+        
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&#39;padre: {0}, valor: {0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">padre</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">valor</span><span class="p">)</span>
+
+        
+<span class="k">class</span> <span class="nc">ArbolBinario</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nodo_raiz</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nodo_raiz</span> <span class="o">=</span> <span class="n">nodo_raiz</span>
+
+    <span class="k">def</span> <span class="nf">agregar_nodo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">valor</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodo_raiz</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">nodo_raiz</span> <span class="o">=</span> <span class="n">Nodo</span><span class="p">(</span><span class="n">valor</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">nodo_raiz</span><span class="o">.</span><span class="n">valor</span> <span class="o">=</span> <span class="n">valor</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodo_raiz</span>
+            <span class="n">agregado</span> <span class="o">=</span> <span class="bp">False</span>
+            
+            <span class="k">while</span> <span class="ow">not</span> <span class="n">agregado</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">valor</span> <span class="o">&lt;=</span> <span class="n">temp</span><span class="o">.</span><span class="n">valor</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">temp</span><span class="o">.</span><span class="n">hijo_izquierdo</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
+                        <span class="n">temp</span><span class="o">.</span><span class="n">hijo_izquierdo</span> <span class="o">=</span> <span class="n">Nodo</span><span class="p">(</span><span class="n">valor</span><span class="p">,</span> <span class="n">temp</span><span class="o">.</span><span class="n">valor</span><span class="p">)</span>
+                        <span class="n">agregado</span> <span class="o">=</span> <span class="bp">True</span>
+                        
+                    <span class="k">else</span><span class="p">:</span> <span class="n">temp</span><span class="o">.</span><span class="n">hijo_izquierdo</span>
+                        
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">temp</span><span class="o">.</span><span class="n">hijo_derecho</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
+                        <span class="n">temp</span><span class="o">.</span><span class="n">hijo_derecho</span> <span class="o">=</span> <span class="n">Nodo</span><span class="p">(</span><span class="n">valor</span><span class="p">,</span> <span class="n">temp</span><span class="o">.</span><span class="n">valor</span><span class="p">)</span>
+                        <span class="n">agregado</span> <span class="o">=</span> <span class="bp">True</span>
+                        
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">temp</span> <span class="o">=</span> <span class="n">temp</span><span class="o">.</span><span class="n">hijo_derecho</span>
 </pre></div>
 
 </div>
@@ -2144,7 +2177,7 @@ In&nbsp;[]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[25]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2196,6 +2229,24 @@ In&nbsp;[]:
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+[2,4]
+posicion no encontrada
+4
+
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
