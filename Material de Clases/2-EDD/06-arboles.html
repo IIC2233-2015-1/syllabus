@@ -1758,7 +1758,7 @@ La <b>profundidad</b> (depth) de un nodo <i>u</i> se denomina como el número de
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[20]:
+In&nbsp;[12]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1797,10 +1797,10 @@ In&nbsp;[20]:
 <span class="n">T</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">T</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">T</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">T</span><span class="o">.</span><span class="n">obtener_nodo</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">T</span><span class="o">.</span><span class="n">obtener_nodo</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">T</span><span class="o">.</span><span class="n">obtener_nodo</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">T</span><span class="o">.</span><span class="n">obtener_nodo</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">T</span><span class="o">.</span><span class="n">obtener_nodo</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">T</span><span class="o">.</span><span class="n">obtener_nodo</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">T</span><span class="o">.</span><span class="n">obtener_nodo</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
 </pre></div>
@@ -1817,12 +1817,12 @@ In&nbsp;[20]:
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
 padre: None -&gt; valor: 0
-padre: 0 -&gt; valor: 1
 padre: 1 -&gt; valor: 3
 padre: 1 -&gt; valor: 4
+padre: 0 -&gt; valor: 1
 padre: 2 -&gt; valor: 5
-padre: 0 -&gt; valor: 2
 padre: 2 -&gt; valor: 6
+padre: 0 -&gt; valor: 2
 
 
 </pre>
@@ -1855,7 +1855,7 @@ padre: 2 -&gt; valor: 6
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[21]:
+In&nbsp;[13]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1875,8 +1875,8 @@ In&nbsp;[21]:
 <span class="n">T</span> <span class="o">=</span> <span class="n">ArbolPreOrder</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">T</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">T</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">T</span><span class="o">.</span><span class="n">obtener_nodo</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">T</span><span class="o">.</span><span class="n">obtener_nodo</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">T</span><span class="o">.</span><span class="n">obtener_nodo</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">T</span><span class="o">.</span><span class="n">obtener_nodo</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">T</span><span class="o">.</span><span class="n">obtener_nodo</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">T</span><span class="o">.</span><span class="n">obtener_nodo</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 
@@ -1896,9 +1896,9 @@ In&nbsp;[21]:
 <pre>
 padre: None -&gt; valor: 0
 padre: 0 -&gt; valor: 1
-padre: 0 -&gt; valor: 2
 padre: 1 -&gt; valor: 3
 padre: 1 -&gt; valor: 4
+padre: 0 -&gt; valor: 2
 padre: 2 -&gt; valor: 5
 padre: 2 -&gt; valor: 6
 
@@ -1923,7 +1923,7 @@ padre: 2 -&gt; valor: 6
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[22]:
+In&nbsp;[14]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1943,8 +1943,8 @@ In&nbsp;[22]:
 <span class="n">T</span> <span class="o">=</span> <span class="n">ArbolPostOrder</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">T</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">T</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">T</span><span class="o">.</span><span class="n">obtener_nodo</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">T</span><span class="o">.</span><span class="n">obtener_nodo</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">T</span><span class="o">.</span><span class="n">obtener_nodo</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">T</span><span class="o">.</span><span class="n">obtener_nodo</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">T</span><span class="o">.</span><span class="n">obtener_nodo</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">T</span><span class="o">.</span><span class="n">obtener_nodo</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 
@@ -1962,9 +1962,9 @@ In&nbsp;[22]:
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
-padre: 0 -&gt; valor: 1
 padre: 1 -&gt; valor: 3
 padre: 1 -&gt; valor: 4
+padre: 0 -&gt; valor: 1
 padre: 2 -&gt; valor: 5
 padre: 2 -&gt; valor: 6
 padre: 0 -&gt; valor: 2
@@ -1991,7 +1991,7 @@ padre: None -&gt; valor: 0
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[23]:
+In&nbsp;[26]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2019,8 +2019,8 @@ In&nbsp;[23]:
 <span class="n">T</span> <span class="o">=</span> <span class="n">ArbolBFS</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">T</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">T</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">T</span><span class="o">.</span><span class="n">obtener_nodo</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">T</span><span class="o">.</span><span class="n">obtener_nodo</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">T</span><span class="o">.</span><span class="n">obtener_nodo</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">T</span><span class="o">.</span><span class="n">obtener_nodo</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">T</span><span class="o">.</span><span class="n">obtener_nodo</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">T</span><span class="o">.</span><span class="n">obtener_nodo</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 
@@ -2104,7 +2104,7 @@ padre: 2 -&gt; valor: 6
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[24]:
+In&nbsp;[1]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2114,11 +2114,11 @@ In&nbsp;[24]:
         <span class="bp">self</span><span class="o">.</span><span class="n">padre</span> <span class="o">=</span> <span class="n">padre</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">hijo_izquierdo</span> <span class="o">=</span> <span class="bp">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">hijo_derecho</span> <span class="o">=</span> <span class="bp">None</span>
-        
-    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s">&#39;padre: {0}, valor: {0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">padre</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">valor</span><span class="p">)</span>
 
-        
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&#39;padre: {0}, valor: {1}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">padre</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">valor</span><span class="p">)</span>
+
+
 <span class="k">class</span> <span class="nc">ArbolBinario</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nodo_raiz</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nodo_raiz</span> <span class="o">=</span> <span class="n">nodo_raiz</span>
@@ -2126,30 +2126,79 @@ In&nbsp;[24]:
     <span class="k">def</span> <span class="nf">agregar_nodo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">valor</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodo_raiz</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">nodo_raiz</span> <span class="o">=</span> <span class="n">Nodo</span><span class="p">(</span><span class="n">valor</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">nodo_raiz</span><span class="o">.</span><span class="n">valor</span> <span class="o">=</span> <span class="n">valor</span>
 
         <span class="k">else</span><span class="p">:</span>
             <span class="n">temp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodo_raiz</span>
             <span class="n">agregado</span> <span class="o">=</span> <span class="bp">False</span>
-            
+
             <span class="k">while</span> <span class="ow">not</span> <span class="n">agregado</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">valor</span> <span class="o">&lt;=</span> <span class="n">temp</span><span class="o">.</span><span class="n">valor</span><span class="p">:</span>
                     <span class="k">if</span> <span class="n">temp</span><span class="o">.</span><span class="n">hijo_izquierdo</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
                         <span class="n">temp</span><span class="o">.</span><span class="n">hijo_izquierdo</span> <span class="o">=</span> <span class="n">Nodo</span><span class="p">(</span><span class="n">valor</span><span class="p">,</span> <span class="n">temp</span><span class="o">.</span><span class="n">valor</span><span class="p">)</span>
                         <span class="n">agregado</span> <span class="o">=</span> <span class="bp">True</span>
-                        
-                    <span class="k">else</span><span class="p">:</span> <span class="n">temp</span><span class="o">.</span><span class="n">hijo_izquierdo</span>
-                        
+
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">temp</span> <span class="o">=</span> <span class="n">temp</span><span class="o">.</span><span class="n">hijo_izquierdo</span>
+
                 <span class="k">else</span><span class="p">:</span>
                     <span class="k">if</span> <span class="n">temp</span><span class="o">.</span><span class="n">hijo_derecho</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
                         <span class="n">temp</span><span class="o">.</span><span class="n">hijo_derecho</span> <span class="o">=</span> <span class="n">Nodo</span><span class="p">(</span><span class="n">valor</span><span class="p">,</span> <span class="n">temp</span><span class="o">.</span><span class="n">valor</span><span class="p">)</span>
                         <span class="n">agregado</span> <span class="o">=</span> <span class="bp">True</span>
-                        
+
                     <span class="k">else</span><span class="p">:</span>
                         <span class="n">temp</span> <span class="o">=</span> <span class="n">temp</span><span class="o">.</span><span class="n">hijo_derecho</span>
+
+
+
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">recorrer</span><span class="p">(</span><span class="n">nodo</span><span class="p">,</span> <span class="n">lado</span><span class="o">=</span><span class="s">&quot;r&quot;</span><span class="p">):</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+
+            <span class="k">if</span> <span class="n">nodo</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="n">ret</span> <span class="o">+=</span> <span class="s">&#39;{0} -&gt; {1}</span><span class="se">\n</span><span class="s">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nodo</span><span class="p">,</span> <span class="n">lado</span><span class="p">)</span>
+                <span class="n">ret</span> <span class="o">+=</span> <span class="n">recorrer</span><span class="p">(</span><span class="n">nodo</span><span class="o">.</span><span class="n">hijo_izquierdo</span><span class="p">,</span> <span class="s">&#39;i&#39;</span><span class="p">)</span>
+                <span class="n">ret</span> <span class="o">+=</span> <span class="n">recorrer</span><span class="p">(</span><span class="n">nodo</span><span class="o">.</span><span class="n">hijo_derecho</span><span class="p">,</span> <span class="s">&#39;d&#39;</span><span class="p">)</span>
+
+
+            <span class="k">return</span> <span class="n">ret</span>
+
+
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">recorrer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nodo_raiz</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ret</span>
+
+
+<span class="n">T</span> <span class="o">=</span> <span class="n">ArbolBinario</span><span class="p">()</span>
+<span class="n">T</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">T</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">T</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">T</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">T</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+padre: None, valor: 4 -&gt; r
+padre: 4, valor: 1 -&gt; i
+padre: 1, valor: 3 -&gt; d
+padre: 4, valor: 5 -&gt; d
+padre: 5, valor: 20 -&gt; d
+
+
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -2177,7 +2226,7 @@ In&nbsp;[24]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[25]:
+In&nbsp;[6]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2186,7 +2235,7 @@ In&nbsp;[25]:
         <span class="bp">self</span><span class="o">.</span><span class="n">siguiente</span> <span class="o">=</span> <span class="bp">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">valor</span> <span class="o">=</span> <span class="n">valor</span>
 
-<span class="k">class</span> <span class="nc">Lista</span><span class="p">:</span>
+<span class="k">class</span> <span class="nc">ListaLigada</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cola</span> <span class="o">=</span> <span class="bp">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cabeza</span> <span class="o">=</span> <span class="bp">None</span>
@@ -2201,6 +2250,7 @@ In&nbsp;[25]:
 
     <span class="k">def</span> <span class="nf">obtener</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">posicion</span><span class="p">):</span>
         <span class="n">nodo</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cabeza</span>
+        
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">posicion</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">nodo</span><span class="p">:</span>
                 <span class="n">nodo</span> <span class="o">=</span> <span class="n">nodo</span><span class="o">.</span><span class="n">siguiente</span>
@@ -2209,23 +2259,25 @@ In&nbsp;[25]:
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">nodo</span><span class="o">.</span><span class="n">valor</span>
 
-    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">s</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cabeza</span><span class="p">:</span>
-            <span class="n">nodo</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cabeza</span>
-            <span class="k">while</span> <span class="n">nodo</span><span class="p">:</span>
-                <span class="n">s</span> <span class="o">+=</span> <span class="s">&quot;,&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">nodo</span><span class="o">.</span><span class="n">valor</span><span class="p">)</span>
-                <span class="n">nodo</span> <span class="o">=</span> <span class="n">nodo</span><span class="o">.</span><span class="n">siguiente</span>
-        <span class="k">return</span> <span class="s">&quot;[&quot;</span><span class="o">+</span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">+</span><span class="s">&quot;]&quot;</span>
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">rep</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+        <span class="n">nodo_actual</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cabeza</span>
+        
+        <span class="k">while</span> <span class="n">nodo_actual</span><span class="p">:</span>
+            <span class="n">rep</span> <span class="o">+=</span> <span class="s">&#39;{0}-&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nodo_actual</span><span class="o">.</span><span class="n">valor</span><span class="p">)</span>
+            <span class="n">nodo_actual</span> <span class="o">=</span> <span class="n">nodo_actual</span><span class="o">.</span><span class="n">siguiente</span>
+        
+        <span class="k">return</span> <span class="n">rep</span>
     
-<span class="n">l</span> <span class="o">=</span> <span class="n">Lista</span><span class="p">()</span>
+<span class="n">l</span> <span class="o">=</span> <span class="n">ListaLigada</span><span class="p">()</span>
 <span class="n">l</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">l</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
-
+<span class="n">l</span><span class="o">.</span><span class="n">agregar_nodo</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">obtener</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
 <span class="k">print</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">obtener</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -2239,9 +2291,9 @@ In&nbsp;[25]:
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
-[2,4]
 posicion no encontrada
 4
+2-&gt;4-&gt;
 
 </pre>
 </div>
