@@ -32,7 +32,7 @@ También podemos ver que es posible llegar desde la `estación 0` a la `estació
 ### Entrega
 
 * No debes modificar el archivo `estaciones_metro.py`.
-* Asegúrate de subir a tu repositorio los archivos `main.py` y `estaciones_metro.py`. 
+* Asegúrate de subir a tu repositorio los archivos `main.py` (renombrado según las instrucciones de arriba) y `estaciones_metro.py`. 
 
 ### Recomendaciones
 
