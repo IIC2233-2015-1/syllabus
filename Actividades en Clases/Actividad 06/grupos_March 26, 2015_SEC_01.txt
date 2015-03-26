@@ -1,0 +1,42 @@
+=======================================================
+               GRUPOS INDIVIDUALES               
+=======================================================
+0   13632566             PEDRO IGNACIO       BAHAMONDES
+1   12634506            TERESITA MARIA      IRARRAZAVAL
+2   1363772J              JUAN IGNACIO           CORTES
+3   13636103               JORGE ANUAR             RABI
+4   12622184              PEDRO ANDRES            ACUNA
+5   12639176             SOFIA IGNACIA         ZAMBRANO
+6   13632604                      Saul        Langarica
+7   08633649               JUAN CARLOS           TORRES
+8   13633066            GONZALO RAFAEL           VARGAS
+9   12635901                  JONATHAN           BUDNIK
+10  1262361J  FELIPE ALEJANDRO EDUARDO          CORNEJO
+11  13638149            CLAUDIA ESTHER     LUKASCHEWSKY
+12  13635190           ENRIQUE IGNACIO          URRUTIA
+13  1363478J              GONZALO JOSE           ZUNINO
+14  13635174           VICENTE ALBERTO             BESA
+15  1363822J          CRISTIAN IGNACIO          CARRENO
+16  13206281           Nicolas Ignacio            Julio
+17  12624349         RAUL JUAN DE DIOS          DEL RIO
+18  1263803J            JUAN FRANCISCO         CUMSILLE
+19  13633872              JORGE ANDRES  GARCIA-HUIDOBRO
+20  13621866                    NELSON             DIAZ
+21  13633880         SEBASTIAN ANTONIO          MENESES
+22  10636277            RICARDO ISAIAS        SEPULVEDA
+23  12636398            ALBERTO ANDRES    MOENNE-LOCCOZ
+24  11636831            BENJAMIN TOMAS           IBARRA
+ 
+================================================================================
+                              GRUPOS DE A DOS                              
+================================================================================
+25  13634933  JUAN IGNACIO  MARQUEZ -  12639370  VICENTE  CLARO
+26  12622095  Guillermo Hernan  Poblete -  12637769  PAULA MACARENA LISSETTE  ENCINA
+27  13632531  ARIEL ESTEBAN  SEISDEDOS -  13632906  PATRICIO ALBERTO  ORREGO
+28  13635476  DIEGO  ALLIENDE -  11636564  ROSARIO VALENTINA  CALDERON
+29  13633600  RODRIGO ANDRES  ALLIENDE -  1363688J  KATHERINE FABIOLA  GUERRERO
+30  12636339  VICTOR MANUEL  VIDAURRE -  13622625  ALDO  MARTINI
+31  1362072J  IGNACIO TOMAS  HERMOSILLA -  12635278  GAD AARON  LEWINSOHN
+32  13632892  OSCAR RICARDO  RIOS -  14209179  FABIO RAUL  TRAVERSO
+33  13638645  MIGUEL ANDRES  VERGARA -  13620800  LEONARDO ANDRES  CACERES
+34  13635603  IGNACIO JOSE  TORESANO -  13634917  VICENTE JOAQUIN  MORENO
