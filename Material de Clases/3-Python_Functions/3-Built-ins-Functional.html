@@ -1716,7 +1716,7 @@ Len
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[1]:
+In&nbsp;[32]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1760,7 +1760,7 @@ In&nbsp;[1]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[9]:
+In&nbsp;[33]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1802,7 +1802,7 @@ In&nbsp;[9]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[2]:
+In&nbsp;[34]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1844,7 +1844,7 @@ In&nbsp;[2]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[14]:
+In&nbsp;[35]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1852,13 +1852,36 @@ In&nbsp;[14]:
 
 <span class="k">class</span> <span class="nc">MyLista</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">d</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="c">#cada vez que se llame con un key que no existe, se genera como defaul el valor 0, que sale de llamar</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="c">#cada vez que se llame con un key que no existe, se genera como default el valor 0, que sale de llamar</span>
         <span class="c">#a &quot;int&quot; sin argumentos (probar tipeando int() en la consola de Python).</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">list</span><span class="o">.</span><span class="n">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">)):</span><span class="c">#aquí llamamos a la función len de la clase list</span>
             <span class="n">d</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="bp">self</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">:</span> <span class="n">d</span><span class="p">[</span><span class="bp">self</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">})</span>
         <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><span class="c">#aquí se llama al método len de d, que es un defaultdict</span>
     
 <span class="n">L</span> <span class="o">=</span> <span class="n">MyLista</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">))</span>
+
+
+<span class="c">#otra forma de hacer lo mismo</span>
+<span class="k">class</span> <span class="nc">MyLista2</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="c">#cada vez que se llame con un key que no existe, se genera como default el valor 0, que sale de llamar</span>
+        <span class="c">#a &quot;int&quot; sin argumentos (probar tipeando int() en la consola de Python).</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span><span class="c">#aquí llamamos a la función len de la clase list</span>
+            <span class="n">d</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">i</span> <span class="p">:</span> <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">})</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><span class="c">#aquí se llama al método len de d, que es un defaultdict</span>
+    
+<span class="n">L</span> <span class="o">=</span> <span class="n">MyLista2</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">))</span>
+
+
+<span class="c">#otra forma de hacer lo mismo</span>
+<span class="k">class</span> <span class="nc">MyLista3</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><span class="c">#aquí se llama al método len de d, que es un defaultdict</span>
+    
+<span class="n">L</span> <span class="o">=</span> <span class="n">MyLista3</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
 <span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">))</span>
 </pre></div>
 
@@ -1873,6 +1896,8 @@ In&nbsp;[14]:
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
+7
+7
 7
 
 </pre>
@@ -1899,7 +1924,7 @@ In&nbsp;[14]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[16]:
+In&nbsp;[36]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1971,7 +1996,7 @@ Reversed
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[29]:
+In&nbsp;[37]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2036,7 +2061,7 @@ Enumerate
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[31]:
+In&nbsp;[38]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2092,7 +2117,7 @@ Zip
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[35]:
+In&nbsp;[39]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2150,7 +2175,7 @@ La función zip() también es la inversa de sí misma:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[65]:
+In&nbsp;[40]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2201,7 +2226,7 @@ Comprehensions
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[69]:
+In&nbsp;[41]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2238,7 +2263,7 @@ In&nbsp;[69]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[70]:
+In&nbsp;[42]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2284,7 +2309,7 @@ Comprensión de Sets y Diccionarios
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[36]:
+In&nbsp;[43]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2338,7 +2363,7 @@ Podemos crear diccionarios con los resultados de búsqueda:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[121]:
+In&nbsp;[44]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2370,7 +2395,7 @@ In&nbsp;[121]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[123]:
+In&nbsp;[45]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2386,7 +2411,7 @@ In&nbsp;[123]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[123]:</div>
+    Out[45]:</div>
 
 
 <div class="output_text output_subarea output_pyout">
@@ -2418,7 +2443,7 @@ Iterables e Iteradores
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[183]:
+In&nbsp;[46]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2442,7 +2467,7 @@ In&nbsp;[183]:
 11
 32
 43
-&lt;method-wrapper &apos;__iter__&apos; of list object at 0x104c2a188&gt;
+&lt;method-wrapper &apos;__iter__&apos; of list object at 0x104d3ff08&gt;
 
 </pre>
 </div>
@@ -2453,7 +2478,7 @@ In&nbsp;[183]:
 <pre>
 <span class="ansired">---------------------------------------------------------------------------</span>
 <span class="ansired">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansigreen">&lt;ipython-input-183-12f0c2472895&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
+<span class="ansigreen">&lt;ipython-input-46-12f0c2472895&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
 <span class="ansigreen">      2</span> <span class="ansigreen">for</span> c <span class="ansigreen">in</span> x<span class="ansiblue">:</span> print<span class="ansiblue">(</span>c<span class="ansiblue">)</span><span class="ansiblue"></span>
 <span class="ansigreen">      3</span> print<span class="ansiblue">(</span>x<span class="ansiblue">.</span>__iter__<span class="ansiblue">)</span><span class="ansiblue"></span>
 <span class="ansigreen">----&gt; 4</span><span class="ansired"> </span>next<span class="ansiblue">(</span>x<span class="ansiblue">)</span><span class="ansired">#aqui podemos ver que una lista no es un iterador</span><span class="ansiblue"></span>
@@ -2478,7 +2503,7 @@ In&nbsp;[183]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[187]:
+In&nbsp;[47]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2514,7 +2539,7 @@ In&nbsp;[187]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[37]:
+In&nbsp;[48]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2542,7 +2567,7 @@ In&nbsp;[37]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[38]:
+In&nbsp;[49]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2633,7 +2658,7 @@ K Trebol
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[193]:
+In&nbsp;[50]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2655,7 +2680,7 @@ In&nbsp;[193]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[194]:
+In&nbsp;[51]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2746,7 +2771,7 @@ K Trebol
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[39]:
+In&nbsp;[52]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2773,7 +2798,7 @@ In&nbsp;[39]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[40]:
+In&nbsp;[53]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2816,7 +2841,7 @@ In&nbsp;[40]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[42]:
+In&nbsp;[54]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2891,7 +2916,7 @@ Generadores
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[45]:
+In&nbsp;[55]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2961,7 +2986,7 @@ Ejemplo:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[90]:
+In&nbsp;[56]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3011,7 +3036,7 @@ Funciones Generadoras
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[65]:
+In&nbsp;[57]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3039,7 +3064,7 @@ In&nbsp;[65]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[69]:
+In&nbsp;[58]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3065,7 +3090,7 @@ In&nbsp;[69]:
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
-&lt;generator object conteo_dec at 0x10506ae10&gt;
+&lt;generator object conteo_dec at 0x104d9a6c0&gt;
 
 Contando en forma decreciente desde 5
 5
@@ -3084,7 +3109,7 @@ Contando en forma decreciente desde 5
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[47]:
+In&nbsp;[59]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3147,7 +3172,7 @@ In&nbsp;[47]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[51]:
+In&nbsp;[60]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3199,7 +3224,7 @@ In&nbsp;[51]:
 <pre>
 <span class="ansired">---------------------------------------------------------------------------</span>
 <span class="ansired">StopIteration</span>                             Traceback (most recent call last)
-<span class="ansigreen">&lt;ipython-input-51-74f567459f64&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
+<span class="ansigreen">&lt;ipython-input-60-74f567459f64&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
 <span class="ansigreen">     16</span> print<span class="ansiblue">(</span>next<span class="ansiblue">(</span>res<span class="ansiblue">)</span><span class="ansiblue">)</span><span class="ansiblue"></span>
 <span class="ansigreen">     17</span> print<span class="ansiblue">(</span>next<span class="ansiblue">(</span>res<span class="ansiblue">)</span><span class="ansiblue">)</span><span class="ansiblue"></span>
 <span class="ansigreen">---&gt; 18</span><span class="ansired"> </span>print<span class="ansiblue">(</span>next<span class="ansiblue">(</span>res<span class="ansiblue">)</span><span class="ansiblue">)</span><span class="ansired">#aquí se acabó la lista</span><span class="ansiblue"></span>
@@ -3228,7 +3253,7 @@ También podemos interactuar con la función enviando mensajes
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[54]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3258,7 +3283,7 @@ In&nbsp;[54]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[55]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3274,31 +3299,11 @@ In&nbsp;[55]:
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-None
-10.0
-7.5
-5.0
-3.75
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[89]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3321,24 +3326,6 @@ In&nbsp;[89]:
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-Buscando a Hola
-Esta linea contiene Hola
-Esta linea si va a salir (porque contiene Hola :) )
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -3356,7 +3343,7 @@ Lambda Functions
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[93]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3377,115 +3364,6 @@ In&nbsp;[93]:
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-
-
-<div class="output_png output_subarea ">
-<img src="data:image/png;base64,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
-BySt6Bg26/ks6qqQX5G0o8vjw2ySqgKXtMvMnjezvy47mB6qMJfL/HSn1FFJvX74ypjPUDbkDROn
-S7om/e/5DjO7orDohleFuRxGpeYy7Uxcr+SEeKZZz+e8PiDbzHYq+S9Fp2+6++PpmG9J+sDdx7qM
-y301d5gYh/Bpd/+tmf2hpJ1mdjA9I8hMBnEWsjLeJ85vnRGMu/fZ25D7fHaR7Ya8/Azzfi9IWu3u
-75vZdZIeU1K2q5qy53IYlZlLM1ss6VFJX0/P4M8a0nG/73zOK7m7+7X9njezm5XUiv6sx5A3Ja2e
-cX+1kt9ImRkU45Cv8dv0z7fN7J+V/Nc502SUQZy5z6XUP8504Wq5u0+a2cWS3uo2roj57GKY+ekc
-syp9rEgD43T3/5lx+wkz+6GZLXX3dwqKcRhVmMuBqjKXZrZA0i8k/cTdH+syZNbzmWe3zGZJt0u6
-wd3/r8ew9iYpMztPySap7XnFNEDXupuZLTKzP0hvny/pLyT17BAoQK/6YBXmcrukL6e3v6zkLOgM
-Jc7nMPOzXdJNaWw9N+TlbGCcZrbMzCy9fbWSluYqJXapGnM5UBXmMn3/ByTtd/fv9xg2+/nMcQX4
-kKTXJe1Ov36YPr5C0r/MGHedktXhw5LuLHiV+i+V1LH+V9KkpCc6Y5T0R0o6FvZIeqnoGIeNs+y5
-TN9/qaRdkiYk/VpSo0rz2W1+JN0q6dYZY+5Jn9+rPh1UZcYp6W/Sudsj6d8kbSwhxp8q2bX+Qfqz
-+ZWKzmXfOCsyl38q6VQaw3S+vG6+88kmJgCIEJ+hCgARIrkDQIRI7gAQIZI7AESI5A4AESK5A0CE
-SO4AECGSOwBE6P8B4z8/+B5eLJwAAAAASUVORK5CYII=
-"
->
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -3503,7 +3381,7 @@ MAP
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[96]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3514,140 +3392,6 @@ In&nbsp;[96]:
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-
-
-<div class="output_png output_subarea ">
-<img src="data:image/png;base64,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
-"
->
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -3664,7 +3408,7 @@ DgABIrgDQIAI7gAQIII7AASI4A4AASK4A0CACO4AEKD/B2KM5cI0sykRAAAAAElFTkSuQmCC
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[59]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3687,24 +3431,6 @@ In&nbsp;[59]:
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-[18, 14, 14, 14]
-[17, 10, 19, 23]
-[37.5, 33.0, 24.5, 21.0]
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -3722,7 +3448,7 @@ Filter
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[60]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3736,23 +3462,6 @@ In&nbsp;[60]:
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-[1, 1, 3, 5, 13, 21, 55, 89]
-[2, 8, 34]
-
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -3774,7 +3483,7 @@ Reduce
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[62]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3786,30 +3495,11 @@ In&nbsp;[62]:
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">
-    Out[62]:</div>
-
-
-<div class="output_text output_subarea output_pyout">
-<pre>
-45
-</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[99]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3835,32 +3525,6 @@ In&nbsp;[99]:
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-reduce time: 0:00:00.000984
-38
-max(generator) time: 0:00:00.000560
-38
- Estamos cercanos a tener un problema.
-
- Otro warning!
-
- Casi un bug
-
- Tenga mucho cuidado
-
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -3890,7 +3554,7 @@ Decoradores
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[100]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3902,22 +3566,6 @@ In&nbsp;[100]:
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-Hola Juan
-
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -3934,7 +3582,7 @@ Hola Juan
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[103]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3952,22 +3600,6 @@ In&nbsp;[103]:
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-Hola Pedro
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -3981,7 +3613,7 @@ Hola Pedro
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[106]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3999,22 +3631,6 @@ In&nbsp;[106]:
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-Hola Diego
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -4028,7 +3644,7 @@ Hola Diego
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[107]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -4046,22 +3662,6 @@ In&nbsp;[107]:
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-Hola a todos!!
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -4075,7 +3675,7 @@ Hola a todos!!
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[115]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -4092,22 +3692,6 @@ In&nbsp;[115]:
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-Saludos para tí Ana!
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -4121,7 +3705,7 @@ Saludos para tí Ana!
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[114]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -4147,29 +3731,6 @@ In&nbsp;[114]:
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-4297366528
-2
-4297366528
-2
-Entrando a get_mensaje()...
-4297366560
-3
-Saludos para tí Ana!
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -4189,7 +3750,7 @@ Decoradores
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[6]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -4213,23 +3774,6 @@ In&nbsp;[6]:
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-9227465
-Tiempo de ejecución: 0:00:05.863439
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -4243,7 +3787,7 @@ Tiempo de ejecución: 0:00:05.863439
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[15]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -4266,23 +3810,6 @@ In&nbsp;[15]:
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-9227465
-Tiempo de ejecución: 0:00:00.000139
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -4298,7 +3825,7 @@ Usando la notación alternativa para decoradores:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[16]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -4318,23 +3845,6 @@ In&nbsp;[16]:
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-9227465
-Tiempo de ejecución: 0:00:00.000174
-
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -4376,7 +3886,7 @@ In&nbsp;[]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[97]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -4422,7 +3932,7 @@ In&nbsp;[97]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[98]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -4446,39 +3956,6 @@ In&nbsp;[98]:
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-calculando...
-4
-calculando...
-3
-calculando...
-4
-lo teníamos disponible
-4
-calculando...
-4
-lo teníamos disponible
-4
-calculando...
-4
-lo teníamos disponible
-4
-calculando...
-4
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -4494,7 +3971,7 @@ Ej: Decorador para proteger acceso
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[42]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -4524,7 +4001,7 @@ In&nbsp;[42]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[43]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -4547,43 +4024,6 @@ In&nbsp;[43]:
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-usa mucho pisco!
-
-</pre>
-</div>
-</div>
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_text output_pyerr">
-<pre>
-<span class="ansired">---------------------------------------------------------------------------</span>
-<span class="ansired">Unauthorized</span>                              Traceback (most recent call last)
-<span class="ansigreen">&lt;ipython-input-43-fd5dfc7ee51e&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
-<span class="ansigreen">     11</span> s<span class="ansiblue">.</span>receta_pisco_sour<span class="ansiblue">(</span><span class="ansiblue">)</span><span class="ansiblue"></span>
-<span class="ansigreen">     12</span> user <span class="ansiblue">=</span> pedro<span class="ansiblue"></span>
-<span class="ansigreen">---&gt; 13</span><span class="ansired"> </span>s<span class="ansiblue">.</span>receta_pisco_sour<span class="ansiblue">(</span><span class="ansiblue">)</span><span class="ansiblue"></span>
-
-<span class="ansigreen">&lt;ipython-input-42-42bd9197b7d8&gt;</span> in <span class="ansicyan">__protect</span><span class="ansiblue">(*args, **kw)</span>
-<span class="ansigreen">     11</span>             user <span class="ansiblue">=</span> globals<span class="ansiblue">(</span><span class="ansiblue">)</span><span class="ansiblue">.</span>get<span class="ansiblue">(</span><span class="ansiblue">&apos;user&apos;</span><span class="ansiblue">)</span><span class="ansiblue"></span>
-<span class="ansigreen">     12</span>             <span class="ansigreen">if</span> user <span class="ansigreen">is</span> <span class="ansigreen">None</span> <span class="ansigreen">or</span> role <span class="ansigreen">not</span> <span class="ansigreen">in</span> user<span class="ansiblue">.</span>roles<span class="ansiblue">:</span><span class="ansiblue"></span>
-<span class="ansigreen">---&gt; 13</span><span class="ansired">                 </span><span class="ansigreen">raise</span> Unauthorized<span class="ansiblue">(</span><span class="ansiblue">&quot;No te voy a decir!!&quot;</span><span class="ansiblue">)</span><span class="ansired">#exceptions coming soon!</span><span class="ansiblue"></span>
-<span class="ansigreen">     14</span>             <span class="ansigreen">return</span> function<span class="ansiblue">(</span><span class="ansiblue">*</span>args<span class="ansiblue">,</span> <span class="ansiblue">**</span>kw<span class="ansiblue">)</span><span class="ansiblue"></span>
-<span class="ansigreen">     15</span>         <span class="ansigreen">return</span> __protect<span class="ansiblue"></span>
-
-<span class="ansired">Unauthorized</span>: No te voy a decir!!</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -4593,6 +4033,74 @@ usa mucho pisco!
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3> 
+También podemos decorar clases de la misma forma que decoramos las funciones:
+</h3> 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[61]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="c">#supongamos que queremos decorar la clase tal que se imprima un warning cuando gastamos más de lo que tenemos</span>
+<span class="k">def</span> <span class="nf">agrega_warning</span><span class="p">(</span><span class="n">clase</span><span class="p">):</span>
+    <span class="n">prev_gastar</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">clase</span><span class="p">,</span> <span class="s">&#39;gastar&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">new_gastar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dinero</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Estás gastando más de lo que tienes, se generará una deuda en tu cuenta!!&quot;</span><span class="p">)</span>
+        <span class="n">prev_gastar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dinero</span><span class="p">)</span>
+        
+
+    <span class="nb">setattr</span><span class="p">(</span><span class="n">clase</span><span class="p">,</span> <span class="s">&#39;gastar&#39;</span><span class="p">,</span> <span class="n">new_gastar</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">clase</span>
+
+<span class="nd">@agrega_warning</span>
+<span class="k">class</span> <span class="nc">Comprar</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dinero</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dinero</span> <span class="o">=</span> <span class="n">dinero</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">deuda</span> <span class="o">=</span> <span class="mi">0</span>
+        
+    <span class="k">def</span> <span class="nf">gastar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cantidad</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dinero</span> <span class="o">-=</span> <span class="n">cantidad</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dinero</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">deuda</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dinero</span><span class="p">)</span><span class="c">#representamos la deuda como un numero positivo aunque signifique plata negativa</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dinero</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Saldo Actual = {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dinero</span><span class="p">))</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">Comprar</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">c</span><span class="o">.</span><span class="n">gastar</span><span class="p">(</span><span class="mi">1200</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+Estás gastando más de lo que tienes, se generará una deuda en tu cuenta!!
+Saldo Actual = 0
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
