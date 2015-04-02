@@ -30,11 +30,12 @@
 | J 19 | EDD-1 Colas & Stacks 		|
 | M 24 | EDD-2 Nodos & Árboles		|
 | J 26 | Functional-1 Iterables & Iteradores & Generadores	|
-| M 31 | 		|
+| M 31 | Functional-2 Map & Reduce & Filter		|
 
 ### Abril
 | Día  | Contenido              	|
 |:-----|:------------------------------	|
+| J 02 | Functional-3 Decorators				|
 | L 13 | **I1**				|
 
 # Programa
