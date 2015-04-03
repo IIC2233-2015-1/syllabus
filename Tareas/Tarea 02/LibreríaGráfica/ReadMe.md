@@ -1,29 +1,34 @@
-##Caracter韘ticas de la interfaz:
+##Caracter铆sticas de la interfaz:
 
-* __Botones de navegaci髇__: son 4, cada uno entrega un valor diferente al ser 
+* __Botones de navegaci贸n__: son 4, cada uno entrega un valor diferente al ser 
 presionado:
-	..*Arriba: (0, 1)
-	..*Abajo: (0,-1)
-	..*Izquierda: (-1, 0)
-	..*Derecha: (1, 0)
+
+ - Arriba: (0, 1)
+ - Abajo: (0,-1)
+ - Izquierda: (-1, 0)
+ - Derecha: (1, 0)
+
 * __Barra de zoom__: retorna un valor del 0 al 99, el valor actual se indica entre los
-botones de navegaci髇.
-* __Mapa__: grilla donde est醤 los elementos actuales.
+botones de navegaci贸n.
+
+* __Mapa__: grilla donde est谩n los elementos actuales.
+
 * __Barra de consultas__: puedes cambiar de consulta presionando las flechas.
-Para aquellas consultas que requieran m醩 de un elemento,
-sep醨elos con una "," y sin espacios. Se toma el supuesto de que las consultas toman los argumentos de la siguiente forma:
-	..*consulta1: (Ubicaci髇, regi髇)
-	..*consulta2: (Ubicaciones, regi髇) [Siendo ubicaciones una lista]
-	..*consulta3: (ubicacion1, ubicacion2)
-	..*consulta4: (ubicaci髇, cantidad de sub-grillas)
-	..*consulta5: (ubicaci髇, cantidad)
+Para aquellas consultas que requieran m谩s de un elemento,
+sep谩relos con una "," y sin espacios. Se toma el supuesto de que las consultas toman los argumentos de la siguiente forma:
+ - consulta1: (Ubicaci贸n, regi贸n)
+ - consulta2: (Ubicaciones, regi贸n) [Siendo ubicaciones una lista]
+ - consulta3: (ubicacion1, ubicacion2)
+ - consulta4: (ubicaci贸n, cantidad de sub-grillas)
+ - consulta5: (ubicaci贸n, cantidad)
+
 * Las dimensiones son fijas, no se pueden modificar.
 
 
 
-##C髆o usar:
+##C贸mo usar:
 
-* Para usar la interfaz se toma la clase "Interfaz" del m骴ulo "interfaz". Esta clase
-recibe como par醡etros la funci髇 de zoom, la funci髇 de navegaci髇, el mapa inicial,
+* Para usar la interfaz se toma la clase "Interfaz" del m贸dulo "interfaz". Esta clase
+recibe como par谩metros la funci贸n de zoom, la funci贸n de navegaci贸n, el mapa inicial,
 y una lista de funciones que corresponden a las consultas. Estas funciones deben ser entregadas
-por el orden que est醤 en el enunciado.
+por el orden que est谩n en el enunciado.
