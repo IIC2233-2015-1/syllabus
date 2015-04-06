@@ -36,7 +36,7 @@
 | Día  | Contenido              	|
 |:-----|:------------------------------	|
 | J 02 | Functional-3 Decorators				|
-| M 07 | MetaClases1				|
+| M 07 | MetaClases				|
 | J 09 | 				|
 | L 13 | **I1**	: Hasta MetaClases			|
 
