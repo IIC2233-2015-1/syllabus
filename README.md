@@ -37,7 +37,7 @@
 |:-----|:------------------------------	|
 | J 02 | Functional-3 Decorators				|
 | M 07 | MetaClases				|
-| J 09 | 				|
+| J 09 | MetaClases				|
 | L 13 | **I1**	: Hasta MetaClases			|
 
 # Programa
