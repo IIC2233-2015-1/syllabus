@@ -7,7 +7,7 @@ class Sample:
         self.lista = [[0 for y in range(32)] for x in range(36)]
 
     def func_alumno1(self, num):
-        valor = 32 - num if num < 32 else 2
+        valor = 38 - num if num < 32 else 2
         self.lista = [[0 for y in range(valor)] for x in range(valor)]
 
         return self.lista
@@ -28,4 +28,7 @@ if __name__ == '__main__':
                  sample.consulta1, sample.consulta5, sample.consulta5]
     interfaz = Interfaz(
         sample.func_alumno1, sample.func_alumno2, sample.lista, funciones)
+    # Modificar
+    interfaz.full = False
+    interfaz.size = 9
     interfaz.run()
