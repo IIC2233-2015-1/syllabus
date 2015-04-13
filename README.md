@@ -86,15 +86,18 @@
 
 ## Descripcion del curso
 
-Este curso enseña técnicas para diseñar, implementar, ejecutar y evaluar herramientas de software que resuelven problemas algorítmicos a partir de especificaciones detalladas. En particular, el curso enseña construcciones avanzadas de programación orientada a objetos, estructuras de datos fundamentales, diseño básico de algoritmos y técnicas de análisis. 
+Este curso enseña técnicas para diseñar, implementar, ejecutar y evaluar herramientas de software que
+resuelven problemas algorítmicos a partir de especificaciones detalladas. En particular, el curso enseña
+construcciones avanzadas de programación orientada a objetos, estructuras de datos fundamentales,
+diseño básico de algoritmos y técnicas de análisis.
 
 ## Objetivos
 
 1. Descomponer problemas grandes para diseñar y estructurar sus soluciones.
 1. Crear diseños orientados a objetos para problemas simples y comunicar estos diseños a través de documentación externa y comentarios en el código.
 1. Aplicar conceptos de orientación a objetos (herencia, polimorfismo, interfaces) y estructuras de datos fundamentales (listas ligadas, stacks, colas, árboles binarios y tablas de hash), para diseñar y escribir programas complejos en el lenguaje de programación Python, pudiendo extender este conocimiento a distintos lenguajes.
-1. Usar herramientas de programación comunes (debuggers y sistemas de control de versiones); técnicas de programación (bibliotecas de programación orientada a objetos y pruebas unitarias); y un entorno de desarrollo de software para editar, compilar, y depurar programas.
-1. Generar software desde cero, con código de alto nivel, de fácil re-utilización, actualización y mantenimiento. Incluyendo interfaces gráficas significativas, totalmente funcionales.
+1. Usar herramientas de programación comunes (debuggers y sistemas de control de versiones); técnicas de programación (bibliotecas de programación orientada a objetos y pruebas unitarias); y un entorno de desarrollo de software para editar, compilar, y depurar programas.
+1. Generar software desde cero, con código de alto nivel, de fácil re­utilización, actualización y mantenimiento. Incluyendo interfaces gráficas significativas, totalmente funcionales.
 
 ## Contenidos
 
@@ -105,7 +108,7 @@ Este curso enseña técnicas para diseñar, implementar, ejecutar y evaluar herr
 	* Herencia múltiple
 	* Propiedades. 
 * Estructuras de Datos: 
-	* Àrboles
+	* Árboles
 	* Diccionarios
 	* Colas
 	* Stacks
@@ -152,7 +155,7 @@ Este curso enseña técnicas para diseñar, implementar, ejecutar y evaluar herr
 	* Cátedra: 2
 	* Ayudantía/Laboratorio 1
 
-El curso se realiza utilizando metodologías de enseñanza teóricas-prácticas centradas en el alumno que permitan a los estudiantes desarrollar las competencias definidas en los objetivos del curso, tanto en cátedras como en ayudantías. 
+El curso se realiza utilizando metodologías de enseñanza teóricas-prácticas centradas en el alumno que permitan a los estudiantes desarrollar las competencias definidas en los objetivos del curso, tanto en cátedras como en ayudantías.
 
 Este curso está diseñado de forma tal que el alumno dedique al estudio personal un promedio de 6 hrs. a la semana.
 
@@ -190,6 +193,7 @@ La página de [Issues](https://github.com/IIC2233-2015-1/syllabus/issues) se uti
 Dentro de Issues, [las entradas se pueden etiquetar dentro de ciertas categorías predefinidas](https://help.github.com/articles/applying-labels-to-issues-and-pull-requests/) para mantener el orden y facilitar la búsquda de problemas similares. Una entrada puede tener múltiples etiquetas. Los ayudantes nos encargaremos de ir etiquetando las preguntas en el foro.
 
 * [Ausencia de material prometido](https://github.com/IIC2233-2015-1/syllabus/labels/Ausencia%20de%20material%20prometido): para solicitar material que no haya sido subido al repositorio.
+* [Actividades](https://github.com/IIC2233-2015-1/syllabus/labels/Actividades): Relacionado con las actividades en clase.
 * [Código](https://github.com/IIC2233-2015-1/syllabus/labels/C%C3%B3digo): sobre métodos, clases, sintaxis, PEP8.
 * Tareas *n*: sobre el enunciado de la tarea número *n*.
 * [Interrogación](https://github.com/IIC2233-2015-1/syllabus/labels/Interrogaci%C3%B3n): sobre fechas, contenido, recorreción de interrogaciones.
