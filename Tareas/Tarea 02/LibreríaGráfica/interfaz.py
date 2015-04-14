@@ -1,7 +1,7 @@
 import sys
 from PyQt4.QtGui import QGridLayout, QLabel, QFrame, QListWidgetItem
 from PyQt4.QtGui import QSlider, QLCDNumber, QLineEdit, QListWidget
-from PyQt4.QtCore import pyqtSignal, QObject
+from PyQt4.QtCore import pyqtSignal, QObject, Qt
 from PyQt4.QtGui import QColor, QApplication, QWidget, QPushButton
 
 
@@ -18,7 +18,7 @@ class Consultas(QFrame):
         self.initUI()
 
     def initUI(self):
-        self.setFixedSize(830, 120)
+        #self.setFixedSize(830, 120)
         self.setStyleSheet(
             """
             QWidget{ background-color: #FFFFFF; border:0px; }
@@ -172,12 +172,13 @@ class Navegador(QFrame):
 
 class Mapa(QFrame):
 
-    def __init__(self, mapa_inicial, func_zoom, func_move):
+    def __init__(self, mapa_inicial, func_zoom, func_move, size):
         super().__init__()
         self.__good_map = mapa_inicial
         self.__mapa = mapa_inicial
         self.__func_zoom = func_zoom
         self.__func_move = func_move
+        self.__size = size
         self.initUI()
 
     def initUI(self):
@@ -189,7 +190,7 @@ class Mapa(QFrame):
             font-size: 11px;}
             """)
 
-        self.setFixedSize(560, 560)
+        #self.setFixedSize(560, 560)
 
         self.__mapa_grid = QGridLayout()
         self.__mapa_grid.setSpacing(1)
@@ -211,12 +212,12 @@ class Mapa(QFrame):
         mapa = self.__mapa
         self.limpiar_grid(self.__mapa_grid)
         try:
-            size = str(int(36/len(mapa)*3))
+            size = str(int(36 / len(mapa) * self.__size))
             for y in range(len(mapa)):
                 for x in range(len(mapa[y])):
                     position = (y, x)
                     label = QLabel(str(mapa[y][x]))
-                    style = "QLabel{font-size: "+size+"px;}"
+                    style = "QLabel{font-size: " + size + "px;}"
                     label.setStyleSheet(style)
                     self.__mapa_grid.addWidget(label, *position)
 
@@ -230,31 +231,43 @@ class Mapa(QFrame):
         for i in reversed(range(grid.count())):
             grid.itemAt(i).widget().setParent(None)
 
+    def aumentar_size(self):
+        self.__size += 1
+        self.imprimir_mapa()
+
+    def disminuir_size(self):
+        if self.__size - 1 > 1:
+            self.__size -= 1
+        self.imprimir_mapa()
+
 
 class MainWindow(QWidget):
 
-    def __init__(self, func_zoom, func_move, mapa_inicial, funcs):
+    def __init__(self, full, size, func_zoom, func_move, mapa_inicial, funcs):
         super().__init__()
         self.__func_zoom = func_zoom
         self.__func_move = func_move
         self.__mapa = mapa_inicial
         self.__funcs = funcs
 
-        self.initUI()
+        self.initUI(full, size)
 
-    def initUI(self):
+    def initUI(self, full, size):
         self.setStyleSheet(
             """
             QWidget{ background-color: #FFCC33;
             border:1px solid #000099; }
             """
         )
-        self.setFixedSize(850, 700)
+        if full:
+            self.showFullScreen()
+        else:
+            self.setFixedSize(850, 700)
         self.setWindowTitle('Tarea 2')
 
         # Elementos de la ventana
         lcd = QLCDNumber()
-        self.mapa = Mapa(self.__mapa, self.__func_zoom, self.__func_move)
+        self.mapa = Mapa(self.__mapa, self.__func_zoom, self.__func_move, size)
         self.barra_zoom = QSlider()
         self.navegador = Navegador(lcd)
         self.consultas = Consultas(self.__funcs)
@@ -282,6 +295,15 @@ class MainWindow(QWidget):
         self.setLayout(self.grid)
         self.show()
 
+    def keyPressEvent(self, event):
+        key = event.key()
+        if key == Qt.Key_Escape or key == Qt.Key_Space:
+            self.close()
+        elif key == Qt.Key_Plus or key == Qt.Key_W:
+            self.mapa.aumentar_size()
+        elif key == Qt.Key_Minus or key == Qt.Key_S:
+            self.mapa.disminuir_size()
+
 
 class Interfaz:
 
@@ -291,15 +313,19 @@ class Interfaz:
         func_zoom: funcion encargada de hacer zoom sobre el mapa
         func_move: funcion encargada de navegar por el mapa
         mapa_inicial: primera vision del mapa
-
         """
         self.func_zoom = func_zoom
         self.func_move = func_move
         self.mapa_inicial = mapa_inicial
         self.funcs = funcs
 
+        # Tamaño de la letra de la grilla.
+        self.size = 9
+        # Para pantalla completa.
+        self.full = False
+
     def run(self):
         app = QApplication(sys.argv)
-        window = MainWindow(
+        window = MainWindow(self.full, self.size,
             self.func_zoom, self.func_move, self.mapa_inicial, self.funcs)
         sys.exit(app.exec_())
