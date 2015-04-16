@@ -40,6 +40,7 @@
 | J 09 | MetaClases				|
 | L 13 | **I1**	: Hasta MetaClases		- 18:30 Salas **S1**:B17 , **S2**:B18	|
 | M 14 | Suspensión de Cátedra 	|
+| J 16 | Abstract Classes 		|
 
 # Programa
 
