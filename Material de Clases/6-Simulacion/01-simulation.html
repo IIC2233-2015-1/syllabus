@@ -1771,12 +1771,12 @@ div#notebook {
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[288]:
+In&nbsp;[14]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
-<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">choice</span><span class="p">,</span> <span class="n">randrange</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">choice</span><span class="p">,</span> <span class="n">randrange</span><span class="p">,</span> <span class="n">random</span>
 
 
 <span class="k">class</span> <span class="nc">Vehiculo</span><span class="p">:</span>
@@ -1787,7 +1787,7 @@ In&nbsp;[288]:
     
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39; Cuando se crea un nuevo vehículo se escoge aleatoriamente el tipo de vehículo entrante y su tiempo promedio de atención&#39;&#39;&#39;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">tipo_vehiculo</span> <span class="o">=</span> <span class="n">choice</span><span class="p">([</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">Vehiculo</span><span class="o">.</span><span class="n">tp</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tipo_vehiculo</span> <span class="o">=</span> <span class="n">choice</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">Vehiculo</span><span class="o">.</span><span class="n">tp</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tiempo_revision</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">Vehiculo</span><span class="o">.</span><span class="n">tp</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">tipo_vehiculo</span><span class="p">]</span> <span class="o">+</span> <span class="p">((</span><span class="mi">4</span> <span class="o">*</span> <span class="n">random</span><span class="p">())</span> <span class="o">-</span> <span class="mi">2</span><span class="p">))</span>
         
     <span class="k">def</span> <span class="nf">obtener_tiempo_promedio</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1878,16 +1878,16 @@ In&nbsp;[288]:
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
+Atendiendo: auto con un promedio de 26 min
+Atendiendo: auto con un promedio de 26 min
+Atendiendo: camioneta con un promedio de 29 min
 Atendiendo: moto con un promedio de 9 min
-Atendiendo: camioneta con un promedio de 31 min
-Atendiendo: camioneta con un promedio de 31 min
-Atendiendo: auto con un promedio de 25 min
-Atendiendo: moto con un promedio de 11 min
-Atendiendo: auto con un promedio de 25 min
+Atendiendo: camioneta con un promedio de 29 min
+Atendiendo: moto con un promedio de 12 min
 
 Estadísticas
-Tiempo promedio de espera  22.00 min.
-Tiempo total de atención de la planta fue de 132.00 min
+Tiempo promedio de espera  21.83 min.
+Tiempo total de atención de la planta fue de 131.00 min
 Total de vehículos atendidos: 6
 
 </pre>
