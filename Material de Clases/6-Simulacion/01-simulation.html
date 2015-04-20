@@ -1701,8 +1701,8 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Durante el modelamiento de objetos hacemos supuestos del sistema respecto de las relaciones entre objetos y datos, y usamos algoritmos para representar su comportamiento. En general estos modelos son una aproximación con un cierto nivel de fidelidad de los sistemas reales. Si bien existen sistemas simples, como el de aceleración de gravedad, que pueden ser fácilmente modelados mediante una solución analítica, los sistemas reales incluyen comportamientos más complejos difíciles de representar usando solo un modelo analítico. En estos casos el funcionamiento del sistema debe ser estimado por simulación.</p>
-<p>La <b>simulación</b> consiste en el proceso mediante el cual se <b>modela</b> un sistema y se realizan <b>experimentos</b> sobre el modelo diseñado. El objetivo principal es comprender el comportamiento del sistema o evaluar el funcionamiento del modelo. Una de las principales ventajas de la simulación son: reducción de costos y riesgos, y una experimentación más rápida que usando sistema reales. En este curso nos focalizaremos en el de <b>Simulación de Eventos Discretos</b> (<b>DES</b>) debido a las ventajas que ofrece.</p>
+<p>Durante el modelamiento de objetos hacemos supuestos del sistema respecto de las relaciones entre objetos y datos, y usamos algoritmos para representar su comportamiento. En general estos modelos son una aproximación, con un cierto nivel de fidelidad, de los sistemas reales. Si bien existen sistemas simples, como el de aceleración de gravedad, que pueden ser fácilmente modelados mediante una solución analítica, los sistemas reales incluyen comportamientos más complejos difíciles de representar usando solo un modelo analítico. En estos casos el funcionamiento del sistema debe ser estimado por simulación.</p>
+<p>La <b>simulación</b> consiste en el proceso mediante el cual se <b>modela</b> un sistema y se realizan <b>experimentos</b> sobre el modelo diseñado. El objetivo principal es comprender el comportamiento del sistema o evaluar el funcionamiento del modelo. Dentro de las principales ventajas de la simulación se encuentran: la reducción de costos y riesgos, como también una experimentación más rápida comparado con el uso de sistema reales. En este curso nos focalizaremos en el de <b>Simulación de Eventos Discretos</b> (<b>DES</b>) debido a las ventajas que ofrece.</p>
 </div>
 </div>
 </div>
@@ -1725,20 +1725,20 @@ div#notebook {
 <ul>
 <li>Un conjunto de variables de estado que permiten describir el estado del sistema simulado</li>
 <li>Una subrutina de inicialización de variables</li>
-<li>Un reloj que lleva registro del tiempo real (T) en que se encuentra la simulación</li>
-<li>Un conjunto eventos que generan secuencias de actividades que cambian el estado del sistema</li>
-<li>Un arreglo que registra la posición de cada evento y el tiempo en el cual ocurrirá el siguiente evento</li>
+<li>Un reloj que lleva registro del tiempo real en que se encuentra la simulación</li>
+<li>Un conjunto de eventos que generan secuencias de actividades que originan el estado del sistema</li>
+<li>Un arreglo para regi la posición de cada evento y el tiempo en el cual ocurrirá el siguiente evento</li>
 <li>Una subrutina para cada evento, que actualiza el estado del sistema cuando ocurre un evento de este tipo.</li>
 <li>Un programa principal que controla la ocurrencia de los eventos y que transfiere el control a la subrutina del evento correspondiente</li>
-<li>Indicadores que van llevando cuenta de las estadísticas de interés</li>
+<li>Indicadores para calcular estadísticas del sistema</li>
 </ul>
-<p>El resultado de la simulación consiste en estadísticas que resumen y cuantifican el fucionamiento y aspectos de interés en el sistema modelado, como por ejemplo, tiempos de espera promedio en una cola de un cajero automático en alguna sucursal bancaria. La replicación de la simlución en distintas ejecuciones permite la elaboración de intervalos de confianza que sustentar la calidad de los resultados.</p>
+<p>El resultado final de la simulación consiste en estadísticas que resumen y cuantifican el fucionamiento y aspectos de interés en el sistema modelado, como por ejemplo, el tiempo de espera promedio en una cola de un cajero automático en alguna sucursal bancaria. La replicación de la simlución en distintas ejecuciones permite la elaboración de intervalos de confianza que sustentan la calidad de los resultados.</p>
 <p>Uno de los componentes necesarios para la simulación es el tiempo, de los cuales existen dos tipos:</p>
 <ul>
 <li>tiempo de simulación: corresponde a un reloj virtual que cuantifica el tiempo de ejecución en el mundo de la simulación</li>
 <li>tiempo de ejecución: tiene relación con el tiempo de cpu consumido por la simulación</li>
 </ul>
-<p>Para obtener resultados en tiempos razonables necesitamos que el tiempo de ejecución sea pequeño. En términos de los resultados a obtener y la organización de los experimentos nos interesa mucho más el tiempo de simulación.</p>
+<p>Para obtener resultados en tiempos razonables necesitamos que el tiempo de ejecución sea pequeño. Sin embargo, en términos de resultados y organización de los experimentos tiene mayor relevancia el tiempo de simulación.</p>
 </div>
 </div>
 </div>
@@ -1757,14 +1757,14 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Este corresponde a uno los paradigmas de simulación más simples. En este paradigma el tiempo de simulación total es dividido en pequeños intervalos. En cada intervalo el programa debe verificar todas las actividades involucradas en el sistema modelado. Esto es, verificar los servicios que están activos y eventos como la completitud del servicio.</p>
+<p>Corresponde a uno de los modos de simulación más simple. En este caso el tiempo total de simulación es dividido en pequeños intervalos. En cada intervalo el programa verifica todas las actividades involucradas en el sistema modelado. Esto es, verificar los servicios que están activos y eventos como la completitud del servicio.</p>
 <p>El algoritmo general de este tipo de simulación es:</p>
 <pre><code>MIENTRAS el tiempo simulación no termine
     aumentar tiempo en una unidad
     si ocurren eventos en este intervalo de tiempo:
         simular los eventos
         </code></pre>
-<p>Por ejemplo, consideremos el caso de modelar un taller de revisión técnica que opera como un sistema de colas de espera, en donde los vehículos (o clientes) llegan aleatoriamente con una probabilidad P<sub>c</sub> y son atendidos por un servidor con un tiempo aleatorio. Este tipo de problemas de modelamiento se conoce como M/M/k según <i>notación Kendal</i>. Bajo esta notación se define que los clientes llegan al sistema de forma Markoviana (M) o estocástica, el tiempo de servicio o atención en la cola es también Markoviana (M), y existe <i>k</i> servidores para atender a cada elemento en la cola. En nuestro ejemplo <i>k</i> = 1.</p>
+<p>Por ejemplo, consideremos el caso de modelar un taller de revisión técnica. Este opera como un sistema de colas de espera, en donde los vehículos (o clientes) llegan aleatoriamente con una probabilidad P<sub>c</sub> y son atendidos por un servidor en un tiempo aleatorio. Este tipo de problemas de modelamiento se conoce como M/M/k según <i>notación Kendal</i>. En esta notación se define que los clientes llegan al sistema de forma Markoviana (M), el tiempo de servicio o atención en la cola es también Markoviana (M), y existe <i>k</i> servidores para atender a cada elemento que espera en la cola. En nuestro ejemplo <i>k</i> = 1.</p>
 </div>
 </div>
 </div>
@@ -1841,8 +1841,7 @@ In&nbsp;[288]:
 <span class="sd">    Se define el ciclo de simulación de 1000 minutos donde en cada instante t se evelúa si llega un nuevo vehículo</span>
 <span class="sd">    a la cola de revisión</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
-        
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>      
         <span class="k">if</span> <span class="n">llega_nuevo_auto</span><span class="p">():</span>
             <span class="n">v</span> <span class="o">=</span> <span class="n">Vehiculo</span><span class="p">()</span>
             <span class="n">cola_revision</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
@@ -1928,7 +1927,7 @@ Total de vehículos atendidos: 6
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>En este paradigma de DES existe una secuencia discreta de eventos distribuidas en el tiempo, en donde cada evento ocurre en un instante <b>t</b> determinado y genera un cambio en el estado del sistema. A difrerencia de la simulación sincrónica, en DES se asume que entre eventos consecutivos no existen cambios del sistema, lo que permite saltar directamente entre eventos próximos y no depender del tiempo de simulación para transitar entre todos ellos. Para el funcionamiento de la simulación se incorpora un conjunto de eventos que representa a todos los eventos pendientes. Durante cada iteración se genera y agrega un nuevo evento al conjunto de eventos. Este conjunto de eventos es representados generalmente por una cola.</p>
+<p>En este paradigma de DES existe una secuencia discreta de eventos distribuidas en el tiempo, en donde cada evento ocurre en un instante <b>t</b> determinado y genera un cambio en el estado del sistema. A difrerencia de la simulación sincrónica, en DES se asume que entre eventos consecutivos no existen cambios del sistema, lo que permite saltar directamente entre eventos próximos y no depender del tiempo de simulación para transitar entre todos ellos. Para el funcionamiento de esta simulación se incorpora un conjunto de eventos que representa a todos los eventos pendientes. En cada iteración se genera y agrega un nuevo evento al conjunto de eventos. Este conjunto de eventos se representa generalmente usando una cola.</p>
 <p>El algoritmo general de una simulación basa en eventos discretos es el siguiente:</p>
 <pre><code>MIENTRAS la lista de eventos no esté vacía y el tiempo de simulación no termine
     tomar un evento desde el principio de la lista de eventos
@@ -1942,15 +1941,15 @@ Total de vehículos atendidos: 6
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Para efectos de la simulación, la ocurrencia de los eventos es modelada usando distribuciones de probabilidad que le brindan a este proceso un comportamiento aleatorio similar a lo que podría darse en la realidad. Por ejemplo, dado que la llegada de clientes a una fila es un proceso independiente, el tiempo de ocurrencia de este evento puede ser modelado usando una distribución exponencial. Del mismo modo, la atención también puede ser modelada con una misma distribución exponencial.</p>
-<p>En una distribución exponencial se necesita definir la tasa promedio de ocurrencia de este evento, <i>e.g.</i>, si una persona llega a la cola cada 20 minutos entonces tiene una tasa de 1/20. En python los tiempos aleatorios usando esta distribución exponencial se obtienen de la siguiente forma:</p>
+<p>Para efectos de la simulación, la ocurrencia de los eventos es modelada usando distribuciones de probabilidad que brindan al proceso un comportamiento aleatorio similar a lo que podría ocurrir en la realidad. Por ejemplo, dado que la llegada de clientes a una fila es un proceso independiente, el tiempo de ocurrencia de este evento puede ser modelado usando una distribución exponencial. Del mismo modo, la atención de cada cliente también puede ser modelada con una misma distribución exponencial.</p>
+<p>En una distribución exponencial es necesario definir la tasa promedio de ocurrencia del evento, <i>e.g.</i>, si una persona llega a la cola cada 20 minutos entonces tiene una tasa de 1/20. En python los tiempos aleatorios usando esta distribución exponencial se obtienen usando la funcion expovariate, tal como se explica a continuación.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[13]:
+In&nbsp;[1]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1976,9 +1975,9 @@ In&nbsp;[13]:
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
-2
-8
-101
+0
+29
+112
 
 </pre>
 </div>
@@ -1993,14 +1992,14 @@ In&nbsp;[13]:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>A continuación veremos el mismo ejemplo de atención para una planta de revisión técnica desde el punto de vista de simulación de eventos discretos, e incorporando ocurrencia aleatoria de los eventos.</p>
+<p>Ahora veamos el mismo ejemplo anterior para la planta de revisión técnica desde el punto de vista de simulación de eventos discretos.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[36]:
+In&nbsp;[8]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2020,19 +2019,20 @@ In&nbsp;[36]:
 
         
 <span class="k">class</span> <span class="nc">Taller</span><span class="p">:</span>
-    <span class="sd">&#39;&#39;&#39; Esta clase modela la linea de revision en el taller&#39;&#39;&#39;</span>
-    <span class="n">tipo</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;moto&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="o">/</span><span class="mi">8</span><span class="p">,</span> <span class="s">&#39;auto&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="o">/</span><span class="mi">15</span><span class="p">,</span> <span class="s">&#39;camioneta&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="o">/</span><span class="mi">20</span><span class="p">}</span>
+    <span class="c">#&#39;&#39;&#39; Esta clase modela la linea de revision en el taller&#39;&#39;&#39;</span>
+    <span class="c">#tipo = {&#39;moto&#39;: 1.0/8, &#39;auto&#39;: 1.0/15, &#39;camioneta&#39;: 1.0/20}</span>
     
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tipos</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tarea_actual</span> <span class="o">=</span> <span class="bp">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tiempo_revision</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tipos</span> <span class="o">=</span> <span class="n">tipos</span>
 
     <span class="k">def</span> <span class="nf">ocupado</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tarea_actual</span> <span class="o">!=</span> <span class="bp">None</span>
 
     <span class="k">def</span> <span class="nf">pasar_vehiculo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vehiculo</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tarea_actual</span> <span class="o">=</span> <span class="n">vehiculo</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">tiempo_revision</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">expovariate</span><span class="p">(</span><span class="n">Taller</span><span class="o">.</span><span class="n">tipo</span><span class="p">[</span><span class="n">vehiculo</span><span class="o">.</span><span class="n">tipo_vehiculo</span><span class="p">])</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span>  <span class="c"># crea un tiempo de atención aleatorio</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tiempo_revision</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">expovariate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tipos</span><span class="p">[</span><span class="n">vehiculo</span><span class="o">.</span><span class="n">tipo_vehiculo</span><span class="p">])</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span>  <span class="c"># crea un tiempo de atención aleatorio</span>
     
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s">&#39;[PLANTA] Entra: {0} con un tiempo de atencion de esperado de {1} min.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tarea_actual</span><span class="o">.</span><span class="n">tipo_vehiculo</span><span class="p">,</span> 
@@ -2040,23 +2040,26 @@ In&nbsp;[36]:
         
 
 <span class="k">class</span> <span class="nc">Simulacion</span><span class="p">:</span>
-    <span class="sd">&#39;&#39;&#39; Esta clase permite construir la simulación. También se puede usar una función como en el caso anterior&#39;&#39;&#39;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tiempo_maximo</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; Esta clase permite construir la simulación. También se puede usar una función como en el caso anterior. Se inicializarn todas las</span>
+<span class="sd">        variables utilizadas en la simulación.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tiempo_maximo</span><span class="p">,</span> <span class="n">tasa_llegada</span><span class="p">,</span> <span class="n">tipos</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tiempo_maximo_sim</span> <span class="o">=</span> <span class="n">tiempo_maximo</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tasa_llegada</span> <span class="o">=</span> <span class="n">tasa_llegada</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tiempo_simulacion</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tiempo_proximo_auto</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tiempo_atencion</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tiempo_espera</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">planta</span> <span class="o">=</span> <span class="n">Taller</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">planta</span> <span class="o">=</span> <span class="n">Taller</span><span class="p">(</span><span class="n">tipos</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cola_espera</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">vehiculos_atendidos</span> <span class="o">=</span> <span class="mi">0</span>
     
-    <span class="k">def</span> <span class="nf">proximo_auto</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">tiempo_proximo_auto</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tiempo_simulacion</span> <span class="o">+</span> <span class="nb">round</span><span class="p">(</span><span class="n">expovariate</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span> <span class="c"># un auto llega cada 5 minutos</span>
+    <span class="k">def</span> <span class="nf">proximo_auto</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tasa_llegada</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tiempo_proximo_auto</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tiempo_simulacion</span> <span class="o">+</span> <span class="nb">round</span><span class="p">(</span><span class="n">expovariate</span><span class="p">(</span><span class="n">tasa_llegada</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span> <span class="c"># un auto llega cada 5 minutos</span>
    
     <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39; Este método ejecuta la simulación de la revisión y la cola de espera&#39;&#39;&#39;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">proximo_auto</span><span class="p">()</span>  <span class="c"># se estima aleatoreamente la llegada de un auto a la linea de revisión</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proximo_auto</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tasa_llegada</span><span class="p">)</span>  <span class="c"># se estima aleatoreamente la llegada de un auto a la linea de revisión</span>
 
         <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
             <span class="sd">&#39;&#39;&#39;</span>
@@ -2080,7 +2083,7 @@ In&nbsp;[36]:
 <span class="sd">                llegada se genera el próximo evento mediante el método próximo auto</span>
 <span class="sd">                &#39;&#39;&#39;</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">cola_espera</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Vehiculo</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tiempo_simulacion</span><span class="p">))</span>                
-                <span class="bp">self</span><span class="o">.</span><span class="n">proximo_auto</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">proximo_auto</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tasa_llegada</span><span class="p">)</span>
 
                 <span class="k">print</span><span class="p">(</span><span class="s">&#39;[COLA] Llega {0} en tiempo simulación: {1} min.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cola_espera</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">tipo_vehiculo</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tiempo_simulacion</span><span class="p">))</span>
                 
@@ -2111,10 +2114,18 @@ In&nbsp;[36]:
         <span class="k">print</span><span class="p">(</span><span class="s">&#39;Tiempo total atención {0} min.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tiempo_atencion</span><span class="p">))</span>
         <span class="k">print</span><span class="p">(</span><span class="s">&#39;Total de vehículos atendidos: {0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vehiculos_atendidos</span><span class="p">))</span>
         <span class="k">print</span><span class="p">(</span><span class="s">&#39;Tiempo promedio de espera {0} min.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tiempo_espera</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">vehiculos_atendidos</span><span class="p">)))</span>
-   
 
-<span class="n">s</span> <span class="o">=</span> <span class="n">Simulacion</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="c"># se escoge 50 min. para generar una cantidad acotada de resultados. Experimente con tiempos mayores.</span>
-<span class="n">s</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Para este ejemplo la simulación se inicializa con 50 min como tiempo máximo, para generar una cantidad acotada de resultados. </span>
+<span class="sd">    La tasa de llegada de los vehículos se define en un vehícuo cada 5 minutos. También se define un diccionario con los tipos de vehículos que atenderá la planta y la tasa promedio</span>
+<span class="sd">    de atención para cada tipo de vehículo. Experimente con tiempos mayores y otras tasas de atención y llegada. </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="n">vehiculos</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;moto&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="o">/</span><span class="mi">8</span><span class="p">,</span> <span class="s">&#39;auto&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="o">/</span><span class="mi">15</span><span class="p">,</span> <span class="s">&#39;camioneta&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="o">/</span><span class="mi">20</span><span class="p">}</span>
+    <span class="n">tasa_llegada_vehiculos</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">5</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">Simulacion</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">tasa_llegada_vehiculos</span><span class="p">,</span> <span class="n">vehiculos</span><span class="p">)</span> 
+    <span class="n">s</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -2128,41 +2139,36 @@ In&nbsp;[36]:
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
-[SIMULACION] tiempo: 3 min
-[COLA] Llega auto en tiempo simulación: 3 min.
-[PLANTA] Entra: auto con un tiempo de atencion de esperado de 4 min.
+[SIMULACION] tiempo: 1 min
+[COLA] Llega camioneta en tiempo simulación: 1 min.
+[PLANTA] Entra: camioneta con un tiempo de atencion de esperado de 32 min.
 [SIMULACION] tiempo: 7 min
 [COLA] Llega auto en tiempo simulación: 7 min.
-[SIMULACION] tiempo: 7 min
-[PLANTA] Sale: auto a los 7 min.
-[SIMULACION] tiempo: 12 min
-[COLA] Llega moto en tiempo simulación: 12 min.
-[PLANTA] Entra: auto con un tiempo de atencion de esperado de 35 min.
-[SIMULACION] tiempo: 14 min
-[COLA] Llega moto en tiempo simulación: 14 min.
-[SIMULACION] tiempo: 15 min
-[COLA] Llega camioneta en tiempo simulación: 15 min.
-[SIMULACION] tiempo: 22 min
-[COLA] Llega moto en tiempo simulación: 22 min.
-[SIMULACION] tiempo: 26 min
-[COLA] Llega moto en tiempo simulación: 26 min.
-[SIMULACION] tiempo: 27 min
-[COLA] Llega camioneta en tiempo simulación: 27 min.
-[SIMULACION] tiempo: 35 min
-[COLA] Llega auto en tiempo simulación: 35 min.
-[SIMULACION] tiempo: 36 min
-[COLA] Llega camioneta en tiempo simulación: 36 min.
-[SIMULACION] tiempo: 37 min
-[COLA] Llega camioneta en tiempo simulación: 37 min.
+[SIMULACION] tiempo: 10 min
+[COLA] Llega auto en tiempo simulación: 10 min.
+[SIMULACION] tiempo: 19 min
+[COLA] Llega moto en tiempo simulación: 19 min.
+[SIMULACION] tiempo: 28 min
+[COLA] Llega auto en tiempo simulación: 28 min.
+[SIMULACION] tiempo: 29 min
+[COLA] Llega auto en tiempo simulación: 29 min.
+[SIMULACION] tiempo: 33 min
+[PLANTA] Sale: camioneta a los 33 min.
+[SIMULACION] tiempo: 34 min
+[COLA] Llega auto en tiempo simulación: 34 min.
+[PLANTA] Entra: auto con un tiempo de atencion de esperado de 9 min.
 [SIMULACION] tiempo: 43 min
-[COLA] Llega moto en tiempo simulación: 43 min.
+[PLANTA] Sale: auto a los 43 min.
 [SIMULACION] tiempo: 47 min
-[PLANTA] Sale: auto a los 47 min.
+[COLA] Llega auto en tiempo simulación: 47 min.
+[PLANTA] Entra: auto con un tiempo de atencion de esperado de 30 min.
+[SIMULACION] tiempo: 48 min
+[COLA] Llega auto en tiempo simulación: 48 min.
 
 Estadísticas:
-Tiempo total atención 47 min.
+Tiempo total atención 77 min.
 Total de vehículos atendidos: 2
-Tiempo promedio de espera 22 min.
+Tiempo promedio de espera 34 min.
 
 </pre>
 </div>
@@ -2177,7 +2183,7 @@ Tiempo promedio de espera 22 min.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Como podemos observar, la variación del tiempo de simulación depende exclusivamente de los eventos que van ocurriendo a lo largo de la ejecución. En cada iteración un vehículo ingresa a la cola de espera y se genera aleatoriamente el tiempo de llegada del próximo vehículo (o evento). Cada vez que un vehículo ingresa al taller genera un cambio en el estado del sistema, en este caso el taller está ocupado, y se establece un tiempo aleatorio de atención. Mientras no salga un vehículo del taller, los vehículos entrantes se siguen acumulando en la cola de espera y el tiempo de simulación <b>&quot;avanza&quot;</b>. Al salir un vehículo, es ese el nuevo tiempo para el sistema y genera un nuevo cambio en los estados.</p>
+<p>Como podemos observar, la variación del tiempo de simulación depende exclusivamente de los eventos que ocurren a lo largo de la simulación. En cada iteración ingresa un vehículo a la cola de espera y se genera aleatoriamente el tiempo de llegada para el próximo vehículo (o evento). Luego, cada vez que un vehículo ingresa al taller ocurre un cambio en el estado del sistema, en este caso el taller está ocupado, y se establece un tiempo aleatorio de atención. Mientras no salga un vehículo del taller, los vehículos entrantes se siguen acumulando en la cola de espera y el tiempo de simulación <b>&quot;avanza&quot;</b>. Al salir un vehículo del taller, es ese el nuevo tiempo para el sistema y genera un nuevo cambio en los estados.</p>
 </div>
 </div>
 </div>
