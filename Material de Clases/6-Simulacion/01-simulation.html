@@ -1739,8 +1739,52 @@ div#notebook {
 <li>tiempo de ejecución: tiene relación con el tiempo de cpu consumido por la simulación</li>
 </ul>
 <p>Para obtener resultados en tiempos razonables necesitamos que el tiempo de ejecución sea pequeño. Sin embargo, en términos de resultados y organización de los experimentos tiene mayor relevancia el tiempo de simulación.</p>
+<p>Para efectos de la simulación, la ocurrencia de los eventos es modelada usando distribuciones de probabilidad que brindan al proceso un comportamiento aleatorio similar a lo que podría ocurrir en la realidad. Por ejemplo, dado que la llegada de clientes a una fila es un proceso independiente, el tiempo de ocurrencia de este evento puede ser modelado usando una distribución exponencial. Del mismo modo, la atención de cada cliente también puede ser modelada con una misma distribución exponencial.</p>
+<p>En una distribución exponencial es necesario definir la tasa promedio de ocurrencia del evento, <i>e.g.</i>, si una persona llega a la cola cada 20 minutos entonces tiene una tasa de 1/20. En python los tiempos aleatorios usando esta distribución exponencial se obtienen usando la funcion expovariate, tal como se explica a continuación.</p>
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[105]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">expovariate</span>
+
+<span class="sd">&#39;&#39;&#39; Agregamos un factor de 0.5 para evitar que el tiempo retornado por la distribución sea 0&#39;&#39;&#39;</span>
+<span class="n">tiempo_llegada_cliente</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">expovariate</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">20</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">tiempo_atencion_1</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">expovariate</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">50</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">tiempo_atencion_2</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">expovariate</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">50</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">tiempo_llegada_cliente</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">tiempo_atencion_1</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">tiempo_atencion_2</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+34
+22
+28
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -1771,7 +1815,7 @@ div#notebook {
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[14]:
+In&nbsp;[103]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1781,17 +1825,18 @@ In&nbsp;[14]:
 
 <span class="k">class</span> <span class="nc">Vehiculo</span><span class="p">:</span>
     <span class="sd">&#39;&#39;&#39; Esta clase modela los vehiculos que llegan al taller&#39;&#39;&#39;</span>    
-
-    <span class="sd">&#39;&#39;&#39; El diccionario define los tipos de vehículos válidos y su tiempo de atención promedio&#39;&#39;&#39;</span>
-    <span class="n">tp</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;moto&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">&#39;auto&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s">&#39;camioneta&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">}</span>
-    
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vehiculos</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39; Cuando se crea un nuevo vehículo se escoge aleatoriamente el tipo de vehículo entrante y su tiempo promedio de atención&#39;&#39;&#39;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">tipo_vehiculo</span> <span class="o">=</span> <span class="n">choice</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">Vehiculo</span><span class="o">.</span><span class="n">tp</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">tiempo_revision</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">Vehiculo</span><span class="o">.</span><span class="n">tp</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">tipo_vehiculo</span><span class="p">]</span> <span class="o">+</span> <span class="p">((</span><span class="mi">4</span> <span class="o">*</span> <span class="n">random</span><span class="p">())</span> <span class="o">-</span> <span class="mi">2</span><span class="p">))</span>
-        
-    <span class="k">def</span> <span class="nf">obtener_tiempo_promedio</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tiempo_revision</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tipo_vehiculo</span> <span class="o">=</span> <span class="n">choice</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">vehiculos</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tiempo_revision</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">expovariate</span><span class="p">(</span><span class="n">vehiculos</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">tipo_vehiculo</span><span class="p">])</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">tiempo_revision</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tiempo_revision</span>
+    
+    <span class="nd">@tiempo_revision.setter</span>
+    <span class="k">def</span> <span class="nf">tiempo_revision</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">valor</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tiempo_revision</span> <span class="o">=</span> <span class="n">valor</span>
         
     <span class="k">def</span> <span class="nf">mostrar_tipo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">print</span><span class="p">(</span><span class="s">&#39;Atendiendo: {0} con un promedio de {1} min&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tipo_vehiculo</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tiempo_revision</span><span class="p">))</span>
@@ -1799,18 +1844,17 @@ In&nbsp;[14]:
         
 <span class="k">class</span> <span class="nc">Taller</span><span class="p">:</span>
     <span class="sd">&#39;&#39;&#39; Esta clase modela la linea de revision en el taller&#39;&#39;&#39;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">autos_por_hora</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">tasa_atencion</span> <span class="o">=</span> <span class="n">autos_por_hora</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tarea_actual</span> <span class="o">=</span> <span class="bp">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tiempo_revision</span> <span class="o">=</span> <span class="mi">0</span>
 
     <span class="k">def</span> <span class="nf">ocupado</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tarea_actual</span> <span class="o">!=</span> <span class="bp">None</span>
 
-    <span class="k">def</span> <span class="nf">proximo_auto</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auto</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">tarea_actual</span> <span class="o">=</span> <span class="n">auto</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">tiempo_revision</span> <span class="o">=</span> <span class="n">auto</span><span class="o">.</span><span class="n">obtener_tiempo_promedio</span><span class="p">()</span>
-        <span class="n">auto</span><span class="o">.</span><span class="n">mostrar_tipo</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">proximo_auto</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vehiculo</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tarea_actual</span> <span class="o">=</span> <span class="n">vehiculo</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tiempo_revision</span> <span class="o">=</span> <span class="n">vehiculo</span><span class="o">.</span><span class="n">tiempo_revision</span>
+        <span class="n">vehiculo</span><span class="o">.</span><span class="n">mostrar_tipo</span><span class="p">()</span>
         
     <span class="k">def</span> <span class="nf">tick</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">tarea_actual</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">:</span>
@@ -1820,16 +1864,18 @@ In&nbsp;[14]:
 
         
 <span class="k">def</span> <span class="nf">llega_nuevo_auto</span><span class="p">():</span>
-    <span class="sd">&#39;&#39;&#39; Esta funcion modela la llegada de un auto nuevo a la cola&#39;&#39;&#39;</span>
-    <span class="n">num</span> <span class="o">=</span> <span class="n">randrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">201</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">num</span> <span class="o">==</span> <span class="mi">200</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Esta funcion modela si llega o no un auto nuevo a la cola. Se muestrea de una distribución de probabilidad uniforme. El método retorna</span>
+<span class="sd">    True si el valor entregado por la función random es mayor a un valor dado.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">random</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="mf">0.8</span>
 
 
-<span class="k">def</span> <span class="nf">revision_tecnica</span><span class="p">():</span>
+<span class="k">def</span> <span class="nf">revision_tecnica</span><span class="p">(</span><span class="n">max_tiempo</span><span class="p">,</span> <span class="n">vehiculos</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39; Esta funcion maneja el proceso  o servicio de revision en el taller&#39;&#39;&#39;</span>
     
-    <span class="c"># se crea una planta de revisión con capacidad de 5 autos/hora</span>
-    <span class="n">planta_revision</span> <span class="o">=</span> <span class="n">Taller</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+    <span class="c"># se crea una planta de revisión</span>
+    <span class="n">planta_revision</span> <span class="o">=</span> <span class="n">Taller</span><span class="p">()</span>
     
     <span class="c"># cola de revision vacia</span>
     <span class="n">cola_revision</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span>
@@ -1838,19 +1884,18 @@ In&nbsp;[14]:
     <span class="n">tiempo_espera</span> <span class="o">=</span> <span class="p">[]</span>
 
     <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Se define el ciclo de simulación de 1000 minutos donde en cada instante t se evelúa si llega un nuevo vehículo</span>
+<span class="sd">    Se define el ciclo de simulación al máximo tiempo en minutos donde en cada instante t se evelúa si llega un nuevo vehículo</span>
 <span class="sd">    a la cola de revisión</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>      
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_tiempo</span><span class="p">):</span>      
         <span class="k">if</span> <span class="n">llega_nuevo_auto</span><span class="p">():</span>
-            <span class="n">v</span> <span class="o">=</span> <span class="n">Vehiculo</span><span class="p">()</span>
-            <span class="n">cola_revision</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+            <span class="n">cola_revision</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Vehiculo</span><span class="p">(</span><span class="n">vehiculos</span><span class="p">))</span>
         
         <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">planta_revision</span><span class="o">.</span><span class="n">ocupado</span><span class="p">())</span> <span class="ow">and</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cola_revision</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
             <span class="c"># se extrae el proximo auto en la cola de atención</span>
-            <span class="n">proximo_auto</span> <span class="o">=</span> <span class="n">cola_revision</span><span class="o">.</span><span class="n">popleft</span><span class="p">()</span>
-            <span class="n">tiempo_espera</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">proximo_auto</span><span class="o">.</span><span class="n">tiempo_revision</span><span class="p">)</span>
-            <span class="n">planta_revision</span><span class="o">.</span><span class="n">proximo_auto</span><span class="p">(</span><span class="n">proximo_auto</span><span class="p">)</span>
+            <span class="n">ac_auto</span> <span class="o">=</span> <span class="n">cola_revision</span><span class="o">.</span><span class="n">popleft</span><span class="p">()</span>
+            <span class="n">tiempo_espera</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ac_auto</span><span class="o">.</span><span class="n">tiempo_revision</span><span class="p">)</span>
+            <span class="n">planta_revision</span><span class="o">.</span><span class="n">proximo_auto</span><span class="p">(</span><span class="n">ac_auto</span><span class="p">)</span>
         
         <span class="c"># descuenta un tick de tiempo al auto en espera</span>
         <span class="n">planta_revision</span><span class="o">.</span><span class="n">tick</span><span class="p">()</span>
@@ -1864,7 +1909,11 @@ In&nbsp;[14]:
     <span class="k">print</span><span class="p">(</span><span class="s">&#39;Total de vehículos atendidos: {0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tiempo_espera</span><span class="p">)))</span>
 
 
-<span class="n">revision_tecnica</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">vehiculos</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;moto&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="o">/</span><span class="mi">8</span><span class="p">,</span> <span class="s">&#39;auto&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="o">/</span><span class="mi">15</span><span class="p">,</span> <span class="s">&#39;camioneta&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="o">/</span><span class="mi">20</span><span class="p">}</span> <span class="c"># define los tipos de vehículos y eltiempo de atención promedio</span>
+    <span class="n">maximo_tiempo</span> <span class="o">=</span> <span class="mi">200</span>
+    
+    <span class="n">revision_tecnica</span><span class="p">(</span><span class="n">maximo_tiempo</span><span class="p">,</span> <span class="n">vehiculos</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -1878,17 +1927,26 @@ In&nbsp;[14]:
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
-Atendiendo: auto con un promedio de 26 min
-Atendiendo: auto con un promedio de 26 min
-Atendiendo: camioneta con un promedio de 29 min
-Atendiendo: moto con un promedio de 9 min
-Atendiendo: camioneta con un promedio de 29 min
-Atendiendo: moto con un promedio de 12 min
+Atendiendo: moto con un promedio de 1 min
+Atendiendo: camioneta con un promedio de 6 min
+Atendiendo: moto con un promedio de 11 min
+Atendiendo: camioneta con un promedio de 17 min
+Atendiendo: camioneta con un promedio de 10 min
+Atendiendo: camioneta con un promedio de 52 min
+Atendiendo: camioneta con un promedio de 21 min
+Atendiendo: auto con un promedio de 12 min
+Atendiendo: auto con un promedio de 2 min
+Atendiendo: moto con un promedio de 4 min
+Atendiendo: auto con un promedio de 1 min
+Atendiendo: moto con un promedio de 19 min
+Atendiendo: moto con un promedio de 7 min
+Atendiendo: auto con un promedio de 22 min
+Atendiendo: moto con un promedio de 3 min
 
 Estadísticas
-Tiempo promedio de espera  21.83 min.
-Tiempo total de atención de la planta fue de 131.00 min
-Total de vehículos atendidos: 6
+Tiempo promedio de espera  12.53 min.
+Tiempo total de atención de la planta fue de 188.00 min
+Total de vehículos atendidos: 15
 
 </pre>
 </div>
@@ -1941,57 +1999,6 @@ Total de vehículos atendidos: 6
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Para efectos de la simulación, la ocurrencia de los eventos es modelada usando distribuciones de probabilidad que brindan al proceso un comportamiento aleatorio similar a lo que podría ocurrir en la realidad. Por ejemplo, dado que la llegada de clientes a una fila es un proceso independiente, el tiempo de ocurrencia de este evento puede ser modelado usando una distribución exponencial. Del mismo modo, la atención de cada cliente también puede ser modelada con una misma distribución exponencial.</p>
-<p>En una distribución exponencial es necesario definir la tasa promedio de ocurrencia del evento, <i>e.g.</i>, si una persona llega a la cola cada 20 minutos entonces tiene una tasa de 1/20. En python los tiempos aleatorios usando esta distribución exponencial se obtienen usando la funcion expovariate, tal como se explica a continuación.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[1]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">expovariate</span>
-
-<span class="n">tiempo_llegada_cliente</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">expovariate</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">20</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">))</span>
-<span class="n">tiempo_atencion_1</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">expovariate</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">50</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span>
-<span class="n">tiempo_atencion_2</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">expovariate</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">50</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">tiempo_llegada_cliente</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">tiempo_atencion_1</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">tiempo_atencion_2</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-0
-29
-112
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p>Ahora veamos el mismo ejemplo anterior para la planta de revisión técnica desde el punto de vista de simulación de eventos discretos.</p>
 </div>
 </div>
@@ -1999,7 +2006,7 @@ In&nbsp;[1]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[8]:
+In&nbsp;[104]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2019,8 +2026,6 @@ In&nbsp;[8]:
 
         
 <span class="k">class</span> <span class="nc">Taller</span><span class="p">:</span>
-    <span class="c">#&#39;&#39;&#39; Esta clase modela la linea de revision en el taller&#39;&#39;&#39;</span>
-    <span class="c">#tipo = {&#39;moto&#39;: 1.0/8, &#39;auto&#39;: 1.0/15, &#39;camioneta&#39;: 1.0/20}</span>
     
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tipos</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tarea_actual</span> <span class="o">=</span> <span class="bp">None</span>
@@ -2139,36 +2144,36 @@ In&nbsp;[8]:
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
-[SIMULACION] tiempo: 1 min
-[COLA] Llega camioneta en tiempo simulación: 1 min.
-[PLANTA] Entra: camioneta con un tiempo de atencion de esperado de 32 min.
-[SIMULACION] tiempo: 7 min
-[COLA] Llega auto en tiempo simulación: 7 min.
-[SIMULACION] tiempo: 10 min
-[COLA] Llega auto en tiempo simulación: 10 min.
-[SIMULACION] tiempo: 19 min
-[COLA] Llega moto en tiempo simulación: 19 min.
-[SIMULACION] tiempo: 28 min
-[COLA] Llega auto en tiempo simulación: 28 min.
-[SIMULACION] tiempo: 29 min
-[COLA] Llega auto en tiempo simulación: 29 min.
-[SIMULACION] tiempo: 33 min
-[PLANTA] Sale: camioneta a los 33 min.
-[SIMULACION] tiempo: 34 min
-[COLA] Llega auto en tiempo simulación: 34 min.
-[PLANTA] Entra: auto con un tiempo de atencion de esperado de 9 min.
-[SIMULACION] tiempo: 43 min
-[PLANTA] Sale: auto a los 43 min.
+[SIMULACION] tiempo: 16 min
+[COLA] Llega camioneta en tiempo simulación: 16 min.
+[PLANTA] Entra: camioneta con un tiempo de atencion de esperado de 2 min.
+[SIMULACION] tiempo: 18 min
+[PLANTA] Sale: camioneta a los 18 min.
+[SIMULACION] tiempo: 20 min
+[COLA] Llega auto en tiempo simulación: 20 min.
+[PLANTA] Entra: auto con un tiempo de atencion de esperado de 4 min.
+[SIMULACION] tiempo: 22 min
+[COLA] Llega auto en tiempo simulación: 22 min.
+[SIMULACION] tiempo: 24 min
+[PLANTA] Sale: auto a los 24 min.
+[SIMULACION] tiempo: 38 min
+[COLA] Llega camioneta en tiempo simulación: 38 min.
+[PLANTA] Entra: auto con un tiempo de atencion de esperado de 21 min.
+[SIMULACION] tiempo: 39 min
+[COLA] Llega camioneta en tiempo simulación: 39 min.
+[SIMULACION] tiempo: 42 min
+[COLA] Llega moto en tiempo simulación: 42 min.
+[SIMULACION] tiempo: 46 min
+[COLA] Llega camioneta en tiempo simulación: 46 min.
 [SIMULACION] tiempo: 47 min
-[COLA] Llega auto en tiempo simulación: 47 min.
-[PLANTA] Entra: auto con un tiempo de atencion de esperado de 30 min.
+[COLA] Llega moto en tiempo simulación: 47 min.
 [SIMULACION] tiempo: 48 min
-[COLA] Llega auto en tiempo simulación: 48 min.
+[COLA] Llega moto en tiempo simulación: 48 min.
 
 Estadísticas:
-Tiempo total atención 77 min.
+Tiempo total atención 59 min.
 Total de vehículos atendidos: 2
-Tiempo promedio de espera 34 min.
+Tiempo promedio de espera 3 min.
 
 </pre>
 </div>
