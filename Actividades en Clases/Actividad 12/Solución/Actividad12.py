@@ -26,6 +26,10 @@ class Caja:
 	def __init__(self,t):
 		self.cola = deque()
 		self.termino = 2*t
+		"""
+		inicialmente el tiempo de término de atención debe estar fuera de rango ya que no debe salir ningún cliente si es que nadie se está atendiendo.
+		Con 2*t nos aseguramos de que siempre llegue alguien antes de que el evento "salir del sistema" se active.
+		"""
 
 class Banco:
 	def __init__(self,t):
