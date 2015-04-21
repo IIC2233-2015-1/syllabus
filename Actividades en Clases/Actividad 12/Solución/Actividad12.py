@@ -8,7 +8,7 @@ __author__ = 'bcsaldias'
 Evenos:
 1. Llega cliente al sistema
 2. Sale cliente de la caja 1
-3. Sale cliente de la cja 2
+3. Sale cliente de la caja 2
 
 
 Variables de estado relevantes:
