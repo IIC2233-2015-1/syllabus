@@ -2,6 +2,8 @@ from collections import deque
 from random import uniform
 
 
+__author__ = 'bcsaldias'
+
 """
 Evenos:
 1. Llega cliente al sistema
