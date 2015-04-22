@@ -42,6 +42,7 @@
 | M 14 | Suspensión de Cátedra 	|
 | J 16 | Abstract Classes 		|
 | M 21 | Simulación 1			|
+| J 23 | Simulación con SimPy			|
 
 # Programa
 
