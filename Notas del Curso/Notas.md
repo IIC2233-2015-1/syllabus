@@ -1,74 +1,67 @@
-Ap. paterno	|	Ap. materno	|	Nombres	|	AC1	|	AC2	|	AC3	|	AC4	|	AC5	|	C1	|	C2	|	C3	|
-----------------	|	----------------	|	----------------	|	----------------	|	----------------	|	----------------	|	----------------	|	----------------	|	----------------	|	----------------	|	----------------	|
-ACUÑA	|	TABOADA	|	PEDRO ANDRES	|	1,80	|	4,40	|	1,00	|	1,00	|	1,00	|	4,00	|	1,00	|	1,00	|
-Agurto	|	Oyarzun	|	Dariel Eliot	|	1,10	|	5,30	|	1,00	|	1,00	|	1,10	|	1,00	|	1,00	|	4,00	|
-ALLIENDE	|	SERRA	|	RODRIGO ANDRES	|	1,00	|	1,00	|	1,00	|	1,00	|	5,00	|	1,00	|	1,00	|	5,50	|
-ALLIENDE	|	VACCARO	|	DIEGO	|	1,00	|	3,50	|	1,00	|	1,00	|	1,00	|	2,50	|	1,00	|	6,80	|
-ALVAREZ	|	SMITH	|	AUGUSTO ALEJANDRO	|	1,70	|	2,75	|	1,00	|	2,80	|	1,00	|	1,00	|	1,00	|	1,00	|
-ARRATIA	|	URIBE	|	BENJAMÍN ANDRÉS	|	1,00	|	1,00	|	2,95	|	2,30	|	2,50	|	4,00	|	1,00	|	4,00	|
-BAHAMONDES	|	WALTERS	|	PEDRO IGNACIO	|	4,25	|	3,40	|	1,00	|	1,00	|	1,00	|	6,20	|	7,00	|	7,00	|
-BESA	|	VERGARA	|	VICENTE ALBERTO	|	2,70	|	6,30	|	1,00	|	5,55	|	1,00	|	4,00	|	7,00	|	7,00	|
-BOCAZ	|	GORLITZ	|	RODRIGO IGNACIO	|	4,90	|	1,00	|	1,00	|	1,00	|	2,00	|	7,00	|	1,00	|	1,00	|
-BUDNIK	|	CHECHELNITZKY	|	JONATHAN	|	4,30	|	4,60	|	4,15	|	3,30	|	2,00	|	2,50	|	1,00	|	6,80	|
-CACERES	|	AVILA	|	LEONARDO ANDRES	|	1,00	|	5,10	|	1,00	|	1,00	|	1,00	|	1,00	|	1,00	|	1,00	|
-CALDERON	|	DE LA BARRA	|	ROSARIO VALENTINA	|	2,40	|	1,00	|	1,00	|	2,00	|	1,00	|	5,50	|	1,00	|	1,00	|
-CARMONA	|	ALDUNATE	|	RAFAEL ALBERTO	|	4,10	|	5,55	|	4,68	|	6,90	|	2,50	|	7,00	|	1,00	|	6,60	|
-CARRASCO	|	MELO	|	JAVIER ALBERTO	|	3,15	|	4,40	|	1,00	|	1,00	|	3,00	|	1,00	|	4,00	|	6,80	|
-CARREÑO	|	NÚÑEZ	|	CRISTIAN IGNACIO	|	3,30	|	3,70	|	5,40	|	2,00	|	4,50	|	7,00	|	7,00	|	6,80	|
-CERNA	|	VALENZUELA	|	ALEXIS FABIAN OMAR	|	4,90	|	7,00	|	5,48	|	4,10	|	5,50	|	7,00	|	1,00	|	6,80	|
-CORREA	|	BRAVO-CUADRA	|	BENJAMIN	|	1,70	|	3,40	|	1,00	|	3,30	|	2,20	|	1,00	|	4,00	|	3,80	|
-CUMSILLE	|	ISBEJ	|	JUAN FRANCISCO	|	1,00	|	1,00	|	1,00	|	1,00	|	1,00	|	1,00	|	1,00	|	1,00	|
-DEL RIO	|	JARA	|	RAUL JUAN DE DIOS	|	2,85	|	4,40	|	1,00	|	1,30	|	5,00	|	4,00	|	1,00	|	1,00	|
-DIAZ	|	ADASME	|	NELSON	|	5,00	|	1,00	|	1,00	|	1,00	|	1,00	|	1,20	|	1,00	|	1,00	|
-ENCINA	|	BRIONES	|	PAULA MACARENA LISSETTE	|	2,60	|	5,90	|	2,85	|	1,20	|	2,00	|	5,50	|	1,00	|	6,80	|
-falconi	|	salbach	|	nicolas ignacio 	|	1,00	|	1,00	|	1,00	|	1,00	|	3,00	|	3,50	|	1,00	|	6,80	|
-FULLER	|	ARANGUA	|	DAVID THOMAS	|	3,30	|	7,00	|	1,00	|	6,10	|	5,00	|	7,00	|	2,00	|	1,00	|
-galaz	|	sanhueza	|	nicolas	|	2,05	|	5,00	|	1,00	|	1,00	|	2,20	|	2,50	|	1,00	|	1,00	|
-GARCIA-HUIDOBRO	|	CASTRO	|	JORGE ANDRES	|	2,70	|	6,30	|	1,00	|	1,00	|	2,50	|	1,00	|	1,00	|	1,00	|
-GARIZIO	|	VILLENA	|	IACOPO	|	2,10	|	4,40	|	4,98	|	4,60	|	6,00	|	5,50	|	7,00	|	3,80	|
-GONZALEZ	|	ORTEGA	|	JAIME	|	1,40	|	5,30	|	1,00	|	1,00	|	2,00	|	1,00	|	4,00	|	1,00	|
-GUERRERO	|	ÁLVAREZ	|	KATHERINE FABIOLA	|	4,10	|	2,35	|	1,00	|	2,00	|	1,00	|	2,00	|	1,00	|	3,70	|
-HERMOSILLA	|	CORNEJO	|	IGNACIO TOMÁS	|	5,00	|	3,90	|	4,15	|	5,00	|	3,00	|	3,00	|	1,00	|	1,00	|
-HERRERA	|	CASTRO	|	TOMÁS ARTURO	|	5,70	|	5,80	|	2,30	|	4,00	|	2,50	|	3,00	|	7,00	|	7,00	|
-HINRICHSEN	|	PICAND	|	ANDRES FELIPE	|	3,55	|	1,00	|	1,00	|	1,90	|	2,50	|	4,00	|	1,00	|	1,00	|
-IBARRA	|	JOFRE	|	BENJAMIN TOMAS	|	1,80	|	3,00	|	1,00	|	1,00	|	1,00	|	4,00	|	1,00	|	3,80	|
-JIMENEZ	|	OLIVARES	|	FABIAN IGNACIO	|	2,30	|	5,50	|	5,48	|	1,20	|	1,50	|	6,50	|	1,00	|	4,00	|
-Julio	|	Gonzalez	|	Nicolas Ignacio	|	2,00	|	1,80	|	1,00	|	1,50	|	4,00	|	4,00	|	1,00	|	3,80	|
-Langarica	|	Chavira	|	Saul	|	1,00	|	6,75	|	1,00	|	1,00	|	1,00	|	6,00	|	7,00	|	4,00	|
-LEIVA	|	SÁNCHEZ	|	LUIS IGNACIO	|	3,10	|	4,50	|	1,00	|	1,00	|	1,00	|	5,50	|	7,00	|	1,00	|
-LEWINSOHN	|	ISRAEL	|	GAD AARON	|	4,30	|	4,60	|	1,00	|	2,95	|	3,00	|	3,00	|	1,00	|	6,80	|
-LÓPEZ	|	LARRAECHEA	|	ANTONIO	|	4,90	|	6,00	|	1,00	|	1,00	|	1,00	|	1,00	|	1,00	|	6,80	|
-LUKASCHEWSKY	|	MAURIZIANO	|	CLAUDIA ESTHER	|	2,60	|	5,90	|	1,00	|	1,00	|	2,20	|	3,50	|	1,00	|	1,00	|
-MANGIOLA	|	GÓMEZ	|	PEDRO ALBERTO	|	4,25	|	4,10	|	2,10	|	1,50	|	2,50	|	2,50	|	1,00	|	3,80	|
-MÁRQUEZ	|	COVARRUBIAS	|	JUAN IGNACIO	|	3,00	|	4,30	|	2,80	|	1,00	|	3,50	|	6,50	|	1,00	|	6,80	|
-MARTIN	|	TARUD	|	VICENTE REINALDO	|	1,00	|	3,75	|	1,80	|	1,00	|	1,00	|	5,50	|	1,00	|	1,00	|
-MARTINI	|	BOZZO	|	ALDO	|	1,00	|	3,30	|	1,00	|	1,10	|	1,00	|	6,25	|	1,00	|	1,00	|
-MENESES	|	MUSALEM	|	SEBASTIÁN ANTONIO	|	4,00	|	4,65	|	1,00	|	1,00	|	5,00	|	3,40	|	1,00	|	7,00	|
-MORENO	|	SEPÚLVEDA	|	VICENTE JOAQUÍN	|	1,00	|	2,00	|	1,00	|	1,00	|	1,00	|	4,00	|	1,00	|	6,80	|
-MULLER	|	CAMPOS	|	HAROLD LUDWIG	|	1,70	|	2,75	|	1,00	|	3,40	|	1,50	|	1,50	|	1,00	|	2,50	|
-ORREGO	|	GAZALI	|	PATRICIO ALBERTO	|	4,70	|	4,30	|	1,00	|	3,50	|	3,00	|	2,50	|	1,00	|	1,00	|
-Palma	|	Otero	|	Rodolfo	|	4,70	|	6,80	|	1,00	|	7,00	|	5,50	|	4,50	|	6,00	|	4,00	|
-PIZARRO	|	REGUEIRO	|	RODRIGO ANTONIO	|	3,30	|	4,80	|	3,95	|	3,40	|	5,50	|	3,75	|	1,00	|	6,80	|
-QUAPPE	|	VATTER	|	CARLOS ANTONIO	|	5,70	|	5,80	|	1,00	|	2,10	|	4,60	|	4,75	|	6,00	|	6,60	|
-RABI	|	MISLE	|	JORGE ANUAR	|	3,30	|	3,40	|	1,90	|	2,80	|	5,00	|	7,00	|	1,00	|	1,00	|
-RENCORET	|	DOMINGUEZ	|	TOMAS	|	1,00	|	1,00	|	1,00	|	1,00	|	1,00	|	1,00	|	1,00	|	1,00	|
-REYES	|	LILLO	|	KARLA EMILLIE	|	2,05	|	5,00	|	1,00	|	1,70	|	5,00	|	3,00	|	1,00	|	6,80	|
-RÍOS	|	STANGE	|	OSCAR RICARDO	|	3,95	|	2,35	|	2,80	|	1,00	|	3,00	|	2,00	|	1,00	|	6,80	|
-RUIZ	|	PAREDES	|	FELIPE GUILLERMO	|	1,00	|	1,00	|	1,00	|	1,00	|	1,00	|	1,00	|	1,00	|	4,00	|
-SANTIBAÑEZ	|	CASTRO	|	NICOLAS FERNANDO	|	1,00	|	1,00	|	1,00	|	1,20	|	1,00	|	2,50	|	2,00	|	1,00	|
-SANZANA	|	DUARTE	|	PAULA GABRIELA	|	1,40	|	3,65	|	1,00	|	1,50	|	3,00	|	1,50	|	1,00	|	1,00	|
-SCHELE	|	LASO	|	JUAN PABLO	|	4,30	|	3,90	|	1,00	|	1,00	|	3,00	|	1,00	|	7,00	|	6,60	|
-SEISDEDOS	|	ALVARADO	|	ARIEL ESTEBAN	|	6,80	|	6,75	|	6,36	|	7,00	|	7,00	|	1,00	|	7,00	|	6,60	|
-SOTOMAYOR	|	COLL	|	JOAQUIN JOSE	|	1,00	|	1,00	|	3,40	|	1,00	|	4,00	|	3,50	|	1,00	|	6,80	|
-TORESANO	|	KUZMANIC	|	IGNACIO JOSÉ	|	1,70	|	5,40	|	1,00	|	3,40	|	2,80	|	5,00	|	1,00	|	5,50	|
-TRAVERSO	|	PRADO	|	FABIO RAÚL	|	2,85	|	5,10	|	3,24	|	1,00	|	1,00	|	3,00	|	1,00	|	1,00	|
-TRINCADO	|	CARO	|	JORGE ANDRÉS	|	1,70	|	1,00	|	2,45	|	4,20	|	1,00	|	2,50	|	1,00	|	1,00	|
-URRUTIA	|	PEREIRA	|	ENRIQUE IGNACIO	|	3,30	|	3,70	|	1,00	|	1,00	|	1,40	|	3,50	|	1,00	|	6,60	|
-VALDÉS	|	FRICKE	|	FRANCISCO JAVIER	|	3,95	|	6,00	|	3,40	|	2,60	|	1,00	|	3,00	|	1,00	|	6,80	|
-VARGAS	|	LUDWIG	|	GONZALO RAFAEL	|	4,30	|	3,90	|	1,00	|	1,00	|	1,00	|	3,00	|	1,00	|	6,60	|
-VARGAS	|	PARIS	|	LEOPOLDO ANDRES	|	3,15	|	5,75	|	1,90	|	1,50	|	2,00	|	4,00	|	1,00	|	3,80	|
-VENEGAS	|	CERDA	|	DANIEL JOSÉ	|	3,25	|	6,05	|	5,48	|	7,00	|	5,00	|	1,00	|	1,00	|	6,80	|
-VIDAURRE	|	WINTER	|	VICTOR MANUEL	|	2,60	|	5,10	|	1,00	|	5,00	|	2,50	|	5,00	|	1,00	|	6,80	|
-VILDÓSOLA	|	BENAVENTE	|	EDUARDO ANDRÉS	|	1,00	|	6,00	|	1,00	|	7,00	|	5,50	|	6,00	|	2,00	|	6,80	|
-ZAMBRANO	|	MERICQ	|	SOFIA IGNACIA	|	3,20	|	3,75	|	4,95	|	3,40	|	5,50	|	5,00	|	1,00	|	1,00	|
-ZUNINO	|	PEÑALOZA	|	GONZALO JOSÉ	|	3,55	|	6,00	|	1,00	|	1,00	|	1,00	|	5,00	|	1,00	|	1,00	|
+Ap. paterno	|	Ap. materno	|	Nombres	|	AC3	|	AC4	|	AC5	|	AC6	|	AC7	|	AC8	|	C1	|	C2	|	C3	|	I1	|	T1	|
+----------------	|	----------------	|	----------------	|	----------------	|	----------------	|	----------------	|	----------------	|	----------------	|	----------------	|	----------------	|	----------------	|	----------------	|	----------------	|	----------------	|
+ALLIENDE	|	SERRA	|	RODRIGO ANDRES	|	1,00	|	1,00	|	5,00	|	5,70	|	7,00	|	2,90	|	1,00	|	1,00	|	5,50	|	1,00	|	5,60	|
+ALLIENDE	|	VACCARO	|	DIEGO	|	1,00	|	1,00	|	1,00	|	4,85	|	1,00	|	3,30	|	2,50	|	1,00	|	6,80	|	5,18	|	5,55	|
+ALVAREZ		SMITH		AUGUSTO ALEJANDRO	|	1,00	|	2,80	|	1,00	|	4,00	|	3,75	|	1,00	|	1,00	|	1,00	|	1,00	|	3,12	|	3,90	|
+ARRATIA		URIBE		BENJAMÍN ANDRÉS	|	2,95	|	2,30	|	2,50	|	3,00	|	3,70	|	2,70	|	4,00	|	1,00	|	4,00	|	3,46	|	4,45	|
+BAHAMONDES	|	WALTERS	|	PEDRO IGNACIO	|	1,00	|	1,00	|	1,00	|	1,00	|	6,60	|	2,80	|	6,20	|	7,00	|	7,00	|	5,33	|	6,20	|
+BESA	|	VERGARA	|	VICENTE ALBERTO	|	1,00	|	5,55	|	1,00	|	1,00	|	3,70	|	4,20	|	4,00	|	7,00	|	7,00	|	4,88	|	6,00	|
+BOCAZ		GORLITZ		RODRIGO IGNACIO	|	1,00	|	1,00	|	2,00	|	1,00	|	1,00	|	1,00	|	7,00	|	1,00	|	1,00	|	2,61	|	1,20	|
+BUDNIK	|	CHECHELNITZKY	|	JONATHAN	|	4,15	|	3,30	|	2,00	|	2,50	|	6,60	|	4,50	|	2,50	|	1,00	|	6,80	|	4,58	|	5,60	|
+CACERES	|	AVILA	|	LEONARDO ANDRES	|	1,00	|	1,00	|	1,00	|	1,00	|	1,00	|	6,00	|	1,00	|	1,00	|	1,00	|	1,00	|	1,00	|
+CALDERON	|	DE LA BARRA	|	ROSARIO VALENTINA	|	1,00	|	2,00	|	1,00	|	4,85	|	1,00	|	1,00	|	5,50	|	1,00	|	1,00	|	4,27	|	4,95	|
+CARMONA		ALDUNATE		RAFAEL ALBERTO	|	4,68	|	6,90	|	2,50	|	6,50	|	6,90	|	1,00	|	7,00	|	1,00	|	6,60	|	5,41	|	3,60	|
+CARRASCO		MELO		JAVIER ALBERTO	|	1,00	|	1,00	|	3,00	|	3,00	|	6,45	|	4,50	|	1,00	|	4,00	|	6,80	|	2,32	|	3,45	|
+CARREÑO	|	NÚÑEZ	|	CRISTIAN IGNACIO	|	5,40	|	2,00	|	4,50	|	5,00	|	7,00	|	5,00	|	7,00	|	7,00	|	6,80	|	1,00	|	5,30	|
+CERNA		VALENZUELA		ALEXIS FABIAN OMAR	|	5,48	|	4,10	|	5,50	|	4,00	|	5,40	|	1,00	|	7,00	|	1,00	|	6,80	|	3,90	|	4,10	|
+DIAZ	|	ADASME	|	NELSON	|	1,00	|	1,00	|	1,00	|	1,00	|	6,00	|	3,00	|	1,20	|	1,00	|	1,00	|	3,40	|	5,05	|
+ENCINA	|	BRIONES	|	PAULA MACARENA LISSETTE	|	2,85	|	1,20	|	2,00	|	4,30	|	1,00	|	2,80	|	5,50	|	1,00	|	6,80	|	2,65	|	4,55	|
+falconi		salbach		nicolas ignacio 	|	1,00	|	1,00	|	3,00	|	2,90	|	4,10	|	4,70	|	3,50	|	1,00	|	6,80	|	4,02	|	1,20	|
+FULLER		ARANGUA		DAVID THOMAS	|	1,00	|	6,10	|	5,00	|	3,60	|	2,10	|	1,00	|	7,00	|	2,00	|	1,00	|	2,98	|	1,00	|
+galaz		sanhueza		nicolas	|	1,00	|	1,00	|	2,20	|	2,50	|	4,50	|	1,00	|	2,50	|	1,00	|	1,00	|	3,40	|	4,10	|
+GARCIA-HUIDOBRO	|	CASTRO	|	JORGE ANDRES	|	1,00	|	1,00	|	2,50	|	1,00	|	1,00	|	1,00	|	1,00	|	1,00	|	1,00	|	3,67	|	3,25	|
+GARIZIO		VILLENA		IACOPO	|	4,98	|	4,60	|	6,00	|	4,80	|	4,35	|	6,80	|	5,50	|	7,00	|	3,80	|	4,21	|	4,80	|
+GONZALEZ		ORTEGA		JAIME	|	1,00	|	1,00	|	2,00	|	1,90	|	2,50	|	1,00	|	1,00	|	4,00	|	1,00	|	1,00	|	3,35	|
+GUERRERO	|	ÁLVAREZ	|	KATHERINE FABIOLA	|	1,00	|	2,00	|	1,00	|	5,70	|	3,25	|	2,50	|	2,00	|	1,00	|	3,70	|	2,29	|	2,35	|
+HERMOSILLA	|	CORNEJO	|	IGNACIO TOMÁS	|	4,15	|	5,00	|	3,00	|	4,20	|	2,75	|	1,00	|	3,00	|	1,00	|	1,00	|	3,29	|	4,95	|
+HERRERA		CASTRO		TOMÁS ARTURO	|	2,30	|	4,00	|	2,50	|	3,90	|	3,30	|	5,00	|	3,00	|	7,00	|	7,00	|	3,88	|	4,25	|
+HINRICHSEN		PICAND		ANDRES FELIPE	|	1,00	|	1,90	|	2,50	|	5,30	|	6,00	|	1,00	|	4,00	|	1,00	|	1,00	|	4,78	|	2,85	|
+IBARRA	|	JOFRE	|	BENJAMIN TOMAS	|	1,00	|	1,00	|	1,00	|	1,00	|	1,00	|	1,00	|	4,00	|	1,00	|	3,80	|	3,32	|	4,60	|
+JIMENEZ		OLIVARES		FABIAN IGNACIO	|	5,48	|	1,20	|	1,50	|	2,80	|	1,00	|	4,00	|	6,50	|	1,00	|	4,00	|	3,33	|	2,25	|
+Julio	|	Gonzalez	|	Nicolas Ignacio	|	1,00	|	1,50	|	4,00	|	3,40	|	4,90	|	2,00	|	4,00	|	1,00	|	3,80	|	3,39	|	3,40	|
+Langarica	|	Chavira	|	Saul	|	1,00	|	1,00	|	1,00	|	2,95	|	7,00	|	3,20	|	6,00	|	7,00	|	4,00	|	3,67	|	2,30	|
+LEIVA		SÁNCHEZ		LUIS IGNACIO	|	1,00	|	1,00	|	1,00	|	3,00	|	6,85	|	1,00	|	5,50	|	7,00	|	1,00	|	3,82	|	3,00	|
+LEWINSOHN	|	ISRAEL	|	GAD AARON	|	1,00	|	2,95	|	3,00	|	4,20	|	2,70	|	3,50	|	3,00	|	1,00	|	6,80	|	3,64	|	4,85	|
+LÓPEZ		LARRAECHEA		ANTONIO	|	1,00	|	1,00	|	1,00	|	4,30	|	5,05	|	1,00	|	1,00	|	1,00	|	6,80	|	4,93	|	1,00	|
+LUKASCHEWSKY	|	MAURIZIANO	|	CLAUDIA ESTHER	|	1,00	|	1,00	|	2,20	|	4,30	|	4,50	|	2,90	|	3,50	|	1,00	|	1,00	|	3,75	|	5,30	|
+MANGIOLA		GÓMEZ		PEDRO ALBERTO	|	2,10	|	1,50	|	2,50	|	2,00	|	5,95	|	3,00	|	2,50	|	1,00	|	3,80	|	3,48	|	3,00	|
+MÁRQUEZ	|	COVARRUBIAS	|	JUAN IGNACIO	|	2,80	|	1,00	|	3,50	|	3,90	|	3,10	|	4,50	|	6,50	|	1,00	|	6,80	|	2,86	|	6,30	|
+MARTINI	|	BOZZO	|	ALDO	|	1,00	|	1,10	|	1,00	|	1,00	|	3,40	|	2,50	|	6,25	|	1,00	|	1,00	|	3,17	|	2,45	|
+MENESES	|	MUSALEM	|	SEBASTIÁN ANTONIO	|	1,00	|	1,00	|	5,00	|	2,75	|	2,90	|	1,00	|	3,40	|	1,00	|	7,00	|	3,97	|	4,30	|
+MORENO	|	SEPÚLVEDA	|	VICENTE JOAQUÍN	|	1,00	|	1,00	|	1,00	|	1,00	|	2,25	|	1,00	|	4,00	|	1,00	|	6,80	|	1,00	|	3,60	|
+MULLER		CAMPOS		HAROLD LUDWIG	|	1,00	|	3,40	|	1,50	|	2,80	|	5,10	|	2,80	|	1,50	|	1,00	|	2,50	|	2,05	|	3,55	|
+ORREGO	|	GAZALI	|	PATRICIO ALBERTO	|	1,00	|	3,50	|	3,00	|	7,00	|	4,80	|	1,00	|	2,50	|	1,00	|	1,00	|	4,51	|	4,10	|
+Palma		Otero		Rodolfo	|	1,00	|	7,00	|	5,50	|	2,80	|	7,00	|	6,00	|	4,50	|	6,00	|	4,00	|	4,76	|	1,00	|
+PIZARRO		REGUEIRO		RODRIGO ANTONIO	|	3,95	|	3,40	|	5,50	|	2,50	|	6,60	|	4,50	|	3,75	|	1,00	|	6,80	|	2,89	|	2,95	|
+QUAPPE		VATTER		CARLOS ANTONIO	|	1,00	|	2,10	|	4,60	|	4,20	|	4,25	|	6,00	|	4,75	|	6,00	|	6,60	|	4,00	|	5,15	|
+RABI	|	MISLE	|	JORGE ANUAR	|	1,90	|	2,80	|	5,00	|	4,00	|	3,95	|	1,00	|	7,00	|	1,00	|	1,00	|	4,45	|	3,70	|
+RENCORET		DOMINGUEZ		TOMAS	|	1,00	|	1,00	|	1,00	|	1,00	|	1,00	|	1,00	|	1,00	|	1,00	|	1,00	|	2,08	|	2,10	|
+REYES		LILLO		KARLA EMILLIE	|	1,00	|	1,70	|	5,00	|	2,20	|	4,35	|	4,30	|	3,00	|	1,00	|	6,80	|	2,31	|	2,60	|
+SANTIBAÑEZ		CASTRO		NICOLAS FERNANDO	|	1,00	|	1,20	|	1,00	|	2,85	|	3,70	|	1,00	|	2,50	|	2,00	|	1,00	|	1,00	|	5,00	|
+SANZANA		DUARTE		PAULA GABRIELA	|	1,00	|	1,50	|	3,00	|	3,35	|	3,55	|	2,30	|	1,50	|	1,00	|	1,00	|	3,68	|	4,00	|
+SCHELE		LASO		JUAN PABLO	|	1,00	|	1,00	|	3,00	|	3,00	|	5,78	|	2,60	|	1,00	|	7,00	|	6,60	|	4,12	|	3,80	|
+SEISDEDOS	|	ALVARADO	|	ARIEL ESTEBAN	|	6,36	|	7,00	|	7,00	|	7,00	|	7,00	|	7,00	|	1,00	|	7,00	|	6,60	|	5,71	|	6,30	|
+SOTOMAYOR		COLL		JOAQUIN JOSE	|	3,40	|	1,00	|	4,00	|	4,80	|	3,40	|	3,80	|	3,50	|	1,00	|	6,80	|	4,41	|	3,55	|
+TORESANO	|	KUZMANIC	|	IGNACIO JOSÉ	|	1,00	|	3,40	|	2,80	|	3,40	|	4,85	|	5,90	|	5,00	|	1,00	|	5,50	|	4,84	|	1,00	|
+TRAVERSO	|	PRADO	|	FABIO RAÚL	|	3,24	|	1,00	|	1,00	|	5,35	|	1,00	|	1,00	|	3,00	|	1,00	|	1,00	|	3,43	|	1,00	|
+TRINCADO		CARO		JORGE ANDRÉS	|	2,45	|	4,20	|	1,00	|	3,60	|	3,50	|	1,00	|	2,50	|	1,00	|	1,00	|	4,31	|	5,10	|
+URRUTIA	|	PEREIRA	|	ENRIQUE IGNACIO	|	1,00	|	1,00	|	1,40	|	3,10	|	5,75	|	6,00	|	3,50	|	1,00	|	6,60	|	4,03	|	5,45	|
+VALDÉS		FRICKE		FRANCISCO JAVIER	|	3,40	|	2,60	|	1,00	|	4,80	|	4,00	|	3,80	|	3,00	|	1,00	|	6,80	|	4,26	|	4,75	|
+VARGAS	|	LUDWIG	|	GONZALO RAFAEL	|	1,00	|	1,00	|	1,00	|	1,00	|	6,70	|	3,00	|	3,00	|	1,00	|	6,60	|	4,78	|	6,30	|
+VARGAS		PARIS		LEOPOLDO ANDRES	|	1,90	|	1,50	|	2,00	|	2,50	|	4,00	|	2,00	|	4,00	|	1,00	|	3,80	|	2,68	|	4,30	|
+VIDAURRE	|	WINTER	|	VICTOR MANUEL	|	1,00	|	5,00	|	2,50	|	1,00	|	3,30	|	5,30	|	5,00	|	1,00	|	6,80	|	4,70	|	6,00	|
+VILDÓSOLA		BENAVENTE		EDUARDO ANDRÉS	|	1,00	|	7,00	|	5,50	|	3,90	|	4,90	|	6,80	|	6,00	|	2,00	|	6,80	|	4,82	|	4,75	|
+ZAMBRANO	|	MERICQ	|	SOFIA IGNACIA	|	4,95	|	3,40	|	5,50	|	5,40	|	5,70	|	1,00	|	5,00	|	1,00	|	1,00	|	5,23	|	5,40	|
+ZUNINO	|	PEÑALOZA	|	GONZALO JOSÉ	|	1,00	|	1,00	|	1,00	|	1,00	|	1,00	|	1,00	|	5,00	|	1,00	|	1,00	|	4,13	|	3,80	|
+																											
+																											
