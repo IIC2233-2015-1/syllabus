@@ -63,5 +63,3 @@ VIDAURRE	|	WINTER	|	VICTOR MANUEL	|	1,00	|	5,00	|	2,50	|	1,00	|	3,30	|	5,30	|	5,
 VILDÓSOLA		BENAVENTE		EDUARDO ANDRÉS	|	1,00	|	7,00	|	5,50	|	3,90	|	4,90	|	6,80	|	6,00	|	2,00	|	6,80	|	4,82	|	4,75	|
 ZAMBRANO	|	MERICQ	|	SOFIA IGNACIA	|	4,95	|	3,40	|	5,50	|	5,40	|	5,70	|	1,00	|	5,00	|	1,00	|	1,00	|	5,23	|	5,40	|
 ZUNINO	|	PEÑALOZA	|	GONZALO JOSÉ	|	1,00	|	1,00	|	1,00	|	1,00	|	1,00	|	1,00	|	5,00	|	1,00	|	1,00	|	4,13	|	3,80	|
-																											
-																											
