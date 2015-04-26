@@ -1940,7 +1940,7 @@ El denominador debe ser distinto de 0
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[5]:
+In&nbsp;[12]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1967,6 +1967,7 @@ In&nbsp;[5]:
             <span class="k">print</span><span class="p">(</span><span class="s">&#39;Cambie los valores de entrada&#39;</span><span class="p">)</span>
 
 <span class="n">o1</span> <span class="o">=</span> <span class="n">Operaciones</span><span class="o">.</span><span class="n">dividir</span><span class="p">(</span><span class="mf">4.5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="k">print</span><span class="p">()</span>
 <span class="n">o2</span> <span class="o">=</span> <span class="n">Operaciones</span><span class="o">.</span><span class="n">dividir</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 </pre></div>
 
@@ -1983,6 +1984,7 @@ In&nbsp;[5]:
 <pre>
 Error: 
 Revise los datos de entrada
+
 Error: Valores negativos
 Cambie los valores de entrada
 
@@ -2171,7 +2173,7 @@ None
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[11]:
+In&nbsp;[14]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2197,17 +2199,18 @@ In&nbsp;[11]:
             <span class="sd">&#39;&#39;&#39; Este bloque opera para la Excepcion1&#39;&#39;&#39;</span>
             <span class="k">print</span><span class="p">(</span><span class="s">&#39;Error: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">err</span><span class="p">))</span>
             <span class="k">print</span><span class="p">(</span><span class="s">&#39;Los valores son negativos&#39;</span><span class="p">)</span>
-            <span class="k">return</span> <span class="bp">None</span>
 
         <span class="k">except</span> <span class="n">Excepcion2</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
             <span class="sd">&#39;&#39;&#39; Este bloque opera para Excepcion2&#39;&#39;&#39;</span>
             <span class="k">print</span><span class="p">(</span><span class="s">&#39;Error: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">err</span><span class="p">))</span>
             <span class="k">print</span><span class="p">(</span><span class="s">&#39;Los datos no son enteros&#39;</span><span class="p">)</span>
-            <span class="k">return</span> <span class="bp">None</span>
 
 <span class="n">op1</span> <span class="o">=</span> <span class="n">Operaciones</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">o1</span><span class="p">)</span>
 <span class="k">print</span><span class="p">()</span>
-<span class="n">op1</span> <span class="o">=</span> <span class="n">Operaciones</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="mf">4.4</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">op2</span> <span class="o">=</span> <span class="n">Operaciones</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="mf">4.4</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">o2</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -2223,9 +2226,68 @@ In&nbsp;[11]:
 <pre>
 Error: Valores negativos
 Los valores son negativos
+None
 
 Error: Alguno de los valores 4.4 o -3 no son enteros
 Los datos no son enteros
+None
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[23]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">ErrorTransaccion</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fondos</span><span class="p">,</span> <span class="n">gasto</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="s">&quot;El dinero en la billetera no alcanza para pagar ${}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">gasto</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fondos</span> <span class="o">=</span> <span class="n">fondos</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gasto</span> <span class="o">=</span> <span class="n">gasto</span>
+    
+    <span class="k">def</span> <span class="nf">exceso</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fondos</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">gasto</span>
+
+<span class="k">class</span> <span class="nc">Billetera</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dinero</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fondos</span> <span class="o">=</span> <span class="n">dinero</span>
+    
+    <span class="k">def</span> <span class="nf">pagar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gasto</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fondos</span> <span class="o">-</span> <span class="n">gasto</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ErrorTransaccion</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fondos</span><span class="p">,</span> <span class="n">gasto</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fondos</span> <span class="o">-=</span> <span class="n">gasto</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">Billetera</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">b</span><span class="o">.</span><span class="n">pagar</span><span class="p">(</span><span class="mi">1500</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">ErrorTransaccion</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Error: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">err</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Hay un exceso de gastos de ${}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">err</span><span class="o">.</span><span class="n">exceso</span><span class="p">()))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+Error: El dinero en la billetera no alcanza para pagar $1500
+Hay un exceso de gastos de $-500
 
 </pre>
 </div>
