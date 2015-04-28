@@ -43,6 +43,8 @@
 | J 16 | Abstract Classes 		|
 | M 21 | Simulación 1			|
 | J 23 | Simulación con SimPy			|
+| M 28 | Manejo de Excepciones 	|
+| J 30 | Testing unitario 		|
 
 # Programa
 
