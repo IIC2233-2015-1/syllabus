@@ -1,0 +1,41 @@
+=======================================================
+               GRUPOS INDIVIDUALES               
+=======================================================
+0   12639176      SOFIA IGNACIA         ZAMBRANO
+1   13633600     RODRIGO ANDRES         ALLIENDE
+2   12635278          GAD AARON        LEWINSOHN
+3   12635901           JONATHAN           BUDNIK
+4   13633872       JORGE ANDRES  GARCIA-HUIDOBRO
+5   13620800    LEONARDO ANDRES          CACERES
+6   14209179         FABIO RAUL         TRAVERSO
+7   12624349  RAUL JUAN DE DIOS          DEL RIO
+8   13634917    VICENTE JOAQUIN           MORENO
+9   13634933       JUAN IGNACIO          MARQUEZ
+10  13632604               Saul        Langarica
+11  13635190    ENRIQUE IGNACIO          URRUTIA
+12  1362072J      IGNACIO TOMAS       HERMOSILLA
+13  13633066     GONZALO RAFAEL           VARGAS
+14  13206281    Nicolas Ignacio            Julio
+15  1363478J       GONZALO JOSE           ZUNINO
+16  13633880  SEBASTIAN ANTONIO          MENESES
+17  08633649        JUAN CARLOS           TORRES
+18  1363822J   CRISTIAN IGNACIO          CARRENO
+19  13632566      PEDRO IGNACIO       BAHAMONDES
+20  13632906   PATRICIO ALBERTO           ORREGO
+21  12622184       PEDRO ANDRES            ACUNA
+22  11636564  ROSARIO VALENTINA         CALDERON
+23  13638149     CLAUDIA ESTHER     LUKASCHEWSKY
+24  1363772J       JUAN IGNACIO           CORTES
+25  13621866             NELSON             DIAZ
+26  13635174    VICENTE ALBERTO             BESA
+27  11636831     BENJAMIN TOMAS           IBARRA
+28  13622625               ALDO          MARTINI
+29  13635476              DIEGO         ALLIENDE
+ 
+================================================================================
+                              GRUPOS DE A DOS                              
+================================================================================
+30  12637769  PAULA MACARENA LISSETTE  ENCINA -  1363688J  KATHERINE FABIOLA  GUERRERO
+31  1263803J  JUAN FRANCISCO  CUMSILLE -  13635603  IGNACIO JOSE  TORESANO
+32  12636339  VICTOR MANUEL  VIDAURRE -  13632531  ARIEL ESTEBAN  SEISDEDOS
+33  13632892  OSCAR RICARDO  RIOS -  13636103  JORGE ANUAR  RABI
