@@ -10,9 +10,9 @@ class Menu(Enum):
     plato_mas_postre_y_jugo = 3
 
     def tiempo_preparacion(self):
-        if isinstance(self, type(Menu(1))):
+        if self == Menu(1):
             return 5
-        elif isinstance(self, type(Menu(2))):
+        elif self == Menu(2):
             return 7
         else:
             return 9
@@ -24,9 +24,9 @@ class Habilidad(Enum):
     avanzada = 3
 
     def tiempo_atencion(self):
-        if self.name == Habilidad.principiante.name:
+        if self== Habilidad.principiante: # es igual que hacer Habilidad(1)
             return 3
-        elif self.name == Habilidad.intermedia.name:
+        elif self == Habilidad.intermedia:
             return 2
         else:
             return 1
