@@ -2,6 +2,7 @@
 * [Calendario](#calendario)
 	* [Marzo](#marzo) 
 	* [Abril](#abril) 
+	* [Mayo](#mayo)
 * [Programa](#programa)
     * [Equipo](#equipo)
     	* [Profesores](#profesores)
@@ -22,29 +23,42 @@
 # Calendario
 
 ### Marzo
-| Día  | Contenido              	|
-|:-----|:------------------------------	|
-| M 10 | OOP				|
-| J 12 | Herencia & multiherencia	|
-| M 17 | Polimorfismo & properties	|
-| J 19 | EDD-1 Colas & Stacks 		|
-| M 24 | EDD-2 Nodos & Árboles		|
-| J 26 | Functional-1 Iterables & Iteradores & Generadores	|
-| M 31 | Functional-2 Map & Reduce & Filter		|
+| Día  | Contenido              	| Información adicional |
+|:-----|:---------------------------|:----------------------|
+| M 10 | OOP						|						|
+| J 12 | Herencia & multiherencia	|						|
+| M 17 | Polimorfismo & properties	|						|
+| J 19 | EDD				 		| Colas & Stacks		|
+| M 24 | EDD						| Nodos & Árboles		|
+| J 26 | Functional					| Iterables & Iteradores & Generadores	|
+| M 31 | Functional					| Map & Reduce & Filter		|
 
 ### Abril
-| Día  | Contenido              	|
-|:-----|:------------------------------	|
-| J 02 | Functional-3 Decorators				|
-| M 07 | MetaClases				|
-| J 09 | MetaClases				|
-| L 13 | **I1**	: Hasta MetaClases		- 18:30 Salas **S1**:B17 , **S2**:B18	|
-| M 14 | Suspensión de Cátedra 	|
-| J 16 | Abstract Classes 		|
-| M 21 | Simulación 1			|
-| J 23 | Simulación con SimPy			|
-| M 28 | Manejo de Excepciones 	|
-| J 30 | Testing unitario 		|
+| Día  | Contenido              	| Información adicional |
+|:-----|:---------------------------|:----------------------|
+| J 02 | Functional-3 Decorators	|						|
+| M 07 | MetaClases					|						|
+| J 09 | MetaClases					|						|
+| L 13 | **I1**	: Hasta MetaClases	| 18:30 Salas **S1**:B17 , **S2**:B18	|
+| M 14 | Suspensión de Cátedra 		|						|
+| J 16 | Abstract Classes 		 	|						|
+| M 21 | Simulación 1				|						|
+| J 23 | Simulación con **SimPy**		| Documentación [aquí](https://simpy.readthedocs.org/en/latest/) |
+| M 28 | Manejo de Excepciones 		|						|
+| J 30 | Testing unitario 			| [Unittest](https://docs.python.org/3/library/unittest.html) viene por defecto con Python	|
+
+### Mayo
+| Día  | Contenido              	| Información adicional |
+|:-----|:---------------------------|:----------------------|
+| M 05 | Testing con **pytest**			| Documentación [aquí](https://pytest.org/latest/getting-started.html) |
+
+### Junio
+| Día  | Contenido              	| Información adicional |
+|:-----|:---------------------------|:----------------------|
+| M 02 | **I2**						| Próximamente más información |
+| W 24 | **Examen**					| Próximamente más información |
+
+
 
 # Programa
 
