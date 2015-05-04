@@ -55,7 +55,7 @@ def random_ip():
 	return ""
 ```
 
-Verifique si el método funciona probándolo unas cuantas miles de veces dentro de un *test*.
+Verifique si el método funciona probándolo dentro de un *test*.
 
 ```python
 def test_random_ip():
@@ -87,7 +87,6 @@ class Dispositivo:
 
     def __str__(self):
         return self.nombre
-
 
 
 class Router:
@@ -125,6 +124,7 @@ class Router:
 ```
 
 El comportamiendo esperado es:
+
 1. Un dispositivo con nombre puede enviar data satisfactoriamente.
 1. Al superar la capacidad máxima del router, todo dispositivo nuevo será rechazado por el router.
 1. Si una IP llegase a repetirse, el router debe generar una excepción.
