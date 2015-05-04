@@ -28,7 +28,7 @@ Escriba un test para cada uno de estos casos:
 	
 ### Parte b)
 
-Escriba un nuevo test usando `pytest_generate_tests`. Esto sirve para escribir un *test* **más elegante**. 
+Escriba los mismos test pero usando `pytest_generate_tests`. Esto sirve para escribir un *test* **más elegante** y más conciso. 
 
 Docs: [pytest_generate_tests](https://pytest.org/latest/parametrize.html#basic-pytest-generate-tests-example)
 
@@ -123,3 +123,16 @@ class Router:
         # El mismo que definimos en la parte a)
         return ""
 ```
+
+El comportamiendo esperado es:
+1. Un dispositivo con nombre puede enviar data satisfactoriamente.
+1. Al superar la capacidad máxima del router, todo dispositivo nuevo será rechazado por el router.
+1. Si una IP llegase a repetirse, el router debe generar una excepción.
+1. Toda data vacía o nula no debe ser enviada. 
+1. Intentar conectar un dispositivo sin nombre debe ser rechazado.
+
+#### Parte i
+Haga los *tests* necesarios para probar el funcionamiento esperado.
+
+#### Parte ii (propuesto)
+Haga una subclase de `Router` llamada `GoodRouter` que corrija los *bugs* de la clase original. Para probarla corra los mismos *tests* sobre esta.
