@@ -1712,7 +1712,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="PyQt">PyQt<a class="anchor-link" href="#PyQt">&#182;</a></h1>
+<h2 id="PyQt">PyQt<a class="anchor-link" href="#PyQt">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -1915,7 +1915,7 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Main-Window">Main Window<a class="anchor-link" href="#Main-Window">&#182;</a></h1>
+<h2 id="Main-Window">Main Window<a class="anchor-link" href="#Main-Window">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -1955,18 +1955,36 @@ In&nbsp;[]:
 
         <span class="sd">&#39;&#39;&#39; Configura geometría de la ventana&#39;&#39;&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s">&#39;Ventana con Boton&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">250</span><span class="p">)</span>
+
+        <span class="sd">&#39;&#39;&#39; Definición de acciones&#39;&#39;&#39;</span>
+        <span class="n">ver_status</span> <span class="o">=</span> <span class="n">QtGui</span><span class="o">.</span><span class="n">QAction</span><span class="p">(</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QIcon</span><span class="p">(</span><span class="bp">None</span><span class="p">),</span> <span class="s">&#39;&amp;Cambiar Status&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="n">ver_status</span><span class="o">.</span><span class="n">setStatusTip</span><span class="p">(</span><span class="s">&#39;Este es un ítem de prueba&#39;</span><span class="p">)</span>
+        <span class="n">ver_status</span><span class="o">.</span><span class="n">triggered</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cambiar_status_bar</span><span class="p">)</span>
+
+        <span class="n">salir</span> <span class="o">=</span> <span class="n">QtGui</span><span class="o">.</span><span class="n">QAction</span><span class="p">(</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QIcon</span><span class="p">(</span><span class="bp">None</span><span class="p">),</span> <span class="s">&#39;&amp;Salir&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="n">salir</span><span class="o">.</span><span class="n">setShortcut</span><span class="p">(</span><span class="s">&#39;Ctrl+Q&#39;</span><span class="p">)</span> <span class="c"># se puede agregar una combinación de teclas para ejecutar el comando</span>
+        <span class="n">salir</span><span class="o">.</span><span class="n">setStatusTip</span><span class="p">(</span><span class="s">&#39;Terminar la aplicación&#39;</span><span class="p">)</span> <span class="c"># muestra en la barra de estados la descripción del comando</span>
+        <span class="n">salir</span><span class="o">.</span><span class="n">triggered</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">QtGui</span><span class="o">.</span><span class="n">qApp</span><span class="o">.</span><span class="n">quit</span><span class="p">)</span> <span class="c"># conecta la señal con el slot que manejará este evento</span>
+
 
         <span class="sd">&#39;&#39;&#39; Creación de la barra de menús y de los menús&#39;&#39;&#39;</span>
         <span class="n">menubar</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">menuBar</span><span class="p">()</span>
-        <span class="nb">file</span> <span class="o">=</span> <span class="n">menubar</span><span class="o">.</span><span class="n">addMenu</span><span class="p">(</span><span class="s">&#39;&amp;Archivo&#39;</span><span class="p">)</span>
+        <span class="n">archivo_menu</span> <span class="o">=</span> <span class="n">menubar</span><span class="o">.</span><span class="n">addMenu</span><span class="p">(</span><span class="s">&#39;&amp;Archivo&#39;</span><span class="p">)</span> <span class="c"># primero menú</span>
+        <span class="n">archivo_menu</span><span class="o">.</span><span class="n">addAction</span><span class="p">(</span><span class="n">ver_status</span><span class="p">)</span>
+        <span class="n">archivo_menu</span><span class="o">.</span><span class="n">addAction</span><span class="p">(</span><span class="n">salir</span><span class="p">)</span>
 
+
+        <span class="n">otro_menu</span> <span class="o">=</span> <span class="n">menubar</span><span class="o">.</span><span class="n">addMenu</span><span class="p">(</span><span class="s">&#39;&amp;Otro Menú&#39;</span><span class="p">)</span> <span class="c"># segundo menú</span>
         <span class="sd">&#39;&#39;&#39; Incluye la barra de estado&#39;&#39;&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">statusBar</span><span class="p">()</span><span class="o">.</span><span class="n">showMessage</span><span class="p">(</span><span class="s">&#39;Listo&#39;</span><span class="p">)</span>
 
         <span class="sd">&#39;&#39;&#39; Configura como Widget Central el formulario creado anteriormente.&#39;&#39;&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">form</span> <span class="o">=</span> <span class="n">MiFormulario</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">form</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">cambiar_status_bar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">statusBar</span><span class="p">()</span><span class="o">.</span><span class="n">showMessage</span><span class="p">(</span><span class="s">&#39;Cambié el Status&#39;</span><span class="p">)</span>
 
 
 <span class="k">class</span> <span class="nc">MiFormulario</span><span class="p">(</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QWidget</span><span class="p">):</span>
@@ -1983,8 +2001,8 @@ In&nbsp;[]:
         <span class="bp">self</span><span class="o">.</span><span class="n">label2</span> <span class="o">=</span> <span class="n">QtGui</span><span class="o">.</span><span class="n">QLabel</span><span class="p">(</span><span class="s">&#39;Aqui se escribe la respuesta&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">label2</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">label3</span> <span class="o">=</span> <span class="n">QtGui</span><span class="o">.</span><span class="n">QLabel</span><span class="p">(</span><span class="s">&#39;Origen de la señal:&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">label3</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">label3</span> <span class="o">=</span> <span class="n">QtGui</span><span class="o">.</span><span class="n">QLabel</span><span class="p">(</span><span class="s">&#39;Origen de la señal: &#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">label3</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">180</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">edit1</span> <span class="o">=</span> <span class="n">QtGui</span><span class="o">.</span><span class="n">QLineEdit</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">edit1</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">45</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
@@ -1992,6 +2010,17 @@ In&nbsp;[]:
         <span class="bp">self</span><span class="o">.</span><span class="n">boton1</span> <span class="o">=</span> <span class="n">QtGui</span><span class="o">.</span><span class="n">QPushButton</span><span class="p">(</span><span class="s">&#39;&amp;Procesar&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">boton1</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">boton1</span><span class="o">.</span><span class="n">sizeHint</span><span class="p">())</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">boton1</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">70</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">boton1</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">boton1_callback</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">boton1</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">boton_presionado</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">boton_presionado</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">sender</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sender</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">label3</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s">&#39;Origen de la señal: {0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sender</span><span class="o">.</span><span class="n">text</span><span class="p">()))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">label3</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">label3</span><span class="o">.</span><span class="n">sizeHint</span><span class="p">())</span>
+
+    <span class="k">def</span> <span class="nf">boton1_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">label2</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s">&#39;{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">edit1</span><span class="o">.</span><span class="n">text</span><span class="p">()))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">label2</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">label2</span><span class="o">.</span><span class="n">sizeHint</span><span class="p">())</span>
 
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QtGui</span><span class="o">.</span><span class="n">QApplication</span><span class="p">([])</span>
@@ -2012,7 +2041,168 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Eventos-y-Se&#241;ales">Eventos y Se&#241;ales<a class="anchor-link" href="#Eventos-y-Se&#241;ales">&#182;</a></h1>
+<h2 id="Layouts">Layouts<a class="anchor-link" href="#Layouts">&#182;</a></h2>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Los layouts permiten manejar de manera más flexible y práctica la distribución de los Widgets en la ventana de la interfaz. El método <b>move(x, y)</b> de cada Widget permite hacer un posicionamiento absoluto de cada objeto en la ventana. Esto tiene limitantes que originan que:</p>
+<ul>
+<li>La posición del Widget no cambia si cambia el tamaño de la ventana. Los objetos permanecerán en esa posición</li>
+<li>La aplicación se verá distinta en varias plataformas o configuraciones de pantalla.</li>
+</ul>
+<p>Para evitar rehacer la ventana con el fin de tener una mejor distribución se utiliza <B>box layouts</b>. Existen dos tipos básicos que permiten alinear los Widget horizontalmente y verticalmente: <b>QtGui.QHBoxLayout()</b> y <b>QtGui.QVBoxLayout()</b>. En ambos casos los Widgets dentro del layout se organizan ocupando todo el espacio disponible, incluso si la ventana es maximizada. Los objetos deben ser agregados a cada layout mediante el método addWidget. Finalmente, le box definido debe ser cargado a la ventana como <b>self.setLayout()</b>. Es posible agreagar la alineación vertical de los objetos incluyendo el layout horizontal dentro de uno vertical. A continuación un ejemplo de como crear un layout para que tres Widgets queden alineados en la esquina inferior derecha.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">PyQt4</span> <span class="kn">import</span> <span class="n">QtGui</span><span class="p">,</span> <span class="n">QtCore</span>
+
+
+<span class="k">class</span> <span class="nc">MainForm</span><span class="p">(</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMainWindow</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
+
+        <span class="sd">&#39;&#39;&#39; Configura geometría de la ventana&#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s">&#39;Ventana con Boton&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">250</span><span class="p">)</span>
+
+        <span class="sd">&#39;&#39;&#39; Configura como Widget Central el formulario creado anteriormente.&#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">form</span> <span class="o">=</span> <span class="n">MiFormulario</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">form</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">MiFormulario</span><span class="p">(</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QWidget</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">init_GUI</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">init_GUI</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39; Este método inicializa la interfaz y sus elementos&#39;&#39;&#39;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">label1</span> <span class="o">=</span> <span class="n">QtGui</span><span class="o">.</span><span class="n">QLabel</span><span class="p">(</span><span class="s">&#39;Texto:&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">label1</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">edit1</span> <span class="o">=</span> <span class="n">QtGui</span><span class="o">.</span><span class="n">QLineEdit</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">edit1</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">45</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">boton1</span> <span class="o">=</span> <span class="n">QtGui</span><span class="o">.</span><span class="n">QPushButton</span><span class="p">(</span><span class="s">&#39;&amp;Calcular&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">boton1</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">boton1</span><span class="o">.</span><span class="n">sizeHint</span><span class="p">())</span>
+
+        <span class="sd">&#39;&#39;&#39; Aquí se crea el objeto QHBoxLayout() y QVBoxLayout() y se agregan los Widgets mediante el método addWidget. El método </span>
+<span class="sd">            stretch() permite incluir un espaciador que expande el layout hacia la derecha y hacia abajo.&#39;&#39;&#39;</span>
+        <span class="n">hbox</span> <span class="o">=</span> <span class="n">QtGui</span><span class="o">.</span><span class="n">QHBoxLayout</span><span class="p">()</span>
+        <span class="n">hbox</span><span class="o">.</span><span class="n">addStretch</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">hbox</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">label1</span><span class="p">)</span>
+        <span class="n">hbox</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">edit1</span><span class="p">)</span>
+        <span class="n">hbox</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">boton1</span><span class="p">)</span>
+
+        <span class="n">vbox</span> <span class="o">=</span> <span class="n">QtGui</span><span class="o">.</span><span class="n">QVBoxLayout</span><span class="p">()</span>
+        <span class="n">vbox</span><span class="o">.</span><span class="n">addStretch</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">vbox</span><span class="o">.</span><span class="n">addLayout</span><span class="p">(</span><span class="n">hbox</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="n">vbox</span><span class="p">)</span> <span class="c"># el layout horizontal está contenido en el vertical</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">QtGui</span><span class="o">.</span><span class="n">QApplication</span><span class="p">([])</span>
+
+    <span class="sd">&#39;&#39;&#39; Se crea una ventana descendiente de QMainWindows&#39;&#39;&#39;</span>
+    <span class="n">form</span> <span class="o">=</span> <span class="n">MainForm</span><span class="p">()</span>
+    <span class="n">form</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>La siguiente figura muestra el resultado de los dos ajustes, horizontal y vertical.</p>
+<p><img src="img/pyqt-mainwindow-layouts-both.png" width=50%></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>PyQt incluye una clase para distribuir matricialmente los Widgets en la ventana, llamada <b>QGridLayout()</b>. Este tipo de layout divide el espacio de la ventana en filas y columnas. Luego cada Widwet debe ser agregado a una casilla de la grilla mediante el método <b>addWidget(Widget, i, j)</b>. Por ejemplo, si necesitamos crear una matriz con botones similar al teclado de un teléfono móvil podemos utilizar layout matricial como se detalla a continuación.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">MiFormulario</span><span class="p">(</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QWidget</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">init_GUI</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">init_GUI</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39; Aquí se crea la grilla para ubicar los Widget de manera matricial&#39;&#39;&#39;</span>
+        <span class="n">grilla</span> <span class="o">=</span> <span class="n">QtGui</span><span class="o">.</span><span class="n">QGridLayout</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="n">grilla</span><span class="p">)</span>
+
+        <span class="n">valores</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="s">&#39;2&#39;</span><span class="p">,</span> <span class="s">&#39;3&#39;</span><span class="p">,</span>
+                   <span class="s">&#39;4&#39;</span><span class="p">,</span> <span class="s">&#39;5&#39;</span><span class="p">,</span> <span class="s">&#39;6&#39;</span><span class="p">,</span>
+                   <span class="s">&#39;7&#39;</span><span class="p">,</span> <span class="s">&#39;8&#39;</span><span class="p">,</span> <span class="s">&#39;9&#39;</span><span class="p">,</span>
+                   <span class="s">&#39;*&#39;</span><span class="p">,</span> <span class="s">&#39;0&#39;</span><span class="p">,</span> <span class="s">&#39;#&#39;</span><span class="p">]</span>
+
+        <span class="n">posicion</span> <span class="o">=</span> <span class="p">[(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+
+        <span class="k">for</span> <span class="n">posicion</span><span class="p">,</span> <span class="n">valor</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">posicion</span><span class="p">,</span> <span class="n">valores</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">valor</span> <span class="o">==</span> <span class="s">&#39;&#39;</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">boton</span> <span class="o">=</span> <span class="n">QtGui</span><span class="o">.</span><span class="n">QPushButton</span><span class="p">(</span><span class="n">valor</span><span class="p">)</span>
+            <span class="n">grilla</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">boton</span><span class="p">,</span> <span class="o">*</span><span class="n">posicion</span><span class="p">)</span> <span class="c"># el * permite convertir los elementos de la tupla como argumentos independientes</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s">&#39;Calculator&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="img/pyqt-mainwindow-grid-layout.png" width=20%></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Eventos-y-Se&#241;ales">Eventos y Se&#241;ales<a class="anchor-link" href="#Eventos-y-Se&#241;ales">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -2030,7 +2220,7 @@ In&nbsp;[]:
 <li>el objeto evento: es el objeto que encapsula el cambio de estado mediante el evento.</li>
 <li>el objeto destino: equivale al objeto que se desea notificar del cambio de estado</li>
 </ul>
-<p>Bajo este modelamiento la fuente del evento delega la tarea de manejar el evento al objeto de destino. PyQt, en su versión 4 específicamente, utiliza un único mecanismo de <b>señal</b> y <b>puerto</b> (signal y slot) para manejar los eventos. Ambos elementos son utilizados para la comunicación entre objetos del formulario. Cuando un evento ocurre, el objeto que es activado genera una señal. Un puerto o slot es llamado por alguna de las señales. Los slots pueden ser cualquier tipo de función llamable en Python.</p>
+<p>Bajo este modelamiento la fuente del evento delega la tarea de manejar el evento al objeto de destino. PyQt, en su versión 4 específicamente, utiliza un mecanismo de <b>señal</b> y <b>puerto</b> (signal y slot) para manejar los eventos. Ambos elementos son utilizados para la comunicación entre objetos del formulario. Cuando un evento ocurre, el objeto que es activado genera una señal. Un puerto o slot es llamado por alguna de las señales. Los slots pueden ser cualquier tipo de función llamable en Python.</p>
 <p>A continuación, veremos una modificación al programa anterior para generar un llamada a la función <i>boton1_callback()</i> después de que se presiona el botón 1. Esto se logra usando el evento que enviará la señal. En el caso de los botones el método corresponde a la señal <b>clicked</b>. Mediante el método <b>connect()</b> se establece la comunicación entre los objetos involucrados en el evento. Este método recibe una función llamable en python, <i>i.e.</i>, boton1_callback sin <b>()</b>.</p>
 </div>
 </div>
@@ -2228,6 +2418,44 @@ In&nbsp;[]:
 
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Eventos-de-Mouse-y-Teclado">Eventos de Mouse y Teclado<a class="anchor-link" href="#Eventos-de-Mouse-y-Teclado">&#182;</a></h2>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Otra forma de generar eventos es a través del teclado y el mouse. Estos se manejan haciendo override de dos métodos propios de la ventana: <b>mousePressEvent()</b> y <b>keyPressEvent()</b>. Esto se puede hacer agregando ambos métodos al <i>MainForm</i> que vimos en el ejemplo para trabajar con <i>mainWindow</i>.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">keyPressEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">statusBar</span><span class="p">()</span><span class="o">.</span><span class="n">showMessage</span><span class="p">(</span><span class="s">&#39;Tecla presionada {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">text</span><span class="p">()))</span>
+
+<span class="k">def</span> <span class="nf">mousePressEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">statusBar</span><span class="p">()</span><span class="o">.</span><span class="n">showMessage</span><span class="p">(</span><span class="s">&#39;Mouse click&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
