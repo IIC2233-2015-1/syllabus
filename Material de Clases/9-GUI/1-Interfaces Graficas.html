@@ -1732,7 +1732,7 @@ div#notebook {
 <li><b>QtOpenGL</b>: contiene funcionalidades para renderizar gráficos 3D y 2D mediante OpenGL</li>
 <li><b>QtSql</b>: incluye funcionalidades para el trabajo con bases de datos SQL</li>
 </ul>
-<p>Para crear una ventana usamos el módulo <b>QtGui</b> de PyQt. El primer paso es crear la aplicación que contendrá la ventana y todos los elementos o <b>Widgets</b> dentro de esa ventana. Este se realiza mediante el método <b>QApplication()</b>.</p>
+<p>Para crear una ventana usamos el módulo <b>QtGui</b> de PyQt. El primer paso es crear la aplicación que contendrá la ventana y todos los elementos o <b>Widgets</b> dentro de esa ventana. Esto se realiza mediante la clase <b>QApplication()</b> que contiene el loop de enventos, la inicialización y cierre de la aplicación, dividir argumentos de entrada, entre otras responsabilidades. Por cada aplicación que use PyQt, existe solo una <i>QApplication</i> independientemente del número de ventanas que esta tenga.</p>
 <p>NOTA: La ejecución de interfaces gráficas funciona mejor desde un IDE, no en ipython notebook.</p>
 </div>
 </div>
@@ -1754,7 +1754,6 @@ In&nbsp;[1]:
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QtGui</span><span class="o">.</span><span class="n">QApplication</span><span class="p">([])</span>
     <span class="n">formulario</span> <span class="o">=</span> <span class="n">MiFormulario</span><span class="p">()</span>    
-    <span class="n">formulario</span><span class="o">.</span><span class="n">set_geometry</span><span class="p">()</span>
     <span class="n">formulario</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
     <span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">()</span>
 </pre></div>
@@ -1769,7 +1768,7 @@ In&nbsp;[1]:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>La clase <b>QtGui.QWidget</b>, de la cual deciende la clase MiFormulario, es la clase base todos los objetos en PyQt. El constructor para esta clase por defecto no tiene padres, y en este caso corresponde a una ventana vacía. Después, definimos las propiedades de la ventana. Hasta este momento la ventana solo existe en la memoria. Para mostrar la ventana en la pantala usamos el método <b>show()</b>. Finalmente, el método <b>exec_()</b> ejecuta el <i>mainloop</i>, donde se realiza la detección de todos los eventos. El resultado del código anterior corresponde a la interfaz vacía mostrada a continuación.</p>
+<p>La clase <b>QtGui.QWidget</b>, de la cual desciende la clase MiFormulario, es la clase base todos los objetos en PyQt. El constructor para esta clase por defecto no tiene padres, y en este caso corresponde a una ventana vacía. Después, definimos las propiedades de la ventana. Hasta este momento la ventana solo existe en la memoria. Para mostrar la ventana en la pantalla usamos el método <b>show()</b>. Finalmente, el método <b>exec_()</b> ejecuta el <i>mainloop</i>, donde se realiza la detección de todos los eventos. El resultado del código anterior corresponde a la interfaz vacía mostrada a continuación.</p>
 <p><img src="img/PyQt-empty-window.png" width=20%></p>
 </div>
 </div>
@@ -2057,7 +2056,7 @@ In&nbsp;[]:
 <li>La posición del Widget no cambia si cambia el tamaño de la ventana. Los objetos permanecerán en esa posición</li>
 <li>La aplicación se verá distinta en varias plataformas o configuraciones de pantalla.</li>
 </ul>
-<p>Para evitar rehacer la ventana con el fin de tener una mejor distribución se utiliza <B>box layouts</b>. Existen dos tipos básicos que permiten alinear los Widget horizontalmente y verticalmente: <b>QtGui.QHBoxLayout()</b> y <b>QtGui.QVBoxLayout()</b>. En ambos casos los Widgets dentro del layout se organizan ocupando todo el espacio disponible, incluso si la ventana es maximizada. Los objetos deben ser agregados a cada layout mediante el método addWidget. Finalmente, le box definido debe ser cargado a la ventana como <b>self.setLayout()</b>. Es posible agreagar la alineación vertical de los objetos incluyendo el layout horizontal dentro de uno vertical. A continuación un ejemplo de como crear un layout para que tres Widgets queden alineados en la esquina inferior derecha.</p>
+<p>Para evitar rehacer la ventana con el fin de tener una mejor distribución se utiliza <B>box layouts</b>. Existen dos tipos básicos que permiten alinear los Widget horizontalmente y verticalmente: <b>QtGui.QHBoxLayout()</b> y <b>QtGui.QVBoxLayout()</b>. En ambos casos los Widgets dentro del layout se organizan ocupando todo el espacio disponible, incluso si la ventana es maximizada. Los objetos deben ser agregados a cada layout mediante el método addWidget. Finalmente, el box definido debe ser cargado a la ventana como <b>self.setLayout()</b>. Es posible agreagar la alineación vertical de los objetos incluyendo el layout horizontal dentro de uno vertical. A continuación un ejemplo de como crear un layout para que tres Widgets queden alineados en la esquina inferior derecha.</p>
 </div>
 </div>
 </div>
@@ -2291,7 +2290,7 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>En ocasiones es necesario conocer cúal de los objetos del formulario envió una señal. Para eso PyQt nos ofrece el método <b>sender()</b>. El uso de este método se puede observar al agreagar al formulario una nueva etiqueta que desplegará el nombre del Widget que envía la señal.</p>
+<p>En ocasiones es necesario conocer cuál de los objetos del formulario envió una señal. Para eso PyQt nos ofrece el método <b>sender()</b>. El uso de este método se puede observar al agreagar al formulario una nueva etiqueta que desplegará el nombre del Widget que envía la señal.</p>
 </div>
 </div>
 </div>
