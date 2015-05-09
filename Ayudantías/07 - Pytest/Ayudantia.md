@@ -94,8 +94,10 @@ class Router:
     def __init__(self, max_conexiones):
         self.max_conexiones = max_conexiones
 
+        generador = self.__available_ips()
+
         def nueva_conexion():
-            return next(self.__available_ips())
+            return next(generador)
 
         self.connections = defaultdict(nueva_conexion)
 
@@ -114,7 +116,7 @@ class Router:
             return output
 
     def __available_ips(self):
-        while len(self.connections) != self.max_conexiones:
+        while len(self.connections) < self.max_conexiones:
             yield(self.random_ip())
 
     @staticmethod
@@ -129,7 +131,7 @@ El comportamiendo esperado es:
 1. Al superar la capacidad máxima del router, todo dispositivo nuevo será rechazado por el router.
 1. Si una IP llegase a repetirse, el router debe generar una excepción.
 1. Toda data vacía o nula no debe ser enviada. 
-1. Intentar conectar un dispositivo sin nombre debe ser rechazado.
+1. Al intentar conectar un dispositivo sin nombre, debe ser rechazado.
 
 #### Parte i
 Haga los *tests* necesarios para probar el funcionamiento esperado.
