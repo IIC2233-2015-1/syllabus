@@ -53,13 +53,17 @@ def color_random(word=None, font_size=None, position=None,
     return "hsl(%d, 80%%, 50%%)" % R.randint(0, 255)
 
 
-class WordCloud():
+class WordCloud(QtGui.QWidget):
+
+    PalabraColocada = QtCore.pyqtSignal()
+    ImagenGenerada = QtCore.pyqtSignal()
 
     """Esta clase está encargada de generar la imágen de la
     nube de palabras. Contiene tanto la parte lógica como las
     definiciones del output (archivo .jpg o .png)"""
 
     def __init__(self, archivo="input.txt"):
+        super(WordCloud, self).__init__()
         #  Aquí tomamos el archivo, todas sus palabras
         # y obtenemos su frecuencia
         with open(archivo) as f:
@@ -95,6 +99,14 @@ class WordCloud():
         self.imagen_generada = False
         return self
 
+    def emitPalabraColocada(self):
+        if not self.signalsBlocked():
+            self.PalabraColocada.emit()
+
+    def emitImagenGenerada(self):
+        if not self.signalsBlocked():
+            self.ImagenGenerada.emit()
+
     def acomodar_palabras(self):
         """El 'trabajo pesado' de distribuir las palabras
         de forma que encajen en la imágen a generar"""
@@ -110,13 +122,11 @@ class WordCloud():
 
         font_actual = self.max_font_size
 
-        __ = 0
-
         # Inicio de dibujado
         for palabra, freq in self.palabras:
 
-            print(str(__) + "/" + str(len(self.palabras)))
-            __ += 1
+            # Palabra colocada
+            self.emitPalabraColocada()
 
             # Hay que encontrar una posición para todas las palabras
             while True:
@@ -173,11 +183,11 @@ class WordCloud():
 
             integral[x:, y:] = integral_parcial
 
-        print(__)
-
         self.distribucion = list(
             zip(self.palabras, tamaños, posiciones, orientaciones, colores))
         self.imagen_generada = True
+
+        self.emitImagenGenerada()
 
     def to_image(self):
         """La distribución generada se traspasa a imágen. Habrá
@@ -207,10 +217,12 @@ class WordCloud():
         """Cambia los colores de la imágen. Habrá un error si la 
         imágen no se ha generado"""
         # Pueden agregar nuevas funciones si les interesa aportar
-        self.distribucion = [(word_freq, font_size, position, orientation,
-                              funcion_colores(word=word_freq[0], font_size=font_size,
-                                              position=position, orientation=orientation))
-                             for palabra, fuente, posicion, orientacion, color in self.stribucionlayout_]
+        self.distribucion = [(palabra, fuente, posicion, orientacion,
+                              funcion_colores(word=palabra[0], font_size=fuente,
+                                              position=posicion, orientation=orientacion))
+                             for palabra, fuente, posicion, orientacion, color in self.distribucion]
+        self.emitColoresCambiados()
+
 
     def __array__(self):
         """Convierte el objeto a un arreglo"""
@@ -218,20 +230,32 @@ class WordCloud():
 
 
 def Demo():
-    """Funcion que ejecuta un ejemplo"""
+    """Función que ejecuta un ejemplo"""
     A = WordCloud()
     A.configurar_output()
     A.acomodar_palabras()
-    print("Palabras listas, desplegando imagen...\n")
-
-    A.to_file()
-    print("Archivo guardado")
+    print("Palabras listas, desplegando imágen...\n")
 
     import matplotlib.pyplot as plt
-    plt.imshow(A)
+    plt.imshow(I)
     plt.axis("off")
     plt.show()
-    print("Imagen desplegada")
+    print("Imágen desplegada")
 
 if __name__ == '__main__':
-    Demo()
+    # Si está corriendo en una terminal
+    if stdin.isatty():
+        args = argv
+        print("\n'-h' o 'help': Documentación del módulo" +
+              "\n'-d o 'demo': Ejemplo de output (requiere archivo input.txt)\n")
+
+        if len(args) != 2:
+            raise Exception("Se debe ingresar solo 1 comando\n")
+
+        if "-h" == args[1] or "help" == args[1]:
+            import wordcloud
+            help(wordcloud)
+        elif "-d" or "demo" in args:
+            print("Cargando demostración...\n" +
+                  "(Esto puede tomar cerca de 1 minuto...)\n")
+            Demo()
