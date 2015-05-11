@@ -53,7 +53,7 @@
 |:-----|:---------------------------|:----------------------|
 | M 05 | Testing con **pytest**			| Documentación [aquí](https://pytest.org/latest/getting-started.html) |
 | J 07 | Interfaces Gráficas con **PyQt4**			| Parte 1 |
-| M 12 | Interfaces Gráficas con **PyQt4**			| Parte 2 |
+| M 12 | Interfaces Gráficas con **PyQt4** + **Qt Designer**			| Parte 2 |
 
 ### Junio
 | Día  | Contenido              	| Información adicional |
