@@ -1734,7 +1734,7 @@ div#notebook {
 <p>Una forma rápida de ver el resultado sin embeberlo en el código final consiste en usar el modo preview de Qt Designer pulsado <b>Ctrl + R</b>. En este modo la interfaz creada está completamente funcional.</p>
 <p>Luego de que la interfaz está terminada y debe ser guardada. En ese momento se crea un archivo <b>.ui</b>. Después, debe ser ensamblada con el script de python que programará las funcionalidades de los widgets incluídos en la interfaz. Finalmente, para incorporar la interfaz a nuestro script debemos utilizar el módulo <b>uic</b>. Este nos permite cargarla interfaz mediante <b>loadUiType(&quot;nombre-interfaz.ui&quot;)</b>. La función retorna una tupla con dos elementos. El primero corresponde a una clase con el nombre de la ventana definida en la propiedad <b>objectName</b> de Qt Designer. El segundo corresponde al nombre de la clase de la cual hereda los comportamientos.</p>
 <p><img src="img/qt-designer-window-name.png" width=50%></p>
-<p>El siguiente ejemplo muestra como realizar este procedimiento con una interfaz ya creada. En este caso la variable formulario incluiría la tupla: <i>(class 'Ui_MainWindow', class 'PyQt4.QtGui.QMainWindow')</i>.</p>
+<p>El siguiente ejemplo muestra como realizar este procedimiento con una interfaz ya creada. En este caso la variable formulario incluiría la tupla: <i>(class 'Ui_MainWindow', class 'PyQt4.QtGui.QMainWindow')</i>. El prefijo <b>Ui</b> asociado al nombre de la clase que contiene la interfaz es asignado por el módulo uic durante la carga de la interfaz. Una vez que la interfaz ha sido cargada, debe ser inicializada dentro del método <b><strong>init()</strong></b> de la clase que herada la interfaz. Esta inicialización se realiza mediante el método <b>setupUi(<i>self</i>)</b> que recibe como parámetro la misma instancia. La creación de la aplicación debe ser realizada usando la estructura del programa principal (main) visto durante el comienzo de la explicación de interfaces gráficas.</p>
 </div>
 </div>
 </div>
@@ -1784,7 +1784,7 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Los comportamientos de cada widget deben ser definidos mediante <i>signals</i> y <i>slots</i> tal como se explicó en la sección anterior. A continuación una interfaz que realiza la división entre dos números. El botón creado en Qt Designer despliega el resultado sobre una etiqueta.</p>
+<p>Los comportamientos de cada widget deben ser definidos mediante <i>signals</i> y <i>slots</i> tal como se explicó en la sección anterior. A continuación se muestra un ejemplo con una interfaz que realiza la división entre dos números. El botón creado en Qt Designer despliega el resultado sobre una etiqueta.</p>
 <p><img src="img/qt-designer-division-ui.png" width=50%></p>
 </div>
 </div>
@@ -1830,7 +1830,56 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>En Qt Designer es fácil incluir nuevos widgets que hacen más fácil la interacción con los usuarios. Un ejemplo es el <b>Radio Button</b>, que permite capturar opciones del usuario en el formulario. Una ventaja que presenta es que disminuye la ambiguedad de la información ingresada por los usuarios. Además, por defecto los <i>radio buttons</i> en un formulario son autoexcluyentes, es decir, solo puede haber uno solo seleccionado. Al seleccionar una opción distinta desmarca la selección anterior en otro <i>radio button</i>. A continuación la figura muestra un ejemplo del diseño de formularios utilizando <i>radio buttons</i> y el código en python utilizado para poder verificar los valores.</p>
+<p><img src="img/qt-designer-radiobutton.png" width=40%></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">PyQt4</span> <span class="kn">import</span> <span class="n">QtGui</span><span class="p">,</span> <span class="n">uic</span>
 
+<span class="n">formulario</span> <span class="o">=</span> <span class="n">uic</span><span class="o">.</span><span class="n">loadUiType</span><span class="p">(</span><span class="s">&quot;qt-designer-radiobutton.ui&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">formulario</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">formulario</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="k">class</span> <span class="nc">MainWindow</span><span class="p">(</span><span class="n">formulario</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">formulario</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setupUi</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">pushButton1</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mostrar_gustos</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">mostrar_gustos</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">rb_id</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s">&#39;radioButton&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">rb_id</span><span class="p">))</span><span class="o">.</span><span class="n">isChecked</span><span class="p">():</span>
+                <span class="n">opcion</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s">&#39;radioButton&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">rb_id</span><span class="p">))</span><span class="o">.</span><span class="n">text</span><span class="p">()</span>
+                <span class="k">print</span><span class="p">(</span><span class="n">opcion</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">label2</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s">&#39;prefiere: {0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">opcion</span><span class="p">))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">label2</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">label2</span><span class="o">.</span><span class="n">sizeHint</span><span class="p">())</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">QtGui</span><span class="o">.</span><span class="n">QApplication</span><span class="p">([])</span>
+    <span class="n">form</span> <span class="o">=</span> <span class="n">MainWindow</span><span class="p">()</span>
+    <span class="n">form</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>El estado de un <i>radio button</i> puede ser verificado usando el método <b>isChecked()</b> y la información que despliega corresponde al texto que puede ser retornado mediante el método <b>text()</b>.</p>
 </div>
 </div>
 </div>
