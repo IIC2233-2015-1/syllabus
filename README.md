@@ -54,6 +54,10 @@
 | M 05 | Testing con **pytest**			| Documentación [aquí](https://pytest.org/latest/getting-started.html) |
 | J 07 | Interfaces Gráficas con **PyQt4**			| Parte 1 |
 | M 12 | Interfaces Gráficas con **PyQt4** + **Qt Designer**			| Parte 2 |
+| J 14 | I/O                        | Strings               |
+| M 19 | I/O                        | Bytes                 |
+| J 21 | **Feriado**                |                       |
+| M 26 | I/O                        | Serialización         |
 
 ### Junio
 | Día  | Contenido              	| Información adicional |
