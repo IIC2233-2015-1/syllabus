@@ -1705,7 +1705,7 @@ Strings
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[2]:
+In&nbsp;[17]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1769,7 +1769,7 @@ un string concatenado
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[3]:
+In&nbsp;[18]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1809,7 +1809,7 @@ In&nbsp;[3]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[4]:
+In&nbsp;[19]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1823,7 +1823,10 @@ In&nbsp;[4]:
 <span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&quot;est&quot;</span><span class="p">))</span>
 <span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">&quot;do&quot;</span><span class="p">))</span>
 <span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;y p&quot;</span><span class="p">))</span><span class="c">#devuelve el indice donde comienza en s la secuencia que se pasa como argumento</span>
-<span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s">&#39;y&#39;</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s">&#39;y&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span><span class="c">#devuelve el indice donde comienza la secuencia, acepta dos argumentos más, la posición inicial donde</span>
+                          <span class="c">#comenzar la búsqueda y la posición final (hasta dónde llega buscando)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s">&#39;y&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="c">#str.index(str, beg=1 end=len(string))</span>
 </pre></div>
 
 </div>
@@ -1849,6 +1852,21 @@ True
 </div>
 </div>
 
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_text output_pyerr">
+<pre>
+<span class="ansired">---------------------------------------------------------------------------</span>
+<span class="ansired">ValueError</span>                                Traceback (most recent call last)
+<span class="ansigreen">&lt;ipython-input-19-826203d742e2&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
+<span class="ansigreen">     11</span> print<span class="ansiblue">(</span>s<span class="ansiblue">.</span>index<span class="ansiblue">(</span><span class="ansiblue">&apos;y&apos;</span><span class="ansiblue">,</span> <span class="ansicyan">4</span><span class="ansiblue">,</span> <span class="ansicyan">10</span><span class="ansiblue">)</span><span class="ansiblue">)</span><span class="ansired">#devuelve el indice donde comienza la secuencia, acepta dos argumentos más, la posición inicial donde</span><span class="ansiblue"></span>
+<span class="ansigreen">     12</span>                           <span class="ansired">#comenzar la búsqueda y la posición final (hasta dónde llega buscando)</span><span class="ansiblue"></span><span class="ansiblue"></span>
+<span class="ansigreen">---&gt; 13</span><span class="ansired"> </span>print<span class="ansiblue">(</span>s<span class="ansiblue">.</span>index<span class="ansiblue">(</span><span class="ansiblue">&apos;y&apos;</span><span class="ansiblue">,</span> <span class="ansicyan">5</span><span class="ansiblue">,</span> <span class="ansicyan">10</span><span class="ansiblue">)</span><span class="ansiblue">)</span><span class="ansiblue"></span>
+<span class="ansigreen">     14</span> <span class="ansired">#str.index(str, beg=1 end=len(string))</span><span class="ansiblue"></span><span class="ansiblue"></span>
+
+<span class="ansired">ValueError</span>: substring not found</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -1865,7 +1883,7 @@ True
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[5]:
+In&nbsp;[20]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1919,7 +1937,7 @@ hola a todos, cómo están
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[6]:
+In&nbsp;[21]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1967,7 +1985,7 @@ Hola Juan Pérez, estás aprobado. Tu nota fue un 4.5
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[7]:
+In&nbsp;[22]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2023,7 +2041,7 @@ public class MiClase
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[8]:
+In&nbsp;[23]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2054,7 +2072,7 @@ x z y
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[9]:
+In&nbsp;[24]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2114,7 +2132,7 @@ Espero que el mensaje te sea de mucha utilidad!
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[10]:
+In&nbsp;[25]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2165,7 +2183,7 @@ Subject: Tienes un correo Este es un correo para ti
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[11]:
+In&nbsp;[26]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2217,7 +2235,7 @@ Sorry no era tan importante
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[12]:
+In&nbsp;[27]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2277,7 +2295,7 @@ Saludos
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[13]:
+In&nbsp;[28]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2319,7 +2337,8 @@ arroz      960       $1.75    $1680.00
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Notar que dentro de cada llave existe un item tipo diccionario, es decir, antes de los dos puntos va el índice del argumento dentro de la función format. Después de los dos puntos, por ejemplo, &quot;8s&quot;, significa que el dato es un string de 8 caracteres. Por default, si el string es más corto que los 8 caracteres, el resto se llenará con espacios (por la derecha). No olvidar que también por default si el string que ingresamos es más largo que los 8 caracteres, este no será truncado. Por suerte podemos cambiar esta situación, llenando los espacios que faltan con cualquier caracter y obligando a que el string sea truncado si se pasa del largo máximo, como en el caso que viene ahora. Por ejemplo, para la cantidad de producto el formato es {1: ^9d}, el 1 corresponde al índice del argumento en la función format, el espacio después de los dos puntos dice que los lugares vacíos deben ser llenados con espacios (en los tipos enteros el default es llenar con ceros), el símbolo ^ es para que el número quede centrado en el espacio disponible, &quot;9d&quot; significa que será un entero de hasta 9 dígitos. Notar que siempre el orden de estos parámetros (aunque son opcionales) debe ser (de izquierda a derecha después de los dos puntos): Primero el caracter para llenar los espacios vacíos, después el alineamiento, después el tamaño y finalmente el tipo.</p>
-<p>Para el precio por ejemplo, {2: &lt;8.2f} significa que el dato se leerá del tercer argumento de la función format, luego los lugares que queden libres se llenarán con espacios, el símbolo &lt; significa que el alineamiento es a la izquierda, el formato será un float de hasta 8 caracteres, con dos decimales. De la misma forma, para el subtotal, {3: &gt;7.2f} significa que el dato se sacará del cuarto argumento dentro de la función format, el caracter de llenado será espacio, el alineamiento es a la derecha, será un float de 7 digitos, dos de ellos decimales.</p>
+<p>Para el precio por ejemplo, {2: &lt;8.2f} significa que el dato se leerá del tercer argumento de la función format, luego los lugares que queden libres se llenarán con espacios, el símbolo &lt; significa que el alineamiento es a la izquierda, el formato será un float de hasta 8 caracteres, con dos decimales.</p>
+<p>De la misma forma, para el subtotal, {3: &gt;7.2f} significa que el dato se sacará del cuarto argumento dentro de la función format, el caracter de llenado será espacio, el alineamiento es a la derecha, será un float de 7 digitos, dos de ellos decimales.</p>
 </div>
 </div>
 </div>
@@ -2340,7 +2359,7 @@ Bytes y I/O
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[14]:
+In&nbsp;[29]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2381,7 +2400,7 @@ b&apos;ab&apos;
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[15]:
+In&nbsp;[30]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2399,7 +2418,7 @@ In&nbsp;[15]:
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_text output_pyerr">
 <pre>
-<span class="ansicyan">  File </span><span class="ansigreen">&quot;&lt;ipython-input-15-1edb91d544bd&gt;&quot;</span><span class="ansicyan">, line </span><span class="ansigreen">1</span>
+<span class="ansicyan">  File </span><span class="ansigreen">&quot;&lt;ipython-input-30-1edb91d544bd&gt;&quot;</span><span class="ansicyan">, line </span><span class="ansigreen">1</span>
 <span class="ansired">    caracteres = b&quot;áb&quot;#esto genera un error ya que sólo se pueden usar literales ascii para la creación de bytes</span>
                 ^
 <span class="ansired">SyntaxError</span><span class="ansired">:</span> bytes can only contain ASCII literal characters.
@@ -2432,7 +2451,7 @@ In&nbsp;[15]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[16]:
+In&nbsp;[31]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2475,7 +2494,7 @@ clichщ
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[17]:
+In&nbsp;[32]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2510,7 +2529,7 @@ b&apos;estaci\xa2n&apos;
 <pre>
 <span class="ansired">---------------------------------------------------------------------------</span>
 <span class="ansired">UnicodeEncodeError</span>                        Traceback (most recent call last)
-<span class="ansigreen">&lt;ipython-input-17-844dd5b7b18c&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
+<span class="ansigreen">&lt;ipython-input-32-844dd5b7b18c&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
 <span class="ansigreen">      3</span> print<span class="ansiblue">(</span>characters<span class="ansiblue">.</span>encode<span class="ansiblue">(</span><span class="ansiblue">&quot;latin-1&quot;</span><span class="ansiblue">)</span><span class="ansiblue">)</span><span class="ansiblue"></span>
 <span class="ansigreen">      4</span> print<span class="ansiblue">(</span>characters<span class="ansiblue">.</span>encode<span class="ansiblue">(</span><span class="ansiblue">&quot;CP437&quot;</span><span class="ansiblue">)</span><span class="ansiblue">)</span><span class="ansiblue"></span>
 <span class="ansigreen">----&gt; 5</span><span class="ansired"> </span>print<span class="ansiblue">(</span>characters<span class="ansiblue">.</span>encode<span class="ansiblue">(</span><span class="ansiblue">&quot;ascii&quot;</span><span class="ansiblue">)</span><span class="ansiblue">)</span><span class="ansired">#no se puede codificar en ASCII el caracter &quot;ó&quot; ya que no existe dentro de los 128 caracteres de ASCII</span><span class="ansiblue"></span>
@@ -2535,7 +2554,7 @@ b&apos;estaci\xa2n&apos;
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[33]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2545,6 +2564,24 @@ In&nbsp;[]:
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+b&apos;estaci?n&apos;
+b&apos;estacin&apos;
+b&apos;estaci&amp;#243;n&apos;
+
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -2574,7 +2611,7 @@ bytearrays
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[34]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2594,6 +2631,28 @@ In&nbsp;[]:
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+bytearray(b&apos;holamundo&apos;)
+bytearray(b&apos;amun&apos;)
+bytearray(b&apos;hola\x15\xa3ndo&apos;)
+bytearray(b&apos;hola\x15\xa3ndoprograma&apos;)
+104
+0b1101000
+01101000
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -2608,7 +2667,7 @@ In&nbsp;[]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[35]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2620,6 +2679,23 @@ In&nbsp;[]:
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+97
+bytearray(b&apos;abcgDf&apos;)
+
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -2640,7 +2716,7 @@ I/O de Archivos
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[36]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2653,11 +2729,28 @@ In&nbsp;[]:
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+sorry pero ahora yo soy lo que habr? dentro del archivo
+yo me agregar? al final
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[37]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2684,7 +2777,7 @@ In&nbsp;[]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[38]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2694,6 +2787,22 @@ In&nbsp;[]:
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+sorry pero ahora yo soy lo que habr? dentro del archivo
+
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -2710,7 +2819,7 @@ In&nbsp;[]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[39]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2728,6 +2837,23 @@ In&nbsp;[]:
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+sorry pero ahora yo soy lo que habr? dentro del archivo
+yo me agregar? al final
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -2741,7 +2867,7 @@ In&nbsp;[]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[40]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2759,6 +2885,22 @@ In&nbsp;[]:
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+b&apos;abcde12&apos;
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -2772,7 +2914,7 @@ In&nbsp;[]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[41]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2794,6 +2936,22 @@ In&nbsp;[]:
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+b&apos;linea_\x00 abcde12linea_\x01 abcde12linea_\x02 ab&apos;
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -2804,41 +2962,14 @@ In&nbsp;[]:
 Context Manager
 </h1>
 
-<p>Dado que siempre necesitamos cerrar un archivo después de usarlo, debemos preocuparnos de que ocurran excepciones mientras el archivo está abierto. Una forma clara de hacerlo es cerrar el archivo dentro de la sentencia <b>finally:</b> después de un <b>try:</b>. El problema es que esto genera mucho código extra. Afortuadamente en Python existe una forma de hacer lo mismo con menos código. Si ejecutamos <b>dir</b> en un objeto tipo archivo:</p>
+<p>Dado que siempre necesitamos cerrar un archivo después de usarlo, debemos considerar la posibilidad de que ocurran excepciones mientras el archivo está abierto. Una forma clara de hacerlo es cerrar el archivo dentro de la sentencia <b>finally:</b> después de un <b>try:</b>. El problema es que esto genera mucho código extra. Afortuadamente en Python existe una forma de hacer lo mismo con menos código, a través de un &quot;context manager&quot;, que se encarga de ejecutar las sentencias <b>try</b> y <b>finally</b> sin la necesidad de llamarlas directamente, sólo necesitamos llamar al archivo que abriremos con la sentencia <b>with</b>. Ejemplo:</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="nb">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;archivo_ejemplo_4&quot;</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="nb">file</span><span class="p">))</span>
-<span class="nb">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Vemos que existen dos métodos llamados <b>__enter__</b> y <b>__exit__</b>. Estos dos métodos transforman el archivo en un &quot;context manager&quot;. El método <b>__exit__</b> asegura que el archivo será cerrado incluso si aparece una excepción mientras esté abierto. El método <b>__enter__</b> inicializa el archivo o realiza cualquier acción necesaria para setear el contexto del objeto.</p>
-<p>Para asegurarnos que un archivo usará los métodos <b>__enter__</b> y <b>__exit__</b>, simplemente debemos llamar a la apertura del archivo con el método <b>with</b>. Ejemplo:</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[42]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2856,14 +2987,14 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>El código anterior sería equivalente entonces a hacer lo siguiente:</p>
+<p>El código anterior sería equivalente a hacer lo siguiente:</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[43]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2884,14 +3015,58 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Podemos crear nuestros propios context managers, simplemente cremos cualquier clase, agregamos los métodos <b>__enter__</b> y <b>__exit__</b> y podemos llamar a nuestra clase a través del método <b>with</b>. Del siguiente ejemplo se puede ver cómo el método <b>__exit__</b> se ejecuta una vez que nos salimos del scope de la sentencia <b>with</b>.</p>
+<p>Si ejecutamos <b>dir</b> en un objeto tipo archivo:</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[44]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="nb">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;archivo_ejemplo_4&quot;</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="nb">file</span><span class="p">))</span>
+<span class="nb">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+[&apos;_CHUNK_SIZE&apos;, &apos;__class__&apos;, &apos;__del__&apos;, &apos;__delattr__&apos;, &apos;__dict__&apos;, &apos;__dir__&apos;, &apos;__doc__&apos;, &apos;__enter__&apos;, &apos;__eq__&apos;, &apos;__exit__&apos;, &apos;__format__&apos;, &apos;__ge__&apos;, &apos;__getattribute__&apos;, &apos;__getstate__&apos;, &apos;__gt__&apos;, &apos;__hash__&apos;, &apos;__init__&apos;, &apos;__iter__&apos;, &apos;__le__&apos;, &apos;__lt__&apos;, &apos;__ne__&apos;, &apos;__new__&apos;, &apos;__next__&apos;, &apos;__reduce__&apos;, &apos;__reduce_ex__&apos;, &apos;__repr__&apos;, &apos;__setattr__&apos;, &apos;__sizeof__&apos;, &apos;__str__&apos;, &apos;__subclasshook__&apos;, &apos;_checkClosed&apos;, &apos;_checkReadable&apos;, &apos;_checkSeekable&apos;, &apos;_checkWritable&apos;, &apos;_finalizing&apos;, &apos;buffer&apos;, &apos;close&apos;, &apos;closed&apos;, &apos;detach&apos;, &apos;encoding&apos;, &apos;errors&apos;, &apos;fileno&apos;, &apos;flush&apos;, &apos;isatty&apos;, &apos;line_buffering&apos;, &apos;mode&apos;, &apos;name&apos;, &apos;newlines&apos;, &apos;read&apos;, &apos;readable&apos;, &apos;readline&apos;, &apos;readlines&apos;, &apos;seek&apos;, &apos;seekable&apos;, &apos;tell&apos;, &apos;truncate&apos;, &apos;writable&apos;, &apos;write&apos;, &apos;writelines&apos;]
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Vemos que existen dos métodos llamados <b>__enter__</b> y <b>__exit__</b>. Estos dos métodos transforman el archivo en un &quot;context manager&quot;. El método <b>__exit__</b> asegura que el archivo será cerrado incluso si aparece una excepción mientras esté abierto. El método <b>__enter__</b> inicializa el archivo o realiza cualquier acción necesaria para setear el contexto del objeto.</p>
+<p>Para asegurarnos que un archivo usará los métodos <b>__enter__</b> y <b>__exit__</b>, simplemente debemos llamar a la apertura del archivo con el método <b>with</b>.</p>
+<p>Podemos crear nuestros propios context managers, simplemente creamos cualquier clase, agregamos los métodos <b>__enter__</b> y <b>__exit__</b> y podemos llamar a nuestra clase a través del método <b>with</b>. Del siguiente ejemplo se puede ver cómo el método <b>__exit__</b> se ejecuta una vez que nos salimos del scope de la sentencia <b>with</b>.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[45]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2916,6 +3091,23 @@ In&nbsp;[]:
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+[&apos;m&apos;, &apos;f&apos;, &apos;w&apos;, &apos;g&apos;, &apos;q&apos;, &apos;o&apos;, &apos;k&apos;, &apos;a&apos;, &apos;h&apos;, &apos;p&apos;, &apos;o&apos;, &apos;w&apos;, &apos;e&apos;, &apos;k&apos;, &apos;f&apos;, &apos;t&apos;, &apos;e&apos;, &apos;n&apos;, &apos;m&apos;, &apos;l&apos;]
+[&apos;M&apos;, &apos;F&apos;, &apos;W&apos;, &apos;G&apos;, &apos;Q&apos;, &apos;O&apos;, &apos;K&apos;, &apos;A&apos;, &apos;H&apos;, &apos;P&apos;, &apos;O&apos;, &apos;W&apos;, &apos;E&apos;, &apos;K&apos;, &apos;F&apos;, &apos;T&apos;, &apos;E&apos;, &apos;N&apos;, &apos;M&apos;, &apos;L&apos;]
+
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -2945,7 +3137,7 @@ Cómo emular archivos para I/O
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[46]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2963,6 +3155,22 @@ In&nbsp;[]:
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+b&apos;informacin como texto y ms&apos;
+
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -2984,11 +3192,13 @@ Serialización de objetos
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[47]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">tupla</span> <span class="o">=</span> <span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s">&quot;hola&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">pickle</span>
+
+<span class="n">tupla</span> <span class="o">=</span> <span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s">&quot;hola&quot;</span><span class="p">)</span>
 <span class="n">serial</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">tupla</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">serial</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">serial</span><span class="p">))</span>
@@ -2997,6 +3207,24 @@ In&nbsp;[]:
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+b&apos;\x80\x03(X\x01\x00\x00\x00aq\x00K\x01K\x03X\x04\x00\x00\x00holaq\x01tq\x02.&apos;
+&lt;class &apos;bytes&apos;&gt;
+(&apos;a&apos;, 1, 3, &apos;hola&apos;)
+
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -3013,13 +3241,11 @@ In&nbsp;[]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[48]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">pickle</span>
-
-<span class="n">lista</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<div class="highlight"><pre><span class="n">lista</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;mi_lista&quot;</span><span class="p">,</span> <span class="s">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
     <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="nb">file</span><span class="p">)</span>
 
@@ -3045,7 +3271,7 @@ In&nbsp;[]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[49]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3070,7 +3296,7 @@ In&nbsp;[]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[50]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3098,6 +3324,24 @@ In&nbsp;[]:
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+No pasa nada
+Me están serializando!!
+No pasa nada
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -3111,7 +3355,7 @@ In&nbsp;[]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[51]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3143,6 +3387,25 @@ In&nbsp;[]:
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+Juan
+Objeto recién des-serializado, seteando su estado...
+
+Juan deserializado
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -3169,15 +3432,13 @@ Serialización de objetos web con JSON
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[52]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="kn">import</span> <span class="nn">json</span>
 
 <span class="k">class</span> <span class="nc">Persona</span><span class="p">:</span>
-    
-    <span class="n">gen</span> <span class="o">=</span> <span class="n">get_id</span><span class="p">()</span>
     
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nombre</span><span class="p">,</span> <span class="n">edad</span><span class="p">,</span> <span class="n">estado_civil</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nombre</span> <span class="o">=</span> <span class="n">nombre</span>
@@ -3191,6 +3452,8 @@ In&nbsp;[]:
             <span class="k">yield</span> <span class="n">cont</span>
             <span class="n">cont</span> <span class="o">+=</span> <span class="mi">1</span>
 
+    <span class="n">gen</span> <span class="o">=</span> <span class="n">get_id</span><span class="p">()</span>
+            
 <span class="n">p</span> <span class="o">=</span> <span class="n">Persona</span><span class="p">(</span><span class="s">&quot;Juan&quot;</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="s">&quot;Soltero&quot;</span><span class="p">)</span>
 <span class="n">json_string</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">__dict__</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="s">&quot;datos en formato JSON: &quot;</span><span class="p">)</span>
@@ -3200,6 +3463,25 @@ In&nbsp;[]:
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+datos en formato JSON: 
+{&quot;idn&quot;: 1, &quot;edad&quot;: 35, &quot;nombre&quot;: &quot;Juan&quot;, &quot;estado_civil&quot;: &quot;Soltero&quot;}
+datos en formato Python: 
+{&apos;edad&apos;: 35, &apos;idn&apos;: 1, &apos;nombre&apos;: &apos;Juan&apos;, &apos;estado_civil&apos;: &apos;Soltero&apos;}
+
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -3216,7 +3498,7 @@ In&nbsp;[]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[53]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3225,6 +3507,22 @@ In&nbsp;[]:
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+{&apos;edad&apos;: 34, &apos;puntaje&apos;: 90.5, &apos;nombre&apos;: &apos;Jorge&apos;, &apos;estado_civil&apos;: &apos;casado&apos;}
+
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -3241,7 +3539,7 @@ In&nbsp;[]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[54]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3253,20 +3551,36 @@ In&nbsp;[]:
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+{&apos;edad&apos;: 34.0, &apos;puntaje&apos;: 90.5, &apos;nombre&apos;: &apos;Jorge&apos;, &apos;estado_civil&apos;: &apos;casado&apos;}
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Por default, en Python json convierte todos los datos a un diccionario, si queremos convertir en otro tipo de datos, podemos usar el argumento object_hook con una función lambda que será aplicada a cada dato del objeto. Por ejemplo, si queremos cargar datos json en una lista de tuplas en vez de un diccionario:</p>
+<p>Por default, en Python json convierte todos los datos a un diccionario, si queremos convertir en otro tipo de datos, podemos usar el argumento <b>object_hook</b> con una función lambda que será aplicada a cada dato del objeto. Por ejemplo, si queremos cargar datos json en una lista de tuplas en vez de un diccionario:</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[55]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3276,6 +3590,22 @@ In&nbsp;[]:
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+[(&apos;edad&apos;, 34), (&apos;puntaje&apos;, 90.5), (&apos;nombre&apos;, &apos;Jorge&apos;), (&apos;estado_civil&apos;, &apos;casado&apos;)]
+
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -3292,7 +3622,7 @@ In&nbsp;[]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[56]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3311,6 +3641,22 @@ In&nbsp;[]:
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+[&apos;edad&apos;, &apos;34&apos;, &apos;puntaje&apos;, &apos;90.5&apos;, &apos;nombre&apos;, &apos;Jorge&apos;, &apos;estado_civil&apos;, &apos;casado&apos;]
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -3324,7 +3670,7 @@ In&nbsp;[]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[57]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3353,6 +3699,45 @@ In&nbsp;[]:
 <span class="k">print</span><span class="p">(</span><span class="n">json_string</span><span class="p">)</span>
 <span class="n">json_string</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">p3</span><span class="p">,</span> <span class="n">cls</span> <span class="o">=</span> <span class="n">PersonaEncoder</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">json_string</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+Serialización default:
+
+{&quot;idn&quot;: 2, &quot;edad&quot;: 37, &quot;nombre&quot;: &quot;Juan&quot;, &quot;estado_civil&quot;: &quot;Soltero&quot;}
+
+Serialización personalizada:
+
+{&quot;edad&quot;: 37, &quot;fecha_nac&quot;: 1978, &quot;nombre&quot;: &quot;Juan&quot;, &quot;estado_civil&quot;: &quot;Soltero&quot;, &quot;Persona_id&quot;: 2}
+{&quot;edad&quot;: 33, &quot;fecha_nac&quot;: 1982, &quot;nombre&quot;: &quot;Jorge&quot;, &quot;estado_civil&quot;: &quot;Casado&quot;, &quot;Persona_id&quot;: 3}
+{&quot;edad&quot;: 24, &quot;fecha_nac&quot;: 1991, &quot;nombre&quot;: &quot;Pedro&quot;, &quot;estado_civil&quot;: &quot;Soltero&quot;, &quot;Persona_id&quot;: 4}
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[57]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre> 
 </pre></div>
 
 </div>
