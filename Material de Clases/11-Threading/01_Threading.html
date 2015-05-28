@@ -1832,7 +1832,65 @@ Thread 1 exiting...
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>En el ejemplo, vemos que una vez inicializados los threads el programa principal continua con el resto de instrucciones mientras los threads se ejecutan. Luego los tres threads terminan independientemente en distintos momentos. El programa principal esperará a que todos los threads hayan terminado correctamente.</p>
-<p>Otra forma de crear un thread consiste en heredar desde <b>Thread</b> y redefinir el método <b>run()</b> que se ejecuta luego de hacer <b>Thread.start()</b>.</p>
+<p>También es posible, mediante el atributo o llave <b>args</b>, pasar los argumentos a la función definida como <b>target</b> del thread.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[6]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">threading</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">def</span> <span class="nf">worker</span><span class="p">(</span><span class="n">tiempo</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;{} starting...&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">currentThread</span><span class="p">()</span><span class="o">.</span><span class="n">getName</span><span class="p">()))</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">tiempo</span><span class="p">)</span> <span class="c"># pone a dormir el thread por t segundos simulando que ocurre algun proceso dentro de la función</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;{} exiting...&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">currentThread</span><span class="p">()</span><span class="o">.</span><span class="n">getName</span><span class="p">()))</span>
+
+    
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Se crean los threads usando la clase Thread, asociada a la función objetivo para ser ejecutada por el thread, y los atributos</span>
+<span class="sd">de la función son ingresados mediante la llave args. En este ejemplo, args tiene asignado una tupla de un solo elemento. Por tal razón</span>
+<span class="sd">debe ser escrita como (valor,).</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="n">w</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#39;Thread 2&#39;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="n">worker</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,))</span>
+<span class="n">w</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">w</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+Thread 2 starting...
+Thread 2 exiting...
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Otra forma de crear un thread se logra heredando desde <b>Thread</b> y redefiniendo el método <b>run()</b>, el cual se ejecuta luego de hacer <b>Thread.start()</b>.</p>
 </div>
 </div>
 </div>
@@ -1865,18 +1923,23 @@ In&nbsp;[61]:
         <span class="k">print</span><span class="p">(</span><span class="s">&quot;{} exiting...&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">currentThread</span><span class="p">()</span><span class="o">.</span><span class="n">getName</span><span class="p">()))</span>
         
 
-<span class="sd">&#39;&#39;&#39; Se crean los threads usando la clase Thread&#39;&#39;&#39;</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Se crean los threads usando la clase Thread</span>
+<span class="sd">&#39;&#39;&#39;</span>
 <span class="n">t1</span> <span class="o">=</span> <span class="n">Service</span><span class="p">()</span>
 <span class="n">w1</span> <span class="o">=</span> <span class="n">Worker</span><span class="p">()</span>
 <span class="n">w2</span> <span class="o">=</span> <span class="n">Worker</span><span class="p">()</span>
 
-<span class="sd">&#39;&#39;&#39; Se inicializan los threads creados &#39;&#39;&#39;</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Se inicializan los threads creados</span>
+<span class="sd">&#39;&#39;&#39;</span>
 <span class="n">w1</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 <span class="n">w2</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 <span class="n">t1</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
-<span class="sd">&#39;&#39;&#39; Todas estas líneas serán ejecutadas mientras los threads se ejecutan independientemente del programa</span>
-<span class="sd">    principal &#39;&#39;&#39;</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Todas estas líneas serán ejecutadas mientras los threads se ejecutan independientemente del programa principal.</span>
+<span class="sd">&#39;&#39;&#39;</span>
 <span class="k">print</span><span class="p">(</span><span class="s">&#39;Fueron creados 3 threads&#39;</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
@@ -1961,22 +2024,30 @@ In&nbsp;[45]:
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="c"># pone a dormir el thread por 4 segundos simulando un proceso dentro de la función</span>
     <span class="k">print</span><span class="p">(</span><span class="s">&quot;{} exiting...&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">currentThread</span><span class="p">()</span><span class="o">.</span><span class="n">getName</span><span class="p">()))</span>
 
-<span class="sd">&#39;&#39;&#39; Se crean los threads usando la clase Thread&#39;&#39;&#39;</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Se crean los threads usando la clase Thread</span>
+<span class="sd">&#39;&#39;&#39;</span>
 <span class="n">t1</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#39;Thread 1&#39;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="n">service</span><span class="p">)</span>
 <span class="n">w1</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#39;Thread 2&#39;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="n">worker</span><span class="p">)</span>
 <span class="n">w2</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">worker</span><span class="p">)</span> <span class="c"># En este caso usa el nombre asignado por defecto</span>
 
-<span class="sd">&#39;&#39;&#39; Se inicializan los threads creados &#39;&#39;&#39;</span>
+<span class="sd">&#39;&#39;&#39; </span>
+<span class="sd">Se inicializan los threads creados</span>
+<span class="sd">&#39;&#39;&#39;</span>
 <span class="n">w1</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 <span class="n">w2</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 <span class="n">t1</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
-<span class="sd">&#39;&#39;&#39; Aquí incorporamos el método join() para bloquear el programa principal &#39;&#39;&#39;</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Aquí incorporamos el método join() para bloquear el programa principa</span>
+<span class="sd">&#39;&#39;&#39;</span>
 <span class="n">w1</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
 <span class="n">w2</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
 <span class="n">t1</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
 
-<span class="sd">&#39;&#39;&#39; Todas estas líneas serán ejecutadas después que los threads sean ejecutados&#39;&#39;&#39;</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Todas estas líneas serán ejecutadas después que los threads sean ejecutados</span>
+<span class="sd">&#39;&#39;&#39;</span>
 <span class="k">print</span><span class="p">(</span><span class="s">&#39;Fueron creados 3 threads&#39;</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
@@ -2049,14 +2120,20 @@ In&nbsp;[54]:
 <div class="highlight"><pre><span class="kn">import</span> <span class="nn">threading</span>
 <span class="kn">import</span> <span class="nn">time</span>
 
-<span class="sd">&#39;&#39;&#39; Se crean los threads usando la clase Thread&#39;&#39;&#39;</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Se crean los threads usando la clase Thread</span>
+<span class="sd">&#39;&#39;&#39;</span>
 <span class="n">t</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">service</span><span class="p">)</span>
 
-<span class="sd">&#39;&#39;&#39; Se inicializan el threads &#39;&#39;&#39;</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Se inicializan el threads</span>
+<span class="sd">&#39;&#39;&#39;</span>
 <span class="n">t</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 <span class="n">t</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c"># el programa esperará por 5 segundos a que el thread termine</span>
 
-<span class="sd">&#39;&#39;&#39; Podemos comprobar si el thread terminó &#39;&#39;&#39;</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Podemos comprobar si el thread terminó</span>
+<span class="sd">&#39;&#39;&#39;</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">t</span><span class="o">.</span><span class="n">isAlive</span><span class="p">():</span>
     <span class="k">print</span><span class="p">(</span><span class="s">&#39;El thread ha terminado correctamente&#39;</span><span class="p">)</span>
 </pre></div>
@@ -2371,7 +2448,9 @@ In&nbsp;[]:
             <span class="k">print</span><span class="p">(</span><span class="n">linea</span><span class="p">)</span>
     <span class="n">fid</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
-<span class="sd">&#39;&#39;&#39; los archivos para probar están junto con la materia &#39;&#39;&#39;</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Los archivos para probar están junto con la materia</span>
+<span class="sd">&#39;&#39;&#39;</span>
 <span class="n">t1</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">mi_timer</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s">&#39;mensaje_01.txt&#39;</span><span class="p">,))</span>
 <span class="n">t2</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="mf">5.0</span><span class="p">,</span> <span class="n">mi_timer</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s">&#39;mensaje_02.txt&#39;</span><span class="p">,))</span>
 
