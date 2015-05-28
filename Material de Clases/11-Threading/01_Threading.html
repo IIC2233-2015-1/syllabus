@@ -2007,7 +2007,7 @@ Thread-60 exiting...
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[45]:
+In&nbsp;[1]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2046,7 +2046,9 @@ In&nbsp;[45]:
 <span class="n">t1</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
 
 <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">Todas estas líneas serán ejecutadas después que los threads sean ejecutados</span>
+<span class="sd">Una vez que los threads son creados el programa principal sigue su curso y espera a que los threads terminen. Por ejemplo, todas estas</span>
+<span class="sd">líneas serán ejecutadas después que los threads sean ejecutados, pero el programa principal no se cerrará hasta que los threas hayan </span>
+<span class="sd">completado su ejecución.</span>
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="k">print</span><span class="p">(</span><span class="s">&#39;Fueron creados 3 threads&#39;</span><span class="p">)</span>
 
@@ -2066,9 +2068,9 @@ In&nbsp;[45]:
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
 Thread 2 starting...
-Thread-48 starting...
+Thread-5 starting...
 Thread 1 starting...
-Thread-48 exiting...Thread 2 exiting...
+Thread-5 exiting...Thread 2 exiting...
 
 Thread 1 exiting...
 Fueron creados 3 threads
@@ -2307,7 +2309,58 @@ In&nbsp;[56]:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>En el output anterior uno puede apreciar que el programa principal termina antes que el daemon thread. Es posible hacer que el programa espere a un daemon thread antes de terminar mediante el uso de <i>join()</i>.</p>
+<p>En el output anterior uno puede apreciar que el programa principal termina antes que el daemon thread. Es posible hacer que el programa espere a un daemon thread mediante el uso de <i>join()</i>, lo que tendría sentido cuando debemos esperar algún resultado del thread para el resto del programa.</p>
+<p>Más claramente, veamos la salida del mismo programa donde utilizamos join() para esperar a que los threads completaran su misión.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">threading</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">def</span> <span class="nf">worker</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;{} starting...&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">currentThread</span><span class="p">()</span><span class="o">.</span><span class="n">getName</span><span class="p">()))</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c"># pone a dormir el thread por t segundos simulando que ocurre algun proceso dentro de la función</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;{} exiting...&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">currentThread</span><span class="p">()</span><span class="o">.</span><span class="n">getName</span><span class="p">()))</span>
+
+<span class="k">def</span> <span class="nf">service</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;{} starting...&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">currentThread</span><span class="p">()</span><span class="o">.</span><span class="n">getName</span><span class="p">()))</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="c"># pone a dormir el thread por 4 segundos simulando un proceso dentro de la función</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;{} exiting...&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">currentThread</span><span class="p">()</span><span class="o">.</span><span class="n">getName</span><span class="p">()))</span>
+
+<span class="sd">&#39;&#39;&#39; Se crean los threads usando la clase Thread&#39;&#39;&#39;</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#39;Thread 1&#39;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="n">service</span><span class="p">)</span>
+<span class="n">w1</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#39;Thread 2&#39;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="n">worker</span><span class="p">)</span>
+
+<span class="sd">&#39;&#39;&#39; Se configuran los threads como Daemon &#39;&#39;&#39;</span>
+<span class="n">w1</span><span class="o">.</span><span class="n">setDaemon</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">t1</span><span class="o">.</span><span class="n">setDaemon</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="sd">&#39;&#39;&#39; Se inicializan los threads &#39;&#39;&#39;</span>
+<span class="n">w1</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">t1</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>La siguiente figura muestra la salida en la consola para el programa CON los threads configurados como Daemon. Los threads se interrumpen abruptamente luedo de que el programa principal termina su ejecución.</p>
+<p><img src="imgs/daemon_thread.png" width=60%></p>
+<p>Comparemos con la figura a continuación que muestra la salida en la consola para el programa SIN los threads configurados como Daemon. Podemos ver que la ejecución de los threads fue completada y que el programa no se cierra hasta que los threads terminan.</p>
+<p><img src="imgs/nodaemon_thread.png" width=60%></p>
 </div>
 </div>
 </div>
@@ -2438,7 +2491,7 @@ Timers
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[4]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2459,6 +2512,24 @@ In&nbsp;[]:
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+Quien estudie esta función antes de la clase le irá excelente en la actividad
+
+Acabas de ejecutar un timer
+
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
