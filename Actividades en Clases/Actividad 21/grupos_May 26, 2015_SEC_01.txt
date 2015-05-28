@@ -10,10 +10,7 @@
 6  13634917          VICENTE JOAQUIN      MORENO
 7  13634933             JUAN IGNACIO     MARQUEZ
 8  13633600           RODRIGO ANDRES    ALLIENDE
- 
-================================================================================
-                              GRUPOS DE A DOS                              
-================================================================================
+                                                         
 9  13632906  PATRICIO ALBERTO  ORREGO -  13633880  SEBASTIAN ANTONIO  MENESES
 10  13635476  DIEGO  ALLIENDE -  13633872  JORGE ANDRES  GARCIA-HUIDOBRO
 11  12639176  SOFIA IGNACIA  ZAMBRANO -  1363688J  KATHERINE FABIOLA  GUERRERO

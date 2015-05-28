@@ -1,0 +1,135 @@
+\documentclass[10pt]{extarticle}
+
+%Paquetes utilizados en esta tarea
+\usepackage{logo}
+\usepackage{fullpage}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{epsfig}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage[hidelinks]{hyperref}
+\usepackage{algorithmic}
+\usepackage[nothing]{algorithm}
+\usepackage{graphicx}
+
+%Definiciones de comandos, para reutilizar secuencias frecuentes o ahorrar
+% c�digo
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\lb}{\\~\\}
+\newcommand{\la}{\leftarrow}
+
+\newcommand{\twopartdef}[4]
+{
+	\left\{
+		\begin{array}{ll}
+			#1 &  \text{si }#2 \\
+			#3 &  \text{si }#4
+		\end{array}
+	\right.
+}
+
+\newcommand{\threepartdef}[6]
+{
+	\left\{
+		\begin{array}{ll}
+			#1 &  \text{si }#2 \\
+			#3 &  \text{si }#4 \\
+			#5 &  \text{si }#6
+		\end{array}
+	\right.
+}
+
+\makeatletter
+
+\makeatother
+
+\begin{document}
+
+\begin{tabular}{ccl}
+\begin{tabular}{c}
+\psfig{file=puclogo.eps}
+\end{tabular}
+&\ \ \ & 
+\begin{tabular}{l}
+PONTIFICIA UNIVERSIDAD CATÓLICA DE CHILE\\
+ESCUELA DE INGENIERÍA\\
+DEPARTAMENTO DE CIENCIA DE LA COMPUTACIÓN
+\end{tabular}
+\end{tabular}
+
+\begin{center}
+\bf IIC2233 - Programación Avanzada\\
+\bf 1° semestre 2015\lb
+
+\vspace{0.5cm}
+
+\bf {\Huge Actividad 22}
+\end{center}
+
+\section*{Threading}
+
+\subsection*{Instrucciones}
+\textit{ALERTA ALERTA!!!!!!} Godzilla ha llegado a San Joaquín!!!!! Es por esto que los soldados de San Joaquín necesitan tu ayuda para simular la pelea contra Godzilla!!, para ver si arrancar o pelear contra él. \\
+
+Para esto los soldados de San Joaquín nos han entregado un informe con las especificaciones que se deben cumplir. Estas especificaciones se presentan a continuación: \\
+
+
+\subsection*{Requerimientos}
+
+La simulación debe:
+
+\begin{itemize}
+	\item
+	Tener un Godzilla y varios soldados.
+	\item
+	Cada Guerrero tiene una velocidad de ataque, HP (vida), y ataque (daño)
+	\item
+	El Godzilla ataca de dos maneras. Con un \textit{pasivo} (ataque cada 8 segundos) que afecta a todos los soldado, restándole 3 de HP a cada uno de los guerreros. Además, cada vez que un soldado lo ataca, Godzilla devuelve un cuarto del ataque al soldado.
+ 
+	\item
+	La velocidad con la que atacan los Guerreros es aleatoria (Entre 4 y 19 segundos)
+\end{itemize}
+
+Como \textbf{BONUS}, la simulación debe:
+
+\begin{itemize}
+	\item
+	Crear nuevos soldados cada x cantidad de segundos (x queda a su criterio) y agregarlos a la batalla
+\end{itemize}
+
+\subsection*{Notas}
+
+\begin{itemize}
+    \item 
+    Deben trabajar en el main entregado
+	\item
+	Godzilla y cada Soldado deben existir en un thread independiente.
+
+\end{itemize}
+
+\subsection*{To - Do}
+
+\begin{itemize}
+	\item
+	\textbf{(1.00 pts)} Terminar las clases pertinentes
+	\item
+	\textbf{(2.00 pts)} Simulación Correcta
+	\item
+	\textbf{(2.00 pts)} Threads funcionan correctamente
+	\item
+	\textbf{(1.00 pts)} Resultado con sentido
+	\item
+	\textbf{BONUS (1.0 pt)} 
+\end{itemize}
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=90mm]{Gozilla.jpg}
+\caption{RAAAWRR!! \label{overflow}}
+\end{figure}
+
+Fuente imagen: https://s-media-cache-ak0.pinimg.com/originals/bd/de/57/bdde57f44cb91f4189f39101f05d3ca6.jpg
+
+\end{document}
