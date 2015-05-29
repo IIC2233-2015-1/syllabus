@@ -58,6 +58,7 @@
 | M 19 | I/O                        | Bytes                 |
 | J 21 | **Feriado**                |                       |
 | M 26 | I/O                        | Serialización         |
+| J 28 | Threading                  | Creación y sincronización |
 
 ### Junio
 | Día  | Contenido              	| Información adicional |
