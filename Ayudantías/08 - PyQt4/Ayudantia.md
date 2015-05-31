@@ -6,7 +6,7 @@ Como ya vieron en el material del curso, ahora estamos trabajando sobre interfac
 
 ###	Ejercicio 1
 
-Cree una GUI en la que un usuario, pueda cargar el archivo de texto, *input.txt* y permita crear la imagen correspondiente con un click. Además, debe mostrar una barra de progreso. Una vez que se tenga la imagen, se debe desplegar en la interfaz.
+Cree una GUI en la que un usuario, pueda cargar el archivo de texto, *input.txt* y permita crear la imagen correspondiente con un click. Además, debe mostrar una barra de progreso. Una vez que se tenga la imagen, se debe mostrar en la interfaz.
 
 ## Bonus
 
