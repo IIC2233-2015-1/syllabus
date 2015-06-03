@@ -1683,7 +1683,7 @@ div#notebook {
 <h1>
 Sincronización
 </h1>
-<p>Existen algunas situciones en donde más de un thread deben compartir el acceso a determinados recursos, como son archivos, memoria, etc. Durante este proceso, <b>solo uno</b> de los threads debe tener acceso al recurso y el resto debe quedar en espera para su uso. Es posible controlar el acceso a los recursos mediante un mecanismo de <b>sincronización</b> entre los threads.</p>
+<p>Existen algunas situciones en donde más de un thread deben compartir el acceso a determinados recursos, como son archivos, memoria, etc. Durante este proceso, <b>solo uno</b> de los threads debe tener acceso al recurso y el resto debe quedar en espera para su uso. Cuando existe <b>concurrencia</b> múltiple a un recurso es posible controlar el acceso a este mediante mecanismos de <b>sincronización</b> entre los threads.</p>
 </div>
 </div>
 </div>
@@ -1695,15 +1695,15 @@ Sincronización
 <h2>
 Bloqueo
 </h2>
-<p>El <b>bloqueo</b> permite la sincronización para el acceso a los recursos compartidos entre dos o más threads. La librería <i>Threading</i> nos provee de la clase <b>Lock</b> que permite estasincronización. Un bloqueo tiene dos estados: <b>bloqueado</b> y <b>desbloqueado</b>. El estado por defecto es desbloqueado. Para bloquear la ejecución de otros threads durante su ejecución se utiliza el método <b>acquiere()</b> mediante el cual el thread actual que llega hasta ese punto del programa toma control del recurso. Durante este tiempo el resto de los threads detiene la ejecución cuando trata de tomar control del recurso hasta que se libera el acceso mediante el método <b>release()</b> llamado desde el thread que mantiene el bloqueo. En la siguiente figura vemos un esquema general de sincronización entre threads usan bloqueos.</p>
-<p><img src="imgs/lock.png" width=60%></p>
+<p>El <b>bloqueo</b> permite la sincronización para el acceso a los recursos compartidos entre dos o más threads. La librería <i>Threading</i> nos provee de la clase <b>Lock</b> que permite esta sincronización. Un bloqueo tiene dos estados: <b>bloqueado</b> y <b>desbloqueado</b>. El estado por defecto es desbloqueado. Para bloquear la ejecución de otros threads durante su ejecución se utiliza el método <b>acquiere()</b> mediante el cual el thread actual que llega hasta ese punto del programa toma control del recurso. Durante este tiempo el resto de los threads detiene la ejecución cuando trata de tomar control del recurso hasta que se libera el acceso mediante el método <b>release()</b> llamado desde el thread que mantiene el bloqueo. En la siguiente figura vemos un esquema general de sincronización entre threads usan bloqueos.</p>
+<p><img src="imgs/lock.png" width=70%></p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[21]:
+In&nbsp;[11]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1718,9 +1718,9 @@ In&nbsp;[21]:
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">i</span> <span class="o">=</span> <span class="n">i</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">archivo</span> <span class="o">=</span> <span class="n">archivo</span>
-        
+    
     <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39; run maneja que debe hacer el thread durante la ejecución cada vez que se llama al método start() &#39;&#39;&#39;</span>        
+        <span class="sd">&#39;&#39;&#39; run maneja que debe hacer el thread durante la ejecución cada vez que se llama al método start() &#39;&#39;&#39;</span>
         <span class="n">MiThread</span><span class="o">.</span><span class="n">lock</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span> <span class="c"># bloquea la ejecución de los demas threads al intentar escribir en el archivo</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">archivo</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;Esta linea fue escrita por el thread # {}</span><span class="se">\n</span><span class="s">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">i</span><span class="p">))</span>
@@ -1738,15 +1738,6 @@ In&nbsp;[21]:
             <span class="n">my_thread</span> <span class="o">=</span> <span class="n">MiThread</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">archivo</span><span class="p">)</span> <span class="c"># se crea el thread pasando sus parámetros</span>
             <span class="n">my_thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span> <span class="c"># Se inicializa el thread. Se ejecuta lo que tiene el método run()</span>
             <span class="n">threads</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">my_thread</span><span class="p">)</span>
-    
-    <span class="sd">&#39;&#39;&#39; Mientras todos los threads se encuentre escribiendo, el archivo debe permanecer abierto. Ejecutamos un join() para cada</span>
-<span class="sd">        threads creado. Sin esto, el programa principal seguiría normalmente y cerraría el archivo precipitadamente antes de que </span>
-<span class="sd">        los threads escriban generando una excepción de I/O.&#39;&#39;&#39;</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-        <span class="n">threads</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
-    
-    <span class="sd">&#39;&#39;&#39; Se cierra el archivo &#39;&#39;&#39;</span>
-    <span class="n">archivo</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -1759,9 +1750,34 @@ In&nbsp;[21]:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2>
-Queue
-</h2>
+<p>Afortunadamente en Python los bloqueos pueden también funcionar dentro de un <i>context manager</i> a través de la sentencia <b>with</b>. En este caso es el mismo <i>with</i> el que se encarga de llamar los métodos <i>acquire()</i> y <i>release()</i>. De esta forma el bloqueo usado en el método <i>run</i> del ejemplo anterior quedaría implementado como se muestra a continuación.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[7]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">MiThread</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">archivo</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;Esta linea fue escrita por el thread # {}</span><span class="se">\n</span><span class="s">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">i</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Un problema común en programación concurrente es el patrón <b>Productor-Consumidor</b>. Este se origina cuando dos o más threads, conocidos como <b>productores</b> y <b>consumidores</b>, acceden a un mismo espacio almacenamiento o <b>buffer</b>. Bajo este esquema, los productores ponen ítems en el <i>buffer</i> y los consumidores sacan elementos del <i>buffer</i>. Este modelo permite la comunicación entre distintos threads. Por lo general el <i>buffer</i> compartido en este modelo se implementa mediante una <b>cola sincronizada</b> o <b>cola segura</b>.</p>
+<p>Por ejemplo, supongamos que podemos separar un programa que realiza el procesamiento de un archivo de texto en dos procesos independientes implementados mediante threads. Donde, el primer thread se encargará de la lectura del archivo y procesamiento de las líneas; y el segundo thread de almacenar en otro archivo el resultado de la suma de ambos valores leídos. Comunicaremos ambos threads mediante una cola sincronizada implementada como se muestra a continuación.</p>
 </div>
 </div>
 </div>
@@ -1772,13 +1788,202 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre> 
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">collections</span>
+
+<span class="k">class</span> <span class="nc">MiDeque</span><span class="p">(</span><span class="n">collections</span><span class="o">.</span><span class="n">deque</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Para crear la cola heredamos un deque desde el modulo collections y agregaremos los mecanismos de bloqueo para asegurar la</span>
+<span class="sd">    sincronización entre los threads.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lock</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span> <span class="c"># agregamos el seguro a la cola</span>
+
+    <span class="k">def</span> <span class="nf">agregar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elemento</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Como mencionamos anteriormente, los bloqueos pueden ser usados dentro de un context-manager</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">elemento</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&#39;[AGREAGAR] cola tiene {} elementos&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)))</span>
+
+    <span class="k">def</span> <span class="nf">obtener</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&#39;[SACAR] la cola tiene {} elementos&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)))</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">popleft</span><span class="p">()</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Veamos ahora el resto de la implementación del productor y el consumidor. Como recomendación, probar los ejemplos directamente en un terminal o desde un IDE como PyCharm.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">threading</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+
+<span class="k">class</span> <span class="nc">Productor</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cola</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cola</span> <span class="o">=</span> <span class="n">cola</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Abrimos un contexto para manejar el archivo de entrada y procesamos cada línea</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;lista_numeros.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">archivo</span><span class="p">:</span>           
+            <span class="k">for</span> <span class="n">linea</span> <span class="ow">in</span> <span class="n">archivo</span><span class="p">:</span>
+                <span class="n">valores</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">linea</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;,&#39;</span><span class="p">)))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">cola</span><span class="o">.</span><span class="n">agregar</span><span class="p">(</span><span class="n">valores</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">consumidor</span><span class="p">(</span><span class="n">cola</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Recordar que los threads pueden ser implementados tanto como objetos, como por funciones.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;numeros_procesados.txt&#39;</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">archivo</span><span class="p">:</span>
+        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">cola</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">numeros</span> <span class="o">=</span> <span class="n">cola</span><span class="o">.</span><span class="n">obtener</span><span class="p">()</span>
+            <span class="n">archivo</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;{}</span><span class="se">\n</span><span class="s">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">numeros</span><span class="p">)))</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.001</span><span class="p">)</span> <span class="c"># ayuda a simular que el consumidor es más lento que el productor</span>
+            
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+
+    <span class="n">cola</span> <span class="o">=</span> <span class="n">MiDeque</span><span class="p">()</span>
+
+    <span class="n">p</span> <span class="o">=</span> <span class="n">Productor</span><span class="p">(</span><span class="n">cola</span><span class="p">)</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    
+    <span class="n">c</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">consumidor</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">cola</span><span class="p">,))</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>La salida del programa mostrado se ve como se muestra en la siguiente figura.</p>
+<p><img src=imgs/threading_deque_lock.png width=70%></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>
+Queue
+</h2>
+<p>Afortunadamente en Python existe una libería optimizada para el manejo de colas seguras en modelos <b>productor-consumidor</b>. La librería <b>queue</b> tiene implementada una cola que maneja múltiples concurrencias de forma segura. Es distinta a la cola implementada en <b>collections</b> usada para estructura de datos, sin ningún tipo de bloqueo para sincronización.</p>
+<p>Los métodos principales de una cola de la librería Queue son:</p>
+<ul>
+<li><b>put()</b>: agrega un ítem a la cola (push)</li>
+<li><b>get()</b>: remueve y retorna un ítem desde la cola (pop)</li>
+<li><b>task_done()</b>: require ser llamado cada vez que in ítem ha sido procesado</li>
+<li><b>join()</b>: bloquea la cola hasta que todos los ítems han sido procesados</li>
+</ul>
+<p>Volvamos al ejemplo anterior del procesamiento de un archivo de texto mediante dos threads independientes. El modelamiento quedaría de la siguiente manera.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">threading</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">queue</span>
+
+<span class="k">class</span> <span class="nc">Productor</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cola</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cola</span> <span class="o">=</span> <span class="n">cola</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;lista_numeros.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">archivo</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">linea</span> <span class="ow">in</span> <span class="n">archivo</span><span class="p">:</span>
+                <span class="n">valores</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">linea</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;,&#39;</span><span class="p">)))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">cola</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">valores</span><span class="p">)</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&#39;[Productor] la cola tiene {} elementos&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cola</span><span class="o">.</span><span class="n">qsize</span><span class="p">()))</span>
+                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.001</span><span class="p">)</span> <span class="c"># ayuda a simular que los procesos son más pesados computacionalmente</span>
+
+<span class="k">def</span> <span class="nf">consumidor</span><span class="p">(</span><span class="n">cola</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;numeros_procesados.txt&#39;</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">archivo</span><span class="p">:</span>
+        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">            Se utiliza try/except para detener el consumidor una vez que no queden más elementos en la cola. De no usar esta estructura</span>
+<span class="sd">            el consumidor estaría ejecutándose infinitamente.</span>
+<span class="sd">            &#39;&#39;&#39;</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">numeros</span> <span class="o">=</span> <span class="n">cola</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span> <span class="c"># si no hay más elementos en la cola levanta una excepcion del tipo Empty</span>
+            <span class="k">except</span> <span class="n">queue</span><span class="o">.</span><span class="n">Empty</span><span class="p">:</span>
+                <span class="k">break</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">archivo</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;{}</span><span class="se">\n</span><span class="s">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">numeros</span><span class="p">)))</span>
+                <span class="n">cola</span><span class="o">.</span><span class="n">task_done</span><span class="p">()</span>
+
+                <span class="k">print</span><span class="p">(</span><span class="s">&#39;[Consumidor] la cola ahora tiene {} elementos&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cola</span><span class="o">.</span><span class="n">qsize</span><span class="p">()))</span> <span class="c"># qsize() retorna el tamaño de la cola</span>
+                
+                <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">                Simula un proceso más pesado. Ayuda a sincronizar ambos threads. Puede ser que el consumidor sea más rápido que el</span>
+<span class="sd">                productor originando que los threads terminen abruptamente.</span>
+<span class="sd">                &#39;&#39;&#39;</span>
+                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.005</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+
+    <span class="n">Q</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">Queue</span><span class="p">()</span> <span class="c"># se crea una cola sincronizada desde la librería queue</span>
+
+    <span class="n">p</span> <span class="o">=</span> <span class="n">Productor</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span> <span class="c"># se crea el productor que recibe como argumento una cola Q</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+    <span class="n">c</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">consumidor</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">Q</span><span class="p">,))</span> <span class="c"># se crea un thread con el consumidor. También recibe la cola</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>La salida correspondiente al código anterior se muestra a continuación en la figura.</p>
+<p><img src="imgs/threading_sync_queue.png" width=70%></p>
+</div>
+</div>
 </div>
     </div>
   </div>
