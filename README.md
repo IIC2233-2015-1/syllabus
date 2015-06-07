@@ -63,12 +63,12 @@
 ### Junio
 | Día  | Contenido              	| Información adicional |
 |:-----|:---------------------------|:----------------------|
-| M 02 | **I2**						| 18:30                 |
-| J 04 | Threading                  | Concurrencia          |
-| M 09 | Networking                 | Sockets               |
-| J 11 | Networking                 | Protocolos            |
-| M 16 | Webservices                | Recursos web          |
-| J 18 | Webservices                | REST API              | 
+| M 02 | **I2**			    | 18:30 y se suspende la cátedra. |
+| J 04 | Threading                  | Concurrencia          |
+| M 09 | Networking                 | Sockets               |
+| J 11 | Networking                 | Protocolos            |
+| M 16 | Webservices                | Recursos web          |
+| J 18 | Webservices                | REST API              |
 | W 24 | **Examen**					| Próximamente más información |
 
 
