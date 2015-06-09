@@ -1807,7 +1807,7 @@ Puertos
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Cada programa que se comunica dentro de una red debe estar representado entonces por un host y un puerto, en Python por ejemplo representamos el par como una tupla: (&quot;www.yahoo.es&quot;, 80) ó (&quot;74.6.50.150&quot;, 443). En general hay dos formas de conexión entre puntos en una red: TCP (Transmission Control Protocol) y UDP (User Datagram Protocol).</p>
-<p><b>TCP</b>: En este tipo de conexión se garantiza que los datos van a llegar intactos, sin ningún tipo de pérdida de información, ningún diplicado o cambio en el orden de los datos, obviamente a menos que la conexión falle. En casos de pérdidas de información o falla en las conexiones los paquetes de datos son retransmitidos hasta que llegan satisfactoriamente. Cada paquete TCP lleva asociado una secuencia de números de tal forma que el sistema que recibe los paquetes tiene la información necesaria para re-ensamblarlos en el orden correcto. Además el sistema que recibe los paquetes puede darse cuenta de que falta algún paquete intermedio usando la misma secuencia de números, así cuando falta un paquete el sistema lo solicita de nuevo para su re-transmisión. Algunos ejemplos son: transmisión de archivos vía ftp, envío de correos (SMTP), HTTP, POP3, etc. La siguiente figura (obtenida desde http://software-engineer-training.com/transmission-control-protocol-tcp/) muestra cómo se compone el header de un datagrama TCP:</p>
+<p><b>TCP</b>: En este tipo de conexión se garantiza que los datos van a llegar intactos, sin ningún tipo de pérdida de información, ningún duplicado o cambio en el orden de los datos, obviamente a menos que la conexión falle. En casos de pérdidas de información o falla en las conexiones los paquetes de datos son retransmitidos hasta que llegan satisfactoriamente. Cada paquete TCP lleva asociado una secuencia de números de tal forma que el sistema que recibe los paquetes tiene la información necesaria para re-ensamblarlos en el orden correcto. Además el sistema que recibe los paquetes puede darse cuenta de que falta algún paquete intermedio usando la misma secuencia de números, así cuando falta un paquete el sistema lo solicita de nuevo para su re-transmisión. Algunos ejemplos son: transmisión de archivos vía ftp, envío de correos (SMTP), HTTP, POP3, etc. La siguiente figura (obtenida desde http://software-engineer-training.com/transmission-control-protocol-tcp/) muestra cómo se compone el header de un datagrama TCP:</p>
 <p><img src = "imgs/tcp_header.png" height="700" width="700"></img></p>
 </div>
 </div>
@@ -1837,7 +1837,9 @@ Sockets:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">
+In&nbsp;[3]:
+</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="kn">import</span> <span class="nn">socket</span>
@@ -1878,7 +1880,9 @@ Cliente TCP en Python
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">
+In&nbsp;[5]:
+</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="kn">import</span> <span class="nn">socket</span>
@@ -1905,6 +1909,40 @@ Cliente TCP en Python
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+HTTP/1.1 500 Domain Not Found
+Server: Varnish
+Retry-After: 0
+content-type: text/html
+Cache-Control: private, no-cache
+connection: keep-alive
+Content-Length: 77
+Accept-Ranges: bytes
+Date: Tue, 09 Jun 2015 13:38:20 GMT
+Via: 1.1 varnish
+Connection: close
+
+
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt; &lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+unknown domain: &lt;/body&gt;&lt;/html&gt;
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -1921,7 +1959,9 @@ Servidor TCP en Python
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="kn">import</span> <span class="nn">socket</span>
@@ -1933,12 +1973,14 @@ Servidor TCP en Python
 <span class="n">s</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>             <span class="c">#aquí le pedimos al sistema operativo que empiece a escuchar por potenciales conexiones al socket, el argumento </span>
                         <span class="c">#corresponde al número máximo de conexiones pendientes permitidas</span>
 
+<span class="n">cont</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
     <span class="c">#aquí establecemos la conexión</span>
     <span class="n">socket_cliente</span><span class="p">,</span> <span class="n">address</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>      
     <span class="k">print</span><span class="p">(</span><span class="s">&quot;Obtuvimos una conexión desde </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">address</span><span class="p">))</span>
-    <span class="n">socket_cliente</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&quot;Hola nuevo amigo!</span><span class="se">\n</span><span class="s">&quot;</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&quot;ascii&quot;</span><span class="p">))</span>
+    <span class="n">socket_cliente</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&quot;{}. Hola nuevo amigo!</span><span class="se">\n</span><span class="s">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cont</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&quot;ascii&quot;</span><span class="p">))</span>
     <span class="n">socket_cliente</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">cont</span> <span class="o">+=</span> <span class="mi">1</span>
 </pre></div>
 
 </div>
@@ -1951,13 +1993,16 @@ Servidor TCP en Python
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>Notar que en el cliente no es necesario hacer un <b>bind</b> entre el host y el puerto, ya que el sistema operativo lo hace implícitamente a través del método connect, asignando al cliente un puerto aleatorio. Sólo en casos donde el servidor al cual nos conectamos exige la dirección de cada cliente esté en un rango de puertos específicos, tendríamos que &quot;enlazar&quot; el cliente a un puerto específico también. En el caso del servidor el puerto debe estar enlazado con la dirección, ya que los clientes deben saber dónde ubicar exactamente al servidor para conectarse a él. El método <b>listen</b> no funciona si no enlazamos la dirección a un puerto específico.</p>
 <p>El siguiente código correspondería a un posible cliente que se conecte al servidor implementado en la celda anterior:</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="n">s_cliente</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span><span class="c">#esto crea un socket para una conexión TCP con IPv4</span>
@@ -1989,7 +2034,9 @@ Cliente UDP en Python
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="kn">import</span> <span class="nn">socket</span>
@@ -2022,7 +2069,9 @@ Cliente UDP en Python
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="n">fragmentos</span> <span class="o">=</span> <span class="p">[]</span> 
@@ -2057,7 +2106,9 @@ Servidor UDP en Python
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="kn">import</span> <span class="nn">socket</span>
@@ -2103,7 +2154,9 @@ Envío de datos json
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="c">#código para el servidor que recibe datos y los envía de vuelta</span>
@@ -2131,7 +2184,9 @@ Envío de datos json
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="c">#cliente que envía los datos json, poner atención en la serialización y transformación a bytes.</span>
@@ -2181,7 +2236,9 @@ Envío de datos con pickle
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="kn">import</span> <span class="nn">socket</span>
@@ -2232,7 +2289,9 @@ Envío de datos con pickle
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre> 
