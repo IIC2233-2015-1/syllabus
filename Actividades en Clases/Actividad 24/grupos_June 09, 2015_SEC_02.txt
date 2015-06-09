@@ -1,0 +1,28 @@
+=======================================================
+               GRUPOS INDIVIDUALES               
+=======================================================
+0   12638749  ALEXIS FABIAN OMAR       CERNA
+1   14637065     RODRIGO ANTONIO     PIZARRO
+2   12636355       ANDRES FELIPE  HINRICHSEN
+3   13205978             nicolas       galaz
+4   12624519       HAROLD LUDWIG      MULLER
+5   13648543        LUIS IGNACIO       LEIVA
+6   13206621     LEOPOLDO ANDRES      VARGAS
+7   13636812      CARLOS ANTONIO      QUAPPE
+8   13634070      RAFAEL ALBERTO     CARMONA
+9   12639192        JOAQUIN JOSE   SOTOMAYOR
+10  12612529      JAVIER ALBERTO    CARRASCO
+11  11637722        DAVID THOMAS      FULLER
+12  12622613   AUGUSTO ALEJANDRO     ALVAREZ
+13  12610100              IACOPO     GARIZIO
+14  12638528     RODRIGO IGNACIO       BOCAZ
+ 
+================================================================================
+                              GRUPOS DE A DOS                              
+================================================================================
+15  1363531J  ANTONIO  LOPEZ -  14636786  BENJAMIN ANDRES  ARRATIA
+16  1363447J  TOMAS ARTURO  HERRERA -  11622237  TOMAS  RENCORET
+17  13637460  nicolas ignacio   falconi -  13632965  FRANCISCO JAVIER  VALDES
+18  13637398  PEDRO ALBERTO  MANGIOLA -  13634720  EDUARDO ANDRES  VILDOSOLA
+19  13635441  Rodolfo  Palma -  11636378  NICOLAS FERNANDO  SANTIBANEZ
+20  13634275  JUAN PABLO  SCHELE -  13204661  PAULA GABRIELA  SANZANA
