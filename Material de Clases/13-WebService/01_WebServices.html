@@ -1696,7 +1696,7 @@ Web Services
 </h1>
 <p>En el capítulo the networking aprendimos el uso de sockets y algunos protocolos para establecer la comunicación a través de una arquitectura cliente-servidor y lograr el intercambio de datos entre distintos computadores. En este capítulo revisaremos la extensión de este tipo de comunicación pero ahora mediante la WEB, entender cómo se realiza el envío y la recepción de datos, y utilizar algunas de las herramientas provistas por Python para el manejo de estos servicios.</p>
 <p>Se entiende por un <b>web service</b> al conjunto de aplicaciones cliente-servidor que se comunican a través de la Web mediante un protocolo diseñado para ello. Podemos ver este tipo de servicios como una función o caja negra que puede ser accesada por otros programas a través de internet. Por ejemplo, consideremos el protocolo HTTP usado por nuestro navegador para solicitar información a un sitio web. Por cada llamada al servidor un script (PHP, Python, ASP, etc) genera dinamicamente una salida en HTML dirigida al navegador y que tiene por objetivo ser visualizado por un nosotros. Los web services funcionan de forma similar, pero el objetivo es otra <b>aplicación que consume</b> esta información. Para ello el formato de salida desde y hacia el servidor debe ser conocido para que la información pueda ser interpretada.</p>
-<p>Supongamos el caso mostrado en la siguiente figura, donde una casa tiene la capacidad de ser controlada remotamente y para ello maneja la información en un computador con salida a internet a través de un servidor web. Este servidor permite la interacción de la casa con otros dispositivos. Como podemos ver una de las ventajas de este modelo de comunicación es la simplicidad de interacción entre las aplicaciones, debido a la independencia con lenguaje en que se implementa cada cliente y el servidor. Todas ellas trabajan procesando un mismo tipo de dato definido por el protocolo. En este ejemplo cada nodo puede solicitar al servidor que envíe o modifique ciertos parámetros de la casa. Esta información es publicada usando JSON y XML, pero también pueden ser utilizados otros formatos.</p>
+<p>Supongamos el caso mostrado en la siguiente figura, donde una casa tiene la capacidad de ser controlada remotamente y para ello maneja la información en un computador con salida a internet a través de un servidor web. Este servidor permite la interacción de la casa con otros dispositivos. Como podemos ver una de las ventajas de este modelo de comunicación es la simplicidad de interacción entre las aplicaciones, debido a la independencia con el lenguaje en que se implementa cada cliente y el servidor. Todas ellas trabajan procesando un mismo tipo de dato definido por el protocolo. En este ejemplo cada nodo puede solicitar al servidor que envíe o modifique ciertos parámetros de la casa. Esta información es publicada usando JSON y XML, pero también pueden ser utilizados otros formatos.</p>
 <p><img src="imgs/diagrama_webservice.png" width=70%></p>
 <p>En general se conoce como <b>Application Programming Interface</b> o <b>API</b> al protocolo destinado para ser usado como interfaz entre dos o más programas. De esta forma con las API las aplicaciones puede hablar entre ellas sin conocimiento o intervención de los usuarios. Las API se componen de un conjunto de instrucciones para permiten el acceso de programas sobre la web (WWW).</p>
 </div>
@@ -1708,9 +1708,10 @@ Web Services
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2>
-Estructura REST
+HTTP
 </h2>
-<p>Una de las arquitecturas más utilizadas para la interacción con servicios web se conocemo como <b>Representational State Transfer</b> o simplemente <b>REST</b>. Esta estructura utiliza los métodos estándar del protocolo HTTP para realizar operaciones en el servidor: GET, POST, PUT Y DELETE. La siguiente tabla resume la función de cada uno de estos métodos o verbos HTTP.</p>
+<p>Gran parte de las arquitecturas de web services se basa en el uso de dl protocolo <b>HTTP</b> o <b>Hypertext Transfer Protocol</b>. Este protocolo está encargado de proporcionar una capa para realización de transacciones y así permitir la comunicación entre clientes y servidores. Corresponde a un protocolo de un nivel superior a TCP y UDP. HTTP trabaja como un protocolo de <b>request-response</b> en donde el cliente hace una solicitud y el servidor responde con la información solicitada. Es un protocolo sin estados, por lo tanto todos los comandos se ejecutan independientemente de las conexiones anteriores. Un ejemplo claro de un cliente es nuestro navegador web, y de un servidor el sitio web al cual deseamos conectarnos.</p>
+<p>El funcionamiento de este protocolo se basa en la definición de métodos o verbos que indican la acción a desarrollar por un determinado recurso. Los recursos pueden ser datos existentes en el servidor (archivos) o bien una salida generada dinámicamente. La versión HTTP/1.1 los 5 verbos descritos en la siguiente tabla:</p>
 <table>
 <thead>
 <tr class="header">
@@ -1725,23 +1726,67 @@ Estructura REST
 </tr>
 <tr class="even">
 <td align="left">HEAD</td>
-<td align="left">recuepra la meta-information (header) del recurso, i.e. lo mismo que GET pero sin el cuerpo del HTTP.</td>
+<td align="left">recupera la meta-information (header) del recurso, i.e. lo mismo que GET pero sin el cuerpo del HTTP.</td>
 </tr>
 <tr class="odd">
 <td align="left">POST</td>
 <td align="left">crea un recurso.</td>
 </tr>
 <tr class="even">
+<td align="left">PATCH</td>
+<td align="left">aplica modificaciones parciales a un recurso.</td>
+</tr>
+<tr class="odd">
 <td align="left">PUT</td>
 <td align="left">reemplaza completamente un recurso existente.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">DELETE</td>
 <td align="left">elimina un recurso.</td>
 </tr>
 </tbody>
 </table>
-<p>Los llamados al servidor usando REST responden al formato mostrado en la siguiente figura, en donde el verbo HTTP corresponde a la acción definida en la tabla; URI se refiere al recurso mediante el cual se realizará la operación; y la versión del HTTP es la versión del protocolo HTTP utilizado, generalmente &quot;HTTP v1.1&quot;.</p>
+<p>HTTP consta también con una conjunto de códigos de estado mediante los cuales entrega información al cliente sobre el resultado de su petición. Para más detalle de los códigos pueden revisar el siguiente link http://www.w3schools.com/tags/ref_httpmessages.asp. Algunos códigos comunes son:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Código Estado</th>
+<th align="left">Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">200</td>
+<td align="left">OK. Solicitud exitosa</td>
+</tr>
+<tr class="even">
+<td align="left">403</td>
+<td align="left">Prohibido. La petición es aceptada, pero servidor rechaza responderla</td>
+</tr>
+<tr class="odd">
+<td align="left">404</td>
+<td align="left">No encontrado. El recurso solicitado no ha sido encontrado</td>
+</tr>
+<tr class="even">
+<td align="left">500</td>
+<td align="left">Error interno del servidor</td>
+</tr>
+</tbody>
+</table>
+<p>La siguiente figura muestra un ejemplo con la estructura de los mensaje HTTP para el request del cliente y para la respuesta desde el servidor.</p>
+<p><img src="imgs/http_message.png" width=65%></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>
+Estructura REST
+</h2>
+<p>Una de las arquitecturas más utilizadas para la interacción con servicios web se conocemos como <b>Representational State Transfer</b> o simplemente <b>REST</b>. Esta estructura utiliza los métodos estándar del protocolo HTTP para realizar operaciones en el servidor. Los llamados al servidor usando REST responden al formato mostrado en la siguiente figura, en donde el verbo HTTP corresponde a la acción definida en la tabla anterior; URI se refiere al recurso mediante el cual se realizará la operación; y la versión del HTTP es la versión del protocolo HTTP utilizado, generalmente &quot;HTTP v1.1&quot;.</p>
 <p><img src="imgs/request.png" width=50%></p>
 <p>REST es simple y liviano. El cliente y servidor implementado con REST sobre HTTP puede tomar ventaja de toda la infraestructura existente en internet. En la siguiente figura vemos un diagrama de la arquitectura REST.</p>
 <p><img src="imgs/rest.png" width=60%></p>
@@ -1756,14 +1801,14 @@ Estructura REST
 <h2>
 Client-side Script
 </h2>
-<p>En Python 3, la librereía <b>requests</b> nos permite interactuar con servicios disponibles en algún web service. Para ello la librería cuenta con los métodos HTTP de requeridos por la estructura de REST. Además, la librería tiene integrada los métodos para serialización en json. Por ejemplo en el siguiente script generamos un cliente que se conecta a la API de google image y recuperar una consulta.</p>
+<p>En esta sección veremos desde el punto de vista del cliente como hacer solicitudes o <b>request</b> a un servidor que mantiene un servicio web. En Python 3, la librereía <b>requests</b> nos permite interactuar con servicios disponibles en algún web service. Para ello la librería cuenta con los métodos HTTP requeridos por la estructura de REST. Además, la librería tiene integrada los métodos para serialización en JSON. Para generar una petición mediente GET usamos el método <b>get(url)</b> que recibe por argumento el llamado al recurso. Por ejemplo en el siguiente script generamos un cliente que se conecta a la API de google image y recupera una consulta.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[59]:
+In&nbsp;[144]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1788,7 +1833,7 @@ In&nbsp;[59]:
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
-{&apos;responseData&apos;: {&apos;results&apos;: [{&apos;visibleUrl&apos;: &apos;imgiy.com&apos;, &apos;unescapedUrl&apos;: &apos;http://imgiy.com/wp-content/uploads/2015/06/Buy-Copa-America-2015-Football-Tickets-FootballTicketNet.jpg&apos;, &apos;contentNoFormatting&apos;: &apos;Buy-Copa-America-2015-Football&apos;, &apos;imageId&apos;: &apos;ANd9GcRjketHztTPGYPRlJE9SofmNJxt07anlqgxNpACsZ1zGmf8qBhxby6Tzas&apos;, &apos;title&apos;: &apos;&lt;b&gt;Copa America&lt;/b&gt; 2015 images | photos | pictures&apos;, &apos;titleNoFormatting&apos;: &apos;Copa America 2015 images | photos | pictures&apos;, &apos;tbWidth&apos;: &apos;150&apos;, &apos;GsearchResultClass&apos;: &apos;GimageSearch&apos;, &apos;height&apos;: &apos;1038&apos;, &apos;content&apos;: &apos;Buy-&lt;b&gt;Copa&lt;/b&gt;-&lt;b&gt;America&lt;/b&gt;-2015-Football&apos;, &apos;url&apos;: &apos;http://imgiy.com/wp-content/uploads/2015/06/Buy-Copa-America-2015-Football-Tickets-FootballTicketNet.jpg&apos;, &apos;tbUrl&apos;: &apos;http://t0.gstatic.com/images?q=tbn:ANd9GcRjketHztTPGYPRlJE9SofmNJxt07anlqgxNpACsZ1zGmf8qBhxby6Tzas&apos;, &apos;tbHeight&apos;: &apos;87&apos;, &apos;width&apos;: &apos;1800&apos;, &apos;originalContextUrl&apos;: &apos;http://imgiy.com/copa-america-2015/&apos;}, {&apos;visibleUrl&apos;: &apos;www.wcup2015live.com&apos;, &apos;unescapedUrl&apos;: &apos;http://www.wcup2015live.com/wp-content/uploads/2015/06/Copa-America-Cup-2015-Prediction-Who-will-win.jpg&apos;, &apos;contentNoFormatting&apos;: &apos;Copa America is the cup which&apos;, &apos;imageId&apos;: &apos;ANd9GcS3ZkhYAmAKQIPg0n2zhIiGlr2nYyI7OEEP4J7JKkNQVwqZT2KmHfJjuJnt&apos;, &apos;title&apos;: &apos;&lt;b&gt;Copa America&lt;/b&gt; Cup 2015 Astrological Prediction Who Will Win This Cup&apos;, &apos;titleNoFormatting&apos;: &apos;Copa America Cup 2015 Astrological Prediction Who Will Win This Cup&apos;, &apos;tbWidth&apos;: &apos;145&apos;, &apos;GsearchResultClass&apos;: &apos;GimageSearch&apos;, &apos;height&apos;: &apos;653&apos;, &apos;content&apos;: &apos;&lt;b&gt;Copa America&lt;/b&gt; is the cup which&apos;, &apos;url&apos;: &apos;http://www.wcup2015live.com/wp-content/uploads/2015/06/Copa-America-Cup-2015-Prediction-Who-will-win.jpg&apos;, &apos;tbUrl&apos;: &apos;http://t2.gstatic.com/images?q=tbn:ANd9GcS3ZkhYAmAKQIPg0n2zhIiGlr2nYyI7OEEP4J7JKkNQVwqZT2KmHfJjuJnt&apos;, &apos;tbHeight&apos;: &apos;112&apos;, &apos;width&apos;: &apos;844&apos;, &apos;originalContextUrl&apos;: &apos;http://www.wcup2015live.com/copa-america-cup-2015-astrological-prediction-who-will-win-this-cup/&apos;}, {&apos;visibleUrl&apos;: &apos;imgiy.com&apos;, &apos;unescapedUrl&apos;: &apos;http://imgiy.com/wp-content/uploads/2015/06/Copa-America-2015-Schedule-in-Brazil-time.jpg&apos;, &apos;contentNoFormatting&apos;: &apos;Copa-America-2015-Schedule-in-&apos;, &apos;imageId&apos;: &apos;ANd9GcQQL3z3QljYzhhzoabL5Sd6UBG28HkhTA5_bNq8aEwxf3gyOz-zL6aYR2bG&apos;, &apos;title&apos;: &apos;&lt;b&gt;Copa America&lt;/b&gt; 2015 images | photos | pictures&apos;, &apos;titleNoFormatting&apos;: &apos;Copa America 2015 images | photos | pictures&apos;, &apos;tbWidth&apos;: &apos;136&apos;, &apos;GsearchResultClass&apos;: &apos;GimageSearch&apos;, &apos;height&apos;: &apos;465&apos;, &apos;content&apos;: &apos;&lt;b&gt;Copa&lt;/b&gt;-&lt;b&gt;America&lt;/b&gt;-2015-Schedule-in-&apos;, &apos;url&apos;: &apos;http://imgiy.com/wp-content/uploads/2015/06/Copa-America-2015-Schedule-in-Brazil-time.jpg&apos;, &apos;tbUrl&apos;: &apos;http://t3.gstatic.com/images?q=tbn:ANd9GcQQL3z3QljYzhhzoabL5Sd6UBG28HkhTA5_bNq8aEwxf3gyOz-zL6aYR2bG&apos;, &apos;tbHeight&apos;: &apos;102&apos;, &apos;width&apos;: &apos;620&apos;, &apos;originalContextUrl&apos;: &apos;http://imgiy.com/copa-america-2015/&apos;}, {&apos;visibleUrl&apos;: &apos;www.youtube.com&apos;, &apos;unescapedUrl&apos;: &apos;http://i.ytimg.com/vi/E9WujAzoXSw/maxresdefault.jpg&apos;, &apos;contentNoFormatting&apos;: &apos;Teaser Copa América Chile 2015&apos;, &apos;imageId&apos;: &apos;ANd9GcQeqUYu_OrU518Uo_0K7RQE_jOtZDkLzEQXMVHQ7fHKQcJKyuFIEWkyegJX&apos;, &apos;title&apos;: &apos;Teaser &lt;b&gt;Copa América Chile&lt;/b&gt; 2015 - YouTube&apos;, &apos;titleNoFormatting&apos;: &apos;Teaser Copa América Chile 2015 - YouTube&apos;, &apos;tbWidth&apos;: &apos;150&apos;, &apos;GsearchResultClass&apos;: &apos;GimageSearch&apos;, &apos;height&apos;: &apos;720&apos;, &apos;content&apos;: &apos;Teaser &lt;b&gt;Copa América Chile&lt;/b&gt; 2015&apos;, &apos;url&apos;: &apos;http://i.ytimg.com/vi/E9WujAzoXSw/maxresdefault.jpg&apos;, &apos;tbUrl&apos;: &apos;http://t0.gstatic.com/images?q=tbn:ANd9GcQeqUYu_OrU518Uo_0K7RQE_jOtZDkLzEQXMVHQ7fHKQcJKyuFIEWkyegJX&apos;, &apos;tbHeight&apos;: &apos;84&apos;, &apos;width&apos;: &apos;1280&apos;, &apos;originalContextUrl&apos;: &apos;http://www.youtube.com/watch?v=E9WujAzoXSw&apos;}], &apos;cursor&apos;: {&apos;moreResultsUrl&apos;: &apos;http://www.google.com/images?oe=utf8&amp;ie=utf8&amp;source=uds&amp;start=0&amp;as_filetype=jpg&amp;hl=en&amp;q=copa+america+chile&apos;, &apos;searchResultTime&apos;: &apos;0.33&apos;, &apos;pages&apos;: [{&apos;start&apos;: &apos;0&apos;, &apos;label&apos;: 1}, {&apos;start&apos;: &apos;4&apos;, &apos;label&apos;: 2}, {&apos;start&apos;: &apos;8&apos;, &apos;label&apos;: 3}, {&apos;start&apos;: &apos;12&apos;, &apos;label&apos;: 4}, {&apos;start&apos;: &apos;16&apos;, &apos;label&apos;: 5}, {&apos;start&apos;: &apos;20&apos;, &apos;label&apos;: 6}, {&apos;start&apos;: &apos;24&apos;, &apos;label&apos;: 7}, {&apos;start&apos;: &apos;28&apos;, &apos;label&apos;: 8}], &apos;estimatedResultCount&apos;: &apos;11000000&apos;, &apos;resultCount&apos;: &apos;11,000,000&apos;, &apos;currentPageIndex&apos;: 0}}, &apos;responseStatus&apos;: 200, &apos;responseDetails&apos;: None}
+{&apos;responseData&apos;: {&apos;results&apos;: [{&apos;visibleUrl&apos;: &apos;imgiy.com&apos;, &apos;unescapedUrl&apos;: &apos;http://imgiy.com/wp-content/uploads/2015/06/Buy-Copa-America-2015-Football-Tickets-FootballTicketNet.jpg&apos;, &apos;contentNoFormatting&apos;: &apos;Buy-Copa-America-2015-Football&apos;, &apos;imageId&apos;: &apos;ANd9GcRjketHztTPGYPRlJE9SofmNJxt07anlqgxNpACsZ1zGmf8qBhxby6Tzas&apos;, &apos;title&apos;: &apos;&lt;b&gt;Copa America&lt;/b&gt; 2015 images | photos | pictures&apos;, &apos;titleNoFormatting&apos;: &apos;Copa America 2015 images | photos | pictures&apos;, &apos;tbWidth&apos;: &apos;150&apos;, &apos;GsearchResultClass&apos;: &apos;GimageSearch&apos;, &apos;height&apos;: &apos;1038&apos;, &apos;content&apos;: &apos;Buy-&lt;b&gt;Copa&lt;/b&gt;-&lt;b&gt;America&lt;/b&gt;-2015-Football&apos;, &apos;url&apos;: &apos;http://imgiy.com/wp-content/uploads/2015/06/Buy-Copa-America-2015-Football-Tickets-FootballTicketNet.jpg&apos;, &apos;tbUrl&apos;: &apos;http://t0.gstatic.com/images?q=tbn:ANd9GcRjketHztTPGYPRlJE9SofmNJxt07anlqgxNpACsZ1zGmf8qBhxby6Tzas&apos;, &apos;tbHeight&apos;: &apos;87&apos;, &apos;width&apos;: &apos;1800&apos;, &apos;originalContextUrl&apos;: &apos;http://imgiy.com/copa-america-2015/&apos;}, {&apos;visibleUrl&apos;: &apos;www.wcup2015live.com&apos;, &apos;unescapedUrl&apos;: &apos;http://www.wcup2015live.com/wp-content/uploads/2015/06/Copa-America-Cup-2015-Prediction-Who-will-win.jpg&apos;, &apos;contentNoFormatting&apos;: &apos;Copa America is the cup which&apos;, &apos;imageId&apos;: &apos;ANd9GcS3ZkhYAmAKQIPg0n2zhIiGlr2nYyI7OEEP4J7JKkNQVwqZT2KmHfJjuJnt&apos;, &apos;title&apos;: &apos;&lt;b&gt;Copa America&lt;/b&gt; Cup 2015 Astrological Prediction Who Will Win This Cup&apos;, &apos;titleNoFormatting&apos;: &apos;Copa America Cup 2015 Astrological Prediction Who Will Win This Cup&apos;, &apos;tbWidth&apos;: &apos;145&apos;, &apos;GsearchResultClass&apos;: &apos;GimageSearch&apos;, &apos;height&apos;: &apos;653&apos;, &apos;content&apos;: &apos;&lt;b&gt;Copa America&lt;/b&gt; is the cup which&apos;, &apos;url&apos;: &apos;http://www.wcup2015live.com/wp-content/uploads/2015/06/Copa-America-Cup-2015-Prediction-Who-will-win.jpg&apos;, &apos;tbUrl&apos;: &apos;http://t2.gstatic.com/images?q=tbn:ANd9GcS3ZkhYAmAKQIPg0n2zhIiGlr2nYyI7OEEP4J7JKkNQVwqZT2KmHfJjuJnt&apos;, &apos;tbHeight&apos;: &apos;112&apos;, &apos;width&apos;: &apos;844&apos;, &apos;originalContextUrl&apos;: &apos;http://www.wcup2015live.com/copa-america-cup-2015-astrological-prediction-who-will-win-this-cup/&apos;}, {&apos;visibleUrl&apos;: &apos;erotikhikaye.co&apos;, &apos;unescapedUrl&apos;: &apos;http://www.eabolivia.com/images/stories/ex/copa-america2015.jpg&apos;, &apos;contentNoFormatting&apos;: &apos;Copa America 2015 Chile&apos;, &apos;imageId&apos;: &apos;ANd9GcTJlLlfnY1zWRflyWCp1D2uy4Yv7OQeY54lnfBCCVdo3bxXdw9KuMxmdBE&apos;, &apos;title&apos;: &apos;&lt;b&gt;Copa America&lt;/b&gt; 2015 &lt;b&gt;Chile&lt;/b&gt; | The International&apos;, &apos;titleNoFormatting&apos;: &apos;Copa America 2015 Chile | The International&apos;, &apos;tbWidth&apos;: &apos;132&apos;, &apos;GsearchResultClass&apos;: &apos;GimageSearch&apos;, &apos;height&apos;: &apos;300&apos;, &apos;content&apos;: &apos;&lt;b&gt;Copa America&lt;/b&gt; 2015 &lt;b&gt;Chile&lt;/b&gt;&apos;, &apos;url&apos;: &apos;http://www.eabolivia.com/images/stories/ex/copa-america2015.jpg&apos;, &apos;tbUrl&apos;: &apos;http://t0.gstatic.com/images?q=tbn:ANd9GcTJlLlfnY1zWRflyWCp1D2uy4Yv7OQeY54lnfBCCVdo3bxXdw9KuMxmdBE&apos;, &apos;tbHeight&apos;: &apos;75&apos;, &apos;width&apos;: &apos;530&apos;, &apos;originalContextUrl&apos;: &apos;http://erotikhikaye.co/copa-america-2015-chile/&apos;}, {&apos;visibleUrl&apos;: &apos;imgiy.com&apos;, &apos;unescapedUrl&apos;: &apos;http://imgiy.com/wp-content/uploads/2015/06/Copa-America-2015-Schedule-in-Brazil-time.jpg&apos;, &apos;contentNoFormatting&apos;: &apos;Copa-America-2015-Schedule-in-&apos;, &apos;imageId&apos;: &apos;ANd9GcQQL3z3QljYzhhzoabL5Sd6UBG28HkhTA5_bNq8aEwxf3gyOz-zL6aYR2bG&apos;, &apos;title&apos;: &apos;&lt;b&gt;Copa America&lt;/b&gt; 2015 images | photos | pictures&apos;, &apos;titleNoFormatting&apos;: &apos;Copa America 2015 images | photos | pictures&apos;, &apos;tbWidth&apos;: &apos;136&apos;, &apos;GsearchResultClass&apos;: &apos;GimageSearch&apos;, &apos;height&apos;: &apos;465&apos;, &apos;content&apos;: &apos;&lt;b&gt;Copa&lt;/b&gt;-&lt;b&gt;America&lt;/b&gt;-2015-Schedule-in-&apos;, &apos;url&apos;: &apos;http://imgiy.com/wp-content/uploads/2015/06/Copa-America-2015-Schedule-in-Brazil-time.jpg&apos;, &apos;tbUrl&apos;: &apos;http://t3.gstatic.com/images?q=tbn:ANd9GcQQL3z3QljYzhhzoabL5Sd6UBG28HkhTA5_bNq8aEwxf3gyOz-zL6aYR2bG&apos;, &apos;tbHeight&apos;: &apos;102&apos;, &apos;width&apos;: &apos;620&apos;, &apos;originalContextUrl&apos;: &apos;http://imgiy.com/copa-america-2015/&apos;}], &apos;cursor&apos;: {&apos;moreResultsUrl&apos;: &apos;http://www.google.com/images?oe=utf8&amp;ie=utf8&amp;source=uds&amp;start=0&amp;as_filetype=jpg&amp;hl=en&amp;q=copa+america+chile&apos;, &apos;searchResultTime&apos;: &apos;0.29&apos;, &apos;pages&apos;: [{&apos;start&apos;: &apos;0&apos;, &apos;label&apos;: 1}, {&apos;start&apos;: &apos;4&apos;, &apos;label&apos;: 2}, {&apos;start&apos;: &apos;8&apos;, &apos;label&apos;: 3}, {&apos;start&apos;: &apos;12&apos;, &apos;label&apos;: 4}, {&apos;start&apos;: &apos;16&apos;, &apos;label&apos;: 5}, {&apos;start&apos;: &apos;20&apos;, &apos;label&apos;: 6}, {&apos;start&apos;: &apos;24&apos;, &apos;label&apos;: 7}, {&apos;start&apos;: &apos;28&apos;, &apos;label&apos;: 8}], &apos;estimatedResultCount&apos;: &apos;11300000&apos;, &apos;resultCount&apos;: &apos;11,300,000&apos;, &apos;currentPageIndex&apos;: 0}}, &apos;responseStatus&apos;: 200, &apos;responseDetails&apos;: None}
 
 </pre>
 </div>
@@ -1814,20 +1859,30 @@ Server-side Script
 <li>CherryPy: http://www.cherrypy.org/</li>
 <li>Bottle: http://bottlepy.org/docs/dev/index.html</li>
 </ul>
-<p>Sin pérdida de generalidad, escogeremos para ejemplificar la creación de un servicio web el framework <b>Flask</b>. Este micro-framework es pequeño, fácil de usar e instalar y escrito completamente en Python. Su forma de codificar permite mantener fácilmente implementaciones de web services tipo REST. Veamos primero como se ve nuestro servidor funcionando. El siguiente ejemplo pone a funcionar un servidor web en el puerto 8080 de nuestro computador. Una vez que el servidor entra en un loop de eventos en donde captura las llamadas de los clientes.</p>
+<p>Para ejemplificar la creación de un servicio web y sin pérdida de generalidad, escogeremos el framework <b>Flask</b>. Este micro-framework es pequeño, fácil de usar e instalar y escrito completamente en Python. Su forma de codificar permite mantener fácilmente implementaciones de web services tipo REST.</p>
+<p>Veamos primero como se ve nuestro servidor funcionando. El siguiente ejemplo pone a funcionar un servidor web en el puerto 8080 de nuestro computador. Por defecto el servidor se ejecuta localmente en la dirección IP 127.0.0.1 o bien como <i>localhost</i>. Desde otro computador debe ser llamado mediante la dirección IP del equipo donde está corriendo el servidor. Una vez que el servidor entra en un loop de eventos en donde captura las llamadas de los clientes.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[110]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="kn">import</span> <span class="nn">flask</span>
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">flask</span><span class="o">.</span><span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Al comienzo los muchos de los servidores web usaban la página index.html como recurso incial cuando se entraba al sitio respondiendo</span>
+<span class="sd">por ejemplo a www.misitio.cl/index.html. Los otro recursos se dejaban en otros directorios, como por ejemplo, </span>
+<span class="sd">www.misitio.cl/libros/lista.html.</span>
+
+<span class="sd">Actualmente esa estructura en forma de directorios se mantiene pero es creada dinámicamente. Por ejemplo, podemos tener nuestra página</span>
+<span class="sd">principal en el root como /. El resto de los recursos quedarían como http::/recurso1/ o /recursos/recurso1.</span>
+<span class="sd">&#39;&#39;&#39;</span>
 
 <span class="c"># La ruta / determina la sección root del sitio. Es similar a lo que hace la página index.html en un servidor web.</span>
 <span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">)</span>
@@ -1861,9 +1916,9 @@ In&nbsp;[]:
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Gracias a este framework podemos podemos levantar un servidor web dinámico usando pocas líneas de código. Una vez que ejecutamos nuestro script, en el navegador podemos ver el resultado de nuestro ejemplo al hacer:</p>
 <ul>
-<li>http://localhost:8080/</li>
-<li>http://localhost:8080/api</li>
-<li>http://localhost:8080/api/1</li>
+<li>http://localhost:8080/ para el root</li>
+<li>http://localhost:8080/recursos para acceder a estos recursos</li>
+<li>http://localhost:8080/recursos/1 para acceder a un recurso creado específicamente</li>
 </ul>
 <p>O bien, ejecutamos nuestro cliente de web service de la siguiente manera:</p>
 </div>
@@ -1872,7 +1927,7 @@ In&nbsp;[]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[15]:
+In&nbsp;[106]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1881,12 +1936,12 @@ In&nbsp;[15]:
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;http://localhost:8080&#39;</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="s">&#39;/: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">))</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;http://localhost:8080/api&#39;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">&#39;/api: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">))</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;http://localhost:8080/recursos&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;/recursos: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">))</span>
 
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;http://localhost:8080/api/1&#39;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">&#39;/api/id: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">))</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;http://localhost:8080/recursos/1&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;/recursos/id: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -1901,8 +1956,8 @@ In&nbsp;[15]:
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
 /: &lt;h1&gt;Bienvenido a nuestro primer Web Service!&lt;/h1&gt;&lt;br/&gt;Aquí podrás escribir en HTML como si fuera una página Web cualquiera.
-/api: &lt;h1&gt;Seccion API!&lt;/h1&gt;
-/api/id: Estas ejecutando el sevicio id: 1
+/recursos: &lt;h1&gt;Seccion De Recursos!&lt;/h1&gt;
+/recursos/id: Estas ejecutando el recurso id: 1
 
 </pre>
 </div>
@@ -1920,7 +1975,7 @@ In&nbsp;[15]:
 <h2>
 Request
 </h2>
-<p>Los request son llamadas al servidor en donde es posible entregar argumentos al servicio correspondiente. Estos son enviados mediante los métodos: GET, POST, PUT, DELETE. Flask maneja los datos enviados desde las llamadas al servidor mediante la clase <b>request</b>. Supongamos que tenemos el siguiente servicio que permite enviar dos valores al servidor y definir una operación mediante el tipo de recurso llamado.</p>
+<p>Los request desde el punto de vista del servidor son llamadas desde el cliente en donde es posible recibir argumentos para el recurso correspondiente. Estos argumentos son enviados desde el cliente mediante los métodos: GET, POST, PUT, DELETE. Flask maneja los datos enviados desde las llamadas al servidor mediante la clase <b>request</b>. Supongamos que tenemos el siguiente servicio que permite enviar dos valores al servidor y definir una operación mediante el tipo de recurso llamado.</p>
 </div>
 </div>
 </div>
@@ -2020,86 +2075,10 @@ suma: suma: 12
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Es posible conocer el método a través del cual se realiza el llamado al servidor, incorporando en la definición del recurso los métodos que serán revisados.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/echo&#39;</span><span class="p">,</span> <span class="n">methods</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;GET&#39;</span><span class="p">,</span> <span class="s">&#39;POST&#39;</span><span class="p">,</span> <span class="s">&#39;PUT&#39;</span><span class="p">,</span> <span class="s">&#39;DELETE&#39;</span><span class="p">])</span>
-<span class="k">def</span> <span class="nf">api_echo</span><span class="p">():</span>
-    <span class="k">if</span> <span class="n">flask</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s">&#39;GET&#39;</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s">&quot;ECHO: GET</span><span class="se">\n</span><span class="s">&quot;</span>
-
-    <span class="k">elif</span> <span class="n">flask</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s">&#39;POST&#39;</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s">&quot;ECHO: POST</span><span class="se">\n</span><span class="s">&quot;</span>
-
-    <span class="k">elif</span> <span class="n">flask</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s">&#39;PUT&#39;</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s">&quot;ECHO: PUT</span><span class="se">\n</span><span class="s">&quot;</span>
-
-    <span class="k">elif</span> <span class="n">flask</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s">&#39;DELETE&#39;</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s">&quot;ECHO: DELETE&quot;</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[39]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;http://localhost:8080/echo&#39;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">&#39;{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">))</span>
-
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">&#39;http://localhost:8080/echo&#39;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">&#39;{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-ECHO: GET
-
-ECHO: POST
-
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h2>
 Request Data
 </h2>
-<p>Además de enviar valores como argumentos en el request, también es posible mediante el método <b>POST</b> enviar al servidor data en formato JSON o bien texto plano. La negociación de los contenidos enviados se realiza a través del <b>HEADER</b>.</p>
+<p>Además de enviar valores como argumentos en el request, también es posible mediante el método <b>POST</b> enviar al servidor data en formato JSON o bien texto plano. Utilizar POST permite entre otras cosas que no quede algún registro local (caché) de la información enviada, y además que los datos no sean expuestos junto con la URI. Visualmente esto sería como poder ver los datos en junto con la dirección en la barra de búsqueda de nuestro navegador. La negociación de los contenidos enviados se realiza a través del <b>HEADER</b>.</p>
 </div>
 </div>
 </div>
@@ -2124,7 +2103,7 @@ In&nbsp;[]:
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;post.txt&#39;</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fid</span><span class="p">:</span>
             <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">flask</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">json</span><span class="p">,</span> <span class="n">fid</span><span class="p">)</span>
             
-        <span class="k">return</span> <span class="s">&quot;Echo: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">flask</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">json</span><span class="p">))</span>  <span class="c"># funciona como echo en el cliente</span>
+        <span class="k">return</span> <span class="s">&quot;Echo: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">flask</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">json</span><span class="p">))</span>  <span class="c"># Funciona como echo en el cliente. Usado para visualizar el resultado.</span>
 
 
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
@@ -2139,14 +2118,14 @@ In&nbsp;[]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[100]:
+In&nbsp;[107]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">json</span>
 
-<span class="n">form</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;id&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s">&#39;nombre&#39;</span><span class="p">:</span> <span class="s">&#39;Guido&#39;</span><span class="p">,</span> <span class="s">&#39;apellido&#39;</span><span class="p">:</span> <span class="s">&#39;van rossum&#39;</span><span class="p">}</span>  <span class="c"># El dato enviado puede ser un formulario con los datos un usuario</span>
+<span class="n">form</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;id&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s">&#39;nombre&#39;</span><span class="p">:</span> <span class="s">&#39;Guido&#39;</span><span class="p">,</span> <span class="s">&#39;apellido&#39;</span><span class="p">:</span> <span class="s">&#39;Van Rossum&#39;</span><span class="p">}</span>  <span class="c"># El dato enviado puede ser un formulario con los datos un usuario</span>
 
 <span class="n">header</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;content-Type&#39;</span><span class="p">:</span> <span class="s">&#39;application/json&#39;</span><span class="p">}</span>  <span class="c"># el header define el tipo de contenido</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">&#39;http://localhost:8080/upload&#39;</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">form</span><span class="p">))</span>
@@ -2167,7 +2146,7 @@ In&nbsp;[100]:
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
 200
-Echo: {&quot;id&quot;: 1, &quot;nombre&quot;: &quot;Guido&quot;, &quot;apellido&quot;: &quot;van rossum&quot;}
+Echo: {&quot;nombre&quot;: &quot;Guido&quot;, &quot;apellido&quot;: &quot;Van Rossum&quot;, &quot;id&quot;: 1}
 
 </pre>
 </div>
@@ -2193,7 +2172,7 @@ Response
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Como vimos al comomienzo, para facilitar la comunicación entre aplicaciones resulta más práctico devolver la información bajo un formato o protocolo. Dentro de los formatos más utilizados se encuentran JSON y XML. Para el caso específico de flask, las respuestas del servidor se manejan mendiante la clase <b>Response</b>. A continuación veremos un ejemplo se serialización de la respuesta del servidor mediante JSON.</p>
+<p>Como vimos al comienzo, para facilitar la comunicación entre aplicaciones resulta más práctico devolver la información bajo un formato o protocolo. Dentro de los formatos más utilizados se encuentran JSON y XML. Para el caso específico de flask, las respuestas del servidor se manejan mendiante la clase <b>Response</b>. A continuación veremos un ejemplo se serialización de la respuesta del servidor mediante JSON.</p>
 </div>
 </div>
 </div>
@@ -2279,6 +2258,38 @@ In&nbsp;[60]:
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>
+Otras arquitecturas para Web Services
+</h2>
+<p>Otras arquitecturas para implementar web services son XML/RCP y SOAP. Ambas utilizan HTTP y XML para la transferencia de datos entre el cliente y el servidor.</p>
+<p>El protocolo <b>XML-RPC</b> o <i>XML for Remore Procedure Call</i> utiliza HTTP para enviar las solicitudes al servidor. Al igual que en REST, el cliente corresponde a una aplicación que realiza una llamada a un servidor pasando argumentos y este le retorna un valor. El uso de XML permite la serialización de estructuras u objetos como entrada y salida de los recursos. A diferencia de REST, que utiliza representaciones de recursos, XML-RCP hace llamado a métodos en el servidor.</p>
+<p>El protocolo <b>SOAP</b> o <i>Simple Object Access Protocol</i> utiliza HTTP o SMTP (protocolo de correo) como transporte y solo a XML para definir los mensajes. Está basado en XML-RCP y corresponde a uno de los protocolos que en que se basa el resto de protocolos para web services. Permite ser usado para la comunicación entre distintas plataformas cumpliendo con la especificación para Web Services Description Language (WSDL) y Universal Description, Discovery, and Integration (UDDI). Al igual que XML-RCP en el mensaje define los métodos que deben ser ejecutados en el servidor. La siguiente figura muestra la interacción entre cliente y servidor siguiendo la arquitectura propuesta por SOAP (fuente: http://www.service-architecture.com/articles/web-services/web_services_explained.html).</p>
+<p><img src="http://service-architecture.static-barryandassociates.com/images/web_services/soap_messages.jpg" width=40%></p>
+<p>Un ejemplo de un mensaje SOAP es como se muestra a continuación (fuente: https://en.wikipedia.org/wiki/SOAP).</p>
+<pre><code>POST /InStock HTTP/1.1
+Host: www.example.org
+Content-Type: application/soap+xml; charset=utf-8
+Content-Length: 299
+SOAPAction: &quot;http://www.w3.org/2003/05/soap-envelope&quot;
+
+&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;soap:Envelope xmlns:soap=&quot;http://www.w3.org/2003/05/soap-envelope&quot;&gt;
+  &lt;soap:Header&gt;
+  &lt;/soap:Header&gt;
+  &lt;soap:Body&gt;
+    &lt;m:GetStockPrice xmlns:m=&quot;http://www.example.org/stock&quot;&gt;
+      &lt;m:StockName&gt;IBM&lt;/m:StockName&gt;
+    &lt;/m:GetStockPrice&gt;
+  &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;</code></pre>
+</div>
+</div>
 </div>
     </div>
   </div>
