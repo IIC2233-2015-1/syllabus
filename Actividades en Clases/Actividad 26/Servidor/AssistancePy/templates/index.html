@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>AssistancePy</title>
+
+    <!-- =================================== -->
+    <!-- Por Patricio López (pelopez2@uc.cl) -->
+    <!-- =================================== -->
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <!-- Begin page content -->
+    <div class="container">
+      <div class="page-header">
+        <h1>AssistancePy</h1>
+      </div>
+      <p class="lead">Plataforma <strong>RESTful API</strong> construida para llevar la asistencia de los alumnos a la cátedra de Programación Avanzada.</p>
+
+      <h2>Información general</h2>
+
+      <p>Cada entidad en la aplicación se compone de los siguientes 4 campos:</p>
+      <ul>
+          <li><code>id</code>: <i>integer</i> con el <strong>id único</strong> del alumno.</li>
+          <li><code>name</code>: <i>string</i> con el nombre del alumno </li>
+          <li><code>username</code>: <i>string</i> con el username del alumno </li>
+          <li><code>assistance</code>: <i>boolean (true/false)</i> indicando si el alumno asistió o no. </li>
+      </ul>
+
+      <p><strong>Ninguno de estos campos lleva tildes.</strong></p>
+
+
+      <h3>Acceder a los datos</h3>
+
+      <p>Para acceder a la lista de alumnos actuales debes hacer una petición <code>GET</code> a <a href="http://assistance-py.herokuapp.com/students">http://assistance-py.herokuapp.com/students</a>. Esta retornará una respuesta con código <code>STATUS: 200 OK</code> y un JSON del estilo:</p>
+
+      <pre>
+{
+    students: [
+        {
+            assistance: true,
+            id: 1,
+            name: "Patricio Lopez",
+            username: "MrPatiwi"
+        },
+        {
+            assistance: false,
+            id: 2,
+            name: "Jaime Castro",
+            username: "jecastro1"
+        },
+        {
+            assistance: false,
+            id: 4,
+            name: "Belen Saldias",
+            username: "bcsaldias"
+        }
+    ]
+}
+      </pre>
+
+      <p>Puedes pedir un estudiante en particular con cierta <code>id</code>, digamos <strong>1</strong> con un <code>GET</code> a <a href="http://assistance-py.herokuapp.com/students/1">http://assistance-py.herokuapp.com/students/1</a> que retornará un <code>STATUS: 200 OK</code> y un JSON del estilo:</p>
+
+      <pre>
+{
+    id: 1,
+    assistance: true,
+    name: "Patricio Lopez",
+    username: "MrPatiwi"
+}
+      </pre>
+
+      <p>En caso de no encontrarlo, retornará un error <code>STATUS: 404 NOT FOUND</code>.</p>
+       
+
+      <h3>Crear nueva entrada</h3>
+  
+      <p>Para crear una nueva entrada, debes mandar una petición <code>POST</code> con los   siguientes parámetros en la URL:</p>
+  
+      <ul>
+          <li><code>name</code>: <i>string</i> con el nombre del alumno </li>
+          <li><code>username</code>: <i>string</i> con el username del alumno </li>
+          <li><code>assistance</code>: <i>boolean (true/false)</i> indicando si el alumno   asistió o no. </li>
+      </ul>
+
+      <p>Si haces un <code>POST</code> a alguna entidad ya creada, te retornará un <code>STATUS: 405 METHOD NOT ALLOWED</code>. Debes hacer una llamada <code>PATCH</code> para esos casos. Revisar la sección <strong>"Modificar entrada"</strong></p>
+
+      <p>Si se crea satisfactoriamente la entidad, te retornará un JSON idéntico al del método <code>GET</code> pero con un código <code>STATUS: 201 CREATED</code></p>
+
+
+      <h3>Modificar entrada</h3>
+
+      <p>Debemos conocer el <code>id</code> de la entrada a modificar. Luego basta con hacer una petición <code>PATCH</code> a la URL del recurso, por ejemplo <a href="http://assistance-py.herokuapp.com/students/2">http://assistance-py.herokuapp.com/students/2</a> con los parámetros a modificar, estos pueden ser: <i>assistance</i></p>
+
+      <p>Retornará el JSON del recurso con sus valores modificados y el código <code>STATUS: 202 ACCEPTED</code></p>
+
+    </div>
+    <div class="panel-footer">Plataforma ficticia desarrollada por Patricio López en Python Flask y Bootstrap. Montada en <a href="http://heroku.com">Heroku</a>.</div>
+  </body>
+</html>
