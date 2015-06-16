@@ -62,7 +62,6 @@ class SpyKiller:
 
 
 if __name__ == "__main__":
-    # CUIDADO! USERNAME ES CASE SENSITIVE! REVISE EL ARCHIVO ANTES
     spykiller = SpyKiller(
         my_name="NOMBRE_APELLIDO1_APELLIDO2",
         my_username="GITHUB_USERNAME",

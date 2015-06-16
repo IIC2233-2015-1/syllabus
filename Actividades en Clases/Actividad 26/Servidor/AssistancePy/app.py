@@ -4,7 +4,7 @@ from student import Student
 
 # Initialization
 app = Flask(__name__)
-app.debug = True
+# app.debug = True
 
 students = {s.id: s for s in [
     Student("Patricio Lopez", "MrPatiwi", True),
@@ -27,7 +27,7 @@ def index():
 def students_index():
     if request.method == 'GET':
         items = [s.serialize() for (identifier, s) in students.items()]
-        return jsonify(students=items)
+        return jsonify(students=items), 200
 
     elif request.method == 'POST':
         name = request.args.get('name')
@@ -36,7 +36,7 @@ def students_index():
 
         if name and username and assistance:
             unique = not any(v.username.lower() == username.lower()
-                         for k, v in students.items())
+                             for k, v in students.items())
             if unique:
                 student = Student(name, username, assistance)
                 students[student.id] = student
@@ -77,5 +77,5 @@ def student(student_id):
 if __name__ == "__main__":
     app.run(
         host='0.0.0.0',
-        port=int(os.environ.get("PORT", 5001))
+        port=int(os.environ.get("PORT", 5000))
     )
