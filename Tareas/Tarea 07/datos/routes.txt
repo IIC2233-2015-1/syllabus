@@ -1,0 +1,71 @@
+id	city1	city2	type	length	size	cost
+STVPT	Santiago	Valparaiso	Terrestrial	100	Big	1
+STRCT	Santiago	Rancagua	Terrestrial	85	Big	1
+STTMT	Santiago	Temuco	Terrestrial	680	Big	1.5
+STPCT	Santiago	Pucon	Terrestrial	770	Big	2
+STLVT	Santiago	Los Vilos	Terrestrial	230	Big	1
+STCQT	Santiago	Coquimbo	Terrestrial	470	Big	1
+STCPT	Santiago	Copiapo	Terrestrial	820	Big	1
+STCCT	Santiago	Concepcion	Terrestrial	500	Big	1
+STCHT	Santiago	Chillan	Terrestrial	401	Big	1
+RCTLT	Rancagua	Talca	Terrestrial	164	Big	1
+TLCHT	Talca	Chillan	Terrestrial	136	Big	1
+CHTMT	Chillan	Temuco	Terrestrial	277	Big	1
+CHCCT	Chillan	Concepcion	Terrestrial	87	Big	1
+TMPMT	Temuco	Puerto Montt	Terrestrial	458	Big	1
+TMVDT	Temuco	Valdivia	Terrestrial	162	Big	1
+VDOST	Valdivia	Osorno	Terrestrial	112	Big	1
+OSPMT	Osorno	Puerto Montt	Terrestrial	112	Big	1
+PMCAT	Puerto Montt	Castro	Terrestrial	170	Medium	1
+PAPNT	Punta Arenas	Puerto Natales	Terrestrial	247	Medium	1
+LVCQT	Los Vilos	Coquimbo	Terrestrial	241	Big	1
+CQVLT	Coquimbo	Vallenar	Terrestrial	208	Big	1
+CPAFT	Copiapo	Antofagasta	Terrestrial	572	Big	1
+AFCLT	Antofagasta	Calama	Terrestrial	215	Big	1
+CLIQT	Calama	Iquique	Terrestrial	386	Big	1
+IQART	Iquique	Arica	Terrestrial	310	Big	1
+CLSAT	Calama	San Pedro de Atacama	Terrestrial	105	Medium	1
+ARTCT	Arica	Tacna	Terrestrial	58	Medium	1
+STTMA	Santiago	Temuco	Aerial	650	Medium	.7
+STPCA	Santiago	Pucon	Aerial	663	Medium	1.3
+STCCA	Santiago	Concepcion	Aerial	429	Medium	.7
+STPMA	Santiago	Puerto Montt	Aerial	916	Medium	.7
+STCLA	Santiago	Calama	Aerial	1225	Medium	.7
+STAFA	Santiago	Antofagasta	Aerial	1100	Medium	.7
+STIPA	Santiago	Isla de Pascua	Aerial	3750	Big	.7
+STVDA	Santiago	Valdivia	Aerial	724	Medium	.7
+STBLA	Santiago	Bariloche	Aerial	864	Medium	1.2	
+STBAA	Santiago	Buenos Aires	Aerial	1139	Big	1
+STBOA	Santiago	Bogota	Aerial	4247	Big	1
+STCAA	Santiago	Cancun	Aerial	6284	Big	2
+STCRA	Santiago	Caracas	Aerial	4904	Big	1
+STLPA	Santiago	La Paz	Aerial	1894	Big	1
+STLMA	Santiago	Lima	Aerial	2459	Big	1
+STLAA	Santiago	Los Angeles	Aerial	8980	Big	1.3
+STMIA	Santiago	Miami	Aerial	6653	Big	2
+STMOA	Santiago	Montevideo	Aerial	1365	Medium	1
+STCMA	Santiago	Ciudad de Mexico	Aerial	6589	Big	1
+STRJA	Santiago	Rio de Janeiro	Aerial	2934	Big	1.5
+STSPA	Santiago	Sao Paulo	Aerial	2612	Big	1.5
+STATA	Santiago	Atlanta	Aerial	7479	Big	1
+AFIQA	Antofagasta	Iquique	Aerial	324	Medium	.7	
+CLARA	Calama	Arica	Aerial	484	Medium	.7	
+PMPAA	Puerto Montt	Punta Arenas	Aerial	1311	Medium	.7
+IPPPA	Isla de Pascua	Papeete	Aerial	4271	Big	1
+ATWAA	Atlanta	Washington	Aerial	870	Medium	1	
+ATNYA	Atlanta	New York	Aerial	1210	Big	1	
+ATCGA	Atlanta	Chicago	Aerial	935	Big	1
+LASFA	Los Angeles	San Francisco	Aerial	504	Big	1	
+LASEA	Los Angeles	Seattle	Aerial	1485	Big	1	
+LAHNA	Los Angeles	Honolulu	Aerial	4135	Big	1.5	
+MIORA	Miami	Orlando	Aerial	353	Medium	1	
+MICAA	Miami	Cancun	Aerial	813	Medium	1.2	
+LMMIA	Lima	Miami	Aerial	4128	Big	1.5	
+CMMIA	Ciudad de Mexico	Miami	Aerial	2061	Big	1.5	
+CMCAA	Ciudad de Mexico	Cancun	Aerial	1302	Medium	1.5
+MINAAQ	Miami	Nassau	Aquatic	301	Big	1.5
+NALHAQ	Nassau	La Habana	Aquatic	556	Big	1.5
+MILHAQ	La Habana	Miami	Aquatic	367	Big	1.5
+TPCZAQ	Tampa	Cozumel	Aquatic	942	Big	1.5
+CZGTAQ	Cozumel	George Town	Aquatic	899	Big	1.5
+VPLAAQ	Valparaiso	Los Angeles	Aquatic	8891	Big	1
