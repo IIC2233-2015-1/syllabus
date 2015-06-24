@@ -69,7 +69,7 @@
 | J 11 | Networking                 | Protocolos            |
 | M 16 | Webservices                | Recursos web          |
 | J 18 | Webservices                | REST API              |
-| W 24 | **Examen**					| Próximamente más información |
+| W 24 | **Examen**					| 8:30 Salas **S1**:B24, **S2**: B25 |
 
 
 
